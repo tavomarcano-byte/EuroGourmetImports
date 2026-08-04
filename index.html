@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="EuroGourmet Imports - Curated fine European wines, grand crus, artisanal champagnes, and authentic epicurean delicacies directly from premier European estates.">
+    <meta name="theme-color" content="#0d0b12">
+    <title>EuroGourmet Imports | Fine European Wines & Gourmet Selections</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-crest">🍷</span>
+                <div class="logo-text">
+                    <span class="brand-title">EUROGOURMET</span>
+                    <span class="brand-sub">IMPORTS</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu" id="navMenu">
+                <a href="#collection" class="nav-link">Wine Collection</a>
+                <a href="#pairing" class="nav-link">Sommelier Guide</a>
+                <a href="#terroir" class="nav-link">Our Estates</a>
+                <a href="#inquiry" class="nav-link">Wholesale & Contact</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="inquiry-badge-btn" id="cartToggle" aria-label="Open Selected Cellar Items">
+                    <span class="icon">🍾</span>
+                    <span class="badge-text">Selected</span>
+                    <span class="badge-count" id="cartCount">0</span>
+                </button>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="hero-subtitle">EXQUISITE GRAND CRUS & ARTISANAL DELICACIES</span>
+                <h1 class="hero-title">Experience the Soul of European Winemaking</h1>
+                <p class="hero-description">
+                    Hand-selected vintages directly from family-owned estates across Bordeaux, Tuscany, Rioja, and the Champagne region. Curated for connoisseurs and fine establishments.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#collection" class="btn btn-primary">Explore Cellar Catalog</a>
+                    <a href="#inquiry" class="btn btn-secondary">Request Wholesale Price List</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Estate Bottled</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">45+</span>
+                        <span class="stat-label">Grand Crus</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-number">Direct</span>
+                        <span class="stat-label">From European Vineyards</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Wine Collection -->
+        <section class="collection-section" id="collection">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-badge">CURATED SELECTION</span>
+                    <h2 class="section-title">The EuroGourmet Reserve</h2>
+                    <p class="section-subtitle">Discover our handpicked portfolio of fine wines and gourmet accompaniments.</p>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">All Portfolio</button>
+                    <button class="filter-btn" data-filter="red">Red Wines</button>
+                    <button class="filter-btn" data-filter="white">White & Rosé</button>
+                    <button class="filter-btn" data-filter="sparkling">Champagne & Sparkling</button>
+                    <button class="filter-btn" data-filter="gourmet">Gourmet Pairings</button>
+                </div>
+
+                <!-- Search Input -->
+                <div class="search-bar-container">
+                    <input type="text" id="searchInput" placeholder="Search by region, vintage, grape variety or name..." aria-label="Search wines">
+                </div>
+
+                <!-- Catalog Grid -->
+                <div class="catalog-grid" id="catalogGrid">
+                    <!-- Dynamic Wine Cards generated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Sommelier Pairing Tool -->
+        <section class="pairing-section" id="pairing">
+            <div class="section-container">
+                <div class="pairing-card-wrapper">
+                    <div class="pairing-info">
+                        <span class="section-badge">SOMMELIER ASSISTANT</span>
+                        <h2 class="section-title">Find Your Perfect Pairing</h2>
+                        <p>Planning an intimate dinner or a luxury event menu? Tell us what you are serving and our sommelier guide will recommend the exact vintage.</p>
+                        
+                        <div class="pairing-selector">
+                            <label for="foodSelect" class="selector-label">What is on the menu?</label>
+                            <select id="foodSelect" class="styled-select">
+                                <option value="steak">Prime Ribeye & Aged Steaks</option>
+                                <option value="seafood">Fresh Oysters & Grilled Sea Bass</option>
+                                <option value="pasta">Truffle Pasta & Cream Risottos</option>
+                                <option value="charcuterie">Artisanal Jamón & Aged Cheeses</option>
+                                <option value="dessert">Dark Chocolate & Fruit Tarts</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="pairing-result-box" id="pairingResult">
+                        <div class="result-badge">SOMMELIER MATCH</div>
+                        <h3 class="result-title" id="pairingTitle">Domaine Seraphin Vosne-Romanée</h3>
+                        <p class="result-region" id="pairingRegion">Burgundy, France • 2018</p>
+                        <p class="result-notes" id="pairingNotes">Silky tannins with intense aromas of dark cherry, forest floor, and delicate spice that perfectly cut through rich marbling.</p>
+                        <button class="btn btn-gold btn-sm" id="pairingAddBtn">Add Match to Inquiry</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Terroir & Tradition Section -->
+        <section class="terroir-section" id="terroir">
+            <div class="section-container">
+                <div class="terroir-grid">
+                    <div class="terroir-text">
+                        <span class="section-badge">HERITAGE & TERROIR</span>
+                        <h2 class="section-title">Direct Relationships with Historic European Estates</h2>
+                        <p>
+                            At EuroGourmet Imports, we eliminate intermediaries to connect passionate winemakers directly with fine dining restaurants, luxury hotels, and private cellars across America.
+                        </p>
+                        <ul class="terroir-highlights">
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <strong>Temperature-Controlled Transit</strong>
+                                    <p>Preserving every subtle aroma from estate cellar to your door.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <strong>Authenticity Guaranteed</strong>
+                                    <p>100% estate-bottled origin with full provenance documentation.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <div>
+                                    <strong>Sommelier Concierge Service</strong>
+                                    <p>Custom wine list consulting and private cellar stocking.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="terroir-visual">
+                        <div class="experience-card">
+                            <div class="glass-card">
+                                <h3>Exclusive Allocation</h3>
+                                <p>Access rare limited-production vintages not available in mainstream retail.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wholesale & Contact Inquiry Form (Netlify Form Ready) -->
+        <section class="inquiry-section" id="inquiry">
+            <div class="section-container">
+                <div class="inquiry-form-card">
+                    <div class="form-header text-center">
+                        <span class="section-badge">COMMERCIAL & PRIVATE ORDERS</span>
+                        <h2>Request Catalog & Pricing</h2>
+                        <p>Fill out the form below to receive our complete wholesale price sheet or request private cellar allocations.</p>
+                    </div>
+
+                    <form class="contact-form" name="wine-inquiry" method="POST" data-netlify="true" id="inquiryForm">
+                        <input type="hidden" name="form-name" value="wine-inquiry" />
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name / Business Name *</label>
+                                <input type="text" id="fullName" name="fullName" required placeholder="e.g. Jean-Luc Lebrun / Grand Hotel">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required placeholder="you@domain.com">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+                            </div>
+                            <div class="form-group">
+                                <label for="customerType">Client Type</label>
+                                <select id="customerType" name="customerType">
+                                    <option value="wholesale">Restaurant / Hotel / Retailer</option>
+                                    <option value="private">Private Collector / Sommelier</option>
+                                    <option value="event">Event Planner / Weddings</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="selectedWinesField">Selected Cellar Items</label>
+                            <input type="text" id="selectedWinesField" name="selectedWines" readonly placeholder="No specific items selected yet (Optional)">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message / Specific Vintage Inquiries</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your wine requirements, volume, or delivery timeline..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">Submit Inquiry</button>
+                    </form>
+                    
+                    <div id="formResponse" class="form-response-msg"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Drawer Modal for Selected Items -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="drawer-overlay" id="drawerOverlay"></div>
+        <div class="drawer-content">
+            <div class="drawer-header">
+                <h3>Your Selected Portfolio</h3>
+                <button class="close-btn" id="drawerClose">&times;</button>
+            </div>
+            <div class="drawer-body" id="drawerItems">
+                <p class="empty-msg">Your cellar list is empty. Click "+ Add to Selection" on any wine card!</p>
+            </div>
+            <div class="drawer-footer">
+                <a href="#inquiry" class="btn btn-primary btn-block" id="proceedInquiry">Proceed to Inquiry</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div class="modal" id="wineModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <div class="nav-logo">
+                    <span class="logo-crest">🍷</span>
+                    <div class="logo-text">
+                        <span class="brand-title">EUROGOURMET</span>
+                        <span class="brand-sub">IMPORTS</span>
+                    </div>
+                </div>
+                <p>Bringing authentic European terroir and fine estate wines directly to wine enthusiasts and culinary leaders.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#collection">Cellar Collection</a></li>
+                    <li><a href="#pairing">Pairing Guide</a></li>
+                    <li><a href="#terroir">Our Vineyards</a></li>
+                    <li><a href="#inquiry">Wholesale Inquiry</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Wine Regions</h4>
+                <ul>
+                    <li>Bordeaux Grand Crus</li>
+                    <li>Tuscany & Piedmont</li>
+                    <li>Champagne & Sparkling</li>
+                    <li>Rioja & Ribera del Duero</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p>📍 Miami, FL & Bordeaux, France</p>
+                <p>✉️ orders@eurogourmetimports.com</p>
+                <p>📞 +1 (800) 555-EURO</p>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 EuroGourmet Imports. All Rights Reserved. Drink Responsibly.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
