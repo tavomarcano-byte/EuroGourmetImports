@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Euro Gourmet Imports PR - Direct Spanish Terroir to the Caribbean & US. Masterfully crafted organic, vegan, and high-altitude B2B wine allocations for restaurants, hotels, and stockists.">
+    <meta name="description" content="Euro Gourmet Imports PR - B2B Wholesale Storefront. Direct Spanish Terroir allocations, organic & vegan certified wines for restaurants, hotel resorts, and retailers.">
     <meta name="theme-color" content="#1A1D20">
-    <title>Euro Gourmet Imports PR | Masterfully Crafted Spanish Terroir</title>
+    <title>Euro Gourmet Imports PR | B2B Wholesale Storefront</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <!-- Sticky Header -->
+    <!-- Sticky Header with Order Drawer Toggle -->
     <header class="navbar sticky-header" id="navbar">
         <div class="nav-container">
             <a href="#" class="nav-logo" aria-label="Euro Gourmet Imports PR Home">
@@ -29,13 +29,18 @@
             </a>
 
             <nav class="nav-menu" id="navMenu">
-                <a href="#hero" class="nav-link">Overview</a>
+                <a href="#storefront" class="nav-link">B2B Storefront</a>
                 <a href="#features" class="nav-link">Why Choose Us</a>
                 <a href="#pricing" class="nav-link">Allocation Tiers</a>
                 <a href="#faq" class="nav-link">B2B FAQ</a>
             </nav>
 
             <div class="nav-actions">
+                <button class="drawer-trigger-btn" id="drawerTrigger" aria-label="Open B2B Wholesale Order Drawer">
+                    <span class="bag-icon">📦</span>
+                    <span class="bag-text">Order Case Bag</span>
+                    <span class="bag-count" id="drawerBadge">0</span>
+                </button>
                 <a href="#contact" class="btn btn-burgundy btn-sm">Become a Stockist</a>
                 <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation Menu">
                     <span></span>
@@ -52,7 +57,6 @@
             <div class="hero-bg-overlay"></div>
             <div class="section-container">
                 <div class="split-hero-grid">
-                    <!-- Left Column: Copy & CTA -->
                     <div class="hero-left">
                         <span class="hero-eyebrow">DIRECT SPANISH ESTATE ALLOCATIONS</span>
                         <h1 class="hero-title">
@@ -63,12 +67,11 @@
                         </p>
 
                         <div class="hero-cta-group">
-                            <a href="#pricing" class="btn btn-burgundy">Explore Allocation Tiers</a>
-                            <a href="#contact" class="btn btn-outline">Become a Stockist</a>
+                            <a href="#storefront" class="btn btn-burgundy">Order Wholesale Cases</a>
+                            <a href="#pricing" class="btn btn-outline">Explore Allocation Tiers</a>
                         </div>
                     </div>
 
-                    <!-- Right Column: Sleek Product Showcase Image -->
                     <div class="hero-right">
                         <div class="product-showcase-container">
                             <img src="images/caribbean_wine_showcase.jpg" alt="Euro Gourmet Imports PR Spanish Organic Grand Reserva Wine Showcase" class="showcase-img" loading="eager">
@@ -90,25 +93,130 @@
             <div class="section-container">
                 <p class="trust-bar-label text-center">TRUSTED BY LEADING HOSPITALITY & SOMMELIER PARTNERS</p>
                 <div class="trust-ribbon">
-                    <div class="trust-badge">
-                        <span class="badge-symbol">⚜️</span>
-                        <span>High-End Hospitality Groups</span>
-                    </div>
-                    <div class="trust-badge">
-                        <span class="badge-symbol">⭐</span>
-                        <span>Michelin-Star Partners</span>
-                    </div>
-                    <div class="trust-badge">
-                        <span class="badge-symbol">🏨</span>
-                        <span>San Juan Luxury Hotels</span>
-                    </div>
-                    <div class="trust-badge">
-                        <span class="badge-symbol">🍷</span>
-                        <span>Caribbean Sommelier Guild</span>
-                    </div>
-                    <div class="trust-badge">
-                        <span class="badge-symbol">🌱</span>
-                        <span>Organic Wine Alliance</span>
+                    <div class="trust-badge"><span class="badge-symbol">⚜️</span><span>High-End Hospitality Groups</span></div>
+                    <div class="trust-badge"><span class="badge-symbol">⭐</span><span>Michelin-Star Partners</span></div>
+                    <div class="trust-badge"><span class="badge-symbol">🏨</span><span>San Juan Luxury Hotels</span></div>
+                    <div class="trust-badge"><span class="badge-symbol">🍷</span><span>Caribbean Sommelier Guild</span></div>
+                    <div class="trust-badge"><span class="badge-symbol">🌱</span><span>Organic Wine Alliance</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 3: B2B Wholesale E-Commerce Storefront Section -->
+        <section class="storefront-section" id="storefront">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-badge">SPANISH IMPORT CATALOG</span>
+                    <h2 class="section-title">B2B Wholesale Storefront</h2>
+                    <p class="section-subtitle">Select estate-bottled cases for your wine list. All orders ship in temperature-controlled reefer containers.</p>
+                </div>
+
+                <div class="storefront-layout">
+                    <!-- Sidebar Filter Accordion -->
+                    <aside class="filter-sidebar">
+                        <div class="sidebar-header">
+                            <h3>Filter Catalog</h3>
+                            <button class="reset-filter-btn" id="resetFiltersBtn">Reset All</button>
+                        </div>
+
+                        <!-- Filter Accordion Group 1: Wine Type -->
+                        <div class="filter-accordion-group">
+                            <button class="sidebar-accordion-trigger active">
+                                <span>Wine Type</span>
+                                <span class="accordion-arrow">−</span>
+                            </button>
+                            <div class="sidebar-accordion-content open">
+                                <label class="filter-checkbox-label">
+                                    <input type="radio" name="typeFilter" value="all" checked> All Varieties
+                                </label>
+                                <label class="filter-checkbox-label">
+                                    <input type="radio" name="typeFilter" value="red"> Red Wines (Tinto)
+                                </label>
+                                <label class="filter-checkbox-label">
+                                    <input type="radio" name="typeFilter" value="white"> White Wines (Blanco)
+                                </label>
+                                <label class="filter-checkbox-label">
+                                    <input type="radio" name="typeFilter" value="rose"> Rosé (Rosado)
+                                </label>
+                                <label class="filter-checkbox-label">
+                                    <input type="radio" name="typeFilter" value="vermut"> Spanish Vermut
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Filter Accordion Group 2: Region / D.O. -->
+                        <div class="filter-accordion-group">
+                            <button class="sidebar-accordion-trigger active">
+                                <span>Region / D.O.</span>
+                                <span class="accordion-arrow">−</span>
+                            </button>
+                            <div class="sidebar-accordion-content open">
+                                <label class="filter-checkbox-label">
+                                    <input type="radio" name="regionFilter" value="all" checked> All Regions
+                                </label>
+                                <label class="filter-checkbox-label">
+                                    <input type="radio" name="regionFilter" value="ribera"> Ribera del Duero
+                                </label>
+                                <label class="filter-checkbox-label">
+                                    <input type="radio" name="regionFilter" value="mancha"> La Mancha / Montiel
+                                </label>
+                                <label class="filter-checkbox-label">
+                                    <input type="radio" name="regionFilter" value="yecla"> Yecla / Jumilla
+                                </label>
+                                <label class="filter-checkbox-label">
+                                    <input type="radio" name="regionFilter" value="valdeorras"> Valdeorras D.O.
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Filter Accordion Group 3: Crianza / Oak Aging -->
+                        <div class="filter-accordion-group">
+                            <button class="sidebar-accordion-trigger">
+                                <span>Oak Aging / Crianza</span>
+                                <span class="accordion-arrow">+</span>
+                            </button>
+                            <div class="sidebar-accordion-content">
+                                <label class="filter-checkbox-label">
+                                    <input type="radio" name="agingFilter" value="all" checked> All Aging Levels
+                                </label>
+                                <label class="filter-checkbox-label">
+                                    <input type="radio" name="agingFilter" value="joven"> Joven / Stainless Steel
+                                </label>
+                                <label class="filter-checkbox-label">
+                                    <input type="radio" name="agingFilter" value="crianza"> Crianza (6–12 Mos)
+                                </label>
+                                <label class="filter-checkbox-label">
+                                    <input type="radio" name="agingFilter" value="reserva"> Gran Reserva (12+ Mos)
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Filter Accordion Group 4: Certification -->
+                        <div class="filter-accordion-group">
+                            <button class="sidebar-accordion-trigger active">
+                                <span>Certification</span>
+                                <span class="accordion-arrow">−</span>
+                            </button>
+                            <div class="sidebar-accordion-content open">
+                                <label class="filter-checkbox-label">
+                                    <input type="checkbox" id="organicCheck" checked> Organic & Vegan Only
+                                </label>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Responsive Bottle & Case Grid (2 cols mobile, 4 cols desktop) -->
+                    <div class="storefront-main">
+                        <div class="storefront-toolbar">
+                            <span class="results-count" id="resultsCount">Showing 6 Spanish Import Allocations</span>
+                            <div class="search-box">
+                                <input type="text" id="storeSearchInput" placeholder="Search by grape, estate, or D.O..." aria-label="Search catalog">
+                            </div>
+                        </div>
+
+                        <div class="product-grid" id="productGrid">
+                            <!-- Injected dynamically via JavaScript -->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,7 +232,6 @@
                 </div>
 
                 <div class="zigzag-container">
-                    <!-- Row 1: Soil-First Farming (Image Left, Text Right) -->
                     <div class="zigzag-row">
                         <div class="zigzag-visual">
                             <div class="visual-card">
@@ -146,7 +253,6 @@
                         </div>
                     </div>
 
-                    <!-- Row 2: Plant & Mineral Fining (Text Left, Image Right) -->
                     <div class="zigzag-row reverse">
                         <div class="zigzag-visual">
                             <div class="visual-card">
@@ -168,7 +274,6 @@
                         </div>
                     </div>
 
-                    <!-- Row 3: Climate-Resilient Profile (Image Left, Text Right) -->
                     <div class="zigzag-row">
                         <div class="zigzag-visual">
                             <div class="visual-card">
@@ -203,7 +308,6 @@
                 </div>
 
                 <div class="pricing-grid">
-                    <!-- Tier 1: Starter Case -->
                     <div class="tier-card">
                         <div class="tier-header">
                             <span class="tier-level">TIER 01</span>
@@ -224,7 +328,6 @@
                         <a href="#contact" class="btn btn-outline btn-block">Inquire Starter Tier</a>
                     </div>
 
-                    <!-- Tier 2: Sommelier Select (CENTER CARD HIGHLIGHTED WITH GLOWING BORDER) -->
                     <div class="tier-card tier-card-highlighted">
                         <div class="highlight-ribbon">BEST VALUE FOR RESTAURANTS</div>
                         <div class="tier-header">
@@ -246,7 +349,6 @@
                         <a href="#contact" class="btn btn-burgundy btn-block">Become a Stockist</a>
                     </div>
 
-                    <!-- Tier 3: Estate Pallet Import -->
                     <div class="tier-card">
                         <div class="tier-header">
                             <span class="tier-level">TIER 03</span>
@@ -280,7 +382,6 @@
                 </div>
 
                 <div class="faq-accordion" id="faqAccordion">
-                    <!-- FAQ Item 1 -->
                     <div class="faq-item">
                         <button class="faq-trigger" aria-expanded="false">
                             <span>1. How are temperature-sensitive wines shipped to Puerto Rico & the Caribbean?</span>
@@ -293,7 +394,6 @@
                         </div>
                     </div>
 
-                    <!-- FAQ Item 2 -->
                     <div class="faq-item">
                         <button class="faq-trigger" aria-expanded="false">
                             <span>2. What does 'Plant & Mineral Fining' mean for vegan cellar certification?</span>
@@ -306,7 +406,6 @@
                         </div>
                     </div>
 
-                    <!-- FAQ Item 3 -->
                     <div class="faq-item">
                         <button class="faq-trigger" aria-expanded="false">
                             <span>3. Can I request official Sommelier PDF Tech Sheets and lab analysis?</span>
@@ -319,7 +418,6 @@
                         </div>
                     </div>
 
-                    <!-- FAQ Item 4 -->
                     <div class="faq-item">
                         <button class="faq-trigger" aria-expanded="false">
                             <span>4. What are the minimum order quantities for wholesale pricing?</span>
@@ -332,7 +430,6 @@
                         </div>
                     </div>
 
-                    <!-- FAQ Item 5 -->
                     <div class="faq-item">
                         <button class="faq-trigger" aria-expanded="false">
                             <span>5. How does Euro Gourmet Imports PR handle inventory replenishment & storage?</span>
@@ -387,17 +484,63 @@
                         </div>
 
                         <div class="form-group">
+                            <label for="b2bOrderSummaryInput">Selected Wholesale Cases</label>
+                            <input type="text" id="b2bOrderSummaryInput" name="b2bOrderSummary" readonly placeholder="No cases added to order bag yet (Optional)">
+                        </div>
+
+                        <div class="form-group">
                             <label for="b2bMessage">Winery Interest & Estimated Volume</label>
                             <textarea id="b2bMessage" name="b2bMessage" rows="3" placeholder="Tell us about your wine program, requested allocation tier (Starter Case, Sommelier Select, Estate Pallet)..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-burgundy btn-block">Become a Stockist</button>
+                        <button type="submit" class="btn btn-burgundy btn-block">Submit B2B Stockist Order Inquiry</button>
                     </form>
                     <div id="b2bResponse" class="form-response"></div>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Sliding Wholesale Order Drawer -->
+    <div class="b2b-order-drawer" id="orderDrawer">
+        <div class="drawer-backdrop" id="drawerBackdrop"></div>
+        <div class="drawer-panel">
+            <div class="drawer-header">
+                <div>
+                    <span class="drawer-tag">B2B WHOLESALE ORDER</span>
+                    <h3>Cellar Case Bag</h3>
+                </div>
+                <button class="drawer-close-btn" id="drawerCloseBtn">&times;</button>
+            </div>
+
+            <div class="drawer-body" id="drawerItemsList">
+                <p class="drawer-empty-msg">Your wholesale case bag is currently empty. Click "+ Add Case" on any bottle card to build your allocation!</p>
+            </div>
+
+            <div class="drawer-footer">
+                <div class="bottle-calc-row">
+                    <span>Total Bottles:</span>
+                    <strong id="totalBottlesCalc">0 Bottles (0 Cases)</strong>
+                </div>
+                <div class="subtotal-row">
+                    <span>Estimated Subtotal:</span>
+                    <strong id="drawerSubtotal">$0.00 USD</strong>
+                </div>
+                <a href="#contact" class="btn btn-burgundy btn-block" id="proceedCheckoutBtn">Proceed to Wholesale Checkout</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sommelier Quick-View Modal -->
+    <div class="modal" id="quickViewModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-card modal-card-lg">
+            <button class="modal-close" id="modalCloseBtn">&times;</button>
+            <div id="quickViewContent">
+                <!-- Injected dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
 
     <!-- Minimal B2B Footer -->
     <footer class="b2b-footer">
@@ -417,17 +560,17 @@
                 <div class="footer-col">
                     <h4>B2B Quick Links</h4>
                     <ul>
+                        <li><a href="#storefront" class="footer-link">Wholesale Storefront</a></li>
                         <li><a href="#contact" class="footer-link">Wholesale Inquiries</a></li>
                         <li><a href="#faq" class="footer-link">Sommelier Tech Sheets</a></li>
-                        <li><a href="#contact" class="footer-link">Direct Order Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Featured Estates</h4>
                     <ul>
-                        <li><a href="#features" class="footer-link">Dehesa de Luna</a></li>
-                        <li><a href="#features" class="footer-link">Bodegas Izquierdo</a></li>
-                        <li><a href="#features" class="footer-link">Conde de Montornés</a></li>
+                        <li><a href="#storefront" class="footer-link">Dehesa de Luna</a></li>
+                        <li><a href="#storefront" class="footer-link">Bodegas Izquierdo</a></li>
+                        <li><a href="#storefront" class="footer-link">Conde de Montornés</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -440,7 +583,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Euro Gourmet Imports PR. All Rights Reserved. Phase 2 Conversion Build.</p>
+            <p>&copy; 2026 Euro Gourmet Imports PR. All Rights Reserved. Phase 3 B2B Storefront Build.</p>
         </div>
     </footer>
 
