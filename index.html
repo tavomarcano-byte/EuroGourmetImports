@@ -3,22 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Euro Gourmet Imports PR - B2B Wholesale Storefront. Direct Spanish Terroir allocations, organic & vegan certified wines for restaurants, hotel resorts, and retailers.">
+    <meta name="description" content="Euro Gourmet Imports PR - Terroir Journal & Academic Viticulture Studies. Organic Spanish viticulture, vegan fining chemistry, and Caribbean sommelier pairing guides.">
     <meta name="theme-color" content="#1A1D20">
-    <title>Euro Gourmet Imports PR | B2B Wholesale Storefront</title>
+    <title>Euro Gourmet Imports PR | Terroir Journal & Viticulture Studies</title>
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Cinzel, Playfair Display, Merriweather, Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Sticky Header with Order Drawer Toggle -->
+    <!-- Sticky Header with Reading Progress Bar Anchor -->
     <header class="navbar sticky-header" id="navbar">
+        <div class="reading-progress-bar" id="readingProgressBar"></div>
         <div class="nav-container">
             <a href="#" class="nav-logo" aria-label="Euro Gourmet Imports PR Home">
                 <span class="logo-crest">🍷</span>
@@ -30,7 +31,7 @@
 
             <nav class="nav-menu" id="navMenu">
                 <a href="#storefront" class="nav-link">B2B Storefront</a>
-                <a href="#features" class="nav-link">Why Choose Us</a>
+                <a href="#journal" class="nav-link">Terroir Journal</a>
                 <a href="#pricing" class="nav-link">Allocation Tiers</a>
                 <a href="#faq" class="nav-link">B2B FAQ</a>
             </nav>
@@ -68,7 +69,7 @@
 
                         <div class="hero-cta-group">
                             <a href="#storefront" class="btn btn-burgundy">Order Wholesale Cases</a>
-                            <a href="#pricing" class="btn btn-outline">Explore Allocation Tiers</a>
+                            <a href="#journal" class="btn btn-outline">Read Terroir Journal</a>
                         </div>
                     </div>
 
@@ -102,7 +103,140 @@
             </div>
         </section>
 
-        <!-- Phase 3: B2B Wholesale E-Commerce Storefront Section -->
+        <!-- Phase 4: Editorial & Academic Journal Hub Section -->
+        <section class="journal-section" id="journal">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-badge">ACADEMIC & SOMMELIER INSIGHTS</span>
+                    <h2 class="section-title">The Spanish Terroir Journal</h2>
+                    <p class="section-subtitle">Research papers, viticulture studies, and sommelier pairing guides curated by master winemakers and beverage directors.</p>
+                </div>
+
+                <!-- Featured Post Hero Section -->
+                <div class="featured-post-hero" onclick="openArticleReader('featured')">
+                    <div class="featured-post-grid">
+                        <div class="featured-img-col">
+                            <img src="images/spanish_vineyard_hero.jpg" alt="High Altitude Viticulture in Spain" loading="lazy">
+                        </div>
+                        <div class="featured-text-col">
+                            <div class="article-meta-header">
+                                <span class="journal-category-pill">High-Altitude Viticulture</span>
+                                <span class="read-time-tag">8 min read</span>
+                            </div>
+                            <h2 class="featured-title">High-Altitude Viticulture and Climate Resilience in Spanish Monastrell</h2>
+                            <p class="featured-excerpt">
+                                How cultivating bush-vine Monastrell at 850 meters elevation preserves natural tartaric acidity, structural tannins, and fresh aromatic balance against rising Mediterranean temperatures.
+                            </p>
+                            <div class="author-row">
+                                <div class="author-avatar">AR</div>
+                                <div class="author-info">
+                                    <strong>Dr. Alejandro Ruiz, Master Sommelier</strong>
+                                    <span>Published Aug 2026 • Terroir Research Vol. 4</span>
+                                </div>
+                                <button class="btn btn-burgundy btn-sm" style="margin-left: auto;">Read Full Study &rarr;</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scrollable Topic Pills -->
+                <div class="topic-pills-wrapper">
+                    <div class="topic-pills-track">
+                        <button class="topic-pill active" data-topic="all">All Articles</button>
+                        <button class="topic-pill" data-topic="organic">Organic Viticulture</button>
+                        <button class="topic-pill" data-topic="vegan">Vegan Fining</button>
+                        <button class="topic-pill" data-topic="biodiversity">Biodiversity Reserves</button>
+                        <button class="topic-pill" data-topic="tech">Sommelier Tech</button>
+                        <button class="topic-pill" data-topic="pairing">Caribbean Pairing</button>
+                    </div>
+                </div>
+
+                <!-- 3-Column Article Feed -->
+                <div class="article-grid" id="articleGrid">
+                    <!-- Card 1 -->
+                    <article class="article-card" onclick="openArticleReader('card1')">
+                        <div class="article-img-box">
+                            <img src="images/bordeaux.jpg" alt="Plant-Based Fining Chemistry" loading="lazy">
+                            <span class="journal-category-pill">Vegan Fining</span>
+                        </div>
+                        <div class="article-body">
+                            <span class="read-time-tag">6 min read</span>
+                            <h3 class="article-title">The Chemistry of Plant-Based Fining: Organic Pea Protein vs Isinglass</h3>
+                            <p class="article-excerpt">
+                                An analytical comparison demonstrating how vegetable proteins clarify tannins without removing subtle polyphenol complexity or adding animal allergens.
+                            </p>
+                            <div class="author-row">
+                                <div class="author-avatar">EV</div>
+                                <div class="author-info">
+                                    <strong>Chef Elena Vance</strong>
+                                    <span>July 28, 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="article-card" onclick="openArticleReader('card2')">
+                        <div class="article-img-box">
+                            <img src="images/dehesa_luna_estate.jpg" alt="Biodiversity Reserves in La Mancha" loading="lazy">
+                            <span class="journal-category-pill">Biodiversity Reserves</span>
+                        </div>
+                        <div class="article-body">
+                            <span class="read-time-tag">4 min read</span>
+                            <h3 class="article-title">Preserving Oak Forest Wildlife Corridors in La Mancha Estates</h3>
+                            <p class="article-excerpt">
+                                How Dehesa de Luna integrates 3,000 hectares of natural forest to foster beneficial insect populations and naturally suppress vineyard pests.
+                            </p>
+                            <div class="author-row">
+                                <div class="author-avatar">MC</div>
+                                <div class="author-info">
+                                    <strong>Marcos De La Cruz</strong>
+                                    <span>July 15, 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="article-card" onclick="openArticleReader('card3')">
+                        <div class="article-img-box">
+                            <img src="images/caribbean_wine_showcase.jpg" alt="Pairing Spanish Tempranillo with Caribbean Gastronomy" loading="lazy">
+                            <span class="journal-category-pill">Caribbean Pairing</span>
+                        </div>
+                        <div class="article-body">
+                            <span class="read-time-tag">7 min read</span>
+                            <h3 class="article-title">Pairing Spanish Tempranillo with Caribbean Spice & Smoked Meats</h3>
+                            <p class="article-excerpt">
+                                Sommelier guide to balancing rich red fruit tannins with roasted lechón, sofrito reductions, and island seafood preparations.
+                            </p>
+                            <div class="author-row">
+                                <div class="author-avatar">JP</div>
+                                <div class="author-info">
+                                    <strong>Jean-Paul Mercier, MS</strong>
+                                    <span>June 30, 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- In-Feed Newsletter Callout -->
+                <div class="newsletter-callout-banner">
+                    <div class="newsletter-content">
+                        <span class="section-badge">SOMMELIER INTELLIGENCE</span>
+                        <h3>Receive Monthly Allocation & Terroir Analysis Reports</h3>
+                        <p>Join 450+ beverage directors, sommeliers, and buyers receiving our monthly vintage reports, lab spec sheets, and advance allocation alerts.</p>
+                        <form class="newsletter-inline-form" id="newsletterForm">
+                            <input type="email" id="newsletterEmail" required placeholder="Enter your business email..." aria-label="Business Email for Journal">
+                            <button type="submit" class="btn btn-burgundy">Subscribe to Journal</button>
+                        </form>
+                        <div id="newsletterMsg" class="newsletter-msg"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- B2B Wholesale Storefront Section -->
         <section class="storefront-section" id="storefront">
             <div class="section-container">
                 <div class="section-header text-center">
@@ -119,93 +253,36 @@
                             <button class="reset-filter-btn" id="resetFiltersBtn">Reset All</button>
                         </div>
 
-                        <!-- Filter Accordion Group 1: Wine Type -->
                         <div class="filter-accordion-group">
-                            <button class="sidebar-accordion-trigger active">
-                                <span>Wine Type</span>
-                                <span class="accordion-arrow">−</span>
-                            </button>
+                            <button class="sidebar-accordion-trigger active"><span>Wine Type</span><span class="accordion-arrow">−</span></button>
                             <div class="sidebar-accordion-content open">
-                                <label class="filter-checkbox-label">
-                                    <input type="radio" name="typeFilter" value="all" checked> All Varieties
-                                </label>
-                                <label class="filter-checkbox-label">
-                                    <input type="radio" name="typeFilter" value="red"> Red Wines (Tinto)
-                                </label>
-                                <label class="filter-checkbox-label">
-                                    <input type="radio" name="typeFilter" value="white"> White Wines (Blanco)
-                                </label>
-                                <label class="filter-checkbox-label">
-                                    <input type="radio" name="typeFilter" value="rose"> Rosé (Rosado)
-                                </label>
-                                <label class="filter-checkbox-label">
-                                    <input type="radio" name="typeFilter" value="vermut"> Spanish Vermut
-                                </label>
+                                <label class="filter-checkbox-label"><input type="radio" name="typeFilter" value="all" checked> All Varieties</label>
+                                <label class="filter-checkbox-label"><input type="radio" name="typeFilter" value="red"> Red Wines (Tinto)</label>
+                                <label class="filter-checkbox-label"><input type="radio" name="typeFilter" value="white"> White Wines (Blanco)</label>
+                                <label class="filter-checkbox-label"><input type="radio" name="typeFilter" value="rose"> Rosé (Rosado)</label>
+                                <label class="filter-checkbox-label"><input type="radio" name="typeFilter" value="vermut"> Spanish Vermut</label>
                             </div>
                         </div>
 
-                        <!-- Filter Accordion Group 2: Region / D.O. -->
                         <div class="filter-accordion-group">
-                            <button class="sidebar-accordion-trigger active">
-                                <span>Region / D.O.</span>
-                                <span class="accordion-arrow">−</span>
-                            </button>
+                            <button class="sidebar-accordion-trigger active"><span>Region / D.O.</span><span class="accordion-arrow">−</span></button>
                             <div class="sidebar-accordion-content open">
-                                <label class="filter-checkbox-label">
-                                    <input type="radio" name="regionFilter" value="all" checked> All Regions
-                                </label>
-                                <label class="filter-checkbox-label">
-                                    <input type="radio" name="regionFilter" value="ribera"> Ribera del Duero
-                                </label>
-                                <label class="filter-checkbox-label">
-                                    <input type="radio" name="regionFilter" value="mancha"> La Mancha / Montiel
-                                </label>
-                                <label class="filter-checkbox-label">
-                                    <input type="radio" name="regionFilter" value="yecla"> Yecla / Jumilla
-                                </label>
-                                <label class="filter-checkbox-label">
-                                    <input type="radio" name="regionFilter" value="valdeorras"> Valdeorras D.O.
-                                </label>
+                                <label class="filter-checkbox-label"><input type="radio" name="regionFilter" value="all" checked> All Regions</label>
+                                <label class="filter-checkbox-label"><input type="radio" name="regionFilter" value="ribera"> Ribera del Duero</label>
+                                <label class="filter-checkbox-label"><input type="radio" name="regionFilter" value="mancha"> La Mancha / Montiel</label>
+                                <label class="filter-checkbox-label"><input type="radio" name="regionFilter" value="yecla"> Yecla / Jumilla</label>
+                                <label class="filter-checkbox-label"><input type="radio" name="regionFilter" value="valdeorras"> Valdeorras D.O.</label>
                             </div>
                         </div>
 
-                        <!-- Filter Accordion Group 3: Crianza / Oak Aging -->
                         <div class="filter-accordion-group">
-                            <button class="sidebar-accordion-trigger">
-                                <span>Oak Aging / Crianza</span>
-                                <span class="accordion-arrow">+</span>
-                            </button>
-                            <div class="sidebar-accordion-content">
-                                <label class="filter-checkbox-label">
-                                    <input type="radio" name="agingFilter" value="all" checked> All Aging Levels
-                                </label>
-                                <label class="filter-checkbox-label">
-                                    <input type="radio" name="agingFilter" value="joven"> Joven / Stainless Steel
-                                </label>
-                                <label class="filter-checkbox-label">
-                                    <input type="radio" name="agingFilter" value="crianza"> Crianza (6–12 Mos)
-                                </label>
-                                <label class="filter-checkbox-label">
-                                    <input type="radio" name="agingFilter" value="reserva"> Gran Reserva (12+ Mos)
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Filter Accordion Group 4: Certification -->
-                        <div class="filter-accordion-group">
-                            <button class="sidebar-accordion-trigger active">
-                                <span>Certification</span>
-                                <span class="accordion-arrow">−</span>
-                            </button>
+                            <button class="sidebar-accordion-trigger active"><span>Certification</span><span class="accordion-arrow">−</span></button>
                             <div class="sidebar-accordion-content open">
-                                <label class="filter-checkbox-label">
-                                    <input type="checkbox" id="organicCheck" checked> Organic & Vegan Only
-                                </label>
+                                <label class="filter-checkbox-label"><input type="checkbox" id="organicCheck" checked> Organic & Vegan Only</label>
                             </div>
                         </div>
                     </aside>
 
-                    <!-- Responsive Bottle & Case Grid (2 cols mobile, 4 cols desktop) -->
                     <div class="storefront-main">
                         <div class="storefront-toolbar">
                             <span class="results-count" id="resultsCount">Showing 6 Spanish Import Allocations</span>
@@ -215,7 +292,7 @@
                         </div>
 
                         <div class="product-grid" id="productGrid">
-                            <!-- Injected dynamically via JavaScript -->
+                            <!-- Injected dynamically -->
                         </div>
                     </div>
                 </div>
@@ -314,16 +391,12 @@
                             <h3 class="tier-name">Starter Case</h3>
                             <p class="tier-target">Ideal for Boutique Wine Bars & Independent Bistros</p>
                         </div>
-                        <div class="tier-price">
-                            <span class="price-val">Wholesale</span>
-                            <span class="price-unit">Direct Estate Rate</span>
-                        </div>
+                        <div class="tier-price"><span class="price-val">Wholesale</span><span class="price-unit">Direct Estate Rate</span></div>
                         <ul class="tier-features">
                             <li><span>✓</span> 5–15 Case Min. Order</li>
                             <li><span>✓</span> Mix & Match Any Partner Estate</li>
                             <li><span>✓</span> Temperature-Controlled Storage</li>
                             <li><span>✓</span> Digital Sommelier Tech Sheets</li>
-                            <li><span>✓</span> 48-Hour San Juan Metro Delivery</li>
                         </ul>
                         <a href="#contact" class="btn btn-outline btn-block">Inquire Starter Tier</a>
                     </div>
@@ -335,15 +408,11 @@
                             <h3 class="tier-name">Sommelier Select</h3>
                             <p class="tier-target">Curated Portfolio for Fine Dining & Hotel Groups</p>
                         </div>
-                        <div class="tier-price">
-                            <span class="price-val">Priority</span>
-                            <span class="price-unit">Volume Wholesale Discount</span>
-                        </div>
+                        <div class="tier-price"><span class="price-val">Priority</span><span class="price-unit">Volume Wholesale Discount</span></div>
                         <ul class="tier-features">
                             <li><span>✓</span> 15–50 Case Monthly Allocation</li>
                             <li><span>✓</span> Priority Vintage Allocation Rights</li>
                             <li><span>✓</span> Staff Tasting & Sommelier Training</li>
-                            <li><span>✓</span> Printed Waterproof Tech Sheets</li>
                             <li><span>✓</span> Dedicated B2B Account Director</li>
                         </ul>
                         <a href="#contact" class="btn btn-burgundy btn-block">Become a Stockist</a>
@@ -355,16 +424,11 @@
                             <h3 class="tier-name">Estate Pallet Import</h3>
                             <p class="tier-target">For Resort Chains, Cruise Lines & Distributors</p>
                         </div>
-                        <div class="tier-price">
-                            <span class="price-val">Direct Container</span>
-                            <span class="price-unit">FOB / CIF Freight Terms</span>
-                        </div>
+                        <div class="tier-price"><span class="price-val">Direct Container</span><span class="price-unit">FOB / CIF Freight Terms</span></div>
                         <ul class="tier-features">
                             <li><span>✓</span> Full Pallet (60+ Cases) Orders</li>
                             <li><span>✓</span> Direct Spanish Cellar Freight</li>
                             <li><span>✓</span> Custom Private Labeling Available</li>
-                            <li><span>✓</span> Guaranteed Annual Reserve Lock</li>
-                            <li><span>✓</span> Caribbean & US Port Logistics</li>
                         </ul>
                         <a href="#contact" class="btn btn-outline btn-block">Inquire Pallet Import</a>
                     </div>
@@ -388,9 +452,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-content">
-                            <p>
-                                All Euro Gourmet Imports PR shipments utilize 100% reefer (temperature-controlled refrigerated) containers set strictly to 12°C–14°C (53°F–57°F) from our cellar doors in Spain to our San Juan, PR climate-controlled warehouse. We ensure zero heat degradation during ocean transit and local delivery.
-                            </p>
+                            <p>All Euro Gourmet Imports PR shipments utilize 100% reefer containers set strictly to 12°C–14°C (53°F–57°F) from our cellar doors in Spain to our San Juan, PR climate-controlled warehouse.</p>
                         </div>
                     </div>
 
@@ -400,9 +462,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-content">
-                            <p>
-                                Traditional winemaking uses animal-derived agents (such as gelatins, egg whites, or fish bladder isinglass) to clarify wine. Our partner estates exclusively use organic pea proteins and natural bentonite clay minerals for fining. This guarantees 100% vegan purity without altering subtle aroma profiles.
-                            </p>
+                            <p>Our partner estates exclusively use organic pea proteins and natural bentonite clay minerals for fining, eliminating animal gelatin, egg whites, or casein.</p>
                         </div>
                     </div>
 
@@ -412,33 +472,7 @@
                             <span class="faq-icon">+</span>
                         </button>
                         <div class="faq-content">
-                            <p>
-                                Yes! We provide comprehensive digital and printed Sommelier Tech Sheets for every vintage in our portfolio. Each sheet includes soil breakdown, elevage timelines, alcohol/acid balance, residual sugar laboratory reports, and recommended menu pairings for your culinary team.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-trigger" aria-expanded="false">
-                            <span>4. What are the minimum order quantities for wholesale pricing?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-content">
-                            <p>
-                                Our Starter Case Tier begins at a low minimum of 5 mixed cases for licensed restaurants and wine bars in Puerto Rico and the US Virgin Islands. For mainland US distributors, pallet-level options are available with volume tiered discounts.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-trigger" aria-expanded="false">
-                            <span>5. How does Euro Gourmet Imports PR handle inventory replenishment & storage?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-content">
-                            <p>
-                                We maintain local inventory in San Juan, PR, ensuring fast 24-to-48-hour order fulfillment across Puerto Rico. For recurring restaurant stockists, we offer automated monthly standing orders to guarantee your wine list never runs out of key allocations.
-                            </p>
+                            <p>Yes! We provide comprehensive digital and printed Sommelier Tech Sheets for every vintage in our portfolio.</p>
                         </div>
                     </div>
                 </div>
@@ -490,7 +524,7 @@
 
                         <div class="form-group">
                             <label for="b2bMessage">Winery Interest & Estimated Volume</label>
-                            <textarea id="b2bMessage" name="b2bMessage" rows="3" placeholder="Tell us about your wine program, requested allocation tier (Starter Case, Sommelier Select, Estate Pallet)..."></textarea>
+                            <textarea id="b2bMessage" name="b2bMessage" rows="3" placeholder="Tell us about your wine program, requested allocation tier..."></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-burgundy btn-block">Submit B2B Stockist Order Inquiry</button>
@@ -500,6 +534,33 @@
             </div>
         </section>
     </main>
+
+    <!-- Phase 4: Sample Article Reader View Modal -->
+    <div class="modal" id="articleReaderModal">
+        <div class="modal-overlay" id="articleModalOverlay"></div>
+        <div class="modal-card modal-card-xl">
+            <button class="modal-close" id="articleModalCloseBtn">&times;</button>
+            
+            <div class="reader-layout">
+                <!-- Left Sidebar: Sticky Table of Contents -->
+                <aside class="reader-toc-sidebar">
+                    <h4>TABLE OF CONTENTS</h4>
+                    <ul>
+                        <li><a href="#art-intro" class="toc-link active">1. Introduction</a></li>
+                        <li><a href="#art-terroir" class="toc-link">2. High-Altitude Terroir</a></li>
+                        <li><a href="#art-chemistry" class="toc-link">3. Acid & Tannin Balance</a></li>
+                        <li><a href="#art-gastronomy" class="toc-link">4. Caribbean Gastronomy</a></li>
+                        <li><a href="#art-conclusion" class="toc-link">5. Conclusion & PDF Report</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Article Content Reader -->
+                <article class="reader-article-content" id="articleReaderContent">
+                    <!-- Injected dynamically via JavaScript -->
+                </article>
+            </div>
+        </div>
+    </div>
 
     <!-- Sliding Wholesale Order Drawer -->
     <div class="b2b-order-drawer" id="orderDrawer">
@@ -514,7 +575,7 @@
             </div>
 
             <div class="drawer-body" id="drawerItemsList">
-                <p class="drawer-empty-msg">Your wholesale case bag is currently empty. Click "+ Add Case" on any bottle card to build your allocation!</p>
+                <p class="drawer-empty-msg">Your wholesale case bag is currently empty.</p>
             </div>
 
             <div class="drawer-footer">
@@ -536,9 +597,7 @@
         <div class="modal-overlay" id="modalOverlay"></div>
         <div class="modal-card modal-card-lg">
             <button class="modal-close" id="modalCloseBtn">&times;</button>
-            <div id="quickViewContent">
-                <!-- Injected dynamically via JavaScript -->
-            </div>
+            <div id="quickViewContent"></div>
         </div>
     </div>
 
@@ -561,8 +620,8 @@
                     <h4>B2B Quick Links</h4>
                     <ul>
                         <li><a href="#storefront" class="footer-link">Wholesale Storefront</a></li>
+                        <li><a href="#journal" class="footer-link">Terroir Journal</a></li>
                         <li><a href="#contact" class="footer-link">Wholesale Inquiries</a></li>
-                        <li><a href="#faq" class="footer-link">Sommelier Tech Sheets</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -583,7 +642,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Euro Gourmet Imports PR. All Rights Reserved. Phase 3 B2B Storefront Build.</p>
+            <p>&copy; 2026 Euro Gourmet Imports PR. All Rights Reserved. Phase 4 Terroir Journal Build.</p>
         </div>
     </footer>
 
