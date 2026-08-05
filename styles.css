@@ -4,7 +4,6 @@
    - Charcoal Slate: #1A1D20
    - Deep Burgundy: #581825
    - Soft Parchment: #F4F1EA
-   - Authentic Metallic Bronze / Amber Logo: #B86B2F / #8B4513 / #E6AA45
    ========================================================================== */
 
 :root {
@@ -49,37 +48,34 @@ img { max-width: 100%; height: auto; display: block; }
 h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.3px; line-height: 1.25; color: var(--soft-parchment); }
 .text-center { text-align: center; }
 
-/* SVG Metallic Bronze Logo Emblem Scaling */
-.brand-emblem-svg {
-    display: inline-block;
-    vertical-align: middle;
+/* Direct Logo Image Asset Rules (Zero Modifications Policy) */
+.brand-logo-img {
+    object-fit: contain;
+    filter: none !important; /* Zero CSS filters (invert, hue-rotate, or tint) */
     transition: var(--transition);
 }
 
-/* 1. Header Emblem: Prominent 56px Height */
-.header-emblem {
-    width: 56px;
-    height: 56px;
-    filter: drop-shadow(0 0 12px var(--bronze-glow));
+/* 1. Header Logo Image: 60px Height */
+.header-logo-img {
+    height: 60px;
+    width: auto;
+    max-height: 64px;
 }
 
-/* 2. Footer Emblem: Prominent 90px Height */
-.footer-emblem {
-    width: 90px;
-    height: 90px;
-    filter: drop-shadow(0 0 18px var(--bronze-glow));
+/* 2. Footer Logo Image: 100px Width */
+.footer-logo-img {
+    width: 100px;
+    height: auto;
 }
 
-/* 3. Drawer Emblem: Prominent 64px Height */
-.drawer-emblem {
-    width: 64px;
-    height: 64px;
-    filter: drop-shadow(0 0 14px var(--bronze-glow));
+/* 3. Drawer & Mobile Logo Image: 68px Height */
+.drawer-logo-img {
+    height: 68px;
+    width: auto;
 }
 
-.nav-logo:hover .header-emblem {
-    transform: scale(1.06) rotate(-2deg);
-    filter: drop-shadow(0 0 16px rgba(230, 170, 69, 0.6));
+.nav-logo:hover .header-logo-img {
+    transform: scale(1.05);
 }
 
 /* Sticky Navigation Header Layout */
@@ -179,21 +175,6 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.3px; line-h
 .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 .product-card { background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: var(--radius-md); overflow: hidden; backdrop-filter: blur(16px); transition: var(--transition); display: flex; flex-direction: column; position: relative; }
 .product-card:hover { transform: translateY(-6px); border-color: var(--bronze-amber); box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--bronze-glow); }
-
-/* Watermarked Metallic Bronze Logo Background Accent */
-.product-card::after, .modal-card::after {
-    content: '';
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
-    width: 68px;
-    height: 68px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M30 20 C30 45, 42 55, 50 60 C58 55, 70 45, 70 20 Z' stroke='%23B86B2F' stroke-width='3' fill='none'/%3E%3Cline x1='50' y1='60' x2='50' y2='82' stroke='%23B86B2F' stroke-width='3'/%3E%3C/svg%3E");
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.08;
-    pointer-events: none;
-}
 
 .product-img-wrapper { position: relative; height: 240px; background: radial-gradient(circle at center, #2b3037 0%, #15181b 100%); display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: pointer; }
 .product-img-wrapper img { height: 85%; object-fit: contain; filter: drop-shadow(0 8px 15px rgba(0,0,0,0.6)); }
