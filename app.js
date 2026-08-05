@@ -134,7 +134,6 @@ let orderCases = JSON.parse(localStorage.getItem('eurogourmet_b2b_order')) || []
 
 // DOM Initialization
 document.addEventListener('DOMContentLoaded', () => {
-    setupGroundRollingBarrelPhysics();
     setupTradeTabs();
     setupReadingProgressBar();
     renderProductGrid();
@@ -147,27 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileMenu();
     setupArticleModalListeners();
 });
-
-// Realistic Ground Rolling Barrel Motion Physics (Rolls flat like a tire/water bottle on floor)
-function setupGroundRollingBarrelPhysics() {
-    const barrel = document.getElementById('floorRollingBarrel');
-    if (!barrel) return;
-
-    window.addEventListener('scroll', () => {
-        const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-        if (totalScroll <= 0) return;
-        const progress = window.scrollY / totalScroll;
-
-        // Horizontal floor travel distance across screen width
-        const totalDistance = window.innerWidth + 280;
-        const travelX = (progress * totalDistance) - 140;
-
-        // Rotational physics matching horizontal travel distance (no slipping)
-        const rotationDegrees = (travelX / 427) * 360;
-
-        barrel.style.transform = `translateX(${travelX}px) rotate(${rotationDegrees}deg)`;
-    }, { passive: true });
-}
 
 // Trade Tabs
 function setupTradeTabs() {
