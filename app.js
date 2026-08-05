@@ -70,7 +70,7 @@ const B2B_CATALOG = [
         regionName: "D.O. Queso Manchego",
         grape: "100% Pure Manchega Sheep Milk",
         pricePerCase: 195,
-        bottlesPerCase: 4, // 4 Wheel Blocks
+        bottlesPerCase: 4,
         certified: true,
         image: "images/hero.jpg",
         abv: "24 Mos Aged",
@@ -88,7 +88,7 @@ const B2B_CATALOG = [
         regionName: "D.O. Dehesa de Jabugo",
         grape: "100% Acorn-Fed Pure Ibérico",
         pricePerCase: 320,
-        bottlesPerCase: 10, // 10 Hand-sliced Packs
+        bottlesPerCase: 10,
         certified: true,
         image: "images/caribbean_wine_showcase.jpg",
         abv: "36 Mos Cured",
@@ -134,6 +134,7 @@ let orderCases = JSON.parse(localStorage.getItem('eurogourmet_b2b_order')) || []
 
 // DOM Initialization
 document.addEventListener('DOMContentLoaded', () => {
+    setupRollingBarrelScrollAnimation();
     setupTradeTabs();
     setupReadingProgressBar();
     renderProductGrid();
@@ -146,6 +147,20 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileMenu();
     setupArticleModalListeners();
 });
+
+// Scroll-Driven Rolling Wine Barrel Animation
+function setupRollingBarrelScrollAnimation() {
+    const rollingImg = document.getElementById('rollingBarrelImg');
+    if (!rollingImg) return;
+
+    window.addEventListener('scroll', () => {
+        const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+        if (totalScroll <= 0) return;
+        const scrollFraction = window.scrollY / totalScroll;
+        const rotationDegrees = scrollFraction * 720; // 2 full rotations over scroll length
+        rollingImg.style.transform = `rotate(${rotationDegrees}deg)`;
+    }, { passive: true });
+}
 
 // Trade Tabs
 function setupTradeTabs() {
@@ -170,10 +185,10 @@ function setupReadingProgressBar() {
         const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
         const progress = (window.scrollY / totalHeight) * 100;
         if (progressBar) progressBar.style.width = `${progress}%`;
-    });
+    }, { passive: true });
 }
 
-// Render Product Grid with Category & Winery Filters
+// Render Product Grid
 function renderProductGrid() {
     const productGrid = document.getElementById('productGrid');
     const resultsCount = document.getElementById('resultsCount');
