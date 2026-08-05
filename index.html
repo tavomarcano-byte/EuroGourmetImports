@@ -21,7 +21,15 @@
 </head>
 <body>
 
-    <!-- Scroll-Driven Floating Rolling Wine Barrel Widget -->
+    <!-- Scroll-Driven Fullwidth Rolling Wine Barrel Background Layer (z-index: -1) -->
+    <div class="rolling-barrel-bg-container" id="barrelBgContainer" aria-hidden="true">
+        <div class="barrel-roll-track" id="barrelRollTrack">
+            <img src="images/horizontal_barrel_dirt.jpg" alt="Rolling Oak Wine Barrel Texture" class="fullwidth-barrel-img" id="fullwidthBarrelImg">
+        </div>
+        <div class="barrel-dark-overlay"></div>
+    </div>
+
+    <!-- Scroll-Driven Floating Corner Wine Barrel Widget -->
     <div class="floating-barrel-widget" id="barrelWidget" title="Scroll-driven Spanish Oak Wine Barrel">
         <div class="barrel-ring-outer">
             <img src="images/wine_barrel_rolling.jpg" alt="Rolling Oak Wine Barrel" class="rolling-barrel-img" id="rollingBarrelImg">

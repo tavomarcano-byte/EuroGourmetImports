@@ -134,6 +134,7 @@ let orderCases = JSON.parse(localStorage.getItem('eurogourmet_b2b_order')) || []
 
 // DOM Initialization
 document.addEventListener('DOMContentLoaded', () => {
+    setupFullwidthBarrelScrollAnimation();
     setupRollingBarrelScrollAnimation();
     setupTradeTabs();
     setupReadingProgressBar();
@@ -148,7 +149,25 @@ document.addEventListener('DOMContentLoaded', () => {
     setupArticleModalListeners();
 });
 
-// Scroll-Driven Rolling Wine Barrel Animation
+// Scroll-Driven Fullwidth Background Barrel Motion Physics
+function setupFullwidthBarrelScrollAnimation() {
+    const barrelImg = document.getElementById('fullwidthBarrelImg');
+    if (!barrelImg) return;
+
+    window.addEventListener('scroll', () => {
+        const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+        if (totalScroll <= 0) return;
+        const progress = window.scrollY / totalScroll;
+
+        // Rotational rolling physics + downward translation along page depth
+        const rotationDegrees = progress * 1080; // 3 full rotations
+        const translateYPixels = progress * (window.innerHeight * 0.35);
+
+        barrelImg.style.transform = `translateY(${translateYPixels}px) rotate(${rotationDegrees}deg)`;
+    }, { passive: true });
+}
+
+// Scroll-Driven Floating Corner Barrel Widget
 function setupRollingBarrelScrollAnimation() {
     const rollingImg = document.getElementById('rollingBarrelImg');
     if (!rollingImg) return;
@@ -157,7 +176,7 @@ function setupRollingBarrelScrollAnimation() {
         const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
         if (totalScroll <= 0) return;
         const scrollFraction = window.scrollY / totalScroll;
-        const rotationDegrees = scrollFraction * 720; // 2 full rotations over scroll length
+        const rotationDegrees = scrollFraction * 720; // 2 full rotations
         rollingImg.style.transform = `rotate(${rotationDegrees}deg)`;
     }, { passive: true });
 }

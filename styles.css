@@ -1,6 +1,6 @@
 /* ==========================================================================
    EG Imports, LLC (d/b/a Euro Gourmet Imports) - Master Stylesheet
-   Rich Color Architecture & Scroll-Driven Wine Barrel Animations
+   Fullwidth Scroll-Driven Rolling Barrel Background & Rich Radial Glows
    ========================================================================== */
 
 :root {
@@ -13,11 +13,10 @@
     --burgundy-glow: rgba(88, 24, 37, 0.55);
     --burgundy-border: rgba(88, 24, 37, 0.45);
 
+    --bronze-amber: #9E5A2A;
     --rich-amber: #8B4513;
-    --warm-crimson: #3B1018;
-    --bronze-amber: #B86B2F;
     --bronze-gold: #E6AA45;
-    --bronze-glow: rgba(184, 107, 47, 0.4);
+    --bronze-glow: rgba(158, 90, 42, 0.4);
 
     --soft-parchment: #F4F1EA;
     --parchment-muted: #C5BFB5;
@@ -45,10 +44,10 @@ html { scroll-behavior: smooth; font-size: 16px; }
 body {
     background-color: var(--charcoal-slate);
     background-image: 
-        radial-gradient(circle at 15% 15%, rgba(88, 24, 37, 0.35) 0%, transparent 45%),
-        radial-gradient(circle at 85% 35%, rgba(139, 69, 19, 0.28) 0%, transparent 50%),
-        radial-gradient(circle at 50% 65%, rgba(59, 16, 24, 0.38) 0%, transparent 55%),
-        radial-gradient(circle at 20% 85%, rgba(184, 107, 47, 0.22) 0%, transparent 45%);
+        radial-gradient(circle at 15% 15%, rgba(88, 24, 37, 0.4) 0%, transparent 45%),
+        radial-gradient(circle at 85% 35%, rgba(158, 90, 42, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 50% 65%, rgba(59, 16, 24, 0.42) 0%, transparent 55%),
+        radial-gradient(circle at 20% 85%, rgba(139, 69, 19, 0.28) 0%, transparent 45%);
     background-attachment: fixed;
     color: var(--soft-parchment);
     font-family: var(--font-body);
@@ -60,10 +59,48 @@ body {
 a { color: inherit; text-decoration: none; }
 button { font-family: inherit; cursor: pointer; border: none; outline: none; }
 img { max-width: 100%; height: auto; display: block; }
-h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.3px; line-height: 1.25; color: var(--soft-parchment); text-shadow: 0 2px 10px rgba(0,0,0,0.6); }
+h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.3px; line-height: 1.25; color: var(--soft-parchment); text-shadow: 0 2px 10px rgba(0,0,0,0.7); }
 .text-center { text-align: center; }
 
-/* Scroll-Driven Floating Rolling Wine Barrel Widget */
+/* Fullwidth Scroll-Driven Rolling Barrel Background Layer (z-index: -1) */
+.rolling-barrel-bg-container {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.barrel-roll-track {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fullwidth-barrel-img {
+    width: 110vw;
+    max-width: none;
+    height: auto;
+    min-height: 110vh;
+    object-fit: cover;
+    opacity: 0.28;
+    will-change: transform;
+    transition: transform 0.08s ease-out;
+    transform-origin: center center;
+}
+
+.barrel-dark-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26, 29, 32, 0.85) 0%, rgba(26, 29, 32, 0.72) 50%, rgba(26, 29, 32, 0.88) 100%);
+    pointer-events: none;
+}
+
+/* Floating Corner Barrel Widget */
 .floating-barrel-widget {
     position: fixed;
     bottom: 2.2rem;
@@ -132,7 +169,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.3px; line-h
 .nav-actions { display: flex; align-items: center; gap: 0.8rem; }
 
 .phone-link-btn { background: rgba(244, 241, 234, 0.05); border: 1px solid var(--glass-border); color: var(--soft-parchment); padding: 0.55rem 1.1rem; border-radius: var(--radius-pill); font-size: 0.84rem; display: flex; align-items: center; gap: 0.4rem; transition: var(--transition); }
-.phone-link-btn:hover { border-color: var(--bronze-amber); background: rgba(184, 107, 47, 0.2); box-shadow: 0 0 14px var(--bronze-glow); }
+.phone-link-btn:hover { border-color: var(--bronze-amber); background: rgba(158, 90, 42, 0.2); box-shadow: 0 0 14px var(--bronze-glow); }
 .drawer-trigger-btn { background: linear-gradient(135deg, rgba(88, 24, 37, 0.4), rgba(34, 38, 43, 0.8)); border: 1px solid var(--burgundy-border); padding: 0.6rem 1.2rem; border-radius: var(--radius-pill); color: var(--soft-parchment); display: flex; align-items: center; gap: 0.55rem; font-size: 0.84rem; font-weight: 600; transition: var(--transition); }
 .drawer-trigger-btn:hover { background: var(--deep-burgundy); box-shadow: 0 0 15px var(--burgundy-glow); }
 .bag-count { background: var(--bronze-gold); color: var(--charcoal-slate); font-size: 0.75rem; font-weight: 800; padding: 2px 7px; border-radius: 10px; }
@@ -144,33 +181,17 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.3px; line-h
 .btn-burgundy { background: linear-gradient(135deg, var(--deep-burgundy), var(--burgundy-bright)); color: var(--soft-parchment); border: 1px solid rgba(244, 241, 234, 0.15); box-shadow: 0 4px 18px var(--burgundy-glow); }
 .btn-burgundy:hover { background: linear-gradient(135deg, var(--burgundy-bright), #96283f); transform: translateY(-2px); box-shadow: 0 8px 25px var(--burgundy-glow); }
 .btn-outline { background: rgba(244, 241, 234, 0.04); border: 1px solid var(--glass-border); color: var(--soft-parchment); }
-.btn-outline:hover { border-color: var(--bronze-amber); background: rgba(184, 107, 47, 0.2); box-shadow: 0 0 15px var(--bronze-glow); }
+.btn-outline:hover { border-color: var(--bronze-amber); background: rgba(158, 90, 42, 0.2); box-shadow: 0 0 15px var(--bronze-glow); }
 .btn-sm { padding: 0.55rem 1.25rem; font-size: 0.82rem; }
 .btn-block { width: 100%; }
 
-/* Corporate Value Proposition Hero Section with Illuminated Burgundy Glow */
-.corporate-hero-section {
-    position: relative;
-    padding: 10.5rem 2rem 6.5rem;
-    text-align: center;
-    background: radial-gradient(circle at 50% 35%, rgba(88, 24, 37, 0.5) 0%, rgba(59, 16, 24, 0.25) 50%, transparent 80%);
-    border-bottom: 1px solid var(--glass-border);
-    overflow: hidden;
-}
-
-.geometric-grid-overlay {
-    position: absolute;
-    inset: 0;
-    background-image: linear-gradient(to right, rgba(244, 241, 234, 0.04) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(244, 241, 234, 0.04) 1px, transparent 1px);
-    background-size: 40px 40px;
-    mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
-}
-
+/* Hero Section */
+.corporate-hero-section { position: relative; padding: 10.5rem 2rem 6.5rem; text-align: center; background: radial-gradient(circle at 50% 35%, rgba(88, 24, 37, 0.5) 0%, rgba(59, 16, 24, 0.25) 50%, transparent 80%); border-bottom: 1px solid var(--glass-border); overflow: hidden; }
+.geometric-grid-overlay { position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(244, 241, 234, 0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(244, 241, 234, 0.04) 1px, transparent 1px); background-size: 40px 40px; mask-image: radial-gradient(circle at center, black 40%, transparent 80%); }
 .corporate-hero-content { max-width: 860px; margin: 0 auto; position: relative; z-index: 2; }
 .corporate-hero-title { font-size: clamp(2.4rem, 4.5vw, 3.8rem); font-weight: 800; margin-bottom: 1.5rem; color: var(--soft-parchment); line-height: 1.15; }
 .corporate-hero-desc { font-size: 1.12rem; color: var(--parchment-muted); margin-bottom: 2.5rem; max-width: 720px; margin-left: auto; margin-right: auto; line-height: 1.65; }
-.hero-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 3.5px; color: var(--bronze-gold); margin-bottom: 1.2rem; text-transform: uppercase; background: rgba(184, 107, 47, 0.18); border: 1px solid rgba(184, 107, 47, 0.4); padding: 6px 16px; border-radius: var(--radius-pill); }
+.hero-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 3.5px; color: var(--bronze-gold); margin-bottom: 1.2rem; text-transform: uppercase; background: rgba(158, 90, 42, 0.18); border: 1px solid rgba(158, 90, 42, 0.4); padding: 6px 16px; border-radius: var(--radius-pill); }
 .hero-cta-group { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; }
 
 /* Partner Trust Ribbon */
@@ -178,7 +199,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.3px; line-h
 .trust-bar-label { font-size: 0.72rem; letter-spacing: 3px; color: var(--parchment-dim); margin-bottom: 1.5rem; font-weight: 700; }
 .trust-ribbon { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
 .trust-badge { display: flex; align-items: center; gap: 0.6rem; font-size: 0.85rem; font-weight: 600; color: var(--parchment-muted); opacity: 0.75; transition: var(--transition); padding: 6px 14px; border-radius: var(--radius-pill); background: rgba(244, 241, 234, 0.03); border: 1px solid rgba(244, 241, 234, 0.06); }
-.trust-badge:hover { opacity: 1; color: var(--soft-parchment); border-color: var(--bronze-amber); background: rgba(184, 107, 47, 0.2); }
+.trust-badge:hover { opacity: 1; color: var(--soft-parchment); border-color: var(--bronze-amber); background: rgba(158, 90, 42, 0.2); }
 
 /* Bento Section */
 .bento-section { padding: 7rem 2rem; max-width: 1280px; margin: 0 auto; }
@@ -197,7 +218,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.3px; line-h
 .attribute-pill { background: rgba(244, 241, 234, 0.06); border: 1px solid var(--glass-border); color: var(--soft-parchment); font-size: 0.72rem; padding: 3px 10px; border-radius: 12px; }
 
 /* Importer Story & Philosophy */
-.philosophy-section { padding: 7rem 2rem; background: radial-gradient(circle at 75% 50%, rgba(139, 69, 19, 0.28) 0%, transparent 60%), var(--charcoal-slate); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
+.philosophy-section { padding: 7rem 2rem; background: radial-gradient(circle at 75% 50%, rgba(158, 90, 42, 0.28) 0%, transparent 60%), var(--charcoal-slate); border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
 .philosophy-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .lead-text { font-size: 1.12rem; font-weight: 500; color: var(--soft-parchment); margin-bottom: 1.2rem; line-height: 1.7; }
 .philosophy-highlights { display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; }
@@ -244,7 +265,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.3px; line-h
 .case-price { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 700; color: var(--soft-parchment); }
 
 /* Trade Services Tabs */
-.services-section { padding: 7rem 2rem; border-bottom: 1px solid var(--glass-border); background: radial-gradient(circle at 80% 50%, rgba(139, 69, 19, 0.22) 0%, transparent 60%); }
+.services-section { padding: 7rem 2rem; border-bottom: 1px solid var(--glass-border); background: radial-gradient(circle at 80% 50%, rgba(158, 90, 42, 0.22) 0%, transparent 60%); }
 .trade-tabs-header { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
 .tab-btn { background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--parchment-muted); padding: 0.85rem 1.6rem; border-radius: var(--radius-pill); font-size: 0.88rem; font-weight: 600; transition: var(--transition); }
 .tab-btn:hover, .tab-btn.active { background: var(--deep-burgundy); color: var(--soft-parchment); border-color: var(--deep-burgundy); box-shadow: 0 4px 20px var(--burgundy-glow); }
