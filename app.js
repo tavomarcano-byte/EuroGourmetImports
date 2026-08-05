@@ -135,7 +135,6 @@ let orderCases = JSON.parse(localStorage.getItem('eurogourmet_b2b_order')) || []
 // DOM Initialization
 document.addEventListener('DOMContentLoaded', () => {
     setupGroundRollingBarrelPhysics();
-    setupRollingBarrelScrollAnimation();
     setupTradeTabs();
     setupReadingProgressBar();
     renderProductGrid();
@@ -164,24 +163,9 @@ function setupGroundRollingBarrelPhysics() {
         const travelX = (progress * totalDistance) - 140;
 
         // Rotational physics matching horizontal travel distance (no slipping)
-        // Circumference of 136px barrel approx 427px
         const rotationDegrees = (travelX / 427) * 360;
 
         barrel.style.transform = `translateX(${travelX}px) rotate(${rotationDegrees}deg)`;
-    }, { passive: true });
-}
-
-// Scroll-Driven Floating Corner Barrel Widget
-function setupRollingBarrelScrollAnimation() {
-    const rollingImg = document.getElementById('rollingBarrelImg');
-    if (!rollingImg) return;
-
-    window.addEventListener('scroll', () => {
-        const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
-        if (totalScroll <= 0) return;
-        const scrollFraction = window.scrollY / totalScroll;
-        const rotationDegrees = scrollFraction * 720;
-        rollingImg.style.transform = `rotate(${rotationDegrees}deg)`;
     }, { passive: true });
 }
 
