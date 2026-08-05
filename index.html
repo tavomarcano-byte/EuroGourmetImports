@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Euro Gourmet Imports PR - Terroir Journal & Academic Viticulture Studies. Organic Spanish viticulture, vegan fining chemistry, and Caribbean sommelier pairing guides.">
+    <meta name="description" content="Euro Gourmet Imports PR - Enterprise Corporate & Logistics Hub. The premier Caribbean supply chain for eco-certified Spanish estate wines.">
     <meta name="theme-color" content="#1A1D20">
-    <title>Euro Gourmet Imports PR | Terroir Journal & Viticulture Studies</title>
+    <title>Euro Gourmet Imports PR | Enterprise Supply Chain & Spanish Estate Wines</title>
 
-    <!-- Google Fonts: Cinzel, Playfair Display, Merriweather, Plus Jakarta Sans -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <!-- Sticky Header with Reading Progress Bar Anchor -->
+    <!-- Dynamic Sticky Header -->
     <header class="navbar sticky-header" id="navbar">
         <div class="reading-progress-bar" id="readingProgressBar"></div>
         <div class="nav-container">
@@ -30,19 +30,22 @@
             </a>
 
             <nav class="nav-menu" id="navMenu">
-                <a href="#storefront" class="nav-link">B2B Storefront</a>
-                <a href="#journal" class="nav-link">Terroir Journal</a>
-                <a href="#pricing" class="nav-link">Allocation Tiers</a>
-                <a href="#faq" class="nav-link">B2B FAQ</a>
+                <a href="#hero" class="nav-link">Overview</a>
+                <a href="#services" class="nav-link">Trade Services</a>
+                <a href="#metrics" class="nav-link">Enterprise Metrics</a>
+                <a href="#leadership" class="nav-link">Leadership</a>
+                <a href="#storefront" class="nav-link">B2B Catalog</a>
+                <a href="#journal" class="nav-link">Journal</a>
             </nav>
 
             <div class="nav-actions">
+                <button class="lang-toggle-btn" id="langToggleBtn" title="Switch Language">EN | ES</button>
                 <button class="drawer-trigger-btn" id="drawerTrigger" aria-label="Open B2B Wholesale Order Drawer">
                     <span class="bag-icon">📦</span>
-                    <span class="bag-text">Order Case Bag</span>
+                    <span class="bag-text">Order Bag</span>
                     <span class="bag-count" id="drawerBadge">0</span>
                 </button>
-                <a href="#contact" class="btn btn-burgundy btn-sm">Become a Stockist</a>
+                <a href="#contact" class="btn btn-burgundy btn-sm">Request B2B Trade Account</a>
                 <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation Menu">
                     <span></span>
                     <span></span>
@@ -53,190 +56,222 @@
     </header>
 
     <main>
-        <!-- Split Hero Section -->
-        <section class="split-hero-section" id="hero">
-            <div class="hero-bg-overlay"></div>
+        <!-- Centered Value Proposition Hero Section -->
+        <section class="corporate-hero-section" id="hero">
+            <div class="geometric-grid-overlay"></div>
             <div class="section-container">
-                <div class="split-hero-grid">
-                    <div class="hero-left">
-                        <span class="hero-eyebrow">DIRECT SPANISH ESTATE ALLOCATIONS</span>
-                        <h1 class="hero-title">
-                            Masterfully Crafted in Spain, Consciously Served in the Caribbean
-                        </h1>
-                        <p class="hero-description">
-                            Zero-synthetic farming, 100% plant-based fining, and climate-resilient organic vintages shipped direct from independent Spanish vineyards to fine restaurants, luxury resorts, and retailers across Puerto Rico & the US.
-                        </p>
-
-                        <div class="hero-cta-group">
-                            <a href="#storefront" class="btn btn-burgundy">Order Wholesale Cases</a>
-                            <a href="#journal" class="btn btn-outline">Read Terroir Journal</a>
-                        </div>
-                    </div>
-
-                    <div class="hero-right">
-                        <div class="product-showcase-container">
-                            <img src="images/caribbean_wine_showcase.jpg" alt="Euro Gourmet Imports PR Spanish Organic Grand Reserva Wine Showcase" class="showcase-img" loading="eager">
-                            <div class="showcase-badge">
-                                <span class="badge-icon">🌿</span>
-                                <div>
-                                    <strong>100% Organic & Vegan Certified</strong>
-                                    <p>Zero Synthetic Chemicals • Estate Bottled</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="corporate-hero-content text-center">
+                    <span class="hero-eyebrow">ENTERPRISE CARIBBEAN LOGISTICS</span>
+                    <h1 class="corporate-hero-title">
+                        The Premier Caribbean Supply Chain for Eco-Certified Spanish Wines
+                    </h1>
+                    <p class="corporate-hero-desc">
+                        Sourcing directly from Spain's top organic and biodynamic estates. Shipped in 100% temperature-controlled reefer containers to San Juan, PR for seamless 24-48 hour delivery to luxury resorts, fine dining groups, and distributors.
+                    </p>
+                    <div class="hero-cta-group text-center">
+                        <a href="#contact" class="btn btn-burgundy">Request Wholesale Catalog</a>
+                        <button class="btn btn-outline" id="watchTourBtn">▶ Watch Estate Virtual Tour</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Partner Trust Bar -->
+        <!-- Partner Trust Ribbon -->
         <section class="trust-bar-section" id="trust">
             <div class="section-container">
-                <p class="trust-bar-label text-center">TRUSTED BY LEADING HOSPITALITY & SOMMELIER PARTNERS</p>
+                <p class="trust-bar-label text-center">TRUSTED LOGISTICS & DISTRIBUTOR NETWORK</p>
                 <div class="trust-ribbon">
+                    <div class="trust-badge"><span class="badge-symbol">🚢</span><span>Reefer Logistics Cold-Chain</span></div>
+                    <div class="trust-badge"><span class="badge-symbol">🏨</span><span>San Juan Resort Alliance</span></div>
                     <div class="trust-badge"><span class="badge-symbol">⚜️</span><span>High-End Hospitality Groups</span></div>
-                    <div class="trust-badge"><span class="badge-symbol">⭐</span><span>Michelin-Star Partners</span></div>
-                    <div class="trust-badge"><span class="badge-symbol">🏨</span><span>San Juan Luxury Hotels</span></div>
                     <div class="trust-badge"><span class="badge-symbol">🍷</span><span>Caribbean Sommelier Guild</span></div>
-                    <div class="trust-badge"><span class="badge-symbol">🌱</span><span>Organic Wine Alliance</span></div>
+                    <div class="trust-badge"><span class="badge-symbol">🌿</span><span>Spanish Organic Viticulture D.O.</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- Phase 4: Editorial & Academic Journal Hub Section -->
-        <section class="journal-section" id="journal">
+        <!-- Interactive Trade Services Tabs -->
+        <section class="services-section" id="services">
             <div class="section-container">
                 <div class="section-header text-center">
-                    <span class="section-badge">ACADEMIC & SOMMELIER INSIGHTS</span>
-                    <h2 class="section-title">The Spanish Terroir Journal</h2>
-                    <p class="section-subtitle">Research papers, viticulture studies, and sommelier pairing guides curated by master winemakers and beverage directors.</p>
+                    <span class="section-badge">COMMERCIAL CAPABILITIES</span>
+                    <h2 class="section-title">Interactive Trade Services</h2>
+                    <p class="section-subtitle">Tailored B2B import and logistical solutions built specifically for Caribbean and US hospitality operators.</p>
                 </div>
 
-                <!-- Featured Post Hero Section -->
-                <div class="featured-post-hero" onclick="openArticleReader('featured')">
-                    <div class="featured-post-grid">
-                        <div class="featured-img-col">
-                            <img src="images/spanish_vineyard_hero.jpg" alt="High Altitude Viticulture in Spain" loading="lazy">
-                        </div>
-                        <div class="featured-text-col">
-                            <div class="article-meta-header">
-                                <span class="journal-category-pill">High-Altitude Viticulture</span>
-                                <span class="read-time-tag">8 min read</span>
+                <!-- Tabs Navigation Header -->
+                <div class="trade-tabs-header">
+                    <button class="tab-btn active" data-tab="tab-direct">01. Direct Estate Import</button>
+                    <button class="tab-btn" data-tab="tab-coldchain">02. Cold-Chain Logistics</button>
+                    <button class="tab-btn" data-tab="tab-training">03. Sommelier & Staff Training</button>
+                    <button class="tab-btn" data-tab="tab-custom">04. Custom B2B Allocations</button>
+                </div>
+
+                <!-- Tab Dynamic Content Blocks -->
+                <div class="trade-tabs-body">
+                    <!-- Tab 1: Direct Estate Import -->
+                    <div class="tab-pane active" id="tab-direct">
+                        <div class="tab-grid">
+                            <div class="tab-text">
+                                <span class="tab-num">CAPABILITY 01</span>
+                                <h3>Direct Estate Import</h3>
+                                <p>We maintain exclusive direct contracts with Spain’s premier organic, biodynamic, and vegan-certified winemaking families—eliminating middleman markups and guaranteeing authentic provenance.</p>
+                                <ul class="feature-bullets">
+                                    <li><span>✓</span> Direct Cellar Door Contracting in Spain</li>
+                                    <li><span>✓</span> 100% Organic & Vegan Certified Estates</li>
+                                    <li><span>✓</span> Rare Vintage Allocation Rights</li>
+                                </ul>
                             </div>
-                            <h2 class="featured-title">High-Altitude Viticulture and Climate Resilience in Spanish Monastrell</h2>
-                            <p class="featured-excerpt">
-                                How cultivating bush-vine Monastrell at 850 meters elevation preserves natural tartaric acidity, structural tannins, and fresh aromatic balance against rising Mediterranean temperatures.
-                            </p>
-                            <div class="author-row">
-                                <div class="author-avatar">AR</div>
-                                <div class="author-info">
-                                    <strong>Dr. Alejandro Ruiz, Master Sommelier</strong>
-                                    <span>Published Aug 2026 • Terroir Research Vol. 4</span>
-                                </div>
-                                <button class="btn btn-burgundy btn-sm" style="margin-left: auto;">Read Full Study &rarr;</button>
+                            <div class="tab-visual">
+                                <img src="images/dehesa_luna_estate.jpg" alt="Direct Spanish Estate Import" loading="lazy">
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Scrollable Topic Pills -->
-                <div class="topic-pills-wrapper">
-                    <div class="topic-pills-track">
-                        <button class="topic-pill active" data-topic="all">All Articles</button>
-                        <button class="topic-pill" data-topic="organic">Organic Viticulture</button>
-                        <button class="topic-pill" data-topic="vegan">Vegan Fining</button>
-                        <button class="topic-pill" data-topic="biodiversity">Biodiversity Reserves</button>
-                        <button class="topic-pill" data-topic="tech">Sommelier Tech</button>
-                        <button class="topic-pill" data-topic="pairing">Caribbean Pairing</button>
+                    <!-- Tab 2: Cold-Chain Logistics -->
+                    <div class="tab-pane" id="tab-coldchain">
+                        <div class="tab-grid">
+                            <div class="tab-text">
+                                <span class="tab-num">CAPABILITY 02</span>
+                                <h3>Cold-Chain Logistics</h3>
+                                <p>Our strict temperature-controlled reefer containers maintain 12°C–14°C (53°F–57°F) constantly from Spanish cellars through San Juan port arrival and island-wide Caribbean warehouse distribution.</p>
+                                <ul class="feature-bullets">
+                                    <li><span>✓</span> 100% Reefer Container Transit</li>
+                                    <li><span>✓</span> San Juan Climate-Controlled Warehousing</li>
+                                    <li><span>✓</span> 24–48 Hour Puerto Rico Metro Delivery</li>
+                                </ul>
+                            </div>
+                            <div class="tab-visual">
+                                <img src="images/spanish_vineyard_hero.jpg" alt="Cold Chain Logistics" loading="lazy">
+                            </div>
+                        </div>
                     </div>
-                </div>
 
-                <!-- 3-Column Article Feed -->
-                <div class="article-grid" id="articleGrid">
-                    <!-- Card 1 -->
-                    <article class="article-card" onclick="openArticleReader('card1')">
-                        <div class="article-img-box">
-                            <img src="images/bordeaux.jpg" alt="Plant-Based Fining Chemistry" loading="lazy">
-                            <span class="journal-category-pill">Vegan Fining</span>
-                        </div>
-                        <div class="article-body">
-                            <span class="read-time-tag">6 min read</span>
-                            <h3 class="article-title">The Chemistry of Plant-Based Fining: Organic Pea Protein vs Isinglass</h3>
-                            <p class="article-excerpt">
-                                An analytical comparison demonstrating how vegetable proteins clarify tannins without removing subtle polyphenol complexity or adding animal allergens.
-                            </p>
-                            <div class="author-row">
-                                <div class="author-avatar">EV</div>
-                                <div class="author-info">
-                                    <strong>Chef Elena Vance</strong>
-                                    <span>July 28, 2026</span>
-                                </div>
+                    <!-- Tab 3: Sommelier & Staff Training -->
+                    <div class="tab-pane" id="tab-training">
+                        <div class="tab-grid">
+                            <div class="tab-text">
+                                <span class="tab-num">CAPABILITY 03</span>
+                                <h3>Sommelier & Staff Training</h3>
+                                <p>We don't just supply wine—we elevate your service staff. Our Master Sommeliers conduct on-site staff tastings, menu pairing design, and printed waterproof tech sheet integration for restaurant teams.</p>
+                                <ul class="feature-bullets">
+                                    <li><span>✓</span> On-Site Restaurant Staff Tastings</li>
+                                    <li><span>✓</span> Tailored Menu & Pairing Design</li>
+                                    <li><span>✓</span> Sommelier Tech Sheet Integration</li>
+                                </ul>
+                            </div>
+                            <div class="tab-visual">
+                                <img src="images/caribbean_wine_showcase.jpg" alt="Sommelier Staff Training" loading="lazy">
                             </div>
                         </div>
-                    </article>
+                    </div>
 
-                    <!-- Card 2 -->
-                    <article class="article-card" onclick="openArticleReader('card2')">
-                        <div class="article-img-box">
-                            <img src="images/dehesa_luna_estate.jpg" alt="Biodiversity Reserves in La Mancha" loading="lazy">
-                            <span class="journal-category-pill">Biodiversity Reserves</span>
-                        </div>
-                        <div class="article-body">
-                            <span class="read-time-tag">4 min read</span>
-                            <h3 class="article-title">Preserving Oak Forest Wildlife Corridors in La Mancha Estates</h3>
-                            <p class="article-excerpt">
-                                How Dehesa de Luna integrates 3,000 hectares of natural forest to foster beneficial insect populations and naturally suppress vineyard pests.
-                            </p>
-                            <div class="author-row">
-                                <div class="author-avatar">MC</div>
-                                <div class="author-info">
-                                    <strong>Marcos De La Cruz</strong>
-                                    <span>July 15, 2026</span>
-                                </div>
+                    <!-- Tab 4: Custom B2B Allocations -->
+                    <div class="tab-pane" id="tab-custom">
+                        <div class="tab-grid">
+                            <div class="tab-text">
+                                <span class="tab-num">CAPABILITY 04</span>
+                                <h3>Custom B2B Allocations</h3>
+                                <p>For hotel chains, resort groups, and cruise lines, we offer dedicated annual batch locks, custom private label co-bottling, and guaranteed standby safety inventory.</p>
+                                <ul class="feature-bullets">
+                                    <li><span>✓</span> Guaranteed Annual Vintage Quantity Locks</li>
+                                    <li><span>✓</span> Private Label Bottling & Custom Branding</li>
+                                    <li><span>✓</span> Automated Standby Replenishment</li>
+                                </ul>
+                            </div>
+                            <div class="tab-visual">
+                                <img src="images/bordeaux.jpg" alt="Custom B2B Allocations" loading="lazy">
                             </div>
                         </div>
-                    </article>
-
-                    <!-- Card 3 -->
-                    <article class="article-card" onclick="openArticleReader('card3')">
-                        <div class="article-img-box">
-                            <img src="images/caribbean_wine_showcase.jpg" alt="Pairing Spanish Tempranillo with Caribbean Gastronomy" loading="lazy">
-                            <span class="journal-category-pill">Caribbean Pairing</span>
-                        </div>
-                        <div class="article-body">
-                            <span class="read-time-tag">7 min read</span>
-                            <h3 class="article-title">Pairing Spanish Tempranillo with Caribbean Spice & Smoked Meats</h3>
-                            <p class="article-excerpt">
-                                Sommelier guide to balancing rich red fruit tannins with roasted lechón, sofrito reductions, and island seafood preparations.
-                            </p>
-                            <div class="author-row">
-                                <div class="author-avatar">JP</div>
-                                <div class="author-info">
-                                    <strong>Jean-Paul Mercier, MS</strong>
-                                    <span>June 30, 2026</span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- In-Feed Newsletter Callout -->
-                <div class="newsletter-callout-banner">
-                    <div class="newsletter-content">
-                        <span class="section-badge">SOMMELIER INTELLIGENCE</span>
-                        <h3>Receive Monthly Allocation & Terroir Analysis Reports</h3>
-                        <p>Join 450+ beverage directors, sommeliers, and buyers receiving our monthly vintage reports, lab spec sheets, and advance allocation alerts.</p>
-                        <form class="newsletter-inline-form" id="newsletterForm">
-                            <input type="email" id="newsletterEmail" required placeholder="Enter your business email..." aria-label="Business Email for Journal">
-                            <button type="submit" class="btn btn-burgundy">Subscribe to Journal</button>
-                        </form>
-                        <div id="newsletterMsg" class="newsletter-msg"></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- B2B Wholesale Storefront Section -->
+        <!-- Dark Metric Counters Banner -->
+        <section class="metrics-section" id="metrics">
+            <div class="section-container">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-number">100%</span>
+                        <span class="metric-label">Eco-Certified Estates</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number">0</span>
+                        <span class="metric-label">Synthetic Chemicals</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number">800m+</span>
+                        <span class="metric-label">Average Elevation</span>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number">24-48 hr</span>
+                        <span class="metric-label">Island Delivery</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Executive Leadership Slider / Carousel -->
+        <section class="leadership-section" id="leadership">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-badge">GOVERNANCE & EXPERTISE</span>
+                    <h2 class="section-title">Executive Leadership</h2>
+                    <p class="section-subtitle">Meet the industry veterans, master sommeliers, and logistics directors driving Euro Gourmet Imports PR.</p>
+                </div>
+
+                <div class="leadership-slider-wrapper">
+                    <div class="leadership-slider-track" id="leadershipTrack">
+                        <!-- Leader 1 -->
+                        <div class="leader-card">
+                            <div class="leader-avatar-box">
+                                <div class="leader-avatar">GM</div>
+                            </div>
+                            <h3 class="leader-name">Gustavo Marcano</h3>
+                            <span class="leader-title">Founder & Managing Director</span>
+                            <p class="leader-bio">Leading Spanish terroir sourcing and strategic Caribbean commercial expansion for luxury hospitality.</p>
+                            <a href="#" class="linkedin-link" title="LinkedIn Profile">in</a>
+                        </div>
+
+                        <!-- Leader 2 -->
+                        <div class="leader-card">
+                            <div class="leader-avatar-box">
+                                <div class="leader-avatar">AR</div>
+                            </div>
+                            <h3 class="leader-name">Dr. Alejandro Ruiz, MS</h3>
+                            <span class="leader-title">Chief Sommelier & Terroir Director</span>
+                            <p class="leader-bio">Master Sommelier overseeing estate selection, vegan fining compliance, and restaurant wine program curation.</p>
+                            <a href="#" class="linkedin-link" title="LinkedIn Profile">in</a>
+                        </div>
+
+                        <!-- Leader 3 -->
+                        <div class="leader-card">
+                            <div class="leader-avatar-box">
+                                <div class="leader-avatar">SC</div>
+                            </div>
+                            <h3 class="leader-name">Sofia Castellanos</h3>
+                            <span class="leader-title">VP of Cold-Chain & Caribbean Logistics</span>
+                            <p class="leader-bio">Managing 100% temperature-controlled ocean reefer transit from Spain to San Juan warehouse facilities.</p>
+                            <a href="#" class="linkedin-link" title="LinkedIn Profile">in</a>
+                        </div>
+
+                        <!-- Leader 4 -->
+                        <div class="leader-card">
+                            <div class="leader-avatar-box">
+                                <div class="leader-avatar">CB</div>
+                            </div>
+                            <h3 class="leader-name">Carlos Benítez</h3>
+                            <span class="leader-title">Director of Restaurant Accounts</span>
+                            <p class="leader-bio">Directing staff wine education, sommelier tech sheets, and fast 24-48hr island order replenishment.</p>
+                            <a href="#" class="linkedin-link" title="LinkedIn Profile">in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 3 Storefront Section -->
         <section class="storefront-section" id="storefront">
             <div class="section-container">
                 <div class="section-header text-center">
@@ -246,7 +281,6 @@
                 </div>
 
                 <div class="storefront-layout">
-                    <!-- Sidebar Filter Accordion -->
                     <aside class="filter-sidebar">
                         <div class="sidebar-header">
                             <h3>Filter Catalog</h3>
@@ -261,17 +295,6 @@
                                 <label class="filter-checkbox-label"><input type="radio" name="typeFilter" value="white"> White Wines (Blanco)</label>
                                 <label class="filter-checkbox-label"><input type="radio" name="typeFilter" value="rose"> Rosé (Rosado)</label>
                                 <label class="filter-checkbox-label"><input type="radio" name="typeFilter" value="vermut"> Spanish Vermut</label>
-                            </div>
-                        </div>
-
-                        <div class="filter-accordion-group">
-                            <button class="sidebar-accordion-trigger active"><span>Region / D.O.</span><span class="accordion-arrow">−</span></button>
-                            <div class="sidebar-accordion-content open">
-                                <label class="filter-checkbox-label"><input type="radio" name="regionFilter" value="all" checked> All Regions</label>
-                                <label class="filter-checkbox-label"><input type="radio" name="regionFilter" value="ribera"> Ribera del Duero</label>
-                                <label class="filter-checkbox-label"><input type="radio" name="regionFilter" value="mancha"> La Mancha / Montiel</label>
-                                <label class="filter-checkbox-label"><input type="radio" name="regionFilter" value="yecla"> Yecla / Jumilla</label>
-                                <label class="filter-checkbox-label"><input type="radio" name="regionFilter" value="valdeorras"> Valdeorras D.O.</label>
                             </div>
                         </div>
 
@@ -299,180 +322,37 @@
             </div>
         </section>
 
-        <!-- Zig-Zag Feature Walkthrough -->
-        <section class="zigzag-section" id="features">
+        <!-- Phase 4 Journal Section -->
+        <section class="journal-section" id="journal">
             <div class="section-container">
                 <div class="section-header text-center">
-                    <span class="section-badge">DISTINCTION & CRAFTSMANSHIP</span>
-                    <h2 class="section-title">The Euro Gourmet Standard</h2>
-                    <p class="section-subtitle">Why premier sommeliers and beverage directors choose our curated Spanish portfolio.</p>
+                    <span class="section-badge">ACADEMIC & SOMMELIER INSIGHTS</span>
+                    <h2 class="section-title">The Spanish Terroir Journal</h2>
+                    <p class="section-subtitle">Research papers, viticulture studies, and sommelier pairing guides.</p>
                 </div>
 
-                <div class="zigzag-container">
-                    <div class="zigzag-row">
-                        <div class="zigzag-visual">
-                            <div class="visual-card">
-                                <img src="images/dehesa_luna_estate.jpg" alt="Soil-First Organic Farming in Spain" loading="lazy">
-                                <div class="visual-tag">01 • TERROIR</div>
+                <div class="featured-post-hero" onclick="openArticleReader('featured')">
+                    <div class="featured-post-grid">
+                        <div class="featured-img-col">
+                            <img src="images/spanish_vineyard_hero.jpg" alt="High Altitude Viticulture in Spain" loading="lazy">
+                        </div>
+                        <div class="featured-text-col">
+                            <div class="article-meta-header">
+                                <span class="journal-category-pill">High-Altitude Viticulture</span>
+                                <span class="read-time-tag">8 min read</span>
                             </div>
-                        </div>
-                        <div class="zigzag-text">
-                            <span class="row-num">ROW 01</span>
-                            <h3 class="row-title">Soil-First Farming</h3>
-                            <p class="row-desc">
-                                All partner estates operate strictly under certified organic and biodynamic viticulture. By eliminating synthetic pesticides and preserving native cover crops, our vines develop deep root structures that extract rich mineral complexity directly from Spanish soils.
+                            <h2 class="featured-title">High-Altitude Viticulture and Climate Resilience in Spanish Monastrell</h2>
+                            <p class="featured-excerpt">
+                                How cultivating bush-vine Monastrell at 850 meters elevation preserves natural tartaric acidity and aromatic balance.
                             </p>
-                            <ul class="feature-bullets">
-                                <li><span>✓</span> 100% Certified Organic & Biodynamic Estates</li>
-                                <li><span>✓</span> Protected Wildlife Corridors & Native Biodiversity</li>
-                                <li><span>✓</span> Zero Synthetic Fertilizers or Herbicides</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="zigzag-row reverse">
-                        <div class="zigzag-visual">
-                            <div class="visual-card">
-                                <img src="images/bordeaux.jpg" alt="Plant and Mineral Cellar Fining" loading="lazy">
-                                <div class="visual-tag">02 • PURITY</div>
+                            <div class="author-row">
+                                <div class="author-avatar">AR</div>
+                                <div class="author-info">
+                                    <strong>Dr. Alejandro Ruiz, Master Sommelier</strong>
+                                    <span>Published Aug 2026</span>
+                                </div>
+                                <button class="btn btn-burgundy btn-sm" style="margin-left: auto;">Read Full Study &rarr;</button>
                             </div>
-                        </div>
-                        <div class="zigzag-text">
-                            <span class="row-num">ROW 02</span>
-                            <h3 class="row-title">Plant & Mineral Fining</h3>
-                            <p class="row-desc">
-                                We guarantee 100% vegan purity in every bottle. Traditional winemaking often uses animal gelatin, egg whites, or fish bladder (isinglass) for filtration. Our estates exclusively employ organic pea protein and natural bentonite clay, resulting in clean, unadulterated flavors.
-                            </p>
-                            <ul class="feature-bullets">
-                                <li><span>✓</span> Certified 100% Vegan Cellar Clarification</li>
-                                <li><span>✓</span> Zero Animal Gelatin, Casein, or Egg Byproducts</li>
-                                <li><span>✓</span> Naturally Low Sulfite Content for Clean Drinkability</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="zigzag-row">
-                        <div class="zigzag-visual">
-                            <div class="visual-card">
-                                <img src="images/spanish_vineyard_hero.jpg" alt="Climate-Resilient High Altitude Grapes" loading="lazy">
-                                <div class="visual-tag">03 • CARIBBEAN GASTRONOMY</div>
-                            </div>
-                        </div>
-                        <div class="zigzag-text">
-                            <span class="row-num">ROW 03</span>
-                            <h3 class="row-title">Climate-Resilient Profile</h3>
-                            <p class="row-desc">
-                                High-altitude vineyards (up to 850 meters above sea level) benefit from cool mountain night temperatures. This natural diurnal shift locks in vibrant natural acidity and structured freshness, specifically crafted to complement warm Caribbean climates and rich island gastronomy.
-                            </p>
-                            <ul class="feature-bullets">
-                                <li><span>✓</span> High-Altitude Microclimates (600m–850m)</li>
-                                <li><span>✓</span> Vibrant Natural Acidity & Balanced Alcohol</li>
-                                <li><span>✓</span> Tailored to Pair with Fresh Caribbean Seafood & Meats</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Wholesale Pricing Matrix -->
-        <section class="pricing-section" id="pricing">
-            <div class="section-container">
-                <div class="section-header text-center">
-                    <span class="section-badge">B2B COMMERCIAL ALLOCATIONS</span>
-                    <h2 class="section-title">Wholesale Allocation Tiers</h2>
-                    <p class="section-subtitle">Transparent pricing structures designed for independent wine bars, fine dining groups, and hotel resorts.</p>
-                </div>
-
-                <div class="pricing-grid">
-                    <div class="tier-card">
-                        <div class="tier-header">
-                            <span class="tier-level">TIER 01</span>
-                            <h3 class="tier-name">Starter Case</h3>
-                            <p class="tier-target">Ideal for Boutique Wine Bars & Independent Bistros</p>
-                        </div>
-                        <div class="tier-price"><span class="price-val">Wholesale</span><span class="price-unit">Direct Estate Rate</span></div>
-                        <ul class="tier-features">
-                            <li><span>✓</span> 5–15 Case Min. Order</li>
-                            <li><span>✓</span> Mix & Match Any Partner Estate</li>
-                            <li><span>✓</span> Temperature-Controlled Storage</li>
-                            <li><span>✓</span> Digital Sommelier Tech Sheets</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-outline btn-block">Inquire Starter Tier</a>
-                    </div>
-
-                    <div class="tier-card tier-card-highlighted">
-                        <div class="highlight-ribbon">BEST VALUE FOR RESTAURANTS</div>
-                        <div class="tier-header">
-                            <span class="tier-level">TIER 02</span>
-                            <h3 class="tier-name">Sommelier Select</h3>
-                            <p class="tier-target">Curated Portfolio for Fine Dining & Hotel Groups</p>
-                        </div>
-                        <div class="tier-price"><span class="price-val">Priority</span><span class="price-unit">Volume Wholesale Discount</span></div>
-                        <ul class="tier-features">
-                            <li><span>✓</span> 15–50 Case Monthly Allocation</li>
-                            <li><span>✓</span> Priority Vintage Allocation Rights</li>
-                            <li><span>✓</span> Staff Tasting & Sommelier Training</li>
-                            <li><span>✓</span> Dedicated B2B Account Director</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-burgundy btn-block">Become a Stockist</a>
-                    </div>
-
-                    <div class="tier-card">
-                        <div class="tier-header">
-                            <span class="tier-level">TIER 03</span>
-                            <h3 class="tier-name">Estate Pallet Import</h3>
-                            <p class="tier-target">For Resort Chains, Cruise Lines & Distributors</p>
-                        </div>
-                        <div class="tier-price"><span class="price-val">Direct Container</span><span class="price-unit">FOB / CIF Freight Terms</span></div>
-                        <ul class="tier-features">
-                            <li><span>✓</span> Full Pallet (60+ Cases) Orders</li>
-                            <li><span>✓</span> Direct Spanish Cellar Freight</li>
-                            <li><span>✓</span> Custom Private Labeling Available</li>
-                        </ul>
-                        <a href="#contact" class="btn btn-outline btn-block">Inquire Pallet Import</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Expandable FAQ Section -->
-        <section class="faq-section" id="faq">
-            <div class="section-container">
-                <div class="section-header text-center">
-                    <span class="section-badge">COMMERCIAL CLARITY</span>
-                    <h2 class="section-title">Frequently Asked Questions</h2>
-                    <p class="section-subtitle">Everything you need to know about ordering, shipping logistics, and vegan cellar certifications.</p>
-                </div>
-
-                <div class="faq-accordion" id="faqAccordion">
-                    <div class="faq-item">
-                        <button class="faq-trigger" aria-expanded="false">
-                            <span>1. How are temperature-sensitive wines shipped to Puerto Rico & the Caribbean?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-content">
-                            <p>All Euro Gourmet Imports PR shipments utilize 100% reefer containers set strictly to 12°C–14°C (53°F–57°F) from our cellar doors in Spain to our San Juan, PR climate-controlled warehouse.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-trigger" aria-expanded="false">
-                            <span>2. What does 'Plant & Mineral Fining' mean for vegan cellar certification?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-content">
-                            <p>Our partner estates exclusively use organic pea proteins and natural bentonite clay minerals for fining, eliminating animal gelatin, egg whites, or casein.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <button class="faq-trigger" aria-expanded="false">
-                            <span>3. Can I request official Sommelier PDF Tech Sheets and lab analysis?</span>
-                            <span class="faq-icon">+</span>
-                        </button>
-                        <div class="faq-content">
-                            <p>Yes! We provide comprehensive digital and printed Sommelier Tech Sheets for every vintage in our portfolio.</p>
                         </div>
                     </div>
                 </div>
@@ -527,7 +407,7 @@
                             <textarea id="b2bMessage" name="b2bMessage" rows="3" placeholder="Tell us about your wine program, requested allocation tier..."></textarea>
                         </div>
 
-                        <button type="submit" class="btn btn-burgundy btn-block">Submit B2B Stockist Order Inquiry</button>
+                        <button type="submit" class="btn btn-burgundy btn-block">Submit B2B Trade Account Inquiry</button>
                     </form>
                     <div id="b2bResponse" class="form-response"></div>
                 </div>
@@ -535,29 +415,34 @@
         </section>
     </main>
 
-    <!-- Phase 4: Sample Article Reader View Modal -->
+    <!-- Virtual Tour Video Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-overlay" id="videoOverlay"></div>
+        <div class="modal-card modal-card-lg text-center">
+            <button class="modal-close" id="videoCloseBtn">&times;</button>
+            <span class="section-badge">VIRTUAL CELLAR TOUR</span>
+            <h2 style="font-size: 1.6rem; margin-bottom: 1rem;">Spanish Estate Terroir Experience</h2>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radius-md); background: #000;">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0" title="Estate Virtual Tour" style="position: absolute; top:0; left:0; width:100%; height:100%; border:0;" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Reader View Modal -->
     <div class="modal" id="articleReaderModal">
         <div class="modal-overlay" id="articleModalOverlay"></div>
         <div class="modal-card modal-card-xl">
             <button class="modal-close" id="articleModalCloseBtn">&times;</button>
-            
             <div class="reader-layout">
-                <!-- Left Sidebar: Sticky Table of Contents -->
                 <aside class="reader-toc-sidebar">
                     <h4>TABLE OF CONTENTS</h4>
                     <ul>
                         <li><a href="#art-intro" class="toc-link active">1. Introduction</a></li>
                         <li><a href="#art-terroir" class="toc-link">2. High-Altitude Terroir</a></li>
-                        <li><a href="#art-chemistry" class="toc-link">3. Acid & Tannin Balance</a></li>
-                        <li><a href="#art-gastronomy" class="toc-link">4. Caribbean Gastronomy</a></li>
-                        <li><a href="#art-conclusion" class="toc-link">5. Conclusion & PDF Report</a></li>
+                        <li><a href="#art-conclusion" class="toc-link">3. Conclusion</a></li>
                     </ul>
                 </aside>
-
-                <!-- Article Content Reader -->
-                <article class="reader-article-content" id="articleReaderContent">
-                    <!-- Injected dynamically via JavaScript -->
-                </article>
+                <article class="reader-article-content" id="articleReaderContent"></article>
             </div>
         </div>
     </div>
@@ -601,48 +486,54 @@
         </div>
     </div>
 
-    <!-- Minimal B2B Footer -->
-    <footer class="b2b-footer">
+    <!-- Mega Footer (Structured 4 Columns) -->
+    <footer class="mega-footer">
         <div class="footer-container">
-            <div class="footer-brand">
-                <a href="#" class="nav-logo">
-                    <span class="logo-crest">🍷</span>
-                    <div class="logo-text">
-                        <span class="brand-title">EURO GOURMET</span>
-                        <span class="brand-sub">IMPORTS PR</span>
-                    </div>
-                </a>
-                <p class="footer-tagline">Direct Spanish Terroir to Puerto Rico, the Caribbean & US.</p>
+            <!-- Col 1: Estates & Regions -->
+            <div class="footer-col">
+                <h4>Estates & Regions</h4>
+                <ul>
+                    <li><a href="#storefront" class="footer-link">Dehesa de Luna (La Mancha)</a></li>
+                    <li><a href="#storefront" class="footer-link">Bodegas Izquierdo (Ribera)</a></li>
+                    <li><a href="#storefront" class="footer-link">Conde de Montornés (Yecla)</a></li>
+                    <li><a href="#storefront" class="footer-link">Bodegas Gaia (Valdeorras)</a></li>
+                </ul>
             </div>
 
-            <div class="footer-links-group">
-                <div class="footer-col">
-                    <h4>B2B Quick Links</h4>
-                    <ul>
-                        <li><a href="#storefront" class="footer-link">Wholesale Storefront</a></li>
-                        <li><a href="#journal" class="footer-link">Terroir Journal</a></li>
-                        <li><a href="#contact" class="footer-link">Wholesale Inquiries</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Featured Estates</h4>
-                    <ul>
-                        <li><a href="#storefront" class="footer-link">Dehesa de Luna</a></li>
-                        <li><a href="#storefront" class="footer-link">Bodegas Izquierdo</a></li>
-                        <li><a href="#storefront" class="footer-link">Conde de Montornés</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Headquarters</h4>
-                    <p class="footer-info">📍 San Juan, Puerto Rico • Madrid, Spain</p>
-                    <p class="footer-info">✉️ orders@eurogourmetpr.com</p>
-                    <p class="footer-info">📞 +1 (787) 555-TERROIR</p>
-                </div>
+            <!-- Col 2: B2B Solutions -->
+            <div class="footer-col">
+                <h4>B2B Solutions</h4>
+                <ul>
+                    <li><a href="#contact" class="footer-link">Request Wholesale Account</a></li>
+                    <li><a href="#services" class="footer-link">Cold-Chain Reefer Freight</a></li>
+                    <li><a href="#services" class="footer-link">Pallet Import Logistics</a></li>
+                    <li><a href="#services" class="footer-link">Private Label Co-Bottling</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Sommelier Resources -->
+            <div class="footer-col">
+                <h4>Sommelier Resources</h4>
+                <ul>
+                    <li><a href="#journal" class="footer-link">Terroir Journal Index</a></li>
+                    <li><a href="#faq" class="footer-link">Sommelier Tech Sheets</a></li>
+                    <li><a href="#services" class="footer-link">Staff Wine Education</a></li>
+                    <li><a href="#faq" class="footer-link">Vegan Fining Analysis</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Compliance & Legal -->
+            <div class="footer-col">
+                <h4>Compliance & Legal</h4>
+                <p class="footer-info">📍 San Juan, Puerto Rico • Madrid, Spain</p>
+                <p class="footer-info">📜 PR Treasury & US TTB Import Compliant</p>
+                <p class="footer-info">✉️ enterprise@eurogourmetpr.com</p>
+                <p class="footer-info">📞 +1 (787) 555-TERROIR</p>
             </div>
         </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 Euro Gourmet Imports PR. All Rights Reserved. Phase 4 Terroir Journal Build.</p>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 Euro Gourmet Imports PR. All Rights Reserved. Master Enterprise Build (Phases 1–5).</p>
         </div>
     </footer>
 
