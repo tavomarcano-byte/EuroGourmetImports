@@ -1,333 +1,142 @@
 /* ==========================================================================
-   EuroGourmet Imports - JavaScript Application Logic
+   Euro Gourmet Imports PR - Phase 1 JavaScript Application Logic
    ========================================================================== */
 
-// Portfolio Data
-const WINE_DATA = [
-    {
-        id: "w1",
-        name: "Château Montrose Grand Vin de Bordeaux",
-        category: "red",
-        region: "Bordeaux, France",
-        vintage: "2015",
-        price: "$195.00",
-        notes: "Deep garnet red with complex notes of blackcurrant, cedar, crushed graphite, and velvety polished tannins.",
-        image: "images/bordeaux.jpg",
-        badge: "Grand Cru Classé",
-        pairingFood: "Prime Ribeye & Aged Steaks",
-        abv: "14.2%"
+// Estate Technical Data for Sommelier Tech Sheets
+const ESTATE_DATA = {
+    dehesa: {
+        title: "Dehesa de Luna - Biodiversity Reserve Estate",
+        region: "La Mancha / Campo de Montiel, Spain",
+        grape: "Graciano, Syrah, Cabernet Sauvignon & Tempranillo",
+        soil: "Clay-limestone & alluvial gravel",
+        farming: "100% Certified Organic • Wildlife Sanctuary Reserve",
+        cellar: "Indigenous yeast fermentation, 12 months in French oak barrels",
+        tasting: "Intense purple hue. Wild blackberry, violet floral notes, balsamic eucalyptus, and subtle cedar oak.",
+        pairing: "Aged Manchego, roasted lamb chops, rich reduction sauces."
     },
-    {
-        id: "w2",
-        name: "Grande Cuvée Prestige Millésime Brut",
-        category: "sparkling",
-        region: "Champagne, France",
-        vintage: "2012",
-        price: "$145.00",
-        notes: "Fine persistent effervescence with rich aromas of toasted brioche, white peach, candied citrus, and hazelnut.",
-        image: "images/champagne.jpg",
-        badge: "Limited Release",
-        pairingFood: "Fresh Oysters & Grilled Sea Bass",
-        abv: "12.5%"
+    izquierdo: {
+        title: "Bodegas Izquierdo - Old Vine Tempranillo",
+        region: "Burgos • Ribera del Duero, Spain",
+        grape: "100% Biodynamic Tempranillo (Tinta del País)",
+        soil: "Deep gravel & chalky limestone at 820m elevation",
+        farming: "Biodynamic Viticulture • 60+ Year Old Vines",
+        cellar: "Unfiltered, 16 months in new French oak barriques",
+        tasting: "Concentrated ruby garnet. Ripe black plum, truffle, leather, espresso bean, and velvet tannins.",
+        pairing: "Prime ribeye, venison, smoked charcuterie, aged hard cheeses."
     },
-    {
-        id: "w3",
-        name: "Domaine Seraphin Vosne-Romanée",
-        category: "red",
-        region: "Burgundy, France",
-        vintage: "2018",
-        price: "$230.00",
-        notes: "Silky Pinot Noir elegance with dark cherry, violet blossoms, subtle forest floor spice, and exceptional balance.",
-        image: "images/hero.jpg",
-        badge: "Estate Reserve",
-        pairingFood: "Truffle Pasta & Cream Risottos",
-        abv: "13.5%"
+    montornes: {
+        title: "Conde de Montornés - High-Altitude Monastrell",
+        region: "Valencia / Jumilla, Spain (850m Altitude)",
+        grape: "100% High-Altitude Dry-Farmed Monastrell",
+        soil: "Rocky limestone with exceptional drainage",
+        farming: "Non-irrigated dry farming • Low-yield bush vines",
+        cellar: "Native yeast stainless steel, finished 8 months in neutral oak",
+        tasting: "Lively dark cherry and wild thyme aromas. Fresh mountain acidity with minerality and long persistent finish.",
+        pairing: "Seared duck breast, grilled octopus, roasted Mediterranean vegetables."
     },
-    {
-        id: "w4",
-        name: "Tenuta San Guido Bolgheri Sassicaia",
-        category: "red",
-        region: "Tuscany, Italy",
-        vintage: "2019",
-        price: "$280.00",
-        notes: "Iconic Super Tuscan with intense dark berry aromas, rosemary, wild lavender, and structured silky oak tannins.",
-        image: "images/bordeaux.jpg",
-        badge: "Icon Vintage",
-        pairingFood: "Prime Ribeye & Aged Steaks",
-        abv: "14.0%"
-    },
-    {
-        id: "w5",
-        name: "Domaine William Fèvre Chablis Grand Cru",
-        category: "white",
-        region: "Chablis, France",
-        vintage: "2021",
-        price: "$115.00",
-        notes: "Crystalline minerality with vibrant green apple, lemon zest, wet stone, and crisp balanced acidity.",
-        image: "images/champagne.jpg",
-        badge: "Grand Cru",
-        pairingFood: "Fresh Oysters & Grilled Sea Bass",
-        abv: "13.0%"
-    },
-    {
-        id: "w6",
-        name: "Marqués de Murrieta Castillo Ygay Gran Reserva",
-        category: "red",
-        region: "Rioja, Spain",
-        vintage: "2011",
-        price: "$210.00",
-        notes: "Amasterpiece of Spanish winemaking featuring dark plum, leather, sweet tobacco, vanilla bean, and long finish.",
-        image: "images/bordeaux.jpg",
-        badge: "99 Pts Suckling",
-        pairingFood: "Artisanal Jamón & Aged Cheeses",
-        abv: "14.5%"
-    },
-    {
-        id: "g1",
-        name: "Jamón Ibérico de Bellota & Manchego Reserva Kit",
-        category: "gourmet",
-        region: "Jabugo & La Mancha, Spain",
-        vintage: "Artisanal",
-        price: "$160.00",
-        notes: "Hand-sliced 100% acorn-fed Ibérico ham accompanied by 24-month cave-aged Manchego cheese.",
-        image: "images/hero.jpg",
-        badge: "Artisanal Import",
-        pairingFood: "Artisanal Jamón & Aged Cheeses",
-        abv: "N/A"
+    all: {
+        title: "Euro Gourmet Imports PR Portfolio Tech Sheet Index",
+        region: "Spain $\\rightarrow$ Puerto Rico, Caribbean & US",
+        grape: "Curated Estate Allocations",
+        soil: "Diverse Spanish Terroir Profiles",
+        farming: "Organic, Vegan & Biodynamic Certified",
+        cellar: "Temperature-Controlled Direct Import Logistics",
+        tasting: "Comprehensive technical notes available for restaurant beverage directors and sommeliers.",
+        pairing: "Tailored pairing guides available upon request."
     }
-];
+};
 
-// State Management
-let selectedItems = JSON.parse(localStorage.getItem('eurogourmet_selection')) || [];
-let activeFilter = 'all';
-
-// DOM Elements
-const catalogGrid = document.getElementById('catalogGrid');
-const filterBtns = document.querySelectorAll('.filter-btn');
-const searchInput = document.getElementById('searchInput');
-const cartCount = document.getElementById('cartCount');
-const cartToggle = document.getElementById('cartToggle');
-const cartDrawer = document.getElementById('cartDrawer');
-const drawerClose = document.getElementById('drawerClose');
-const drawerOverlay = document.getElementById('drawerOverlay');
-const drawerItems = document.getElementById('drawerItems');
-const wineModal = document.getElementById('wineModal');
-const modalClose = document.getElementById('modalClose');
-const modalOverlay = document.getElementById('modalOverlay');
-const modalBody = document.getElementById('modalBody');
-const selectedWinesField = document.getElementById('selectedWinesField');
-const inquiryForm = document.getElementById('inquiryForm');
-const formResponse = document.getElementById('formResponse');
-
-// Initialize App
+// DOM Initialization
 document.addEventListener('DOMContentLoaded', () => {
-    renderCatalog();
-    updateCartUI();
-    setupEventListeners();
+    setupMobileMenu();
+    setupB2BForm();
+    setupModalListeners();
 });
 
-// Render Catalog Grid
-function renderCatalog() {
-    if (!catalogGrid) return;
-    
-    const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
-    
-    const filteredWines = WINE_DATA.filter(wine => {
-        const matchesCategory = activeFilter === 'all' || wine.category === activeFilter;
-        const matchesSearch = wine.name.toLowerCase().includes(searchTerm) || 
-                              wine.region.toLowerCase().includes(searchTerm) ||
-                              wine.vintage.toLowerCase().includes(searchTerm) ||
-                              wine.notes.toLowerCase().includes(searchTerm);
-        return matchesCategory && matchesSearch;
-    });
+// Sommelier Tech Sheet Modal Renderer
+function openTechSheet(estateKey) {
+    const data = ESTATE_DATA[estateKey] || ESTATE_DATA.all;
+    const modal = document.getElementById('techModal');
+    const content = document.getElementById('techModalContent');
 
-    if (filteredWines.length === 0) {
-        catalogGrid.innerHTML = `
-            <div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem; color: var(--text-muted);">
-                <h3>No wines found matching your search</h3>
-                <p>Try clearing your filter or search terms.</p>
-            </div>
-        `;
-        return;
-    }
+    if (!modal || !content) return;
 
-    catalogGrid.innerHTML = filteredWines.map(wine => `
-        <div class="wine-card" data-id="${wine.id}">
-            <div class="wine-img-wrapper">
-                <span class="wine-badge">${wine.badge}</span>
-                <img src="${wine.image}" alt="${wine.name}" loading="lazy">
-            </div>
-            <div class="wine-details">
-                <span class="wine-region">${wine.region} • ${wine.vintage}</span>
-                <h3 class="wine-name">${wine.name}</h3>
-                <p class="wine-notes">${wine.notes}</p>
-                <div class="wine-meta">
-                    <span class="wine-price">${wine.price}</span>
-                    <div class="wine-actions">
-                        <button class="btn-card-action btn-quickview" onclick="openQuickView('${wine.id}')">Details</button>
-                        <button class="btn-card-action" onclick="toggleSelection('${wine.id}')">
-                            ${isSelected(wine.id) ? '✓ Selected' : '+ Selection'}
-                        </button>
-                    </div>
-                </div>
-            </div>
+    content.innerHTML = `
+        <span style="font-size: 0.72rem; letter-spacing: 2px; color: var(--parchment-muted); text-transform: uppercase; font-weight: 700;">SOMMELIER TECH SHEET</span>
+        <h2 style="font-size: 1.6rem; margin: 0.5rem 0 1.25rem; color: var(--soft-parchment);">${data.title}</h2>
+        
+        <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); padding: 1rem 0; font-size: 0.88rem;">
+            <div><strong style="color: var(--soft-parchment);">Region / Terroir:</strong> <span style="color: var(--parchment-muted);">${data.region}</span></div>
+            <div><strong style="color: var(--soft-parchment);">Varietal Profile:</strong> <span style="color: var(--parchment-muted);">${data.grape}</span></div>
+            <div><strong style="color: var(--soft-parchment);">Soil Composition:</strong> <span style="color: var(--parchment-muted);">${data.soil}</span></div>
+            <div><strong style="color: var(--soft-parchment);">Farming Practices:</strong> <span style="color: var(--parchment-muted);">${data.farming}</span></div>
+            <div><strong style="color: var(--soft-parchment);">Cellar Vinification:</strong> <span style="color: var(--parchment-muted);">${data.cellar}</span></div>
         </div>
-    `).join('');
-}
 
-// Check if item is selected
-function isSelected(id) {
-    return selectedItems.some(item => item.id === id);
-}
+        <div style="margin-bottom: 1.5rem;">
+            <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--soft-parchment); margin-bottom: 0.4rem;">Tasting Notes:</h4>
+            <p style="font-size: 0.88rem; color: var(--parchment-muted);">${data.tasting}</p>
+        </div>
 
-// Toggle Item Selection
-function toggleSelection(id) {
-    const itemIndex = selectedItems.findIndex(item => item.id === id);
-    const wine = WINE_DATA.find(w => w.id === id);
-    
-    if (itemIndex > -1) {
-        selectedItems.splice(itemIndex, 1);
-    } else if (wine) {
-        selectedItems.push(wine);
-    }
-    
-    localStorage.setItem('eurogourmet_selection', JSON.stringify(selectedItems));
-    updateCartUI();
-    renderCatalog();
-}
+        <div style="margin-bottom: 2rem;">
+            <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--soft-parchment); margin-bottom: 0.4rem;">Recommended Culinary Pairings:</h4>
+            <p style="font-size: 0.88rem; color: var(--parchment-muted);">${data.pairing}</p>
+        </div>
 
-// Update Cart & Form State UI
-function updateCartUI() {
-    if (cartCount) {
-        cartCount.textContent = selectedItems.length;
-    }
-    
-    // Update Hidden Form Input for Selected Wines
-    if (selectedWinesField) {
-        if (selectedItems.length > 0) {
-            selectedWinesField.value = selectedItems.map(i => `${i.name} (${i.vintage})`).join(', ');
-        } else {
-            selectedWinesField.value = "No specific items pre-selected.";
-        }
-    }
-    
-    // Update Drawer Body
-    if (drawerItems) {
-        if (selectedItems.length === 0) {
-            drawerItems.innerHTML = '<p class="empty-msg">Your cellar list is empty. Click "+ Selection" on any wine!</p>';
-        } else {
-            drawerItems.innerHTML = selectedItems.map(wine => `
-                <div class="drawer-item">
-                    <div class="drawer-item-info">
-                        <h4>${wine.name}</h4>
-                        <p>${wine.vintage} • ${wine.price}</p>
-                    </div>
-                    <button class="remove-item-btn" onclick="toggleSelection('${wine.id}')">&times;</button>
-                </div>
-            `).join('');
-        }
-    }
-}
-
-// Open Quick View Modal
-function openQuickView(id) {
-    const wine = WINE_DATA.find(w => w.id === id);
-    if (!wine || !wineModal || !modalBody) return;
-
-    modalBody.innerHTML = `
-        <div class="modal-grid">
-            <div class="modal-img-col">
-                <img src="${wine.image}" alt="${wine.name}" style="max-height: 380px; margin: 0 auto; object-fit: contain;">
-            </div>
-            <div class="modal-info-col">
-                <span class="wine-region" style="color: var(--gold-accent); font-weight:700;">${wine.region} • ${wine.vintage}</span>
-                <h2 style="margin: 0.5rem 0 1rem; font-size: 1.8rem;">${wine.name}</h2>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">${wine.notes}</p>
-                <div style="display: flex; gap: 2rem; margin-bottom: 2rem; border-y: 1px solid var(--border-subtle); padding: 1rem 0;">
-                    <div>
-                        <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">ALCOHOL BY VOL</span>
-                        <strong style="font-size: 1.1rem; color: var(--text-light);">${wine.abv}</strong>
-                    </div>
-                    <div>
-                        <span style="font-size: 0.8rem; color: var(--text-muted); display: block;">CLASSIFICATION</span>
-                        <strong style="font-size: 1.1rem; color: var(--gold-accent);">${wine.badge}</strong>
-                    </div>
-                </div>
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-size: 1.8rem; font-family: var(--font-heading); color: var(--gold-accent);">${wine.price}</span>
-                    <button class="btn btn-primary" onclick="toggleSelection('${wine.id}'); wineModal.classList.remove('active');">
-                        ${isSelected(wine.id) ? '✓ Remove from Selection' : '+ Add to Cellar Selection'}
-                    </button>
-                </div>
-            </div>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="#contact" class="btn btn-burgundy btn-sm" onclick="closeTechModal();">Request Wholesale Allocation</a>
+            <button class="btn btn-outline btn-sm" onclick="window.print();">Print Tech Sheet</button>
         </div>
     `;
-    wineModal.classList.add('active');
+
+    modal.classList.add('active');
 }
 
-// Event Listeners Setup
-function setupEventListeners() {
-    // Category Filter Buttons
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            activeFilter = btn.dataset.filter;
-            renderCatalog();
-        });
-    });
+function closeTechModal() {
+    const modal = document.getElementById('techModal');
+    if (modal) modal.classList.remove('active');
+}
 
-    // Search Input
-    if (searchInput) {
-        searchInput.addEventListener('input', () => {
-            renderCatalog();
-        });
-    }
+function setupModalListeners() {
+    const modalClose = document.getElementById('modalClose');
+    const modalOverlay = document.getElementById('modalOverlay');
+    
+    if (modalClose) modalClose.addEventListener('click', closeTechModal);
+    if (modalOverlay) modalOverlay.addEventListener('click', closeTechModal);
+}
 
-    // Drawer Toggles
-    if (cartToggle) {
-        cartToggle.addEventListener('click', () => cartDrawer.classList.add('active'));
-    }
-    if (drawerClose) {
-        drawerClose.addEventListener('click', () => cartDrawer.classList.remove('active'));
-    }
-    if (drawerOverlay) {
-        drawerOverlay.addEventListener('click', () => cartDrawer.classList.remove('active'));
-    }
+// B2B Wholesale Form Handling
+function setupB2BForm() {
+    const form = document.getElementById('b2bForm');
+    const responseDiv = document.getElementById('b2bResponse');
 
-    // Modal Toggles
-    if (modalClose) {
-        modalClose.addEventListener('click', () => wineModal.classList.remove('active'));
-    }
-    if (modalOverlay) {
-        modalOverlay.addEventListener('click', () => wineModal.classList.remove('active'));
-    }
-
-    // Sommelier Pairing Select
-    const foodSelect = document.getElementById('foodSelect');
-    if (foodSelect) {
-        foodSelect.addEventListener('change', (e) => {
-            const selectedVal = e.target.options[e.target.selectedIndex].text;
-            const match = WINE_DATA.find(w => w.pairingFood === selectedVal) || WINE_DATA[0];
-            
-            document.getElementById('pairingTitle').textContent = match.name;
-            document.getElementById('pairingRegion').textContent = `${match.region} • ${match.vintage}`;
-            document.getElementById('pairingNotes').textContent = match.notes;
-            
-            const addBtn = document.getElementById('pairingAddBtn');
-            if (addBtn) {
-                addBtn.onclick = () => toggleSelection(match.id);
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            if (responseDiv) {
+                responseDiv.className = "form-response success";
+                responseDiv.innerHTML = "✓ B2B Inquiry Received! Our commercial wine director will contact your business with wholesale pricing within 24 hours.";
             }
         });
     }
+}
 
-    // Form Submission Handling (Works natively with Netlify Forms)
-    if (inquiryForm) {
-        inquiryForm.addEventListener('submit', (e) => {
-            // Netlify handles form post automatically, but show friendly message
-            if (formResponse) {
-                formResponse.className = "form-response-msg success";
-                formResponse.innerHTML = "✓ Thank you for your inquiry! Our sommelier team will review your selection and contact you shortly.";
+// Mobile Menu Setup
+function setupMobileMenu() {
+    const toggle = document.getElementById('mobileToggle');
+    const menu = document.getElementById('navMenu');
+
+    if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+            if (menu.style.display === 'flex') {
+                menu.style.flexDirection = 'column';
+                menu.style.position = 'absolute';
+                menu.style.top = '100%';
+                menu.style.left = '0';
+                menu.style.width = '100%';
+                menu.style.background = '#1A1D20';
+                menu.style.padding = '2rem';
+                menu.style.borderBottom = '1px solid var(--glass-border)';
             }
         });
     }

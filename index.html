@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EuroGourmet Imports - Curated fine European wines, grand crus, artisanal champagnes, and authentic epicurean delicacies directly from premier European estates.">
-    <meta name="theme-color" content="#0d0b12">
-    <title>EuroGourmet Imports | Fine European Wines & Gourmet Selections</title>
-    
+    <meta name="description" content="Euro Gourmet Imports PR - Direct Spanish Terroir to the Caribbean & US. Curated organic, vegan, and high-altitude B2B wine allocations for restaurants, hotels, and retailers.">
+    <meta name="theme-color" content="#1A1D20">
+    <title>Euro Gourmet Imports PR | Direct Spanish Terroir to the Caribbean & US</title>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+
     <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -20,28 +20,24 @@
     <!-- Header Navigation -->
     <header class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">
+            <a href="#" class="nav-logo" aria-label="Euro Gourmet Imports PR Home">
                 <span class="logo-crest">🍷</span>
                 <div class="logo-text">
-                    <span class="brand-title">EUROGOURMET</span>
-                    <span class="brand-sub">IMPORTS</span>
+                    <span class="brand-title">EURO GOURMET</span>
+                    <span class="brand-sub">IMPORTS PR</span>
                 </div>
             </a>
 
             <nav class="nav-menu" id="navMenu">
-                <a href="#collection" class="nav-link">Wine Collection</a>
-                <a href="#pairing" class="nav-link">Sommelier Guide</a>
-                <a href="#terroir" class="nav-link">Our Estates</a>
-                <a href="#inquiry" class="nav-link">Wholesale & Contact</a>
+                <a href="#estates" class="nav-link">Partner Estates</a>
+                <a href="#philosophy" class="nav-link">Our Philosophy</a>
+                <a href="#tech-sheets" class="nav-link">Sommelier Tech Sheets</a>
+                <a href="#contact" class="nav-link">B2B Wholesale</a>
             </nav>
 
             <div class="nav-actions">
-                <button class="inquiry-badge-btn" id="cartToggle" aria-label="Open Selected Cellar Items">
-                    <span class="icon">🍾</span>
-                    <span class="badge-text">Selected</span>
-                    <span class="badge-count" id="cartCount">0</span>
-                </button>
-                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <a href="#contact" class="btn btn-burgundy btn-sm">Wholesale Portal</a>
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation Menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -52,138 +48,172 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-overlay"></div>
+        <section class="hero-section" id="hero">
+            <div class="hero-bg-overlay"></div>
             <div class="hero-content">
-                <span class="hero-subtitle">EXQUISITE GRAND CRUS & ARTISANAL DELICACIES</span>
-                <h1 class="hero-title">Experience the Soul of European Winemaking</h1>
+                <span class="hero-eyebrow">SPANISH TERROIR ALLOCATIONS</span>
+                <h1 class="hero-title">
+                    Euro Gourmet Imports PR: Direct Spanish Terroir to the Caribbean & US
+                </h1>
                 <p class="hero-description">
-                    Hand-selected vintages directly from family-owned estates across Bordeaux, Tuscany, Rioja, and the Champagne region. Curated for connoisseurs and fine establishments.
+                    Curating plant-based, eco-conscious, estate-bottled Spanish wines for premier hospitality venues, sommeliers, and fine wine retailers across Puerto Rico, the Caribbean, and the United States.
                 </p>
+
                 <div class="hero-cta-group">
-                    <a href="#collection" class="btn btn-primary">Explore Cellar Catalog</a>
-                    <a href="#inquiry" class="btn btn-secondary">Request Wholesale Price List</a>
+                    <a href="#estates" class="btn btn-burgundy">Explore Estate Bento</a>
+                    <a href="#tech-sheets" class="btn btn-outline">Sommelier Tech Sheets</a>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label">Estate Bottled</span>
+            </div>
+
+            <!-- Continuous Scrolling Marquee -->
+            <div class="marquee-container" aria-label="Key Brand Attributes Marquee">
+                <div class="marquee-track">
+                    <div class="marquee-content">
+                        <span>100% Organic Certified</span> <span class="marquee-dot">•</span>
+                        <span>Vegan Cellar Process</span> <span class="marquee-dot">•</span>
+                        <span>Zero Synthetic Chemicals</span> <span class="marquee-dot">•</span>
+                        <span>Biodiversity Reserve Estates</span> <span class="marquee-dot">•</span>
+                        <span>High Altitude Grapes</span> <span class="marquee-dot">•</span>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <span class="stat-number">45+</span>
-                        <span class="stat-label">Grand Crus</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <span class="stat-number">Direct</span>
-                        <span class="stat-label">From European Vineyards</span>
+                    <!-- Duplicate for infinite seamless scroll -->
+                    <div class="marquee-content" aria-hidden="true">
+                        <span>100% Organic Certified</span> <span class="marquee-dot">•</span>
+                        <span>Vegan Cellar Process</span> <span class="marquee-dot">•</span>
+                        <span>Zero Synthetic Chemicals</span> <span class="marquee-dot">•</span>
+                        <span>Biodiversity Reserve Estates</span> <span class="marquee-dot">•</span>
+                        <span>High Altitude Grapes</span> <span class="marquee-dot">•</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Featured Wine Collection -->
-        <section class="collection-section" id="collection">
+        <!-- Bento-Box Estate Grid Section -->
+        <section class="bento-section" id="estates">
             <div class="section-container">
                 <div class="section-header text-center">
-                    <span class="section-badge">CURATED SELECTION</span>
-                    <h2 class="section-title">The EuroGourmet Reserve</h2>
-                    <p class="section-subtitle">Discover our handpicked portfolio of fine wines and gourmet accompaniments.</p>
+                    <span class="section-badge">CORE SPANISH WINERIES</span>
+                    <h2 class="section-title">The Estate Bento Showcase</h2>
+                    <p class="section-subtitle">Discover our exclusive Spanish partner wineries, harvested with environmental stewardship and authentic terroir expression.</p>
                 </div>
 
-                <!-- Filter Controls -->
-                <div class="filter-controls">
-                    <button class="filter-btn active" data-filter="all">All Portfolio</button>
-                    <button class="filter-btn" data-filter="red">Red Wines</button>
-                    <button class="filter-btn" data-filter="white">White & Rosé</button>
-                    <button class="filter-btn" data-filter="sparkling">Champagne & Sparkling</button>
-                    <button class="filter-btn" data-filter="gourmet">Gourmet Pairings</button>
-                </div>
-
-                <!-- Search Input -->
-                <div class="search-bar-container">
-                    <input type="text" id="searchInput" placeholder="Search by region, vintage, grape variety or name..." aria-label="Search wines">
-                </div>
-
-                <!-- Catalog Grid -->
-                <div class="catalog-grid" id="catalogGrid">
-                    <!-- Dynamic Wine Cards generated by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Interactive Sommelier Pairing Tool -->
-        <section class="pairing-section" id="pairing">
-            <div class="section-container">
-                <div class="pairing-card-wrapper">
-                    <div class="pairing-info">
-                        <span class="section-badge">SOMMELIER ASSISTANT</span>
-                        <h2 class="section-title">Find Your Perfect Pairing</h2>
-                        <p>Planning an intimate dinner or a luxury event menu? Tell us what you are serving and our sommelier guide will recommend the exact vintage.</p>
-                        
-                        <div class="pairing-selector">
-                            <label for="foodSelect" class="selector-label">What is on the menu?</label>
-                            <select id="foodSelect" class="styled-select">
-                                <option value="steak">Prime Ribeye & Aged Steaks</option>
-                                <option value="seafood">Fresh Oysters & Grilled Sea Bass</option>
-                                <option value="pasta">Truffle Pasta & Cream Risottos</option>
-                                <option value="charcuterie">Artisanal Jamón & Aged Cheeses</option>
-                                <option value="dessert">Dark Chocolate & Fruit Tarts</option>
-                            </select>
+                <div class="bento-grid">
+                    <!-- Card 1: Dehesa de Luna (Featured Large Bento Span 2) -->
+                    <article class="bento-card bento-card-large" data-estate="dehesa">
+                        <div class="bento-tag">Biodiversity Reserve</div>
+                        <div class="bento-card-body">
+                            <span class="estate-region">La Mancha / Campo de Montiel • Spain</span>
+                            <h3 class="estate-name">Dehesa de Luna</h3>
+                            <p class="estate-desc">
+                                Surrounded by 3,000 hectares of protected oak forest and wildlife sanctuaries. Organic viticulture producing exquisite Syrah, Graciano, and Tempranillo with pure varietal fidelity.
+                            </p>
+                            <div class="estate-badges">
+                                <span class="attribute-pill">100% Organic</span>
+                                <span class="attribute-pill">Wildlife Corridor</span>
+                                <span class="attribute-pill">Native Yeasts</span>
+                            </div>
+                            <div class="bento-footer">
+                                <button class="btn btn-link" onclick="openTechSheet('dehesa')">Request Sommelier Tech Sheet &rarr;</button>
+                            </div>
                         </div>
-                    </div>
+                    </article>
 
-                    <div class="pairing-result-box" id="pairingResult">
-                        <div class="result-badge">SOMMELIER MATCH</div>
-                        <h3 class="result-title" id="pairingTitle">Domaine Seraphin Vosne-Romanée</h3>
-                        <p class="result-region" id="pairingRegion">Burgundy, France • 2018</p>
-                        <p class="result-notes" id="pairingNotes">Silky tannins with intense aromas of dark cherry, forest floor, and delicate spice that perfectly cut through rich marbling.</p>
-                        <button class="btn btn-gold btn-sm" id="pairingAddBtn">Add Match to Inquiry</button>
-                    </div>
+                    <!-- Card 2: Bodegas Izquierdo -->
+                    <article class="bento-card" data-estate="izquierdo">
+                        <div class="bento-tag">Ribera del Duero</div>
+                        <div class="bento-card-body">
+                            <span class="estate-region">Burgos • Ribera del Duero</span>
+                            <h3 class="estate-name">Bodegas Izquierdo</h3>
+                            <p class="estate-desc">
+                                Ancient biodynamic Tempranillo vines cultivated in gravel soils. Unfiltered, elegant reds aged in French oak with deep minerality and velvet structure.
+                            </p>
+                            <div class="estate-badges">
+                                <span class="attribute-pill">Biodynamic</span>
+                                <span class="attribute-pill">Old Vines (60+ yrs)</span>
+                            </div>
+                            <div class="bento-footer">
+                                <button class="btn btn-link" onclick="openTechSheet('izquierdo')">Tech Sheet &rarr;</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 3: Conde de Montornés -->
+                    <article class="bento-card" data-estate="montornes">
+                        <div class="bento-tag">High Altitude Monastrell</div>
+                        <div class="bento-card-body">
+                            <span class="estate-region">Valencia / Jumilla • 850m Altitude</span>
+                            <h3 class="estate-name">Conde de Montornés</h3>
+                            <p class="estate-desc">
+                                High-altitude dry-farmed Monastrell grapes grown in limestone soils. Crisp nighttime mountain breezes yield intense aromatic complexity and fresh acidity.
+                            </p>
+                            <div class="estate-badges">
+                                <span class="attribute-pill">High Altitude</span>
+                                <span class="attribute-pill">Dry Farmed</span>
+                            </div>
+                            <div class="bento-footer">
+                                <button class="btn btn-link" onclick="openTechSheet('montornes')">Tech Sheet &rarr;</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Card 4: Cellar Allocation (Span 2 Desktop) -->
+                    <article class="bento-card bento-card-wide" data-estate="allocation">
+                        <div class="bento-tag">Direct Importer Portfolio</div>
+                        <div class="bento-card-body">
+                            <span class="estate-region">Exclusive Caribbean & US Allocations</span>
+                            <h3 class="estate-name">Plant-Based & Vegan Certified Cellar</h3>
+                            <p class="estate-desc">
+                                All estates in the Euro Gourmet Imports PR catalog utilize 100% natural, plant-based clarification processes (pea protein & bentonite clay) with zero animal gelatin or isinglass.
+                            </p>
+                            <div class="estate-badges">
+                                <span class="attribute-pill">Vegan Certified</span>
+                                <span class="attribute-pill">Low Sulfites</span>
+                                <span class="attribute-pill">Direct Cold-Chain Transit</span>
+                            </div>
+                            <div class="bento-footer">
+                                <a href="#contact" class="btn btn-burgundy btn-sm">Request Wholesale Access</a>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <!-- Terroir & Tradition Section -->
-        <section class="terroir-section" id="terroir">
+        <!-- Importer Story & Philosophy Section -->
+        <section class="philosophy-section" id="philosophy">
             <div class="section-container">
-                <div class="terroir-grid">
-                    <div class="terroir-text">
-                        <span class="section-badge">HERITAGE & TERROIR</span>
-                        <h2 class="section-title">Direct Relationships with Historic European Estates</h2>
-                        <p>
-                            At EuroGourmet Imports, we eliminate intermediaries to connect passionate winemakers directly with fine dining restaurants, luxury hotels, and private cellars across America.
+                <div class="philosophy-grid">
+                    <!-- Left Column: Importer Brand Story -->
+                    <div class="philosophy-text">
+                        <span class="section-badge">IMPORTER STORY & PHILOSOPHY</span>
+                        <h2 class="section-title">Bridging Spanish Terroir with the Caribbean & US Market</h2>
+                        <p class="lead-text">
+                            Euro Gourmet Imports PR was founded on a singular commitment: delivering unadulterated, eco-conscious Spanish grand crus directly from independent estate cellars to fine dining tables and luxury resorts across Puerto Rico, the US Virgin Islands, and the mainland US.
                         </p>
-                        <ul class="terroir-highlights">
-                            <li>
-                                <span class="check-icon">✓</span>
-                                <div>
-                                    <strong>Temperature-Controlled Transit</strong>
-                                    <p>Preserving every subtle aroma from estate cellar to your door.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="check-icon">✓</span>
-                                <div>
-                                    <strong>Authenticity Guaranteed</strong>
-                                    <p>100% estate-bottled origin with full provenance documentation.</p>
-                                </div>
-                            </li>
-                            <li>
-                                <span class="check-icon">✓</span>
-                                <div>
-                                    <strong>Sommelier Concierge Service</strong>
-                                    <p>Custom wine list consulting and private cellar stocking.</p>
-                                </div>
-                            </li>
-                        </ul>
+                        <p>
+                            We prioritize estates that honor biodiversity, dry-farming practices, and vegan cellar filtration. By cutting out middleman distributors, we guarantee optimal storage conditions and transparent pricing for commercial buyers.
+                        </p>
+                        <div class="philosophy-highlights">
+                            <div class="highlight-item">
+                                <span class="highlight-num">100%</span>
+                                <span class="highlight-label">Eco-Conscious Curation</span>
+                            </div>
+                            <div class="highlight-item">
+                                <span class="highlight-num">Direct</span>
+                                <span class="highlight-label">Estate Logistics to PR & US</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="terroir-visual">
-                        <div class="experience-card">
-                            <div class="glass-card">
-                                <h3>Exclusive Allocation</h3>
-                                <p>Access rare limited-production vintages not available in mainstream retail.</p>
+
+                    <!-- Right Column: Stylized Vineyard Image with Rounded-Rectangle Mask -->
+                    <div class="philosophy-visual">
+                        <div class="image-mask-container">
+                            <img src="images/spanish_vineyard_hero.jpg" alt="Spanish organic vineyard sunset in La Mancha" class="masked-image" loading="lazy">
+                            <div class="glass-overlay-card">
+                                <span class="overlay-icon">🌿</span>
+                                <div>
+                                    <strong>Direct Vineyard Provenance</strong>
+                                    <p style="font-size: 0.82rem; color: var(--text-muted);">Temperature-controlled container shipping from Spain to San Juan harbor.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -191,136 +221,114 @@
             </div>
         </section>
 
-        <!-- Wholesale & Contact Inquiry Form (Netlify Form Ready) -->
-        <section class="inquiry-section" id="inquiry">
+        <!-- B2B Wholesale Contact & Tech Sheets Modal Section -->
+        <section class="contact-section" id="contact">
             <div class="section-container">
-                <div class="inquiry-form-card">
-                    <div class="form-header text-center">
-                        <span class="section-badge">COMMERCIAL & PRIVATE ORDERS</span>
-                        <h2>Request Catalog & Pricing</h2>
-                        <p>Fill out the form below to receive our complete wholesale price sheet or request private cellar allocations.</p>
+                <div class="contact-card">
+                    <div class="text-center">
+                        <span class="section-badge">B2B COMMERCIAL PORTAL</span>
+                        <h2 class="section-title">Partner with Euro Gourmet Imports PR</h2>
+                        <p class="section-subtitle">Request our wholesale price list, sample allocations, or sommelier technical sheets.</p>
                     </div>
 
-                    <form class="contact-form" name="wine-inquiry" method="POST" data-netlify="true" id="inquiryForm">
-                        <input type="hidden" name="form-name" value="wine-inquiry" />
-                        
+                    <form class="b2b-form" id="b2bForm" name="b2b-wholesale" method="POST" data-netlify="true">
+                        <input type="hidden" name="form-name" value="b2b-wholesale" />
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="fullName">Full Name / Business Name *</label>
-                                <input type="text" id="fullName" name="fullName" required placeholder="e.g. Jean-Luc Lebrun / Grand Hotel">
+                                <label for="b2bName">Contact Name / Business Title *</label>
+                                <input type="text" id="b2bName" name="b2bName" required placeholder="e.g. Chef Carlos Ortiz / Beverage Director">
                             </div>
                             <div class="form-group">
-                                <label for="email">Email Address *</label>
-                                <input type="email" id="email" name="email" required placeholder="you@domain.com">
+                                <label for="b2bCompany">Company / Restaurant / Retailer *</label>
+                                <input type="text" id="b2bCompany" name="b2bCompany" required placeholder="e.g. San Juan Luxury Resort & Spa">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
+                                <label for="b2bEmail">Business Email *</label>
+                                <input type="email" id="b2bEmail" name="b2bEmail" required placeholder="beverage@resort.com">
                             </div>
                             <div class="form-group">
-                                <label for="customerType">Client Type</label>
-                                <select id="customerType" name="customerType">
-                                    <option value="wholesale">Restaurant / Hotel / Retailer</option>
-                                    <option value="private">Private Collector / Sommelier</option>
-                                    <option value="event">Event Planner / Weddings</option>
+                                <label for="b2bRegion">Territory / Location</label>
+                                <select id="b2bRegion" name="b2bRegion">
+                                    <option value="PR">Puerto Rico (San Juan & Island Wide)</option>
+                                    <option value="USVI">US Virgin Islands & Caribbean</option>
+                                    <option value="US">Mainland United States</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="selectedWinesField">Selected Cellar Items</label>
-                            <input type="text" id="selectedWinesField" name="selectedWines" readonly placeholder="No specific items selected yet (Optional)">
+                            <label for="b2bMessage">Winery Interest & Estimated Volume</label>
+                            <textarea id="b2bMessage" name="b2bMessage" rows="3" placeholder="Tell us about your wine program, requested estates (Dehesa de Luna, Bodegas Izquierdo, Conde de Montornés)..."></textarea>
                         </div>
 
-                        <div class="form-group">
-                            <label for="message">Message / Specific Vintage Inquiries</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your wine requirements, volume, or delivery timeline..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-block">Submit Inquiry</button>
+                        <button type="submit" class="btn btn-burgundy btn-block">Submit B2B Inquiry</button>
                     </form>
-                    
-                    <div id="formResponse" class="form-response-msg"></div>
+                    <div id="b2bResponse" class="form-response"></div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Drawer Modal for Selected Items -->
-    <div class="cart-drawer" id="cartDrawer">
-        <div class="drawer-overlay" id="drawerOverlay"></div>
-        <div class="drawer-content">
-            <div class="drawer-header">
-                <h3>Your Selected Portfolio</h3>
-                <button class="close-btn" id="drawerClose">&times;</button>
-            </div>
-            <div class="drawer-body" id="drawerItems">
-                <p class="empty-msg">Your cellar list is empty. Click "+ Add to Selection" on any wine card!</p>
-            </div>
-            <div class="drawer-footer">
-                <a href="#inquiry" class="btn btn-primary btn-block" id="proceedInquiry">Proceed to Inquiry</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Quick View Modal -->
-    <div class="modal" id="wineModal">
+    <!-- Sommelier Tech Sheet Modal -->
+    <div class="modal" id="techModal">
         <div class="modal-overlay" id="modalOverlay"></div>
-        <div class="modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
-            <div class="modal-body" id="modalBody">
-                <!-- Injected dynamically -->
+        <div class="modal-card">
+            <button class="modal-close" id="modalClose" aria-label="Close modal">&times;</button>
+            <div id="techModalContent">
+                <!-- Injected via JavaScript -->
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="site-footer">
+    <!-- Minimal B2B Footer -->
+    <footer class="b2b-footer">
         <div class="footer-container">
-            <div class="footer-col brand-col">
-                <div class="nav-logo">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo">
                     <span class="logo-crest">🍷</span>
                     <div class="logo-text">
-                        <span class="brand-title">EUROGOURMET</span>
-                        <span class="brand-sub">IMPORTS</span>
+                        <span class="brand-title">EURO GOURMET</span>
+                        <span class="brand-sub">IMPORTS PR</span>
                     </div>
+                </a>
+                <p class="footer-tagline">Direct Spanish Terroir to Puerto Rico, the Caribbean & US.</p>
+            </div>
+
+            <div class="footer-links-group">
+                <div class="footer-col">
+                    <h4>B2B Solutions</h4>
+                    <ul>
+                        <li><a href="#contact" class="footer-link">Wholesale Inquiries</a></li>
+                        <li><a href="#tech-sheets" class="footer-link" onclick="openTechSheet('all')">Sommelier Tech Sheets</a></li>
+                        <li><a href="#contact" class="footer-link">Direct Order Contact</a></li>
+                    </ul>
                 </div>
-                <p>Bringing authentic European terroir and fine estate wines directly to wine enthusiasts and culinary leaders.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Navigation</h4>
-                <ul>
-                    <li><a href="#collection">Cellar Collection</a></li>
-                    <li><a href="#pairing">Pairing Guide</a></li>
-                    <li><a href="#terroir">Our Vineyards</a></li>
-                    <li><a href="#inquiry">Wholesale Inquiry</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Wine Regions</h4>
-                <ul>
-                    <li>Bordeaux Grand Crus</li>
-                    <li>Tuscany & Piedmont</li>
-                    <li>Champagne & Sparkling</li>
-                    <li>Rioja & Ribera del Duero</li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Contact Us</h4>
-                <p>📍 Miami, FL & Bordeaux, France</p>
-                <p>✉️ orders@eurogourmetimports.com</p>
-                <p>📞 +1 (800) 555-EURO</p>
+                <div class="footer-col">
+                    <h4>Featured Estates</h4>
+                    <ul>
+                        <li><a href="#estates" class="footer-link">Dehesa de Luna</a></li>
+                        <li><a href="#estates" class="footer-link">Bodegas Izquierdo</a></li>
+                        <li><a href="#estates" class="footer-link">Conde de Montornés</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Headquarters</h4>
+                    <p class="footer-info">📍 San Juan, Puerto Rico • Madrid, Spain</p>
+                    <p class="footer-info">✉️ orders@eurogourmetpr.com</p>
+                    <p class="footer-info">📞 +1 (787) 555-TERROIR</p>
+                </div>
             </div>
         </div>
-        <div class="footer-bottom text-center">
-            <p>&copy; 2026 EuroGourmet Imports. All Rights Reserved. Drink Responsibly.</p>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Euro Gourmet Imports PR. All Rights Reserved. Phase 1 B2B Build.</p>
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JavaScript Application Logic -->
     <script src="app.js"></script>
 </body>
 </html>
