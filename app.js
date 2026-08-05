@@ -134,7 +134,7 @@ let orderCases = JSON.parse(localStorage.getItem('eurogourmet_b2b_order')) || []
 
 // DOM Initialization
 document.addEventListener('DOMContentLoaded', () => {
-    setupFullwidthBarrelScrollAnimation();
+    setupGroundRollingBarrelPhysics();
     setupRollingBarrelScrollAnimation();
     setupTradeTabs();
     setupReadingProgressBar();
@@ -149,21 +149,25 @@ document.addEventListener('DOMContentLoaded', () => {
     setupArticleModalListeners();
 });
 
-// Scroll-Driven Fullwidth Background Barrel Motion Physics
-function setupFullwidthBarrelScrollAnimation() {
-    const barrelImg = document.getElementById('fullwidthBarrelImg');
-    if (!barrelImg) return;
+// Realistic Ground Rolling Barrel Motion Physics (Rolls flat like a tire/water bottle on floor)
+function setupGroundRollingBarrelPhysics() {
+    const barrel = document.getElementById('floorRollingBarrel');
+    if (!barrel) return;
 
     window.addEventListener('scroll', () => {
         const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
         if (totalScroll <= 0) return;
         const progress = window.scrollY / totalScroll;
 
-        // Rotational rolling physics + downward translation along page depth
-        const rotationDegrees = progress * 1080; // 3 full rotations
-        const translateYPixels = progress * (window.innerHeight * 0.35);
+        // Horizontal floor travel distance across screen width
+        const totalDistance = window.innerWidth + 280;
+        const travelX = (progress * totalDistance) - 140;
 
-        barrelImg.style.transform = `translateY(${translateYPixels}px) rotate(${rotationDegrees}deg)`;
+        // Rotational physics matching horizontal travel distance (no slipping)
+        // Circumference of 136px barrel approx 427px
+        const rotationDegrees = (travelX / 427) * 360;
+
+        barrel.style.transform = `translateX(${travelX}px) rotate(${rotationDegrees}deg)`;
     }, { passive: true });
 }
 
@@ -176,7 +180,7 @@ function setupRollingBarrelScrollAnimation() {
         const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
         if (totalScroll <= 0) return;
         const scrollFraction = window.scrollY / totalScroll;
-        const rotationDegrees = scrollFraction * 720; // 2 full rotations
+        const rotationDegrees = scrollFraction * 720;
         rollingImg.style.transform = `rotate(${rotationDegrees}deg)`;
     }, { passive: true });
 }

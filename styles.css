@@ -1,6 +1,6 @@
 /* ==========================================================================
    EG Imports, LLC (d/b/a Euro Gourmet Imports) - Master Stylesheet
-   Fullwidth Scroll-Driven Rolling Barrel Background & Rich Radial Glows
+   Realistic Ground Rolling Barrel Physics & Rich Color Architecture
    ========================================================================== */
 
 :root {
@@ -62,88 +62,38 @@ img { max-width: 100%; height: auto; display: block; }
 h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.3px; line-height: 1.25; color: var(--soft-parchment); text-shadow: 0 2px 10px rgba(0,0,0,0.7); }
 .text-center { text-align: center; }
 
-/* Fullwidth Scroll-Driven Rolling Barrel Background Layer (z-index: -1) */
-.rolling-barrel-bg-container {
+/* Realistic Ground Rolling Barrel Track Layer (Rolls flat like a tire/water bottle on floor) */
+.ground-barrel-track {
     position: fixed;
-    inset: 0;
+    bottom: 0;
+    left: 0;
     width: 100vw;
-    height: 100vh;
-    z-index: -1;
+    height: 160px;
     pointer-events: none;
+    z-index: 950;
     overflow: hidden;
 }
 
-.barrel-roll-track {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.fullwidth-barrel-img {
-    width: 110vw;
-    max-width: none;
-    height: auto;
-    min-height: 110vh;
-    object-fit: cover;
-    opacity: 0.28;
-    will-change: transform;
-    transition: transform 0.08s ease-out;
-    transform-origin: center center;
-}
-
-.barrel-dark-overlay {
+.floor-line {
     position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(26, 29, 32, 0.85) 0%, rgba(26, 29, 32, 0.72) 50%, rgba(26, 29, 32, 0.88) 100%);
-    pointer-events: none;
-}
-
-/* Floating Corner Barrel Widget */
-.floating-barrel-widget {
-    position: fixed;
-    bottom: 2.2rem;
-    right: 2.2rem;
-    z-index: 1500;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;
-    pointer-events: none;
-}
-
-.barrel-ring-outer {
-    width: 84px;
-    height: 84px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #2b120c 0%, #15181b 100%);
-    border: 2px solid var(--bronze-amber);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7), 0 0 20px var(--bronze-glow);
-    padding: 4px;
-    overflow: hidden;
-}
-
-.rolling-barrel-img {
+    bottom: 10px;
+    left: 0;
     width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    will-change: transform;
-    transition: transform 0.08s ease-out;
+    height: 2px;
+    background: linear-gradient(90deg, transparent 0%, rgba(158, 90, 42, 0.4) 20%, rgba(230, 170, 69, 0.5) 50%, rgba(158, 90, 42, 0.4) 80%, transparent 100%);
+    box-shadow: 0 0 12px var(--bronze-glow);
 }
 
-.barrel-label {
-    background: rgba(26, 29, 32, 0.92);
-    border: 1px solid var(--glass-border);
-    color: var(--bronze-gold);
-    font-size: 0.62rem;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    padding: 3px 10px;
-    border-radius: var(--radius-pill);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+.floor-rolling-barrel {
+    position: absolute;
+    bottom: 12px;
+    left: -160px;
+    width: 136px;
+    height: 136px;
+    object-fit: contain;
+    will-change: transform;
+    transition: transform 0.06s linear;
+    filter: drop-shadow(0 12px 20px rgba(0,0,0,0.85));
 }
 
 /* Direct Logo Image Asset Rules */
@@ -364,6 +314,6 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.3px; line-h
     .leadership-slider-track { grid-template-columns: 1fr; }
     .footer-container { grid-template-columns: 1fr; gap: 2rem; }
     .form-row { grid-template-columns: 1fr; }
-    .floating-barrel-widget { bottom: 1.2rem; right: 1.2rem; }
-    .barrel-ring-outer { width: 68px; height: 68px; }
+    .ground-barrel-track { height: 120px; }
+    .floor-rolling-barrel { width: 100px; height: 100px; }
 }
