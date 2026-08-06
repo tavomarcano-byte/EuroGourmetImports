@@ -341,4 +341,48 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.2px; line-h
     .leadership-slider-track { grid-template-columns: 1fr; }
     .footer-container { grid-template-columns: 1fr; gap: 2rem; }
     .form-row { grid-template-columns: 1fr; }
+    .form-row-compact { grid-template-columns: 1fr; }
 }
+
+/* Tasting Request Form styling */
+.tasting-request-form {
+    margin-top: 1.25rem;
+    padding: 1.25rem;
+    background: var(--parchment-soft);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+.form-row-compact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+}
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+.form-field label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--charcoal-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.form-field input, .form-field select {
+    padding: 0.65rem 0.9rem;
+    background: #FFFFFF;
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius-sm);
+    color: var(--charcoal-dark);
+    font-size: 0.88rem;
+    font-family: inherit;
+    transition: var(--transition);
+}
+.form-field input:focus, .form-field select:focus {
+    outline: none;
+    border-color: var(--bronze-amber);
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.15);
+}
+

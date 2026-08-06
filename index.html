@@ -311,14 +311,14 @@
         <section class="services-section" id="services">
             <div class="section-container">
                 <div class="section-header text-center">
-                    <span class="section-badge">LOGISTICS & TRADE SERVICES</span>
-                    <h2 class="section-title">Commercial Import Capabilities</h2>
+                    <span class="section-badge">OUR CORE CAPABILITIES</span>
+                    <h2 class="section-title">Terroir & Services</h2>
                 </div>
 
                 <div class="trade-tabs-header">
-                    <button class="tab-btn active" data-tab="tab-direct">01. Direct Estate Import</button>
+                    <button class="tab-btn active" data-tab="tab-direct">01. Organic & Direct Import</button>
                     <button class="tab-btn" data-tab="tab-coldchain">02. Cold-Chain Logistics</button>
-                    <button class="tab-btn" data-tab="tab-training">03. Sommelier & Staff Training</button>
+                    <button class="tab-btn" data-tab="tab-training">03. Wine Tasting Presentations</button>
                     <button class="tab-btn" data-tab="tab-custom">04. Custom B2B Allocations</button>
                 </div>
 
@@ -327,30 +327,57 @@
                         <div class="tab-grid">
                             <div class="tab-text">
                                 <span class="tab-num">CAPABILITY 01</span>
-                                <h3>Direct Estate Import</h3>
-                                <p>EG Imports, LLC maintains exclusive direct supply agreements with Dehesa de Luna, Sampayolo, and Bodegas Corcos & Izquierdo, guaranteeing origin purity.</p>
+                                <h3>Organic Terroir & Direct Import</h3>
+                                <p>At Euro Gourmet Imports, our portfolio is centered on <strong>100% Eco-Certified organic wines</strong>. Native grape varieties, vineyard innovation, and environmental commitment are embedded in every single step we take.</p>
+                                <p>Through exclusive direct supply agreements with premier Spanish estates—such as <em>Dehesa de Luna</em>, <em>Sampayolo</em>, and <em>Bodegas Corcos & Izquierdo</em>—we guarantee authentic origin purity, zero intermediary markups, and sustainable viticulture delivered straight to the Caribbean.</p>
                             </div>
-                            <div class="tab-visual"><img src="images/dehesa_luna_estate.jpg" alt="Direct Import" loading="lazy"></div>
+                            <div class="tab-visual"><img src="images/dehesa_luna_estate.jpg" alt="Organic Vineyard Direct Import" loading="lazy"></div>
                         </div>
                     </div>
                     <div class="tab-pane" id="tab-coldchain">
                         <div class="tab-grid">
                             <div class="tab-text">
                                 <span class="tab-num">CAPABILITY 02</span>
-                                <h3>Cold-Chain Logistics</h3>
-                                <p>100% temperature-controlled (12°C–14°C reefer) ocean freight from Spain to our San Juan warehouse. Call office: 787-494-4994.</p>
+                                <h3>Overseas Cold-Chain Logistics</h3>
+                                <p>Fine organic wine requires uncompromised temperature care. From ancient Spanish cellars across maritime routes to the Caribbean, our products are shipped overseas in specialized <strong>12°C–14°C reefer containers</strong> equipped with continuous thermal tracking.</p>
+                                <p>We work tirelessly to safeguard the delicate character of every bottle, ensuring every vintage rests at its ideal recommended serving temperature before it arrives directly into our clients' hands.</p>
                             </div>
-                            <div class="tab-visual"><img src="images/spanish_vineyard_hero.jpg" alt="Cold Chain Logistics" loading="lazy"></div>
+                            <div class="tab-visual"><img src="images/spanish_vineyard_hero.jpg" alt="Cold Chain Wine Transit" loading="lazy"></div>
                         </div>
                     </div>
                     <div class="tab-pane" id="tab-training">
                         <div class="tab-grid">
                             <div class="tab-text">
                                 <span class="tab-num">CAPABILITY 03</span>
-                                <h3>Sommelier & Staff Training</h3>
-                                <p>On-site staff wine and gourmet pairing education for hospitality accounts across Puerto Rico & Caribbean.</p>
+                                <h3>Wine Tasting Presentations for Restaurants</h3>
+                                <p>We offer luxury restaurants, hotels, and fine dining venues the opportunity to schedule a private <strong>On-Site Wine Tasting Presentation</strong> led by our wine specialists.</p>
+                                
+                                <form class="tasting-request-form" id="tastingRequestForm" onsubmit="handleTastingSubmit(event)">
+                                    <div class="form-row-compact">
+                                        <div class="form-field">
+                                            <label for="tastingRestaurant">Restaurant / Venue Name</label>
+                                            <input type="text" id="tastingRestaurant" placeholder="e.g. Condado Bistro / Santaella" required>
+                                        </div>
+                                        <div class="form-field">
+                                            <label for="tastingContact">Contact Person & Phone / Email</label>
+                                            <input type="text" id="tastingContact" placeholder="Name, Phone or Email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-field" style="margin-top: 0.8rem;">
+                                        <label for="tastingWinery">Winery or Wine of Interest</label>
+                                        <select id="tastingWinery" required>
+                                            <option value="" disabled selected>Select Winery or Product Focus</option>
+                                            <option value="Dehesa de Luna (D.O. Tierra de Castilla - Organic)">Dehesa de Luna (D.O. Tierra de Castilla - 100% Organic)</option>
+                                            <option value="Sampayolo (D.O. Valdeorras - Old Vines Godello & Mencia)">Sampayolo (D.O. Valdeorras - Godello & Mencía)</option>
+                                            <option value="Bodegas Corcos & Izquierdo (D.O. Ribera del Duero)">Bodegas Corcos & Izquierdo (Ribera del Duero)</option>
+                                            <option value="Artisanal Pairings (100% Manchego & Jamón Ibérico)">Artisanal Pairings (Quesos Manchegos & Jamón Ibérico)</option>
+                                            <option value="Full Portfolio Spanish Terroir Experience">Full Portfolio Spanish Terroir Experience</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-burgundy btn-sm" style="margin-top: 1rem; width: 100%;">Schedule Tasting Presentation</button>
+                                </form>
                             </div>
-                            <div class="tab-visual"><img src="images/caribbean_wine_showcase.jpg" alt="Staff Training" loading="lazy"></div>
+                            <div class="tab-visual"><img src="images/caribbean_wine_showcase.jpg" alt="Wine Tasting Presentation" loading="lazy"></div>
                         </div>
                     </div>
                     <div class="tab-pane" id="tab-custom">
@@ -358,7 +385,7 @@
                             <div class="tab-text">
                                 <span class="tab-num">CAPABILITY 04</span>
                                 <h3>Custom B2B Allocations</h3>
-                                <p>Pallet allocations and private label co-bottling for resort chains and cruise lines.</p>
+                                <p>Pallet allocations, private cellar reservations, and bespoke co-bottling for resort chains, fine dining establishments, and cruise lines.</p>
                             </div>
                             <div class="tab-visual"><img src="images/bordeaux.jpg" alt="Custom Allocations" loading="lazy"></div>
                         </div>

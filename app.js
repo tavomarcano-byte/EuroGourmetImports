@@ -417,3 +417,15 @@ function setupMobileMenu() {
         });
     }
 }
+
+// Wine Tasting Presentation Form Handler
+function handleTastingSubmit(event) {
+    event.preventDefault();
+    const restaurant = document.getElementById('tastingRestaurant').value;
+    const contact = document.getElementById('tastingContact').value;
+    const winery = document.getElementById('tastingWinery').value;
+    
+    alert(`🍷 Tasting Visit Request Submitted!\n\nThank you! We have received your request for an On-Site Wine Tasting Presentation for "${restaurant}".\n\nWinery / Wine Focus: ${winery}\n\nOur Sommelier & Sales team will contact you at (${contact}) within 24 hours.`);
+    event.target.reset();
+}
+
