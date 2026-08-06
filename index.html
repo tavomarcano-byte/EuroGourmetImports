@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EG Imports, LLC (d/b/a Euro Gourmet Imports) - Direct Spanish Terroir to Puerto Rico, the Caribbean & US. Vinos Orgánicos, Quesos Manchegos 100%, and Jamón Ibérico 100%.">
-    <meta name="theme-color" content="#1A1D20">
+    <meta name="description" content="EG Imports, LLC (d/b/a Euro Gourmet Imports) - Direct Spanish Terroir & Gourmet Fine Foods to Puerto Rico, the Caribbean & US. Vinos Orgánicos, Quesos Manchegos 100%, and Jamón Ibérico 100%.">
+    <meta name="theme-color" content="#FDFBF7">
     <title>EG Imports, LLC (d/b/a Euro Gourmet Imports) | Direct Spanish Terroir & Gourmet Fine Foods</title>
 
     <!-- Authentic Transparent Logo Image Asset Favicon -->
@@ -16,16 +16,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
 
-    <!-- Three.js 3D WebGL Library & OrbitControls -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
-
     <!-- Master Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Dynamic Sticky Header with 60px Image Logo -->
+    <!-- Redesigned Top Navigation Bar (Dehesa de Luna Minimalist Layout) -->
     <header class="navbar sticky-header" id="navbar">
         <div class="reading-progress-bar" id="readingProgressBar"></div>
         <div class="nav-container">
@@ -39,9 +35,8 @@
             </a>
 
             <nav class="nav-menu" id="navMenu">
-                <a href="#hero" class="nav-link">Overview</a>
-                <a href="#webgl3d" class="nav-link">3D Cellar Studio</a>
-                <a href="#estates" class="nav-link">Partner Wineries</a>
+                <a href="#hero" class="nav-link">Home</a>
+                <a href="#estates" class="nav-link">Wineries</a>
                 <a href="#biodiversity" class="nav-link">Biodiversity</a>
                 <a href="#storefront" class="nav-link">B2B Catalog</a>
                 <a href="#services" class="nav-link">Logistics</a>
@@ -67,23 +62,41 @@
     </header>
 
     <main>
-        <!-- Corporate Value Proposition Hero Section -->
-        <section class="corporate-hero-section" id="hero">
-            <div class="geometric-grid-overlay"></div>
+        <!-- Dehesa de Luna Style Hero Section (Lush Vineyard Banner + Bottle Render Showcase) -->
+        <section class="dehesa-hero-section" id="hero">
+            <div class="hero-banner-overlay"></div>
             <div class="section-container">
-                <div class="corporate-hero-content text-center">
-                    <img src="images/22e1d621-3911-4c24-8797-f1a95890f961.png" alt="Euro Gourmet Emblem" class="hero-logo-emblem" style="height:90px; margin:0 auto 1.5rem; display:block; filter:drop-shadow(0 6px 20px rgba(184,107,47,0.4));">
-                    <span class="hero-eyebrow">EG IMPORTS, LLC (d/b/a EURO GOURMET IMPORTS)</span>
-                    <h1 class="corporate-hero-title">
-                        Direct Spanish Terroir & Gourmet Fine Foods to the Caribbean & US
-                    </h1>
-                    <p class="corporate-hero-desc">
-                        Curating 100% Eco-Certified Vinos Orgánicos, Quesos Manchegos 100% artesanal, and 100% pure acorn-fed Jamón Ibérico directly from Spain's premier estates for luxury hospitality, wine bars, and fine retailers.
+                <div class="hero-content text-center">
+                    <span class="hero-eyebrow">EG IMPORTS, LLC (D/B/A EURO GOURMET IMPORTS)</span>
+                    <h1 class="hero-main-title">A Journey Through Spanish Terroir</h1>
+                    <p class="hero-subtext">
+                        Curating 100% Eco-Certified Vinos Orgánicos, Quesos Manchegos 100% artesanal, and 100% pure acorn-fed Jamón Ibérico directly from Spain's premier estates for luxury hospitality and fine dining.
                     </p>
-                    <div class="hero-cta-group text-center">
+                    <div class="hero-cta-group">
                         <a href="#storefront" class="btn btn-burgundy">Explore B2B Catalog</a>
-                        <a href="#webgl3d" class="btn btn-outline">Explore 3D Cellar Studio</a>
-                        <a href="tel:7876494994" class="btn btn-outline">📞 Call Sales: 787-649-4994</a>
+                        <a href="tel:7876494994" class="btn btn-outline-dark">📞 Call Sales: 787-649-4994</a>
+                    </div>
+                </div>
+
+                <!-- Showcase Bottle Renders Row Rising out of Hero -->
+                <div class="hero-bottles-showcase">
+                    <div class="showcase-bottle-card" onclick="location.href='#storefront'">
+                        <img src="images/dehesa_luna_estate.jpg" alt="Dehesa de Luna Gran Reserva">
+                        <span class="bottle-label-tag">D.O. Tierra de Castilla</span>
+                        <h4>Dehesa de Luna Gran Reserva</h4>
+                        <p>100% Organic & Vegan</p>
+                    </div>
+                    <div class="showcase-bottle-card" onclick="location.href='#storefront'">
+                        <img src="images/spanish_white_godello.jpg" alt="Sampayolo Godello Old Vines">
+                        <span class="bottle-label-tag">D.O. Valdeorras</span>
+                        <h4>Sampayolo Godello</h4>
+                        <p>Slate Terraced Minerality</p>
+                    </div>
+                    <div class="showcase-bottle-card" onclick="location.href='#storefront'">
+                        <img src="images/bordeaux.jpg" alt="Bodegas Corcos & Izquierdo Tempranillo">
+                        <span class="bottle-label-tag">D.O. Ribera del Duero</span>
+                        <h4>Bodegas Corcos Tempranillo</h4>
+                        <p>60+ Yr Old Vines</p>
                     </div>
                 </div>
             </div>
@@ -103,37 +116,39 @@
             </div>
         </section>
 
-        <!-- Real-Time Interactive 3D WebGL Canvas Section -->
-        <section class="webgl-3d-section" id="webgl3d">
+        <!-- Biodiversity & Estate Story Block (Dehesa de Luna Sourcing Story) -->
+        <section class="biodiversity-section" id="biodiversity">
             <div class="section-container">
-                <div class="section-header text-center">
-                    <span class="section-badge">INTERACTIVE 3D WEBGL CELLAR STUDIO</span>
-                    <h2 class="section-title">Explore Spanish Oak & Bottle Provenance</h2>
-                    <p class="section-subtitle">Real-time WebGL rendering of our organic estate wine bottle resting on a handcrafted Spanish oak cellar barrel. Click & drag to rotate 360°.</p>
-                </div>
-
-                <div class="webgl-stage-card">
-                    <div class="webgl-canvas-wrapper" id="webglCanvasContainer">
-                        <!-- Three.js Canvas Injected Here -->
-                        <div class="webgl-controls-hint">
-                            <span class="drag-icon">🔄</span> <strong>Click & Drag to Rotate 360°</strong> | Glass Reflection Physics Enabled
+                <div class="biodiversity-grid">
+                    <div class="bio-image-col">
+                        <img src="images/dehesa_luna_estate.jpg" alt="Dehesa de Luna Biodiversity Reserve" class="bio-img" loading="lazy">
+                        <div class="bio-badge-overlay">
+                            <span>🌿 100% Eco-Certified Estate Reserve</span>
                         </div>
                     </div>
-                    <div class="webgl-info-overlay">
-                        <div class="info-tag">100% Eco-Certified Terroir</div>
-                        <h3>Gran Reserva Spanish Oak Aging</h3>
-                        <p>French & Spanish oak barrels seasoned for 14+ months, preserving dark fruit complexity, mineral acidity, and silky tannins against our luxury dark slate background.</p>
-                        <div class="tech-specs-pills">
-                            <span>Oak Origin: Allier & Quercus Robur</span>
-                            <span>Glass Spec: Light-Shielded 750ml</span>
-                            <span>Render: WebGL 60fps</span>
-                        </div>
+                    <div class="bio-text-col">
+                        <span class="section-badge">SUSTAINABLE AGRICULTURE & TERROIR</span>
+                        <h2 class="section-title">Biodiversity & Organic Sourcing Story</h2>
+                        <p class="lead-text">
+                            At <strong>EG Imports, LLC</strong>, we prioritize wineries that act as ecological sanctuaries. Our flagship partner estate, <strong>Dehesa de Luna</strong>, operates within a 3,000-hectare wildlife reserve where organic vines co-exist with imperial eagles, wild lavender, and centuries-old holm oaks.
+                        </p>
+                        <ul class="bio-feature-list">
+                            <li>
+                                <strong>Zero Chemical Pesticides:</strong> 100% certified organic cultivation with natural plant-based cover crops.
+                            </li>
+                            <li>
+                                <strong>Vegan Fining Compliance:</strong> Clarified exclusively using pea protein and bentonite clay—zero animal by-products.
+                            </li>
+                            <li>
+                                <strong>Water Harvesting & Renewable Energy:</strong> Solar-powered cellar processing and drip-irrigation sensor technology.
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Partner Winery Bento Grid (Dehesa de Luna Style Grid Cards) -->
+        <!-- Partner Winery Portfolio (Dehesa de Luna Style Grid Cards) -->
         <section class="bento-section" id="estates">
             <div class="section-container">
                 <div class="section-header text-center">
@@ -191,39 +206,7 @@
             </div>
         </section>
 
-        <!-- Biodiversity & Estate Story Block (Dehesa de Luna Style Sourcing Story) -->
-        <section class="biodiversity-section" id="biodiversity">
-            <div class="section-container">
-                <div class="biodiversity-grid">
-                    <div class="bio-image-col">
-                        <img src="images/dehesa_luna_estate.jpg" alt="Dehesa de Luna Biodiversity Reserve" class="bio-img" loading="lazy">
-                        <div class="bio-badge-overlay">
-                            <span>🌿 100% Eco-Certified Estate</span>
-                        </div>
-                    </div>
-                    <div class="bio-text-col">
-                        <span class="section-badge">SUSTAINABLE AGRICULTURE & TERROIR</span>
-                        <h2 class="section-title">Biodiversity & Organic Sourcing Story</h2>
-                        <p class="lead-text">
-                            At <strong>EG Imports, LLC</strong>, we prioritize wineries that act as ecological sanctuaries. Our signature partner estate, <strong>Dehesa de Luna</strong>, operates within a 3,000-hectare wildlife reserve where organic vines co-exist with imperial eagles, wild lavender, and centuries-old holm oaks.
-                        </p>
-                        <ul class="bio-feature-list">
-                            <li>
-                                <strong>Zero Chemical Pesticides:</strong> 100% certified organic cultivation with natural plant-based cover crops.
-                            </li>
-                            <li>
-                                <strong>Vegan Fining Compliance:</strong> Clarified exclusively using pea protein and bentonite clay—zero animal by-products.
-                            </li>
-                            <li>
-                                <strong>Water Harvesting & Renewable Energy:</strong> Solar-powered cellar processing and drip-irrigation sensor technology.
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Importer Story & Philosophy -->
+        <!-- Importer Story & Founder Credentials -->
         <section class="philosophy-section" id="philosophy">
             <div class="section-container">
                 <div class="philosophy-grid">
@@ -264,7 +247,7 @@
             </div>
         </section>
 
-        <!-- B2B Wholesale Storefront Section (Dehesa de Luna Style Grid Cards with View Product Hover) -->
+        <!-- B2B Wholesale Storefront Section (Dehesa de Luna Style Clean Cards) -->
         <section class="storefront-section" id="storefront">
             <div class="section-container">
                 <div class="section-header text-center">
@@ -310,7 +293,7 @@
 
                     <div class="storefront-main">
                         <div class="storefront-toolbar">
-                            <span class="results-count" id="resultsCount">Showing Expanded B2B Catalog</span>
+                            <span class="results-count" id="resultsCount">Showing B2B Wholesale Catalog</span>
                             <div class="search-box">
                                 <input type="text" id="storeSearchInput" placeholder="Search wine, Manchego, Jamón..." aria-label="Search catalog">
                             </div>
@@ -453,7 +436,7 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact Section (Request B2B Trade Account Form) -->
         <section class="contact-section" id="contact">
             <div class="section-container">
                 <div class="contact-card">
@@ -566,8 +549,8 @@
                 <a href="#" class="nav-logo" style="margin-bottom: 1.5rem; flex-direction:column; align-items:flex-start; gap:0.75rem;">
                     <img src="images/22e1d621-3911-4c24-8797-f1a95890f961.png" alt="Euro Gourmet Imports Logo" class="brand-logo-img footer-logo-img">
                     <div class="logo-text">
-                        <span class="brand-title" style="font-size:1.25rem;">EURO GOURMET</span>
-                        <span class="brand-sub">EG IMPORTS, LLC</span>
+                        <span class="brand-title" style="font-size:1.25rem; color:var(--parchment-white);">EURO GOURMET</span>
+                        <span class="brand-sub" style="color:var(--bronze-gold);">EG IMPORTS, LLC</span>
                     </div>
                 </a>
                 <p class="footer-info"><strong>EG Imports, LLC (d/b/a Euro Gourmet Imports)</strong></p>

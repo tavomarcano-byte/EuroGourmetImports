@@ -121,10 +121,10 @@ const JOURNAL_ARTICLES = {
     featured: {
         title: "High-Altitude Viticulture and Climate Resilience in Spanish Monastrell",
         content: `
-            <span style="font-size: 0.72rem; letter-spacing: 2px; color: var(--parchment-muted); text-transform: uppercase; font-weight: 700;">EG IMPORTS, LLC TERROIR JOURNAL</span>
-            <h1 id="art-intro">High-Altitude Viticulture and Climate Resilience in Spanish Monastrell</h1>
+            <span style="font-size: 0.72rem; letter-spacing: 2px; color: var(--bronze-amber); text-transform: uppercase; font-weight: 700;">EG IMPORTS, LLC TERROIR JOURNAL</span>
+            <h1 id="art-intro" style="font-size: 2rem; margin: 0.5rem 0 1rem; color: var(--charcoal-dark);">High-Altitude Viticulture and Climate Resilience in Spanish Monastrell</h1>
             <p><strong>Carlos A. Marcano, Founder & CEO</strong> of EG Imports, LLC directs our sourcing toward high-altitude organic vineyards that lock in natural acidity.</p>
-            <p>Direct Sales Line: <strong>787-649-4994</strong> | Direct Office: <strong>787-494-4994</strong></p>
+            <p style="margin-top:1rem; padding-top:1rem; border-top:1px solid var(--card-border);">Direct Sales Line: <strong>787-649-4994</strong> | Direct Office: <strong>787-494-4994</strong></p>
         `
     }
 };
@@ -134,7 +134,6 @@ let orderCases = JSON.parse(localStorage.getItem('eurogourmet_b2b_order')) || []
 
 // DOM Initialization
 document.addEventListener('DOMContentLoaded', () => {
-    init3DWebGLCellarStudio();
     setupTradeTabs();
     setupReadingProgressBar();
     renderProductGrid();
@@ -147,163 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileMenu();
     setupArticleModalListeners();
 });
-
-// Real-Time Interactive 3D WebGL Canvas Scene Generator (Three.js)
-function init3DWebGLCellarStudio() {
-    const container = document.getElementById('webglCanvasContainer');
-    if (!container || typeof THREE === 'undefined') return;
-
-    // Scene
-    const scene = new THREE.Scene();
-
-    // Camera
-    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
-    camera.position.set(0, 1.8, 6.8);
-
-    // Renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-    renderer.shadowMap.enabled = true;
-    container.appendChild(renderer.domElement);
-
-    // Orbit Controls
-    let controls;
-    if (typeof THREE.OrbitControls !== 'undefined') {
-        controls = new THREE.OrbitControls(camera, renderer.domElement);
-        controls.enableDamping = true;
-        controls.dampingFactor = 0.05;
-        controls.maxPolarAngle = Math.PI / 2 + 0.1;
-        controls.minDistance = 3.5;
-        controls.maxDistance = 10;
-    }
-
-    // Lighting (Specular Glass Reflection Physics & Warm Burgundy/Amber Rim Lighting)
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-    scene.add(ambientLight);
-
-    const keyLight = new THREE.DirectionalLight(0xffecd1, 1.2);
-    keyLight.position.set(5, 8, 5);
-    scene.add(keyLight);
-
-    const rimBurgundyLight = new THREE.PointLight(0x581825, 2.8, 12);
-    rimBurgundyLight.position.set(-4, 3, -3);
-    scene.add(rimBurgundyLight);
-
-    const fillAmberLight = new THREE.PointLight(0xe6aa45, 1.6, 12);
-    fillAmberLight.position.set(4, -2, 3);
-    scene.add(fillAmberLight);
-
-    // 3D Object Master Group
-    const studioGroup = new THREE.Group();
-    scene.add(studioGroup);
-
-    // 1. Rustic Oak Barrel (Bulging Cylinder + Metallic Iron Hoops)
-    const barrelGroup = new THREE.Group();
-    const barrelPoints = [];
-    for (let i = 0; i <= 20; i++) {
-        const t = i / 20;
-        const y = (t - 0.5) * 2.4;
-        const radius = 1.0 + Math.sin(t * Math.PI) * 0.22;
-        barrelPoints.push(new THREE.Vector2(radius, y));
-    }
-    const barrelGeo = new THREE.LatheGeometry(barrelPoints, 36);
-    const barrelMat = new THREE.MeshStandardMaterial({
-        color: 0x5a361e,
-        roughness: 0.68,
-        metalness: 0.1
-    });
-    const barrelMesh = new THREE.Mesh(barrelGeo, barrelMat);
-    barrelGroup.add(barrelMesh);
-
-    // 4 Iron Hoops
-    const hoopYPositions = [-0.9, -0.4, 0.4, 0.9];
-    const hoopMat = new THREE.MeshStandardMaterial({
-        color: 0x2b2b2e,
-        roughness: 0.35,
-        metalness: 0.85
-    });
-    hoopYPositions.forEach(y => {
-        const hoopRadius = 1.0 + Math.sin(((y / 2.4) + 0.5) * Math.PI) * 0.22 + 0.02;
-        const hoopGeo = new THREE.TorusGeometry(hoopRadius, 0.03, 12, 36);
-        const hoopMesh = new THREE.Mesh(hoopGeo, hoopMat);
-        hoopMesh.rotation.x = Math.PI / 2;
-        hoopMesh.position.y = y;
-        barrelGroup.add(hoopMesh);
-    });
-
-    // Rotate Barrel horizontally
-    barrelGroup.rotation.z = Math.PI / 2;
-    barrelGroup.position.set(0, -0.7, 0);
-    studioGroup.add(barrelGroup);
-
-    // 2. Unbranded Luxury Wine Bottle
-    const bottleGroup = new THREE.Group();
-    const bottlePoints = [];
-    bottlePoints.push(new THREE.Vector2(0, 0));
-    bottlePoints.push(new THREE.Vector2(0.42, 0.02));
-    bottlePoints.push(new THREE.Vector2(0.42, 1.25));
-    for (let i = 0; i <= 10; i++) {
-        const t = i / 10;
-        const r = 0.42 - (0.26 * Math.sin(t * Math.PI * 0.5));
-        const y = 1.25 + (t * 0.55);
-        bottlePoints.push(new THREE.Vector2(r, y));
-    }
-    bottlePoints.push(new THREE.Vector2(0.16, 2.35));
-    bottlePoints.push(new THREE.Vector2(0.18, 2.4));
-    bottlePoints.push(new THREE.Vector2(0.16, 2.45));
-
-    const bottleGeo = new THREE.LatheGeometry(bottlePoints, 36);
-    const glassMat = new THREE.MeshPhysicalMaterial({
-        color: 0x122617,
-        roughness: 0.12,
-        metalness: 0.15,
-        transmission: 0.45,
-        transparent: true,
-        opacity: 0.92,
-        reflectivity: 0.95,
-        clearcoat: 1.0,
-        clearcoatRoughness: 0.08
-    });
-    const bottleMesh = new THREE.Mesh(bottleGeo, glassMat);
-    bottleGroup.add(bottleMesh);
-
-    // Foil Capsule
-    const capGeo = new THREE.CylinderGeometry(0.165, 0.17, 0.4, 32);
-    const capMat = new THREE.MeshStandardMaterial({
-        color: 0x581825,
-        roughness: 0.3,
-        metalness: 0.65
-    });
-    const capMesh = new THREE.Mesh(capGeo, capMat);
-    capMesh.position.y = 2.25;
-    bottleGroup.add(capMesh);
-
-    // Position bottle resting horizontally over oak barrel
-    bottleGroup.rotation.z = -Math.PI / 2.3;
-    bottleGroup.position.set(0.1, 0.5, 0.25);
-    studioGroup.add(bottleGroup);
-
-    // Animation Loop
-    function animate() {
-        requestAnimationFrame(animate);
-        if (controls) {
-            controls.update();
-        } else {
-            studioGroup.rotation.y += 0.005;
-        }
-        renderer.render(scene, camera);
-    }
-    animate();
-
-    // Responsive Canvas Resize
-    window.addEventListener('resize', () => {
-        if (!container) return;
-        camera.aspect = container.clientWidth / container.clientHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(container.clientWidth, container.clientHeight);
-    });
-}
 
 // Trade Tabs
 function setupTradeTabs() {
@@ -331,7 +173,7 @@ function setupReadingProgressBar() {
     }, { passive: true });
 }
 
-// Render Product Grid (Dehesa de Luna Style Grid Cards with View Product Hover)
+// Render Product Grid (Dehesa de Luna Style Clean Cards)
 function renderProductGrid() {
     const productGrid = document.getElementById('productGrid');
     const resultsCount = document.getElementById('resultsCount');
@@ -355,7 +197,7 @@ function renderProductGrid() {
     if (resultsCount) resultsCount.textContent = `Showing ${filtered.length} Items (Call Sales: 787-649-4994)`;
 
     if (filtered.length === 0) {
-        productGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem; color: var(--parchment-muted);"><h3>No items match your active filters</h3></div>`;
+        productGrid.innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 4rem 1rem; color: var(--charcoal-muted);"><h3>No items match your active filters</h3></div>`;
         return;
     }
 
@@ -366,7 +208,7 @@ function renderProductGrid() {
                 <img src="${item.image}" alt="${item.name}" loading="lazy">
                 <div class="quick-add-overlay">
                     <button class="btn btn-burgundy btn-sm" onclick="event.stopPropagation(); openQuickView('${item.id}')">VIEW PRODUCT</button>
-                    <button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); addCaseToOrder('${item.id}')">+ Quick Add Case</button>
+                    <button class="btn btn-outline-dark btn-sm" onclick="event.stopPropagation(); addCaseToOrder('${item.id}')">+ Quick Add Case</button>
                 </div>
             </div>
             <div class="product-details" onclick="openQuickView('${item.id}')">
@@ -375,7 +217,7 @@ function renderProductGrid() {
                 <p class="product-grape">${item.grape}</p>
                 <div class="product-footer">
                     <span class="case-price">$${item.pricePerCase} <sub>/ Case</sub></span>
-                    <button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); openQuickView('${item.id}')">VIEW PRODUCT</button>
+                    <button class="btn btn-outline-dark btn-sm" onclick="event.stopPropagation(); openQuickView('${item.id}')">VIEW PRODUCT</button>
                 </div>
             </div>
         </article>
@@ -425,13 +267,13 @@ function updateOrderDrawerUI() {
 
     if (drawerItemsList) {
         if (orderCases.length === 0) {
-            drawerItemsList.innerHTML = '<p class="drawer-empty-msg">Your wholesale order bag is currently empty.</p>';
+            drawerItemsList.innerHTML = '<p class="drawer-empty-msg" style="color:var(--charcoal-muted); text-align:center; padding:2rem 0;">Your wholesale order bag is currently empty.</p>';
         } else {
             drawerItemsList.innerHTML = orderCases.map(item => `
                 <div class="drawer-item-row">
                     <div class="drawer-item-info">
-                        <h4>${item.name}</h4>
-                        <p>$${item.pricePerCase} / Case</p>
+                        <h4 style="font-size:0.95rem; color:var(--charcoal-dark);">${item.name}</h4>
+                        <p style="font-size:0.8rem; color:var(--charcoal-muted);">$${item.pricePerCase} / Case</p>
                     </div>
                     <div class="qty-controls">
                         <button class="qty-btn" onclick="changeCaseQty('${item.id}', -1)">−</button>
@@ -463,22 +305,22 @@ function openQuickView(id) {
     if (!item || !modal || !content) return;
 
     content.innerHTML = `
-        <div class="modal-grid-layout">
-            <div style="text-align: center; background: radial-gradient(circle at center, #2b3037 0%, #15181b 100%); padding: 2rem; border-radius: var(--radius-md);">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2.5rem; align-items:center;">
+            <div style="text-align: center; background: var(--parchment-soft); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--card-border);">
                 <img src="${item.image}" alt="${item.name}" style="max-height: 380px; object-fit: contain;">
             </div>
             <div>
-                <span style="font-size: 0.72rem; letter-spacing: 2px; color: var(--parchment-muted); text-transform: uppercase; font-weight: 700;">EG IMPORTS, LLC • ${item.regionName}</span>
-                <h2 style="font-size: 1.8rem; margin: 0.4rem 0 0.8rem; color: var(--soft-parchment);">${item.name}</h2>
-                <p style="font-size: 0.9rem; color: var(--parchment-muted); margin-bottom: 1.2rem;">${item.tasting}</p>
+                <span style="font-size: 0.72rem; letter-spacing: 2px; color: var(--bronze-amber); text-transform: uppercase; font-weight: 700;">EG IMPORTS, LLC • ${item.regionName}</span>
+                <h2 style="font-size: 1.8rem; margin: 0.4rem 0 0.8rem; color: var(--charcoal-dark);">${item.name}</h2>
+                <p style="font-size: 0.9rem; color: var(--charcoal-muted); margin-bottom: 1.2rem;">${item.tasting}</p>
                 
-                <div style="padding: 0.8rem 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); margin-bottom: 1.2rem; font-size: 0.85rem; color: var(--parchment-muted);">
-                    📞 Primary Sales: <a href="tel:7876494994" style="color: var(--soft-parchment); font-weight:700;">787-649-4994</a> | Office: <a href="tel:7874944994" style="color: var(--soft-parchment); font-weight:700;">787-494-4994</a>
+                <div style="padding: 0.8rem 0; border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); margin-bottom: 1.2rem; font-size: 0.85rem; color: var(--charcoal-muted);">
+                    📞 Primary Sales: <a href="tel:7876494994" style="color: var(--deep-burgundy); font-weight:700;">787-649-4994</a> | Office: <a href="tel:7874944994" style="color: var(--deep-burgundy); font-weight:700;">787-494-4994</a>
                 </div>
 
                 <div style="display: flex; gap: 1rem;">
                     <button class="btn btn-burgundy btn-sm" onclick="addCaseToOrder('${item.id}', 1); closeQuickViewModal();">+ Add Case to Order</button>
-                    <a href="tel:7876494994" class="btn btn-outline btn-sm">📞 Call Sales Now</a>
+                    <a href="tel:7876494994" class="btn btn-outline-dark btn-sm">📞 Call Sales Now</a>
                 </div>
             </div>
         </div>
