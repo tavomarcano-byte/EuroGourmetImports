@@ -107,7 +107,64 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.2px; line-h
 
 .hero-banner-overlay { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(253, 251, 247, 0.75) 0%, rgba(245, 241, 232, 0.92) 80%); }
 .hero-content { max-width: 860px; margin: 0 auto 4rem; position: relative; z-index: 2; }
-.hero-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 3.5px; color: var(--bronze-amber); margin-bottom: 1.2rem; text-transform: uppercase; background: rgba(158, 90, 42, 0.1); border: 1px solid rgba(158, 90, 42, 0.3); padding: 6px 16px; border-radius: var(--radius-pill); }
+
+/* 3D Hero Brand Badge Component */
+.hero-brand-badge-3d {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 0.65rem 2rem 0.65rem 0.9rem;
+    background: rgba(253, 251, 247, 0.94);
+    border: 1px solid rgba(184, 134, 11, 0.4);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 12px 32px rgba(88, 24, 37, 0.1), 0 3px 10px rgba(184, 134, 11, 0.2);
+    backdrop-filter: blur(12px);
+    margin-bottom: 1.75rem;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    perspective: 1000px;
+}
+
+.hero-brand-badge-3d:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: var(--bronze-amber);
+    box-shadow: 0 20px 45px rgba(88, 24, 37, 0.18), 0 6px 20px rgba(184, 134, 11, 0.3);
+}
+
+.logo-3d-wrapper {
+    width: 68px;
+    height: 68px;
+    position: relative;
+    filter: drop-shadow(0 8px 16px rgba(88, 24, 37, 0.25));
+    animation: float3D 4s ease-in-out infinite;
+}
+
+.logo-3d-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 2px solid rgba(212, 175, 55, 0.6);
+    background: #FFFFFF;
+    box-shadow: inset 0 0 12px rgba(184, 134, 11, 0.2);
+}
+
+.hero-brand-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 3.5px;
+    color: var(--deep-burgundy);
+    text-transform: uppercase;
+    background: linear-gradient(135deg, #581825 20%, #B8860B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes float3D {
+    0%, 100% { transform: translateY(0px) rotateZ(0deg); }
+    50% { transform: translateY(-5px) rotateZ(2deg); }
+}
 .hero-main-title { font-size: clamp(2.5rem, 5vw, 4.2rem); font-family: 'Merriweather', serif; font-weight: 400; color: var(--charcoal-dark); margin-bottom: 1.5rem; line-height: 1.15; }
 .hero-subtext { font-size: 1.12rem; color: var(--charcoal-muted); margin-bottom: 2.5rem; max-width: 720px; margin-left: auto; margin-right: auto; }
 .hero-cta-group { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; }
