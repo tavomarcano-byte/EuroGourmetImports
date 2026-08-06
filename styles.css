@@ -108,35 +108,34 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.2px; line-h
 .hero-banner-overlay { position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(253, 251, 247, 0.75) 0%, rgba(245, 241, 232, 0.92) 80%); }
 .hero-content { max-width: 860px; margin: 0 auto 4rem; position: relative; z-index: 2; }
 
-/* 3D Hero Brand Badge Component */
+/* 3D Hero Brand Badge Component - Subtle & Compact */
 .hero-brand-badge-3d {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 1.25rem;
-    padding: 0.65rem 2rem 0.65rem 0.9rem;
-    background: rgba(253, 251, 247, 0.94);
-    border: 1px solid rgba(184, 134, 11, 0.4);
+    gap: 0.65rem;
+    padding: 0.45rem 1.4rem 0.45rem 0.65rem;
+    background: rgba(253, 251, 247, 0.9);
+    border: 1px solid rgba(184, 134, 11, 0.3);
     border-radius: var(--radius-pill);
-    box-shadow: 0 12px 32px rgba(88, 24, 37, 0.1), 0 3px 10px rgba(184, 134, 11, 0.2);
-    backdrop-filter: blur(12px);
-    margin-bottom: 1.75rem;
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    perspective: 1000px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(8px);
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
 }
 
 .hero-brand-badge-3d:hover {
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-2px);
     border-color: var(--bronze-amber);
-    box-shadow: 0 20px 45px rgba(88, 24, 37, 0.18), 0 6px 20px rgba(184, 134, 11, 0.3);
+    box-shadow: 0 10px 25px rgba(88, 24, 37, 0.1);
 }
 
 .logo-3d-wrapper {
-    width: 68px;
-    height: 68px;
+    width: 26px;
+    height: 26px;
     position: relative;
-    filter: drop-shadow(0 8px 16px rgba(88, 24, 37, 0.25));
-    animation: float3D 4s ease-in-out infinite;
+    opacity: 0.85;
+    flex-shrink: 0;
 }
 
 .logo-3d-img {
@@ -144,21 +143,16 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.2px; line-h
     height: 100%;
     object-fit: contain;
     border-radius: 50%;
-    border: 2px solid rgba(212, 175, 55, 0.6);
-    background: #FFFFFF;
-    box-shadow: inset 0 0 12px rgba(184, 134, 11, 0.2);
+    opacity: 0.9;
 }
 
 .hero-brand-title {
     font-family: 'Cinzel', serif;
-    font-size: 1.4rem;
+    font-size: 0.92rem;
     font-weight: 800;
-    letter-spacing: 3.5px;
+    letter-spacing: 3px;
     color: var(--deep-burgundy);
     text-transform: uppercase;
-    background: linear-gradient(135deg, #581825 20%, #B8860B 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
 }
 
 @keyframes float3D {
