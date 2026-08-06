@@ -97,7 +97,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.2px; line-h
 .btn-sm { padding: 0.55rem 1.25rem; font-size: 0.82rem; }
 .btn-block { width: 100%; }
 
-/* Hero Section */
+/* Dehesa de Luna Inspired Hero Section */
 .dehesa-hero-section {
     position: relative;
     padding: 11rem 2rem 5rem;
@@ -112,7 +112,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.2px; line-h
 .hero-subtext { font-size: 1.12rem; color: var(--charcoal-muted); margin-bottom: 2.5rem; max-width: 720px; margin-left: auto; margin-right: auto; }
 .hero-cta-group { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; }
 
-/* Showcase Bottle Renders Row */
+/* Showcase Bottle Renders Row (Dehesa de Luna Style Bottle Cards) */
 .hero-bottles-showcase {
     position: relative;
     z-index: 2;
@@ -200,7 +200,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.2px; line-h
 .masked-image { width: 100%; height: 100%; object-fit: cover; }
 .glass-overlay-card { position: absolute; bottom: 1.75rem; left: 1.75rem; right: 1.75rem; background: rgba(255, 255, 255, 0.95); border: 1px solid var(--card-border); padding: 1.25rem 1.5rem; border-radius: var(--radius-md); backdrop-filter: blur(12px); display: flex; align-items: center; gap: 1rem; }
 
-/* Storefront Section */
+/* Storefront Section (Dehesa de Luna Style Clean Cards) */
 .storefront-section { padding: 7rem 2rem; border-bottom: 1px solid var(--card-border); background: var(--cream-canvas); }
 .storefront-layout { display: grid; grid-template-columns: 270px 1fr; gap: 2.5rem; align-items: start; }
 .filter-sidebar { background: var(--card-white); border: 1px solid var(--card-border); border-radius: var(--radius-md); padding: 1.75rem; position: sticky; top: 6.5rem; box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
@@ -238,7 +238,7 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.2px; line-h
 .product-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.8rem; border-top: 1px solid var(--card-border); }
 .case-price { font-family: 'Cinzel', serif; font-size: 1.15rem; font-weight: 700; color: var(--deep-burgundy); }
 
-/* Estate & Trade Services Tabs Section */
+/* Trade Services Tabs */
 .services-section { padding: 7rem 2rem; border-bottom: 1px solid var(--card-border); background: var(--parchment-soft); }
 .trade-tabs-header { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 3.5rem; }
 .tab-btn { background: var(--card-white); border: 1px solid var(--card-border); color: var(--charcoal-muted); padding: 0.85rem 1.6rem; border-radius: var(--radius-pill); font-size: 0.88rem; font-weight: 600; transition: var(--transition); }
@@ -247,44 +247,8 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.2px; line-h
 .tab-pane.active { display: block; }
 .tab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; background: var(--card-white); border: 1px solid var(--card-border); border-radius: var(--radius-lg); padding: 3.5rem; box-shadow: 0 12px 35px rgba(0,0,0,0.05); }
 .tab-num { font-size: 0.72rem; font-weight: 800; letter-spacing: 3px; color: var(--bronze-amber); display: block; margin-bottom: 0.5rem; }
-.tab-text .lead-p { font-size: 1.05rem; font-weight: 600; color: var(--charcoal-dark); margin-bottom: 1rem; line-height: 1.6; }
-.tab-text p { font-size: 0.92rem; color: var(--charcoal-muted); margin-bottom: 1.2rem; }
-.pillar-highlights { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1.2rem; }
-.pillar-tag { font-size: 0.82rem; font-weight: 700; color: var(--charcoal-dark); background: var(--parchment-soft); border: 1px solid var(--card-border); padding: 6px 14px; border-radius: var(--radius-pill); display: inline-block; align-self: flex-start; }
-
-.tab-visual { height: 380px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--card-border); }
+.tab-visual { height: 360px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--card-border); }
 .tab-visual img { width: 100%; height: 100%; object-fit: cover; }
-
-/* Interactive Wine Tasting Request Form inside Tab 03 */
-.tasting-request-card {
-    margin-top: 1.5rem;
-    background: var(--parchment-soft);
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-}
-
-.tasting-form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.tasting-form-grid .form-group label {
-    font-size: 0.78rem;
-    font-weight: 700;
-    color: var(--charcoal-dark);
-}
-
-.tasting-form-grid .form-group input,
-.tasting-form-grid .form-group select {
-    padding: 0.75rem 1rem;
-    background: #FFFFFF;
-    border: 1px solid var(--card-border);
-    border-radius: var(--radius-sm);
-    font-size: 0.88rem;
-    color: var(--charcoal-dark);
-}
 
 /* Leadership Section */
 .leadership-section { padding: 7rem 2rem; border-bottom: 1px solid var(--card-border); background: var(--cream-canvas); }
@@ -316,8 +280,6 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.2px; line-h
 .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
 .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--charcoal-dark); }
 .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.9rem 1.2rem; background: var(--parchment-soft); border: 1px solid var(--card-border); border-radius: var(--radius-sm); color: var(--charcoal-dark); font-family: inherit; font-size: 0.95rem; }
-
-.form-response.success { font-size: 0.88rem; font-weight: 700; color: #1e7e34; margin-top: 1rem; background: #e8f5e9; border: 1px solid #c8e6c9; padding: 10px 16px; border-radius: 8px; }
 
 /* Order Drawer & Modals */
 .b2b-order-drawer { position: fixed; inset: 0; z-index: 2000; visibility: hidden; opacity: 0; transition: var(--transition); }
@@ -356,7 +318,6 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.2px; line-h
 
 /* Responsive Media Queries */
 @media (max-width: 1100px) {
-    .tasting-form-grid { grid-template-columns: 1fr; }
     .hero-bottles-showcase { grid-template-columns: repeat(2, 1fr); margin-bottom: -5rem; }
     .biodiversity-grid { grid-template-columns: 1fr; }
     .leadership-slider-track { grid-template-columns: repeat(2, 1fr); }

@@ -143,7 +143,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setupDrawerListeners();
     setupFAQAccordion();
     setupB2BForm();
-    setupTastingForm();
     setupMobileMenu();
     setupArticleModalListeners();
 });
@@ -405,23 +404,6 @@ function setupB2BForm() {
                 responseDiv.className = "form-response success";
                 responseDiv.innerHTML = "✓ B2B Trade Account Inquiry Received! EG Imports, LLC team will contact you within 24 hours (Sales: 787-649-4994).";
             }
-        });
-    }
-}
-
-function setupTastingForm() {
-    const form = document.getElementById('tastingRequestForm');
-    const responseDiv = document.getElementById('tastingFormResponse');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const restaurant = document.getElementById('tastingRestaurant')?.value || 'Restaurant';
-            const winery = document.getElementById('tastingWinery')?.value || 'Selected Portfolio';
-            if (responseDiv) {
-                responseDiv.className = "form-response success";
-                responseDiv.innerHTML = `✓ Tasting Visit Request Received for ${restaurant}! Our sommelier team will contact you to confirm your guided tasting of ${winery}. (Sales: 787-649-4994)`;
-            }
-            form.reset();
         });
     }
 }
