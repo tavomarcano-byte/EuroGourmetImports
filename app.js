@@ -134,6 +134,7 @@ let orderCases = JSON.parse(localStorage.getItem('eurogourmet_b2b_order')) || []
 
 // DOM Initialization
 document.addEventListener('DOMContentLoaded', () => {
+    init3DWebGLCellarStudio();
     setupTradeTabs();
     setupReadingProgressBar();
     renderProductGrid();
@@ -146,6 +147,163 @@ document.addEventListener('DOMContentLoaded', () => {
     setupMobileMenu();
     setupArticleModalListeners();
 });
+
+// Real-Time Interactive 3D WebGL Canvas Scene Generator (Three.js)
+function init3DWebGLCellarStudio() {
+    const container = document.getElementById('webglCanvasContainer');
+    if (!container || typeof THREE === 'undefined') return;
+
+    // Scene
+    const scene = new THREE.Scene();
+
+    // Camera
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+    camera.position.set(0, 1.8, 6.8);
+
+    // Renderer
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.shadowMap.enabled = true;
+    container.appendChild(renderer.domElement);
+
+    // Orbit Controls
+    let controls;
+    if (typeof THREE.OrbitControls !== 'undefined') {
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.maxPolarAngle = Math.PI / 2 + 0.1;
+        controls.minDistance = 3.5;
+        controls.maxDistance = 10;
+    }
+
+    // Lighting (Specular Glass Reflection Physics & Warm Burgundy/Amber Rim Lighting)
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+
+    const keyLight = new THREE.DirectionalLight(0xffecd1, 1.2);
+    keyLight.position.set(5, 8, 5);
+    scene.add(keyLight);
+
+    const rimBurgundyLight = new THREE.PointLight(0x581825, 2.8, 12);
+    rimBurgundyLight.position.set(-4, 3, -3);
+    scene.add(rimBurgundyLight);
+
+    const fillAmberLight = new THREE.PointLight(0xe6aa45, 1.6, 12);
+    fillAmberLight.position.set(4, -2, 3);
+    scene.add(fillAmberLight);
+
+    // 3D Object Master Group
+    const studioGroup = new THREE.Group();
+    scene.add(studioGroup);
+
+    // 1. Rustic Oak Barrel (Bulging Cylinder + Metallic Iron Hoops)
+    const barrelGroup = new THREE.Group();
+    const barrelPoints = [];
+    for (let i = 0; i <= 20; i++) {
+        const t = i / 20;
+        const y = (t - 0.5) * 2.4;
+        const radius = 1.0 + Math.sin(t * Math.PI) * 0.22;
+        barrelPoints.push(new THREE.Vector2(radius, y));
+    }
+    const barrelGeo = new THREE.LatheGeometry(barrelPoints, 36);
+    const barrelMat = new THREE.MeshStandardMaterial({
+        color: 0x5a361e,
+        roughness: 0.68,
+        metalness: 0.1
+    });
+    const barrelMesh = new THREE.Mesh(barrelGeo, barrelMat);
+    barrelGroup.add(barrelMesh);
+
+    // 4 Iron Hoops
+    const hoopYPositions = [-0.9, -0.4, 0.4, 0.9];
+    const hoopMat = new THREE.MeshStandardMaterial({
+        color: 0x2b2b2e,
+        roughness: 0.35,
+        metalness: 0.85
+    });
+    hoopYPositions.forEach(y => {
+        const hoopRadius = 1.0 + Math.sin(((y / 2.4) + 0.5) * Math.PI) * 0.22 + 0.02;
+        const hoopGeo = new THREE.TorusGeometry(hoopRadius, 0.03, 12, 36);
+        const hoopMesh = new THREE.Mesh(hoopGeo, hoopMat);
+        hoopMesh.rotation.x = Math.PI / 2;
+        hoopMesh.position.y = y;
+        barrelGroup.add(hoopMesh);
+    });
+
+    // Rotate Barrel horizontally
+    barrelGroup.rotation.z = Math.PI / 2;
+    barrelGroup.position.set(0, -0.7, 0);
+    studioGroup.add(barrelGroup);
+
+    // 2. Unbranded Luxury Wine Bottle
+    const bottleGroup = new THREE.Group();
+    const bottlePoints = [];
+    bottlePoints.push(new THREE.Vector2(0, 0));
+    bottlePoints.push(new THREE.Vector2(0.42, 0.02));
+    bottlePoints.push(new THREE.Vector2(0.42, 1.25));
+    for (let i = 0; i <= 10; i++) {
+        const t = i / 10;
+        const r = 0.42 - (0.26 * Math.sin(t * Math.PI * 0.5));
+        const y = 1.25 + (t * 0.55);
+        bottlePoints.push(new THREE.Vector2(r, y));
+    }
+    bottlePoints.push(new THREE.Vector2(0.16, 2.35));
+    bottlePoints.push(new THREE.Vector2(0.18, 2.4));
+    bottlePoints.push(new THREE.Vector2(0.16, 2.45));
+
+    const bottleGeo = new THREE.LatheGeometry(bottlePoints, 36);
+    const glassMat = new THREE.MeshPhysicalMaterial({
+        color: 0x122617,
+        roughness: 0.12,
+        metalness: 0.15,
+        transmission: 0.45,
+        transparent: true,
+        opacity: 0.92,
+        reflectivity: 0.95,
+        clearcoat: 1.0,
+        clearcoatRoughness: 0.08
+    });
+    const bottleMesh = new THREE.Mesh(bottleGeo, glassMat);
+    bottleGroup.add(bottleMesh);
+
+    // Foil Capsule
+    const capGeo = new THREE.CylinderGeometry(0.165, 0.17, 0.4, 32);
+    const capMat = new THREE.MeshStandardMaterial({
+        color: 0x581825,
+        roughness: 0.3,
+        metalness: 0.65
+    });
+    const capMesh = new THREE.Mesh(capGeo, capMat);
+    capMesh.position.y = 2.25;
+    bottleGroup.add(capMesh);
+
+    // Position bottle resting horizontally over oak barrel
+    bottleGroup.rotation.z = -Math.PI / 2.3;
+    bottleGroup.position.set(0.1, 0.5, 0.25);
+    studioGroup.add(bottleGroup);
+
+    // Animation Loop
+    function animate() {
+        requestAnimationFrame(animate);
+        if (controls) {
+            controls.update();
+        } else {
+            studioGroup.rotation.y += 0.005;
+        }
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    // Responsive Canvas Resize
+    window.addEventListener('resize', () => {
+        if (!container) return;
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+}
 
 // Trade Tabs
 function setupTradeTabs() {
@@ -173,7 +331,7 @@ function setupReadingProgressBar() {
     }, { passive: true });
 }
 
-// Render Product Grid
+// Render Product Grid (Dehesa de Luna Style Grid Cards with View Product Hover)
 function renderProductGrid() {
     const productGrid = document.getElementById('productGrid');
     const resultsCount = document.getElementById('resultsCount');
@@ -207,7 +365,8 @@ function renderProductGrid() {
                 ${item.certified ? '<span class="certified-tag">100% Eco / Artisanal</span>' : ''}
                 <img src="${item.image}" alt="${item.name}" loading="lazy">
                 <div class="quick-add-overlay">
-                    <button class="btn btn-burgundy btn-sm" onclick="event.stopPropagation(); addCaseToOrder('${item.id}')">+ Quick Add</button>
+                    <button class="btn btn-burgundy btn-sm" onclick="event.stopPropagation(); openQuickView('${item.id}')">VIEW PRODUCT</button>
+                    <button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); addCaseToOrder('${item.id}')">+ Quick Add Case</button>
                 </div>
             </div>
             <div class="product-details" onclick="openQuickView('${item.id}')">
@@ -216,7 +375,7 @@ function renderProductGrid() {
                 <p class="product-grape">${item.grape}</p>
                 <div class="product-footer">
                     <span class="case-price">$${item.pricePerCase} <sub>/ Case</sub></span>
-                    <button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); openQuickView('${item.id}')">View Details</button>
+                    <button class="btn btn-outline btn-sm" onclick="event.stopPropagation(); openQuickView('${item.id}')">VIEW PRODUCT</button>
                 </div>
             </div>
         </article>

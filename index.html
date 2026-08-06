@@ -16,7 +16,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
 
-    <!-- Stylesheet -->
+    <!-- Three.js 3D WebGL Library & OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+
+    <!-- Master Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -36,7 +40,9 @@
 
             <nav class="nav-menu" id="navMenu">
                 <a href="#hero" class="nav-link">Overview</a>
+                <a href="#webgl3d" class="nav-link">3D Cellar Studio</a>
                 <a href="#estates" class="nav-link">Partner Wineries</a>
+                <a href="#biodiversity" class="nav-link">Biodiversity</a>
                 <a href="#storefront" class="nav-link">B2B Catalog</a>
                 <a href="#services" class="nav-link">Logistics</a>
                 <a href="#leadership" class="nav-link">Leadership</a>
@@ -66,6 +72,7 @@
             <div class="geometric-grid-overlay"></div>
             <div class="section-container">
                 <div class="corporate-hero-content text-center">
+                    <img src="images/22e1d621-3911-4c24-8797-f1a95890f961.png" alt="Euro Gourmet Emblem" class="hero-logo-emblem" style="height:90px; margin:0 auto 1.5rem; display:block; filter:drop-shadow(0 6px 20px rgba(184,107,47,0.4));">
                     <span class="hero-eyebrow">EG IMPORTS, LLC (d/b/a EURO GOURMET IMPORTS)</span>
                     <h1 class="corporate-hero-title">
                         Direct Spanish Terroir & Gourmet Fine Foods to the Caribbean & US
@@ -75,6 +82,7 @@
                     </p>
                     <div class="hero-cta-group text-center">
                         <a href="#storefront" class="btn btn-burgundy">Explore B2B Catalog</a>
+                        <a href="#webgl3d" class="btn btn-outline">Explore 3D Cellar Studio</a>
                         <a href="tel:7876494994" class="btn btn-outline">📞 Call Sales: 787-649-4994</a>
                     </div>
                 </div>
@@ -95,7 +103,37 @@
             </div>
         </section>
 
-        <!-- Partner Winery Bento Grid -->
+        <!-- Real-Time Interactive 3D WebGL Canvas Section -->
+        <section class="webgl-3d-section" id="webgl3d">
+            <div class="section-container">
+                <div class="section-header text-center">
+                    <span class="section-badge">INTERACTIVE 3D WEBGL CELLAR STUDIO</span>
+                    <h2 class="section-title">Explore Spanish Oak & Bottle Provenance</h2>
+                    <p class="section-subtitle">Real-time WebGL rendering of our organic estate wine bottle resting on a handcrafted Spanish oak cellar barrel. Click & drag to rotate 360°.</p>
+                </div>
+
+                <div class="webgl-stage-card">
+                    <div class="webgl-canvas-wrapper" id="webglCanvasContainer">
+                        <!-- Three.js Canvas Injected Here -->
+                        <div class="webgl-controls-hint">
+                            <span class="drag-icon">🔄</span> <strong>Click & Drag to Rotate 360°</strong> | Glass Reflection Physics Enabled
+                        </div>
+                    </div>
+                    <div class="webgl-info-overlay">
+                        <div class="info-tag">100% Eco-Certified Terroir</div>
+                        <h3>Gran Reserva Spanish Oak Aging</h3>
+                        <p>French & Spanish oak barrels seasoned for 14+ months, preserving dark fruit complexity, mineral acidity, and silky tannins against our luxury dark slate background.</p>
+                        <div class="tech-specs-pills">
+                            <span>Oak Origin: Allier & Quercus Robur</span>
+                            <span>Glass Spec: Light-Shielded 750ml</span>
+                            <span>Render: WebGL 60fps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partner Winery Bento Grid (Dehesa de Luna Style Grid Cards) -->
         <section class="bento-section" id="estates">
             <div class="section-container">
                 <div class="section-header text-center">
@@ -153,6 +191,38 @@
             </div>
         </section>
 
+        <!-- Biodiversity & Estate Story Block (Dehesa de Luna Style Sourcing Story) -->
+        <section class="biodiversity-section" id="biodiversity">
+            <div class="section-container">
+                <div class="biodiversity-grid">
+                    <div class="bio-image-col">
+                        <img src="images/dehesa_luna_estate.jpg" alt="Dehesa de Luna Biodiversity Reserve" class="bio-img" loading="lazy">
+                        <div class="bio-badge-overlay">
+                            <span>🌿 100% Eco-Certified Estate</span>
+                        </div>
+                    </div>
+                    <div class="bio-text-col">
+                        <span class="section-badge">SUSTAINABLE AGRICULTURE & TERROIR</span>
+                        <h2 class="section-title">Biodiversity & Organic Sourcing Story</h2>
+                        <p class="lead-text">
+                            At <strong>EG Imports, LLC</strong>, we prioritize wineries that act as ecological sanctuaries. Our signature partner estate, <strong>Dehesa de Luna</strong>, operates within a 3,000-hectare wildlife reserve where organic vines co-exist with imperial eagles, wild lavender, and centuries-old holm oaks.
+                        </p>
+                        <ul class="bio-feature-list">
+                            <li>
+                                <strong>Zero Chemical Pesticides:</strong> 100% certified organic cultivation with natural plant-based cover crops.
+                            </li>
+                            <li>
+                                <strong>Vegan Fining Compliance:</strong> Clarified exclusively using pea protein and bentonite clay—zero animal by-products.
+                            </li>
+                            <li>
+                                <strong>Water Harvesting & Renewable Energy:</strong> Solar-powered cellar processing and drip-irrigation sensor technology.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Importer Story & Philosophy -->
         <section class="philosophy-section" id="philosophy">
             <div class="section-container">
@@ -194,7 +264,7 @@
             </div>
         </section>
 
-        <!-- B2B Wholesale Storefront Section -->
+        <!-- B2B Wholesale Storefront Section (Dehesa de Luna Style Grid Cards with View Product Hover) -->
         <section class="storefront-section" id="storefront">
             <div class="section-container">
                 <div class="section-header text-center">
