@@ -71,8 +71,8 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.2px; line-h
 .logo-text { display: flex; flex-direction: column; }
 .brand-title { font-family: 'Cinzel', serif; font-size: 1.25rem; font-weight: 800; letter-spacing: 2px; color: var(--charcoal-dark); }
 .brand-sub { font-size: 0.64rem; letter-spacing: 3.5px; color: var(--bronze-amber); text-transform: uppercase; font-weight: 700; }
-.nav-menu { display: flex; align-items: center; gap: 2.2rem; }
-.nav-link { font-size: 0.9rem; font-weight: 500; color: var(--charcoal-muted); transition: var(--transition); position: relative; padding: 0.25rem 0; }
+.nav-menu { display: flex; align-items: center; justify-content: center; flex: 1; gap: 2.8rem; margin: 0 2rem; }
+.nav-link { font-size: 1.05rem; font-weight: 600; letter-spacing: 0.4px; color: var(--charcoal-dark); transition: var(--transition); position: relative; padding: 0.35rem 0; }
 .nav-link:hover { color: var(--deep-burgundy); }
 .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0%; height: 2px; background: var(--deep-burgundy); transition: var(--transition); }
 .nav-link:hover::after { width: 100%; }
