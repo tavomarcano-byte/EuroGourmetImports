@@ -125,7 +125,10 @@ h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: 0.2px; line-h
     50% { transform: translateY(-5px) rotateZ(2deg); }
 }
 .hero-main-title { font-size: clamp(1.8rem, 3.6vw, 3.0rem); font-family: 'Merriweather', serif; font-weight: 400; color: var(--charcoal-dark); margin-bottom: 1.5rem; line-height: 1.25; }
-.hero-subtext { font-size: 1.12rem; color: var(--charcoal-muted); margin-bottom: 2.5rem; max-width: 720px; margin-left: auto; margin-right: auto; }
+.hero-subtext-wrapper { max-width: 780px; margin: 0 auto 2.5rem; text-align: center; }
+.hero-subtext-p { font-size: 1.25rem; color: var(--charcoal-muted); line-height: 1.7; margin-bottom: 1.25rem; text-align: center; }
+.hero-subtext-p:last-child { margin-bottom: 0; }
+.hero-subtext-p.highlight-callout { font-weight: 600; color: var(--deep-burgundy); }
 .hero-cta-group { display: flex; gap: 1.25rem; justify-content: center; flex-wrap: wrap; }
 
 /* Showcase Bottle Renders Row (Dehesa de Luna Style Bottle Cards) */
