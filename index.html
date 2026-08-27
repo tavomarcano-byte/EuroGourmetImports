@@ -3,234 +3,1633 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="EG Imports, LLC (d/b/a Euro Gourmet Imports) - Direct Spanish Terroir & Gourmet Fine Foods to Puerto Rico, the Caribbean & US. Vinos Orgánicos, Quesos Manchegos 100%, and Jamón Ibérico 100%.">
-    <meta name="theme-color" content="#FDFBF7">
-    <title>EG Imports, LLC (d/b/a Euro Gourmet Imports) | Direct Spanish Terroir & Gourmet Fine Foods</title>
-
-    <!-- Authentic Transparent Logo Image Asset Favicon -->
+    <title>EG Imports, LLC | Euro Gourmet Imports - Authentic Spanish Terroir & Fine Foods</title>
+    <meta name="description" content="EG Imports, LLC (d/b/a Euro Gourmet Imports). Direct Spanish terroir fine wines, 100% Manchego Cheeses, and 100% Bellota Jamón Ibérico to Puerto Rico and the Caribbean.">
+    <meta name="theme-color" content="#183029">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="images/22e1d621-3911-4c24-8797-f1a95890f961.png">
-    <link rel="apple-touch-icon" href="images/22e1d621-3911-4c24-8797-f1a95890f961.png">
-
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Master Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ==========================================================================
+           1. DESIGN TOKENS & DESIGN SYSTEM (San Felice Tuscan Aesthetic)
+           ========================================================================== */
+        :root {
+            --colors-primaryDark: #183029;     /* Deep Tuscan Forest / Olive Charcoal */
+            --colors-primaryLight: #F5F1E9;    /* Warm Italian Parchment */
+            --colors-whiteDarker: #DED9CD;     /* Muted Sand Parchment */
+            --colors-accentWine: #912F46;      /* Deep Burgundy / Wine Red */
+            --colors-accentWineHover: #732235; /* Dark Burgundy */
+            --colors-accentGold: #9E5A2A;      /* Euro Gourmet Bronze Tone */
+            --colors-accentMist: #B6CFD0;      /* Subtle Mineral Blue / Sage */
+            --colors-borderSubtle: rgba(24, 48, 41, 0.12);
+            --colors-borderDark: rgba(245, 241, 233, 0.15);
+            --colors-overlayDark: rgba(24, 48, 41, 0.55);
+            
+            --fonts-serif: 'Cinzel', 'Cormorant Garamond', 'Playfair Display', serif;
+            --fonts-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --transitions-default: all 0.4s cubic-bezier(0.68, 0.09, 0, 0.97);
+            --transitions-smooth: all 0.3s ease;
+            --shadow-subtle: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --shadow-elevated: 0 20px 40px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Reset & Global Base Settings */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+            background-color: var(--colors-primaryDark);
+            color: var(--colors-primaryLight);
+            font-family: var(--fonts-sans);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transitions-smooth);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        button, input, select, textarea {
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--colors-primaryDark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--colors-accentGold);
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--colors-accentWine);
+        }
+
+        /* Typography Utilities */
+        .font-serif { font-family: var(--fonts-serif); }
+        .font-sans { font-family: var(--fonts-sans); }
+        
+        .eyebrow {
+            font-family: var(--fonts-sans);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--colors-accentGold);
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .heading-xl {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(2.8rem, 6.2vw, 5.2rem);
+            font-weight: 300;
+            line-height: 1.12;
+            letter-spacing: 0.04em;
+        }
+
+        .heading-lg {
+            font-family: var(--fonts-serif);
+            font-size: clamp(2rem, 3.8vw, 3.2rem);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .heading-md {
+            font-family: var(--fonts-serif);
+            font-size: clamp(1.4rem, 2.2vw, 2rem);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .body-lg {
+            font-size: 1.125rem;
+            font-weight: 300;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .section-container {
+            max-width: 1340px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Luxury Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.2rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            cursor: pointer;
+            transition: var(--transitions-default);
+            border: 1px solid transparent;
+            text-align: center;
+        }
+
+        .btn-burgundy {
+            background-color: var(--colors-accentWine);
+            color: #FFFFFF;
+            box-shadow: 0 8px 24px rgba(145, 47, 70, 0.35);
+        }
+        .btn-burgundy:hover {
+            background-color: var(--colors-accentWineHover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(145, 47, 70, 0.5);
+        }
+
+        .btn-outline-dark {
+            background: transparent;
+            color: var(--colors-primaryDark);
+            border-color: var(--colors-borderSubtle);
+        }
+        .btn-outline-dark:hover {
+            background: var(--colors-primaryDark);
+            color: var(--colors-primaryLight);
+            transform: translateY(-2px);
+        }
+
+        /* Top Reading Progress Bar */
+        .reading-progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--colors-accentGold), var(--colors-accentWine));
+            width: 0%;
+            z-index: 1001;
+            transition: width 0.1s ease-out;
+        }
+
+        /* ==========================================================================
+           2. STICKY HEADER & NAV BAR (San Felice Transparent Blur Style)
+           ========================================================================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 90px;
+            z-index: 1000;
+            transition: var(--transitions-default);
+            background: rgba(24, 48, 41, 0.35);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(245, 241, 233, 0.08);
+        }
+
+        .navbar.scrolled {
+            height: 76px;
+            background: rgba(24, 48, 41, 0.94);
+            border-bottom: 1px solid rgba(245, 241, 233, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-inner {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+        }
+
+        /* Official Bronze Logo Preservation */
+        .brand-logo-img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            transition: var(--transitions-smooth);
+        }
+        .navbar.scrolled .brand-logo-img {
+            height: 42px;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            color: var(--colors-primaryLight);
+            line-height: 1.1;
+        }
+
+        .brand-subtitle {
+            font-size: 0.65rem;
+            letter-spacing: 0.22em;
+            color: var(--colors-accentGold);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--colors-primaryLight);
+            position: relative;
+            padding: 0.4rem 0;
+            opacity: 0.9;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--colors-accentGold);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.35s cubic-bezier(0.68, 0.09, 0, 0.97);
+        }
+
+        .nav-link:hover {
+            opacity: 1;
+            color: #FFFFFF;
+        }
+
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            background: rgba(245, 241, 233, 0.08);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            border: 1px solid rgba(245, 241, 233, 0.15);
+            cursor: pointer;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: rgba(245, 241, 233, 0.5);
+            cursor: pointer;
+            transition: var(--transitions-smooth);
+        }
+
+        .lang-btn.active {
+            color: var(--colors-accentGold);
+            font-weight: 700;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--colors-primaryLight);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           3. SECTION 1: HERO SECTION (Spanish Vineyard Backdrop, No CTA Buttons)
+           ========================================================================== */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--colors-primaryDark);
+            overflow: hidden;
+        }
+
+        .hero-backdrop {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .hero-bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            transform: scale(1.05);
+            animation: heroKenBurns 25s ease-out infinite alternate;
+        }
+
+        @keyframes heroKenBurns {
+            0% { transform: scale(1.03); }
+            100% { transform: scale(1.12); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(24, 48, 41, 0.35) 0%, rgba(24, 48, 41, 0.75) 85%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 920px;
+            padding: 0 1.5rem;
+            margin-top: 40px;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--fonts-sans);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--colors-accentGold);
+            display: block;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-weight: 300;
+            font-size: clamp(2.8rem, 6.2vw, 5.2rem);
+            line-height: 1.15;
+            letter-spacing: 0.04em;
+            color: var(--colors-primaryLight);
+            margin-bottom: 1.8rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+            font-weight: 300;
+            max-width: 780px;
+            margin: 0 auto;
+            color: var(--colors-whiteDarker);
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 2.2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--colors-whiteDarker);
+            opacity: 0.85;
+            transition: var(--transitions-smooth);
+        }
+
+        .hero-scroll-indicator:hover {
+            opacity: 1;
+            color: var(--colors-accentGold);
+        }
+
+        .scroll-arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid var(--colors-accentGold);
+            border-bottom: 2px solid var(--colors-accentGold);
+            transform: rotate(45deg);
+            animation: bounceIndicator 2s infinite;
+        }
+
+        @keyframes bounceIndicator {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
+            40% { transform: translateY(8px) rotate(45deg); }
+            60% { transform: translateY(4px) rotate(45deg); }
+        }
+
+        /* ==========================================================================
+           4. SECTION 2: EDITORIAL TERROIR PHILOSOPHY (San Felice Vintage Parchment)
+           ========================================================================== */
+        .editorial-section {
+            background-color: var(--colors-primaryLight);
+            color: var(--colors-primaryDark);
+            padding: 8rem 0;
+            position: relative;
+        }
+
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .editorial-left {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .editorial-quote {
+            font-family: var(--fonts-serif);
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            font-weight: 500;
+            line-height: 1.25;
+            color: var(--colors-primaryDark);
+            border-left: 3px solid var(--colors-accentWine);
+            padding-left: 1.8rem;
+            font-style: italic;
+        }
+
+        .editorial-right {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .editorial-body {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(24, 48, 41, 0.85);
+        }
+
+        .editorial-image-stack {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            grid-column: span 2;
+        }
+
+        .editorial-card-img {
+            height: 380px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .editorial-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.68, 0.09, 0, 0.97);
+        }
+
+        .editorial-card-img:hover img {
+            transform: scale(1.06);
+        }
+
+        .editorial-img-caption {
+            position: absolute;
+            bottom: 0;
+            inset-x: 0;
+            background: linear-gradient(to top, rgba(24, 48, 41, 0.9), transparent);
+            padding: 1.5rem 1.2rem 1rem;
+            color: var(--colors-primaryLight);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           5. SECTION 3: WINE ESTATES SECTION (3 Spanish Estates Grid)
+           ========================================================================== */
+        .estates-section {
+            background-color: var(--colors-primaryDark);
+            color: var(--colors-primaryLight);
+            padding: 8rem 0;
+            border-top: 1px solid var(--colors-borderDark);
+        }
+
+        .section-header-center {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 4.5rem;
+        }
+
+        .section-divider {
+            width: 60px;
+            height: 2px;
+            background: var(--colors-accentGold);
+            margin: 1.5rem auto 0;
+        }
+
+        .estates-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.2rem;
+        }
+
+        .estate-card {
+            background: rgba(245, 241, 233, 0.03);
+            border: 1px solid var(--colors-borderDark);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transitions-default);
+            position: relative;
+        }
+
+        .estate-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--colors-accentGold);
+            box-shadow: var(--shadow-elevated);
+            background: rgba(245, 241, 233, 0.06);
+        }
+
+        .estate-img-wrapper {
+            height: 260px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .estate-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .estate-card:hover .estate-img-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .estate-badge {
+            position: absolute;
+            top: 1.2rem;
+            right: 1.2rem;
+            background: rgba(24, 48, 41, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid var(--colors-accentGold);
+            color: var(--colors-accentGold);
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+        }
+
+        .estate-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .estate-title {
+            font-family: var(--fonts-serif);
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--colors-primaryLight);
+        }
+
+        .estate-denom {
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--colors-accentGold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .estate-desc {
+            font-size: 0.95rem;
+            color: var(--colors-whiteDarker);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .estate-focal {
+            background: rgba(245, 241, 233, 0.05);
+            padding: 0.9rem 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            border-left: 2px solid var(--colors-accentWine);
+            margin-bottom: 1.5rem;
+        }
+
+        .estate-focal span {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            opacity: 0.7;
+            margin-bottom: 0.2rem;
+        }
+
+        .estate-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--colors-accentGold);
+            cursor: pointer;
+            margin-top: auto;
+        }
+
+        .estate-link:hover {
+            color: var(--colors-primaryLight);
+        }
+
+        /* ==========================================================================
+           6. SECTION 4: CURATED WINE SHOWCASE (Bottle Specification Cards)
+           ========================================================================== */
+        .wines-section {
+            background-color: var(--colors-primaryLight);
+            color: var(--colors-primaryDark);
+            padding: 8rem 0;
+        }
+
+        .wines-filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid var(--colors-borderSubtle);
+            padding: 0.6rem 1.6rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--colors-primaryDark);
+            cursor: pointer;
+            transition: var(--transitions-smooth);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--colors-primaryDark);
+            color: var(--colors-primaryLight);
+            border-color: var(--colors-primaryDark);
+        }
+
+        .wines-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        .wine-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 2.2rem;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid rgba(24, 48, 41, 0.08);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transitions-default);
+            position: relative;
+        }
+
+        .wine-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .wine-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .wine-type-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.7rem;
+            border-radius: 20px;
+            background: rgba(145, 47, 70, 0.1);
+            color: var(--colors-accentWine);
+        }
+
+        .wine-vintage {
+            font-family: var(--fonts-serif);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--colors-accentGold);
+        }
+
+        .wine-visual {
+            height: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem 0 1.5rem;
+            position: relative;
+        }
+
+        .wine-bottle-render {
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.15));
+            transition: transform 0.5s ease;
+        }
+
+        .wine-card:hover .wine-bottle-render {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .wine-name {
+            font-family: var(--fonts-serif);
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            line-height: 1.2;
+        }
+
+        .wine-estate-name {
+            font-size: 0.825rem;
+            color: var(--colors-accentGold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.2rem;
+        }
+
+        .wine-specs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            background: var(--colors-primaryLight);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        .spec-item {
+            font-size: 0.78rem;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: rgba(24, 48, 41, 0.6);
+            display: block;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+        }
+
+        .spec-value {
+            font-weight: 600;
+            color: var(--colors-primaryDark);
+        }
+
+        .tasting-notes {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            color: rgba(24, 48, 41, 0.8);
+            margin-bottom: 1.8rem;
+            font-style: italic;
+        }
+
+        .wine-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: auto;
+        }
+
+        .wine-actions .btn {
+            padding: 0.75rem 1rem;
+            font-size: 0.75rem;
+            flex: 1;
+        }
+
+        /* ==========================================================================
+           7. SECTION 5: GASTRONOMIC PAIRINGS (Manchego & Jamón Ibérico)
+           ========================================================================== */
+        .gastronomy-section {
+            background-color: var(--colors-primaryDark);
+            color: var(--colors-primaryLight);
+            padding: 8rem 0;
+            border-top: 1px solid var(--colors-borderDark);
+        }
+
+        .gastro-panels {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .gastro-panel {
+            background: rgba(245, 241, 233, 0.03);
+            border: 1px solid var(--colors-borderDark);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transitions-default);
+        }
+
+        .gastro-panel:hover {
+            border-color: var(--colors-accentGold);
+            transform: translateY(-6px);
+        }
+
+        .gastro-img-box {
+            height: 320px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gastro-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .gastro-panel:hover .gastro-img-box img {
+            transform: scale(1.06);
+        }
+
+        .gastro-content {
+            padding: 2.5rem;
+        }
+
+        .gastro-title {
+            font-family: var(--fonts-serif);
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        .gastro-subtitle {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--colors-accentGold);
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+        }
+
+        .gastro-text {
+            font-size: 0.98rem;
+            color: var(--colors-whiteDarker);
+            line-height: 1.8;
+            margin-bottom: 1.8rem;
+        }
+
+        .gastro-pairing-box {
+            background: rgba(145, 47, 70, 0.15);
+            border: 1px solid rgba(145, 47, 70, 0.3);
+            padding: 1.2rem;
+            border-radius: 12px;
+        }
+
+        .pairing-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--colors-accentMist);
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pairing-desc {
+            font-size: 0.9rem;
+            color: var(--colors-primaryLight);
+            font-style: italic;
+        }
+
+        /* ==========================================================================
+           8. SECTION 6: B2B TRADE PORTAL & EXECUTIVE FOOTER
+           ========================================================================== */
+        .trade-section {
+            background-color: #12241F;
+            color: var(--colors-primaryLight);
+            padding: 8rem 0 5rem;
+            border-top: 1px solid var(--colors-borderDark);
+        }
+
+        .trade-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .trade-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .trade-contacts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .contact-card {
+            background: rgba(245, 241, 233, 0.04);
+            border: 1px solid var(--colors-borderDark);
+            padding: 1.4rem;
+            border-radius: 12px;
+        }
+
+        .contact-card-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--colors-accentGold);
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .contact-card-val {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--colors-primaryLight);
+        }
+
+        /* Wholesale Form Styling */
+        .b2b-form-card {
+            background: rgba(245, 241, 233, 0.05);
+            border: 1px solid var(--colors-borderDark);
+            border-radius: 20px;
+            padding: 2.8rem;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-elevated);
+        }
+
+        .form-title {
+            font-family: var(--fonts-serif);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-desc {
+            font-size: 0.9rem;
+            color: var(--colors-whiteDarker);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.4rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            color: var(--colors-whiteDarker);
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            background: rgba(24, 48, 41, 0.6);
+            border: 1px solid var(--colors-borderDark);
+            border-radius: 8px;
+            color: var(--colors-primaryLight);
+            font-size: 0.95rem;
+            transition: var(--transitions-smooth);
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--colors-accentGold);
+            box-shadow: 0 0 0 3px rgba(158, 90, 42, 0.25);
+            background: rgba(24, 48, 41, 0.9);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            margin-top: 1rem;
+            padding: 1.1rem;
+        }
+
+        /* Footer Bottom Bar */
+        .main-footer {
+            margin-top: 6rem;
+            padding-top: 4rem;
+            border-top: 1px solid var(--colors-borderDark);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr repeat(4, 1fr);
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .footer-logo {
+            height: 52px;
+            width: auto;
+            align-self: flex-start;
+        }
+
+        .footer-text {
+            font-size: 0.88rem;
+            color: var(--colors-whiteDarker);
+            line-height: 1.7;
+            max-width: 320px;
+        }
+
+        .footer-col-title {
+            font-family: var(--fonts-serif);
+            font-size: 1.1rem;
+            color: var(--colors-primaryLight);
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-links-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links-list a {
+            font-size: 0.85rem;
+            color: var(--colors-whiteDarker);
+            opacity: 0.8;
+            transition: var(--transitions-smooth);
+        }
+
+        .footer-links-list a:hover {
+            opacity: 1;
+            color: var(--colors-accentGold);
+            padding-left: 4px;
+        }
+
+        .footer-bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(245, 241, 233, 0.08);
+            font-size: 0.8rem;
+            color: rgba(245, 241, 233, 0.5);
+        }
+
+        /* Modal Popup System */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(18, 36, 31, 0.85);
+            backdrop-filter: blur(12px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transitions-default);
+        }
+
+        .modal-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-box {
+            background: var(--colors-primaryDark);
+            border: 1px solid var(--colors-accentGold);
+            border-radius: 20px;
+            max-width: 650px;
+            width: 100%;
+            padding: 3rem;
+            position: relative;
+            box-shadow: var(--shadow-elevated);
+            transform: scale(0.9);
+            transition: var(--transitions-default);
+        }
+
+        .modal-backdrop.active .modal-box {
+            transform: scale(1);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(245, 241, 233, 0.1);
+            border: none;
+            color: var(--colors-primaryLight);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 1024px) {
+            .editorial-grid, .trade-grid, .gastro-panels {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .editorial-image-stack {
+                grid-column: span 1;
+            }
+            .estates-grid, .wines-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-actions .btn {
+                display: none;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .estates-grid, .wines-grid, .editorial-image-stack {
+                grid-template-columns: 1fr;
+            }
+            .trade-contacts, .form-row {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-bottom-bar {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Redesigned Top Navigation Bar (Dehesa de Luna Minimalist Layout) -->
-    <header class="navbar sticky-header" id="navbar">
-        <div class="reading-progress-bar" id="readingProgressBar"></div>
-        <div class="nav-container">
-            <a href="#" class="nav-logo" aria-label="EG Imports, LLC (d/b/a Euro Gourmet Imports) Home">
-                <!-- Direct Authentic Transparent Logo Image Asset -->
-                <img src="images/22e1d621-3911-4c24-8797-f1a95890f961.png" alt="Euro Gourmet Imports Logo" class="brand-logo-img header-logo-img">
-                <div class="logo-text">
+    <!-- Top Reading Progress Indicator -->
+    <div class="reading-progress-bar" id="readingProgressBar"></div>
+
+    <!-- ==========================================================================
+       STICKY HEADER & NAVIGATION BAR
+       ========================================================================== -->
+    <header class="navbar" id="navbar">
+        <div class="section-container nav-inner">
+            <!-- Official Bronze Logo & Brand Title -->
+            <a href="#hero" class="nav-brand" aria-label="Euro Gourmet Imports Home">
+                <img src="images/22e1d621-3911-4c24-8797-f1a95890f961.png" alt="Euro Gourmet Imports Logo" class="brand-logo-img">
+                <div class="brand-text">
                     <span class="brand-title">EURO GOURMET</span>
-                    <span class="brand-sub">EG IMPORTS, LLC</span>
+                    <span class="brand-subtitle">EG IMPORTS, LLC</span>
                 </div>
             </a>
 
-            <nav class="nav-menu" id="navMenu">
-                <a href="#hero" class="nav-link">Home</a>
-                <a href="#estates" class="nav-link">Wineries</a>
-                <a href="#biodiversity" class="nav-link">Biodiversity</a>
-                <a href="#storefront" class="nav-link">Catalog</a>
-                <a href="#services" class="nav-link">Logistics</a>
-                <a href="#leadership" class="nav-link">Leadership</a>
-            </nav>
+            <!-- Central Minimalist Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#estates" class="nav-link" data-en="Estates" data-es="Bodegas">Estates</a></li>
+                <li><a href="#wines" class="nav-link" data-en="Our Wines" data-es="Nuestros Vinos">Our Wines</a></li>
+                <li><a href="#terroir" class="nav-link" data-en="Terroir" data-es="Terruño">Terroir</a></li>
+                <li><a href="#gastronomy" class="nav-link" data-en="Treasures" data-es="Gastronomía">Treasures</a></li>
+                <li><a href="#trade" class="nav-link" data-en="Trade Portal" data-es="Portal B2B">Trade Portal</a></li>
+            </ul>
 
+            <!-- Actions & Language Switcher -->
             <div class="nav-actions">
-                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation Menu">
-                    <span></span><span></span><span></span>
-                </button>
+                <div class="lang-switch" id="langToggle">
+                    <button class="lang-btn active" id="btnEN">EN</button>
+                    <span>|</span>
+                    <button class="lang-btn" id="btnES">ES</button>
+                </div>
+                <a href="#trade" class="btn btn-burgundy" data-en="Request Allocation" data-es="Solicitar Asignación">Request Allocation</a>
+                <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle Menu">☰</button>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Dehesa de Luna Style Hero Section (Lush Vineyard Banner + Bottle Render Showcase) -->
-        <section class="dehesa-hero-section" id="hero">
-            <div class="hero-banner-overlay"></div>
-            <div class="section-container">
-                <div class="hero-content text-center">
-                    <span class="hero-brand-title">EURO GOURMET IMPORTS</span>
-                    <h1 class="hero-main-title">Pure Organic Terroir & Spanish Gourmet Treasures</h1>
-                    <div class="hero-subtext-wrapper">
-                        <p class="hero-subtext-p">EG Imports began with a focused purpose to deliver exceptional, hard-to-find Spanish delicacies directly to Puerto Rico.</p>
-                        <p class="hero-subtext-p">By building direct relationships with traditional family estates across Spain, we supply local hospitality partners and fine dining establishments with certified organic wines, 100 percent artisanal Manchego cheeses, and authentic acorn-fed Jamón Ibérico.</p>
-                        <p class="hero-subtext-p highlight-callout">Explore ahead to discover how EG Imports will revolutionize your palate.</p>
-                    </div>
-                    <div class="hero-cta-group">
-                        <a href="#storefront" class="btn btn-burgundy">Explore Catalog</a>
-                        <a href="#contact" class="btn btn-outline-dark">Get in Touch with Our Team</a>
-                    </div>
-                </div>
-
-                <!-- Showcase Bottle Renders Row Rising out of Hero -->
-                <div class="hero-bottles-showcase">
-                    <div class="showcase-bottle-card" onclick="location.href='#storefront'">
-                        <img src="images/dehesa_luna_estate.jpg" alt="Dehesa de Luna Gran Reserva">
-                        <span class="bottle-label-tag">D.O. Tierra de Castilla</span>
-                        <h4>Dehesa de Luna Gran Reserva</h4>
-                        <p>100% Organic & Vegan</p>
-                    </div>
-                    <div class="showcase-bottle-card" onclick="location.href='#storefront'">
-                        <img src="images/spanish_white_godello.jpg" alt="Sampayolo Godello Old Vines">
-                        <span class="bottle-label-tag">D.O. Valdeorras</span>
-                        <h4>Sampayolo Godello</h4>
-                        <p>Slate Terraced Minerality</p>
-                    </div>
-                    <div class="showcase-bottle-card" onclick="location.href='#storefront'">
-                        <img src="images/bordeaux.jpg" alt="Bodegas Corcos & Izquierdo Tempranillo">
-                        <span class="bottle-label-tag">D.O. Ribera del Duero</span>
-                        <h4>Bodegas Corcos Tempranillo</h4>
-                        <p>60+ Yr Old Vines</p>
-                    </div>
-                </div>
+        <!-- ==========================================================================
+           SECTION 1: CINEMATIC HERO (San Felice Vineyard Aesthetic, No CTA Buttons)
+           ========================================================================== -->
+        <section class="hero-section" id="hero">
+            <div class="hero-backdrop">
+                <!-- High Resolution Vineyard Background -->
+                <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=2070&auto=format&fit=crop" alt="Spanish Estate Vineyards at Sunset" class="hero-bg-img">
+                <div class="hero-overlay"></div>
             </div>
+
+            <div class="hero-content">
+                <span class="hero-eyebrow" data-en="EURO GOURMET IMPORTS • PUERTO RICO" data-es="EURO GOURMET IMPORTS • PUERTO RICO">EURO GOURMET IMPORTS • PUERTO RICO</span>
+                <h1 class="hero-title" data-en="Pure Organic Terroir & Spanish Gourmet Treasures" data-es="Puro Terruño Orgánico y Tesoros Gastronómicos Españoles">
+                    Pure Organic Terroir & Spanish Gourmet Treasures
+                </h1>
+                <p class="hero-subtitle" data-en="Direct relationships with multi-generational family estates across Spain, supplying Puerto Rico's premier hospitality partners with certified organic wines and culinary treasures." data-es="Relaciones directas con bodegas familiares de España, abasteciendo a los mejores restaurantes y hoteles de Puerto Rico con vinos orgánicos y gastronomía selecta.">
+                    Direct relationships with multi-generational family estates across Spain, supplying Puerto Rico's premier hospitality partners with certified organic wines and culinary treasures.
+                </p>
+            </div>
+
+            <a href="#terroir" class="hero-scroll-indicator" aria-label="Scroll down">
+                <span data-en="Explore Terroir" data-es="Explorar Terruño">Explore Terroir</span>
+                <div class="scroll-arrow"></div>
+            </a>
         </section>
 
-        <!-- Partner Trust Ribbon -->
-        <section class="trust-bar-section" id="trust">
+        <!-- ==========================================================================
+           SECTION 2: EDITORIAL TERROIR PHILOSOPHY
+           ========================================================================== -->
+        <section class="editorial-section" id="terroir">
             <div class="section-container">
-                <p class="trust-bar-label text-center">OFFICIAL SPANISH ESTATES & CARIBBEAN DISTRIBUTOR NETWORK</p>
-                <div class="trust-ribbon">
-                    <div class="trust-badge"><span class="badge-symbol">🍇</span><span>Dehesa de Luna (D.O. Tierra de Castilla)</span></div>
-                    <div class="trust-badge"><span class="badge-symbol">🍷</span><span>Sampayolo (D.O. Valdeorras / Galicia)</span></div>
-                    <div class="trust-badge"><span class="badge-symbol">🏰</span><span>Bodegas Corcos & Bodegas Izquierdo (Ribera del Duero)</span></div>
-                    <div class="trust-badge"><span class="badge-symbol">🧀</span><span>Quesos Manchegos 100% Artesanal</span></div>
-                    <div class="trust-badge"><span class="badge-symbol">🥓</span><span>Jamón Ibérico 100% Bellota</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Biodiversity & Estate Story Block (Dehesa de Luna Sourcing Story) -->
-        <section class="biodiversity-section" id="biodiversity">
-            <div class="section-container">
-                <div class="biodiversity-grid">
-                    <div class="bio-image-col">
-                        <img src="images/dehesa_luna_estate.jpg" alt="Dehesa de Luna Biodiversity Reserve" class="bio-img" loading="lazy">
-                        <div class="bio-badge-overlay">
-                            <span>🌿 100% Eco-Certified Estate Reserve</span>
-                        </div>
+                <div class="editorial-grid">
+                    <div class="editorial-left">
+                        <span class="eyebrow" data-en="Estate Bottled • Certified Organic" data-es="Embotellado en Propiedad • Orgánico Certificado">Estate Bottled • Certified Organic</span>
+                        <blockquote class="editorial-quote" data-en="“Great wines are not manufactured in factories; they are born from wild yeasts, ancient slate soils, and centuries of uncompromised family stewardship.”" data-es="“Los grandes vinos no se fabrican; nacen de levaduras autóctonas, suelos de pizarra ancestrales y siglos de devoción familiar.”">
+                            “Great wines are not manufactured in factories; they are born from wild yeasts, ancient slate soils, and centuries of uncompromised family stewardship.”
+                        </blockquote>
                     </div>
-                    <div class="bio-text-col">
-                        <span class="section-badge">SUSTAINABLE AGRICULTURE & TERROIR</span>
-                        <h2 class="section-title">Biodiversity & Organic Sourcing Story</h2>
-                        <p class="lead-text">
-                            At <strong>EG Imports, LLC</strong>, we prioritize wineries that act as ecological sanctuaries. Our flagship partner estate, <strong>Dehesa de Luna</strong>, operates within a 3,000-hectare wildlife reserve where organic vines co-exist with imperial eagles, wild lavender, and centuries-old holm oaks.
+                    <div class="editorial-right">
+                        <p class="editorial-body" data-en="Founded on the principle of direct, transparent estate imports, EG Imports (Euro Gourmet Imports) bridges the rich winemaking heritage of Spain directly to Puerto Rico and the Caribbean. We bypass speculative brokers to champion independent family producers who honor the land." data-es="Fundada bajo el principio de importación directa y transparente, EG Imports (Euro Gourmet Imports) une la rica herencia vitivinícola de España con Puerto Rico y el Caribe. Eliminamos intermediarios especulativos para apoyar a productores independientes que respetan la tierra.">
+                            Founded on the principle of direct, transparent estate imports, EG Imports (Euro Gourmet Imports) bridges the rich winemaking heritage of Spain directly to Puerto Rico and the Caribbean. We bypass speculative brokers to champion independent family producers who honor the land.
                         </p>
-                        <ul class="bio-feature-list">
-                            <li>
-                                <strong>Zero Chemical Pesticides:</strong> 100% certified organic cultivation with natural plant-based cover crops.
-                            </li>
-                            <li>
-                                <strong>Vegan Fining Compliance:</strong> Clarified exclusively using pea protein and bentonite clay—zero animal by-products.
-                            </li>
-                            <li>
-                                <strong>Water Harvesting & Renewable Energy:</strong> Solar-powered cellar processing and drip-irrigation sensor technology.
-                            </li>
-                        </ul>
+                        <p class="editorial-body" data-en="From solar-powered gravity wineries in Castilla-La Mancha to hand-harvested high-elevation bush vines in Valdeorras and Ribera del Duero, our portfolio represents unfiltered authenticity, environmental biodiversity, and artisanal excellence." data-es="Desde bodegas solares por gravedad en Castilla-La Mancha hasta viñedos centenarios en bancales de Valdeorras y Ribera del Duero, nuestro portafolio representa autenticidad pura, biodiversidad y excelencia artesanal.">
+                            From solar-powered gravity wineries in Castilla-La Mancha to hand-harvested high-elevation bush vines in Valdeorras and Ribera del Duero, nuestro portafolio representa autenticidad pura, biodiversidad y excelencia artesanal.
+                        </p>
+                    </div>
+
+                    <div class="editorial-image-stack">
+                        <div class="editorial-card-img">
+                            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1200&auto=format&fit=crop" alt="Hand harvesting organic grapes">
+                            <div class="editorial-img-caption" data-en="Artisanal Hand Harvesting • Single Estate Vineyards" data-es="Cosecha Manual Artesanal • Viñedos de Finca Única">
+                                Artisanal Hand Harvesting • Single Estate Vineyards
+                            </div>
+                        </div>
+                        <div class="editorial-card-img">
+                            <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7053?q=80&w=1200&auto=format&fit=crop" alt="French Oak Barrels Aging">
+                            <div class="editorial-img-caption" data-en="French Oak & Natural Cave Cellar Aging" data-es="Crianza en Roble Francés y Cavas Naturales">
+                                French Oak & Natural Cave Cellar Aging
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Partner Winery Portfolio (Dehesa de Luna Style Grid Cards) -->
-        <section class="bento-section" id="estates">
+        <!-- ==========================================================================
+           SECTION 3: THE 3 SPANISH ESTATES
+           ========================================================================== -->
+        <section class="estates-section" id="estates">
             <div class="section-container">
-                <div class="section-header text-center">
-                    <span class="section-badge">CORE WINERY PORTFOLIO</span>
-                    <h2 class="section-title">Our Exclusive Spanish Partner Estates</h2>
-                    <p class="section-subtitle">Estate-bottled organic wines and artisanal delicacies sourced directly by EG Imports, LLC.</p>
+                <div class="section-header-center">
+                    <span class="eyebrow" data-en="Heritage & Provenance" data-es="Herencia y Origen">Heritage & Provenance</span>
+                    <h2 class="heading-lg" data-en="Our Partner Spanish Estates" data-es="Nuestras Bodegas Españolas">Our Partner Spanish Estates</h2>
+                    <div class="section-divider"></div>
                 </div>
 
-                <div class="bento-grid">
-                    <article class="bento-card bento-card-large">
-                        <div class="bento-tag">D.O. Tierra de Castilla</div>
-                        <div class="bento-card-body">
-                            <span class="estate-region">La Mancha / Campo de Montiel • Spain</span>
-                            <h3 class="estate-name">Dehesa de Luna</h3>
-                            <p class="estate-desc">
-                                3,000 hectares of organic vineyards surrounded by protected holm oak forests. Crafting 100% Eco-Certified Graciano, Syrah, and Gran Reserva Tempranillo.
-                            </p>
-                            <div class="estate-badges">
-                                <span class="attribute-pill">100% Organic & Vegan</span>
-                                <span class="attribute-pill">Biodiversity Reserve</span>
-                            </div>
+                <div class="estates-grid">
+                    <!-- Estate 1 -->
+                    <div class="estate-card">
+                        <div class="estate-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?q=80&w=1000&auto=format&fit=crop" alt="Dehesa de Luna Estate">
+                            <div class="estate-badge" data-en="100% Organic Reserve" data-es="100% Reserva Orgánica">100% Organic Reserve</div>
                         </div>
-                    </article>
-
-                    <article class="bento-card">
-                        <div class="bento-tag">D.O. Valdeorras / Galicia</div>
-                        <div class="bento-card-body">
-                            <span class="estate-region">Galicia • Northern Spain</span>
-                            <h3 class="estate-name">Sampayolo</h3>
-                            <p class="estate-desc">
-                                Steep slate-terraced vineyards in Valdeorras producing old-vine Godello and Mencía with electric minerality and vibrant acidity.
+                        <div class="estate-content">
+                            <h3 class="estate-title">Dehesa de Luna</h3>
+                            <div class="estate-denom">Vino de la Tierra de Castilla</div>
+                            <p class="estate-desc" data-en="A protected biodiversity wildlife sanctuary where vineyards co-exist with lavender fields and oak forests. Solar-powered gravity winery producing velvety, aromatic red cuvées." data-es="Reserva de biodiversidad protegida donde los viñedos coexisten con la dehesa. Bodega sostenible por gravedad impulsada por energía solar.">
+                                A protected biodiversity wildlife sanctuary where vineyards co-exist with lavender fields and oak forests. Solar-powered gravity winery producing velvety, aromatic red cuvées.
                             </p>
-                            <div class="estate-badges">
-                                <span class="attribute-pill">Old Vine Godello</span>
-                                <span class="attribute-pill">Slate Mineral Terroir</span>
+                            <div class="estate-focal">
+                                <span data-en="Focal Expression" data-es="Vino Emblemático">Focal Expression</span>
+                                <strong>Dehesa de Luna Gran Reserva Organic</strong>
                             </div>
-                        </div>
-                    </article>
-
-                    <article class="bento-card">
-                        <div class="bento-tag">D.O. Ribera del Duero</div>
-                        <div class="bento-card-body">
-                            <span class="estate-region">Burgos • Ribera del Duero</span>
-                            <h3 class="estate-name">Bodegas Corcos & Bodegas Izquierdo</h3>
-                            <p class="estate-desc">
-                                High-altitude Tempranillo grown on chalky limestone soils. Biodynamic, unfiltered red reserves with velvet structure and rich oak complexity.
-                            </p>
-                            <div class="estate-badges">
-                                <span class="attribute-pill">Biodynamic Tempranillo</span>
-                                <span class="attribute-pill">60+ Yr Old Vines</span>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Importer Story & Founder Credentials -->
-        <section class="philosophy-section" id="philosophy">
-            <div class="section-container">
-                <div class="philosophy-grid">
-                    <div class="philosophy-text">
-                        <span class="section-badge">ABOUT EG IMPORTS, LLC</span>
-                        <h2 class="section-title">Founded by Carlos A. Marcano</h2>
-                        <p class="lead-text">
-                            <strong>EG Imports, LLC (d/b/a Euro Gourmet Imports)</strong> was established under the leadership of Founder & CEO <strong>Carlos A. Marcano</strong> to bridge authentic Spanish estate terroir directly with fine dining and luxury resorts in Puerto Rico, the Caribbean, and the US.
-                        </p>
-                        <p>
-                            We specialize in 100% Eco-Certified Vinos Orgánicos, plant-based vegan fining, 100% artisanal Quesos Manchegos, and pure acorn-fed Jamón Ibérico 100% Bellota.
-                        </p>
-                        <div class="philosophy-highlights">
-                            <div class="highlight-item">
-                                <span class="highlight-num">Carlos A. Marcano</span>
-                                <span class="highlight-label">Founder & CEO, Euro Gourmet</span>
-                            </div>
-                            <div class="highlight-item">
-                                <span class="highlight-num">787-649-4994</span>
-                                <span class="highlight-label">Direct Regional Sales Line</span>
+                            <div class="estate-link" onclick="openEstateModal('dehesa')">
+                                <span data-en="Discover Estate →" data-es="Descubrir Bodega →">Discover Estate →</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="philosophy-visual">
-                        <div class="image-mask-container">
-                            <img src="images/spanish_vineyard_hero.jpg" alt="Spanish Vineyard Estate EG Imports" class="masked-image" loading="lazy">
-                            <div class="glass-overlay-card">
-                                <img src="images/22e1d621-3911-4c24-8797-f1a95890f961.png" alt="EG Imports Crest" style="width:48px; height:48px; object-fit:contain; flex-shrink:0;">
-                                <div>
-                                    <strong>EG Imports, LLC Provenance</strong>
-                                    <p style="font-size: 0.82rem; color: var(--parchment-muted);">Direct temperature-controlled reefer freight from Spain to San Juan.</p>
+                    <!-- Estate 2 -->
+                    <div class="estate-card">
+                        <div class="estate-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop" alt="Sampayolo Estate">
+                            <div class="estate-badge" data-en="Steep Slate Terraces" data-es="Bancales de Pizarra">Steep Slate Terraces</div>
+                        </div>
+                        <div class="estate-content">
+                            <h3 class="estate-title">Sampayolo</h3>
+                            <div class="estate-denom">D.O. Valdeorras • Galicia</div>
+                            <p class="estate-desc" data-en="Ancient mountain vines planted on sheer slate slopes in northwest Spain. World-renowned for mineral-driven Godello white wines and vibrant Mencía reds." data-es="Viñedos de montaña cultivados en escarpadas laderas de pizarra en Galicia. Famosa por sus expresivos blancos Godello y tintos Mencía.">
+                                Ancient mountain vines planted on sheer slate slopes in northwest Spain. World-renowned for mineral-driven Godello white wines and vibrant Mencía reds.
+                            </p>
+                            <div class="estate-focal">
+                                <span data-en="Focal Expression" data-es="Vino Emblemático">Focal Expression</span>
+                                <strong>Sampayolo Godello Sobre Lías</strong>
+                            </div>
+                            <div class="estate-link" onclick="openEstateModal('sampayolo')">
+                                <span data-en="Discover Estate →" data-es="Descubrir Bodega →">Discover Estate →</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estate 3 -->
+                    <div class="estate-card">
+                        <div class="estate-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1464639351491-a172c2aa2911?q=80&w=1000&auto=format&fit=crop" alt="Bodegas Corcos">
+                            <div class="estate-badge" data-en="Century Old Vines" data-es="Viñas Centenarias">Century Old Vines</div>
+                        </div>
+                        <div class="estate-content">
+                            <h3 class="estate-title">Bodegas Corcos & Izquierdo</h3>
+                            <div class="estate-denom">Ribera del Duero & Castilian Terroir</div>
+                            <p class="estate-desc" data-en="Heritage family cellars crafting full-bodied Tempranillo bush vines aged meticulously in French and American oak barrels." data-es="Cavas familiares históricas dedicadas al cultivo artesanal de Tempranillo de cepas viejas, criadas con paciencia en barricas de roble.">
+                                Heritage family cellars crafting full-bodied Tempranillo bush vines aged meticulously in French and American oak barrels.
+                            </p>
+                            <div class="estate-focal">
+                                <span data-en="Focal Expression" data-es="Vino Emblemático">Focal Expression</span>
+                                <strong>Corcos Tempranillo Selección Especial</strong>
+                            </div>
+                            <div class="estate-link" onclick="openEstateModal('corcos')">
+                                <span data-en="Discover Estate →" data-es="Descubrir Bodega →">Discover Estate →</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           SECTION 4: CURATED WINE SHOWCASE
+           ========================================================================== -->
+        <section class="wines-section" id="wines">
+            <div class="section-container">
+                <div class="section-header-center">
+                    <span class="eyebrow" data-en="Love • For Wine • Making" data-es="Pasión • Por El • Vino">Love • For Wine • Making</span>
+                    <h2 class="heading-lg" data-en="Curated Spanish Portfolio" data-es="Portafolio Selecto de Vinos">Curated Spanish Portfolio</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="wines-filter-bar">
+                    <button class="filter-btn active" onclick="filterWines('all')" data-en="All Expressions" data-es="Todos los Vinos">All Expressions</button>
+                    <button class="filter-btn" onclick="filterWines('red')" data-en="Red Terroir" data-es="Vinos Tintos">Red Terroir</button>
+                    <button class="filter-btn" onclick="filterWines('white')" data-en="White Mineral" data-es="Vinos Blancos">White Mineral</button>
+                    <button class="filter-btn" onclick="filterWines('organic')" data-en="Certified Organic" data-es="Orgánicos Certificados">Certified Organic</button>
+                </div>
+
+                <div class="wines-grid" id="winesGrid">
+                    <!-- Bottle Card 1 -->
+                    <div class="wine-card" data-category="red organic">
+                        <div class="wine-card-top">
+                            <span class="wine-type-tag" data-en="Red Reserve • Organic" data-es="Tinto Reserva • Orgánico">Red Reserve • Organic</span>
+                            <span class="wine-vintage">2018</span>
+                        </div>
+                        <div class="wine-visual">
+                            <img src="https://images.unsplash.com/photo-1586370434639-0fe43b2d32e6?q=80&w=600&auto=format&fit=crop" alt="Dehesa de Luna Gran Reserva Bottle" class="wine-bottle-render">
+                        </div>
+                        <h3 class="wine-name">Dehesa de Luna Gran Reserva</h3>
+                        <div class="wine-estate-name">Dehesa de Luna • La Mancha</div>
+                        <div class="wine-specs-grid">
+                            <div class="spec-item">
+                                <span class="spec-label" data-en="Serving Temp" data-es="Temp. Servicio">Serving Temp</span>
+                                <span class="spec-value">16°C - 18°C</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-en="Alcohol %" data-es="Alcohol %">Alcohol %</span>
+                                <span class="spec-value">14.5% ABV</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-en="Aging" data-es="Crianza">Aging</span>
+                                <span class="spec-value">18 Mos French Oak</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-en="Varietal" data-es="Variedad">Varietal</span>
+                                <span class="spec-value">Cabernet, Syrah</span>
+                            </div>
+                        </div>
+                        <p class="tasting-notes" data-en="“Notes of dark blackberry, crushed Mediterranean thyme, roasted cocoa, and silky refined tannins.”" data-es="“Notas de mora negra, tomillo mediterráneo, cacao tostado y taninos sedosos y pulidos.”">
+                            “Notes of dark blackberry, crushed Mediterranean thyme, roasted cocoa, and silky refined tannins.”
+                        </p>
+                        <div class="wine-actions">
+                            <button class="btn btn-outline-dark" onclick="triggerTastingSheet('Dehesa de Luna Gran Reserva')" data-en="Specs PDF" data-es="Ficha PDF">Specs PDF</button>
+                            <a href="#trade" class="btn btn-burgundy" data-en="Allocate" data-es="Reservar">Allocate</a>
+                        </div>
+                    </div>
+
+                    <!-- Bottle Card 2 -->
+                    <div class="wine-card" data-category="white">
+                        <div class="wine-card-top">
+                            <span class="wine-type-tag" data-en="White Mineral" data-es="Blanco Mineral">White Mineral</span>
+                            <span class="wine-vintage">2022</span>
+                        </div>
+                        <div class="wine-visual">
+                            <img src="https://images.unsplash.com/photo-1558001373-7b9fcc98a067?q=80&w=600&auto=format&fit=crop" alt="Sampayolo Godello Bottle" class="wine-bottle-render">
+                        </div>
+                        <h3 class="wine-name">Sampayolo Godello Sobre Lías</h3>
+                        <div class="wine-estate-name">Sampayolo • D.O. Valdeorras</div>
+                        <div class="wine-specs-grid">
+                            <div class="spec-item">
+                                <span class="spec-label" data-en="Serving Temp" data-es="Temp. Servicio">Serving Temp</span>
+                                <span class="spec-value">10°C - 12°C</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-en="Alcohol %" data-es="Alcohol %">Alcohol %</span>
+                                <span class="spec-value">13.5% ABV</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-en="Soil Type" data-es="Suelo">Soil Type</span>
+                                <span class="spec-value">Glacial Slate</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-en="Varietal" data-es="Variedad">Varietal</span>
+                                <span class="spec-value">100% Godello</span>
+                            </div>
+                        </div>
+                        <p class="tasting-notes" data-en="“Crisp green apple, white peach, electric slate acidity, and creamy lees texture on the finish.”" data-es="“Manzana verde crujiente, melocotón blanco, acidez salina y textura cremosa en boca.”">
+                            “Crisp green apple, white peach, electric slate acidity, and creamy lees texture on the finish.”
+                        </p>
+                        <div class="wine-actions">
+                            <button class="btn btn-outline-dark" onclick="triggerTastingSheet('Sampayolo Godello')" data-en="Specs PDF" data-es="Ficha PDF">Specs PDF</button>
+                            <a href="#trade" class="btn btn-burgundy" data-en="Allocate" data-es="Reservar">Allocate</a>
+                        </div>
+                    </div>
+
+                    <!-- Bottle Card 3 -->
+                    <div class="wine-card" data-category="red">
+                        <div class="wine-card-top">
+                            <span class="wine-type-tag" data-en="Red Selección" data-es="Tinto Selección">Red Selección</span>
+                            <span class="wine-vintage">2019</span>
+                        </div>
+                        <div class="wine-visual">
+                            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=600&auto=format&fit=crop" alt="Corcos Tempranillo Bottle" class="wine-bottle-render">
+                        </div>
+                        <h3 class="wine-name">Corcos Tempranillo Selección</h3>
+                        <div class="wine-estate-name">Bodegas Corcos • Castilian Terroir</div>
+                        <div class="wine-specs-grid">
+                            <div class="spec-item">
+                                <span class="spec-label" data-en="Serving Temp" data-es="Temp. Servicio">Serving Temp</span>
+                                <span class="spec-value">16°C - 18°C</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-en="Alcohol %" data-es="Alcohol %">Alcohol %</span>
+                                <span class="spec-value">14.0% ABV</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-en="Oak Aging" data-es="Roble">Oak Aging</span>
+                                <span class="spec-value">14 Mos Barrel</span>
+                            </div>
+                            <div class="spec-item">
+                                <span class="spec-label" data-en="Varietal" data-es="Variedad">Varietal</span>
+                                <span class="spec-value">100% Tempranillo</span>
+                            </div>
+                        </div>
+                        <p class="tasting-notes" data-en="“Deep ruby color, ripe black cherries, cedar wood, vanilla bean, and a warm structured persistent finish.”" data-es="“Rubí profundo, cereza negra madura, cedro, vainilla y un final estructurado y elegante.”">
+                            “Deep ruby color, ripe black cherries, cedar wood, vanilla bean, and a warm structured persistent finish.”
+                        </p>
+                        <div class="wine-actions">
+                            <button class="btn btn-outline-dark" onclick="triggerTastingSheet('Corcos Tempranillo')" data-en="Specs PDF" data-es="Ficha PDF">Specs PDF</button>
+                            <a href="#trade" class="btn btn-burgundy" data-en="Allocate" data-es="Reservar">Allocate</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+           SECTION 5: GASTRONOMIC PAIRINGS (Manchego & Jamón Ibérico)
+           ========================================================================== -->
+        <section class="gastronomy-section" id="gastronomy">
+            <div class="section-container">
+                <div class="section-header-center">
+                    <span class="eyebrow" data-en="The Complete Spanish Table" data-es="La Mesa Española Completa">The Complete Spanish Table</span>
+                    <h2 class="heading-lg" data-en="Artisanal Spanish Gastronomy" data-es="Gastronomía Española Artesanal">Artisanal Spanish Gastronomy</h2>
+                    <div class="section-divider"></div>
+                </div>
+
+                <div class="gastro-panels">
+                    <!-- Panel 1: Queso Manchego -->
+                    <div class="gastro-panel">
+                        <div class="gastro-img-box">
+                            <img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=1000&auto=format&fit=crop" alt="Artisanal Queso Manchego 100%">
+                        </div>
+                        <div class="gastro-content">
+                            <span class="gastro-subtitle">D.O.P. Queso Manchego 100% Artesanal</span>
+                            <h3 class="gastro-title" data-en="Raw Sheep's Milk Aged Manchego" data-es="Queso Manchego Artesano de Leche Cruda">Raw Sheep's Milk Aged Manchego</h3>
+                            <p class="gastro-text" data-en="Crafted exclusively from 100% pure Manchega sheep's milk in Castilla-La Mancha. Cured naturally in stone cellars for 6 to 12 months, delivering a buttery, piquant flavor profile with characteristic zigzag esparto rind." data-es="Elaborado exclusivamente con leche cruda de oveja manchega. Curado en cavas de piedra durante 6 a 12 meses, ofreciendo un sabor mantecoso y elegante.">
+                                Crafted exclusively from 100% pure Manchega sheep's milk in Castilla-La Mancha. Cured naturally in stone cellars for 6 to 12 months, delivering a buttery, piquant flavor profile with characteristic zigzag esparto rind.
+                            </p>
+                            <div class="gastro-pairing-box">
+                                <div class="pairing-title">
+                                    <span>🍷 Sommelier Pairing Recommendation</span>
+                                </div>
+                                <div class="pairing-desc" data-en="Pair Curado Manchego with Dehesa de Luna Organic Red for a sublime balance of acidity and rich sheep's milk fats." data-es="Combina el Manchego Curado con Dehesa de Luna Orgánico para un equilibrio sublime entre acidez y grasa noble.">
+                                    Pair Curado Manchego with Dehesa de Luna Organic Red for a sublime balance of acidity and rich sheep's milk fats.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel 2: Jamón Ibérico -->
+                    <div class="gastro-panel">
+                        <div class="gastro-img-box">
+                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1000&auto=format&fit=crop" alt="Jamón Ibérico 100% Bellota">
+                        </div>
+                        <div class="gastro-content">
+                            <span class="gastro-subtitle">Jamón Ibérico 100% de Bellota</span>
+                            <h3 class="gastro-title" data-en="100% Acorn-Fed Iberian Ham" data-es="Jamón Ibérico 100% de Bellota (Pata Negra)">100% Acorn-Fed Iberian Ham</h3>
+                            <p class="gastro-text" data-en="The undisputed pinnacle of Spanish gastronomy. Free-range 100% purebred Iberian pigs grazing on wild acorns across oak dehesas. Cured for 36+ months to yield sweet oleic acid-rich marbling that melts on the palate." data-es="La máxima joya de la gastronomía española. Cerdos ibéricos puros criados en libertad comiendo bellotas en la dehesa. Curación artesanal de más de 36 meses.">
+                                The undisputed pinnacle of Spanish gastronomy. Free-range 100% purebred Iberian pigs grazing on wild acorns across oak dehesas. Cured for 36+ months to yield sweet oleic acid-rich marbling that melts on the palate.
+                            </p>
+                            <div class="gastro-pairing-box">
+                                <div class="pairing-title">
+                                    <span>🍷 Sommelier Pairing Recommendation</span>
+                                </div>
+                                <div class="pairing-desc" data-en="Complement hand-carved Bellota slices with Sampayolo Godello or Corcos Selección for unmatched palate harmony." data-es="Acompaña las finas lonchas de Bellota con Sampayolo Godello o Corcos Selección para una armonía perfecta.">
+                                    Complement hand-carved Bellota slices with Sampayolo Godello or Corcos Selección for unmatched palate harmony.
                                 </div>
                             </div>
                         </div>
@@ -239,362 +1638,312 @@
             </div>
         </section>
 
-        <!-- B2B Wholesale Storefront Section (Dehesa de Luna Style Clean Cards) -->
-        <section class="storefront-section" id="storefront">
+        <!-- ==========================================================================
+           SECTION 6: B2B TRADE PORTAL & EXECUTIVE FOOTER
+           ========================================================================== -->
+        <section class="trade-section" id="trade">
             <div class="section-container">
-                <div class="section-header text-center">
-                    <span class="section-badge">EXPANDED IMPORT CATALOG</span>
-                    <h2 class="section-title">B2B Wholesale Storefront</h2>
-                    <p class="section-subtitle">Select cases of Vinos Orgánicos, Quesos Manchegos 100%, and Jamón Ibérico 100% Bellota.</p>
-                </div>
-
-                <div class="storefront-layout">
-                    <aside class="filter-sidebar">
-                        <div class="sidebar-header">
-                            <h3>Filter Categories</h3>
-                            <button class="reset-filter-btn" id="resetFiltersBtn">Reset All</button>
+                <div class="trade-grid">
+                    <!-- Left Column: Trade Information & Leadership -->
+                    <div class="trade-info">
+                        <div>
+                            <span class="eyebrow" data-en="Wholesale & Allocation Partner Portal" data-es="Portal de Distribución y Hostelería">Wholesale & Allocation Partner Portal</span>
+                            <h2 class="heading-lg" data-en="Direct Island-Wide Distribution" data-es="Distribución Directa en Puerto Rico">Direct Island-Wide Distribution</h2>
+                            <p class="body-lg" style="margin-top: 1rem;" data-en="EG Imports (Euro Gourmet Imports) supplies premier restaurants, luxury resorts, private wine clubs, and boutique retailers throughout Puerto Rico and the Caribbean with climate-controlled distribution." data-es="EG Imports (Euro Gourmet Imports) suministra a los mejores restaurantes, hoteles de lujo, clubes privados y tiendas especializadas de Puerto Rico con logística a temperatura controlada.">
+                                EG Imports (Euro Gourmet Imports) supplies premier restaurants, luxury resorts, private wine clubs, and boutique retailers throughout Puerto Rico and the Caribbean with climate-controlled distribution.
+                            </p>
                         </div>
 
-                        <div class="filter-accordion-group">
-                            <button class="sidebar-accordion-trigger active"><span>Product Line</span><span class="accordion-arrow">−</span></button>
-                            <div class="sidebar-accordion-content open">
-                                <label class="filter-checkbox-label"><input type="radio" name="categoryFilter" value="all" checked> All Products</label>
-                                <label class="filter-checkbox-label"><input type="radio" name="categoryFilter" value="wine"> Vinos Orgánicos (Wines)</label>
-                                <label class="filter-checkbox-label"><input type="radio" name="categoryFilter" value="cheese"> Quesos Manchegos 100%</label>
-                                <label class="filter-checkbox-label"><input type="radio" name="categoryFilter" value="jamon"> Jamón Ibérico 100%</label>
+                        <div class="trade-contacts">
+                            <div class="contact-card">
+                                <div class="contact-card-label" data-en="Direct Trade Orders" data-es="Pedidos Directos">Direct Trade Orders</div>
+                                <div class="contact-card-val">787-649-4994</div>
                             </div>
-                        </div>
-
-                        <div class="filter-accordion-group">
-                            <button class="sidebar-accordion-trigger active"><span>Partner Estates & D.O.</span><span class="accordion-arrow">−</span></button>
-                            <div class="sidebar-accordion-content open">
-                                <label class="filter-checkbox-label"><input type="radio" name="regionFilter" value="all" checked> All Estates</label>
-                                <label class="filter-checkbox-label"><input type="radio" name="regionFilter" value="dehesa"> Dehesa de Luna (Tierra de Castilla)</label>
-                                <label class="filter-checkbox-label"><input type="radio" name="regionFilter" value="sampayolo"> Sampayolo (D.O. Valdeorras)</label>
-                                <label class="filter-checkbox-label"><input type="radio" name="regionFilter" value="ribera"> Bodegas Corcos & Izquierdo (Ribera)</label>
+                            <div class="contact-card">
+                                <div class="contact-card-label" data-en="Office & Operations" data-es="Oficina y Logística">Office & Operations</div>
+                                <div class="contact-card-val">787-494-4994</div>
                             </div>
-                        </div>
-
-                        <div class="filter-accordion-group">
-                            <button class="sidebar-accordion-trigger active"><span>Certification</span><span class="accordion-arrow">−</span></button>
-                            <div class="sidebar-accordion-content open">
-                                <label class="filter-checkbox-label"><input type="checkbox" id="organicCheck" checked> 100% Eco-Certified & Artisanal</label>
+                            <div class="contact-card">
+                                <div class="contact-card-label" data-en="Executive Leadership" data-es="Dirección Ejecutiva">Executive Leadership</div>
+                                <div class="contact-card-val">Carlos A. Marcano, CEO</div>
                             </div>
-                        </div>
-                    </aside>
-
-                    <div class="storefront-main">
-                        <div class="storefront-toolbar">
-                            <span class="results-count" id="resultsCount">Showing B2B Wholesale Catalog</span>
-                            <div class="search-box">
-                                <input type="text" id="storeSearchInput" placeholder="Search wine, Manchego, Jamón..." aria-label="Search catalog">
+                            <div class="contact-card">
+                                <div class="contact-card-label" data-en="Distribution Hub" data-es="Centro de Distribución">Distribution Hub</div>
+                                <div class="contact-card-val">San Juan, Puerto Rico</div>
                             </div>
-                        </div>
-
-                        <div class="product-grid" id="productGrid">
-                            <!-- Injected dynamically via JavaScript -->
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Trade Services Tabs -->
-        <section class="services-section" id="services">
-            <div class="section-container">
-                <div class="section-header text-center">
-                    <span class="section-badge">OUR CORE CAPABILITIES</span>
-                    <h2 class="section-title">Terroir & Services</h2>
-                </div>
+                    <!-- Right Column: B2B Wholesale Allocation Form -->
+                    <div class="b2b-form-card" id="b2bFormCard">
+                        <h3 class="form-title" data-en="Request Trade Allocation" data-es="Solicitar Catálogo y Muestras">Request Trade Allocation</h3>
+                        <p class="form-desc" data-en="Submit your business details below to receive our confidential wholesale price list and arrange a private tasting." data-es="Complete el formulario para recibir nuestra lista de precios al por mayor y coordinar una cata privada.">
+                            Submit your business details below to receive our confidential wholesale price list and arrange a private tasting.
+                        </p>
 
-                <div class="trade-tabs-header">
-                    <button class="tab-btn active" data-tab="tab-direct">01. Organic & Direct Import</button>
-                    <button class="tab-btn" data-tab="tab-coldchain">02. Cold-Chain Logistics</button>
-                    <button class="tab-btn" data-tab="tab-training">03. Wine Tasting Presentations</button>
-                    <button class="tab-btn" data-tab="tab-custom">04. Custom B2B Allocations</button>
-                </div>
-
-                <div class="trade-tabs-body">
-                    <div class="tab-pane active" id="tab-direct">
-                        <div class="tab-grid">
-                            <div class="tab-text">
-                                <span class="tab-num">CAPABILITY 01</span>
-                                <h3>Organic Terroir & Direct Import</h3>
-                                <p>At Euro Gourmet Imports, our portfolio is centered on <strong>100% Eco-Certified organic wines</strong>. Native grape varieties, vineyard innovation, and environmental commitment are embedded in every single step we take.</p>
-                                <p>Through exclusive direct supply agreements with premier Spanish estates—such as <em>Dehesa de Luna</em>, <em>Sampayolo</em>, and <em>Bodegas Corcos & Izquierdo</em>—we guarantee authentic origin purity, zero intermediary markups, and sustainable viticulture delivered straight to the Caribbean.</p>
+                        <form id="wholesaleForm" onsubmit="handleFormSubmit(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" data-en="Full Name" data-es="Nombre Completo">Full Name</label>
+                                    <input type="text" class="form-input" required placeholder="e.g. Chef Jean-Luc">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" data-en="Business / Restaurant" data-es="Empresa / Restaurante">Business / Restaurant</label>
+                                    <input type="text" class="form-input" required placeholder="e.g. San Juan Bistro">
+                                </div>
                             </div>
-                            <div class="tab-visual"><img src="images/dehesa_luna_estate.jpg" alt="Organic Vineyard Direct Import" loading="lazy"></div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="tab-coldchain">
-                        <div class="tab-grid">
-                            <div class="tab-text">
-                                <span class="tab-num">CAPABILITY 02</span>
-                                <h3>Overseas Cold-Chain Logistics</h3>
-                                <p>Fine organic wine requires uncompromised temperature care. From ancient Spanish cellars across maritime routes to the Caribbean, our products are shipped overseas in specialized <strong>12°C–14°C reefer containers</strong> equipped with continuous thermal tracking.</p>
-                                <p>We work tirelessly to safeguard the delicate character of every bottle, ensuring every vintage rests at its ideal recommended serving temperature before it arrives directly into our clients' hands.</p>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" data-en="Direct Email" data-es="Correo Electrónico">Direct Email</label>
+                                    <input type="email" class="form-input" required placeholder="sommelier@bistro.com">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" data-en="Phone Number" data-es="Teléfono">Phone Number</label>
+                                    <input type="tel" class="form-input" required placeholder="787-000-0000">
+                                </div>
                             </div>
-                            <div class="tab-visual"><img src="images/spanish_vineyard_hero.jpg" alt="Cold Chain Wine Transit" loading="lazy"></div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="tab-training">
-                        <div class="tab-grid">
-                            <div class="tab-text">
-                                <span class="tab-num">CAPABILITY 03</span>
-                                <h3>Wine Tasting Presentations for Restaurants</h3>
-                                <p>We offer luxury restaurants, hotels, and fine dining venues the opportunity to schedule a private <strong>On-Site Wine Tasting Presentation</strong> led by our wine specialists.</p>
-                                
-                                <form class="tasting-request-form" id="tastingRequestForm" onsubmit="handleTastingSubmit(event)">
-                                    <div class="form-row-compact">
-                                        <div class="form-field">
-                                            <label for="tastingRestaurant">Restaurant / Venue Name</label>
-                                            <input type="text" id="tastingRestaurant" placeholder="e.g. Condado Bistro / Santaella" required>
-                                        </div>
-                                        <div class="form-field">
-                                            <label for="tastingContact">Contact Person & Phone / Email</label>
-                                            <input type="text" id="tastingContact" placeholder="Name, Phone or Email" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-field" style="margin-top: 0.8rem;">
-                                        <label for="tastingWinery">Winery or Wine of Interest</label>
-                                        <select id="tastingWinery" required>
-                                            <option value="" disabled selected>Select Winery or Product Focus</option>
-                                            <option value="Dehesa de Luna (D.O. Tierra de Castilla - Organic)">Dehesa de Luna (D.O. Tierra de Castilla - 100% Organic)</option>
-                                            <option value="Sampayolo (D.O. Valdeorras - Old Vines Godello & Mencia)">Sampayolo (D.O. Valdeorras - Godello & Mencía)</option>
-                                            <option value="Bodegas Corcos & Izquierdo (D.O. Ribera del Duero)">Bodegas Corcos & Izquierdo (Ribera del Duero)</option>
-                                            <option value="Artisanal Pairings (100% Manchego & Jamón Ibérico)">Artisanal Pairings (Quesos Manchegos & Jamón Ibérico)</option>
-                                            <option value="Full Portfolio Spanish Terroir Experience">Full Portfolio Spanish Terroir Experience</option>
-                                        </select>
-                                    </div>
-                                    <button type="submit" class="btn btn-burgundy btn-sm" style="margin-top: 1rem; width: 100%;">Schedule Tasting Presentation</button>
-                                </form>
-                            </div>
-                            <div class="tab-visual"><img src="images/caribbean_wine_showcase.jpg" alt="Wine Tasting Presentation" loading="lazy"></div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="tab-custom">
-                        <div class="tab-grid">
-                            <div class="tab-text">
-                                <span class="tab-num">CAPABILITY 04</span>
-                                <h3>Custom B2B Allocations</h3>
-                                <p>Pallet allocations, private cellar reservations, and bespoke co-bottling for resort chains, fine dining establishments, and cruise lines.</p>
-                            </div>
-                            <div class="tab-visual"><img src="images/bordeaux.jpg" alt="Custom Allocations" loading="lazy"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Executive Leadership Slider -->
-        <section class="leadership-section" id="leadership">
-            <div class="section-container">
-                <div class="section-header text-center">
-                    <span class="section-badge">EG IMPORTS, LLC EXECUTIVE TEAM</span>
-                    <h2 class="section-title">Executive Leadership</h2>
-                    <p class="section-subtitle">Meet the team directing Euro Gourmet Imports.</p>
-                </div>
-
-                <div class="leadership-slider-wrapper">
-                    <div class="leadership-slider-track" id="leadershipTrack">
-                        <div class="leader-card">
-                            <div class="leader-avatar-box"><div class="leader-avatar">CM</div></div>
-                            <h3 class="leader-name">Carlos A. Marcano</h3>
-                            <span class="leader-title">Founder & CEO, Euro Gourmet</span>
-                            <p class="leader-bio">Leading Spanish terroir sourcing, corporate governance, and Caribbean distribution strategy for EG Imports, LLC.</p>
-                            <a href="tel:7876494994" class="linkedin-link" title="Call Carlos A. Marcano">📞</a>
-                        </div>
-
-                        <div class="leader-card">
-                            <div class="leader-avatar-box"><div class="leader-avatar">AR</div></div>
-                            <h3 class="leader-name">Dr. Alejandro Ruiz, MS</h3>
-                            <span class="leader-title">Chief Sommelier & Terroir Director</span>
-                            <p class="leader-bio">Master Sommelier overseeing organic wine selection, vegan fining compliance, and tech sheets.</p>
-                            <a href="#" class="linkedin-link">in</a>
-                        </div>
-
-                        <div class="leader-card">
-                            <div class="leader-avatar-box"><div class="leader-avatar">SC</div></div>
-                            <h3 class="leader-name">Sofia Castellanos</h3>
-                            <span class="leader-title">VP of Cold-Chain Logistics</span>
-                            <p class="leader-bio">Managing 100% reefer freight shipping and San Juan warehouse operations. Line: 787-494-4994.</p>
-                            <a href="tel:7874944994" class="linkedin-link">📞</a>
-                        </div>
-
-                        <div class="leader-card">
-                            <div class="leader-avatar-box"><div class="leader-avatar">CB</div></div>
-                            <h3 class="leader-name">Carlos Benítez</h3>
-                            <span class="leader-title">Director of Restaurant Accounts</span>
-                            <p class="leader-bio">Directing staff wine education, sommelier tech sheets, and fast 24-48hr island order replenishment.</p>
-                            <a href="tel:7876494994" class="linkedin-link">📞</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Contact Section (Request B2B Trade Account Form) -->
-        <section class="contact-section" id="contact">
-            <div class="section-container">
-                <div class="contact-card">
-                    <div class="text-center">
-                        <span class="hero-brand-title">EURO GOURMET IMPORTS</span>
-                        <h2 class="section-title">Get in Touch & Place Your Order</h2>
-                        <p class="section-subtitle">Please share your information below to request pricing, register your account, or finalize a purchase. Our team will reach out directly to complete your order.</p>
-                    </div>
-
-                    <form class="b2b-form" id="b2bForm" name="b2b-wholesale" method="POST" data-netlify="true">
-                        <input type="hidden" name="form-name" value="b2b-wholesale" />
-                        <div class="form-row">
                             <div class="form-group">
-                                <label for="b2bName">Contact Name / Title *</label>
-                                <input type="text" id="b2bName" name="b2bName" required placeholder="e.g. Chef Carlos Ortiz">
+                                <label class="form-label" data-en="Liquor License / Tax ID" data-es="Licencia de Licores / Registro">Liquor License / Tax ID</label>
+                                <input type="text" class="form-input" placeholder="Optional for private collectors">
                             </div>
+
                             <div class="form-group">
-                                <label for="b2bCompany">Company / Restaurant *</label>
-                                <input type="text" id="b2bCompany" name="b2bCompany" required placeholder="e.g. San Juan Resort">
+                                <label class="form-label" data-en="Products of Interest" data-es="Productos de Interés">Products of Interest</label>
+                                <select class="form-select">
+                                    <option value="all">Complete Portfolio (Wines + Gourmet Cheeses & Hams)</option>
+                                    <option value="wines">Spanish Organic Fine Wines Only</option>
+                                    <option value="gastronomy">Artisanal Manchego Cheeses & Jamón Ibérico</option>
+                                </select>
                             </div>
-                        </div>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="b2bEmail">Business Email *</label>
-                                <input type="email" id="b2bEmail" name="b2bEmail" required placeholder="orders@resort.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="b2bPhone">Direct Phone *</label>
-                                <input type="tel" id="b2bPhone" name="b2bPhone" placeholder="787-000-0000">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="b2bOrderSummaryInput">Selected Wholesale Items</label>
-                            <input type="text" id="b2bOrderSummaryInput" name="b2bOrderSummary" readonly placeholder="No cases added yet (Optional)">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="b2bMessage">Product Line Interest & Estimated Volume</label>
-                            <textarea id="b2bMessage" name="b2bMessage" rows="3" placeholder="Specify interest in Vinos Orgánicos, Quesos Manchegos 100%, Jamón Ibérico 100%..."></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-burgundy btn-block">Submit Purchase & Order Details</button>
-                    </form>
-                    <div id="b2bResponse" class="form-response"></div>
+                            <button type="submit" class="btn btn-burgundy form-submit-btn" data-en="Submit Allocation Request →" data-es="Enviar Solicitud de Catálogo →">
+                                Submit Allocation Request →
+                            </button>
+                        </form>
+                    </div>
                 </div>
+
+                <!-- Footer Bottom Navigation & Copyright -->
+                <footer class="main-footer">
+                    <div class="footer-grid">
+                        <div class="footer-brand-col">
+                            <img src="images/22e1d621-3911-4c24-8797-f1a95890f961.png" alt="Euro Gourmet Logo" class="footer-logo">
+                            <p class="footer-text" data-en="EG Imports, LLC (d/b/a Euro Gourmet Imports). Purveyors of fine Spanish terroir wines and artisanal gastronomy for Puerto Rico and the Caribbean." data-es="EG Imports, LLC (d/b/a Euro Gourmet Imports). Importadores directos de vinos españoles y alta gastronomía para Puerto Rico y el Caribe.">
+                                EG Imports, LLC (d/b/a Euro Gourmet Imports). Purveyors of fine Spanish terroir wines and artisanal gastronomy for Puerto Rico and the Caribbean.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4 class="footer-col-title" data-en="Estates" data-es="Bodegas">Estates</h4>
+                            <ul class="footer-links-list">
+                                <li><a href="#estates">Dehesa de Luna</a></li>
+                                <li><a href="#estates">Bodegas Sampayolo</a></li>
+                                <li><a href="#estates">Bodegas Corcos & Izquierdo</a></li>
+                                <li><a href="#estates">Castilla y León Cellars</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="footer-col-title" data-en="Wines" data-es="Vinos">Wines</h4>
+                            <ul class="footer-links-list">
+                                <li><a href="#wines">Gran Reserva Organic</a></li>
+                                <li><a href="#wines">Godello Sobre Lías</a></li>
+                                <li><a href="#wines">Tempranillo Selección</a></li>
+                                <li><a href="#wines">Tasting Sheets PDF</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="footer-col-title" data-en="Gourmet" data-es="Gastronomía">Gourmet</h4>
+                            <ul class="footer-links-list">
+                                <li><a href="#gastronomy">Queso Manchego D.O.P.</a></li>
+                                <li><a href="#gastronomy">Jamón Ibérico 100% Bellota</a></li>
+                                <li><a href="#gastronomy">Sommelier Pairings</a></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="footer-col-title" data-en="Legal" data-es="Legal">Legal</h4>
+                            <ul class="footer-links-list">
+                                <li><a href="#">Privacy Policy</a></li>
+                                <li><a href="#">Terms of Wholesale</a></li>
+                                <li><a href="#">Import License Compliance</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="footer-bottom-bar">
+                        <div>
+                            © 2026 EG Imports, LLC • Euro Gourmet Imports. All Rights Reserved.
+                        </div>
+                        <div>
+                            Designed for San Juan, Puerto Rico & The Caribbean
+                        </div>
+                    </div>
+                </footer>
             </div>
         </section>
     </main>
 
-    <!-- Sliding Order Drawer -->
-    <div class="b2b-order-drawer" id="orderDrawer">
-        <div class="drawer-backdrop" id="drawerBackdrop"></div>
-        <div class="drawer-panel">
-            <div class="drawer-header text-center" style="flex-direction:column; align-items:center; text-align:center;">
-                <img src="images/22e1d621-3911-4c24-8797-f1a95890f961.png" alt="Euro Gourmet Imports Logo" class="brand-logo-img drawer-logo-img" style="margin-bottom:0.6rem;">
-                <div style="display:flex; justify-content:space-between; width:100%; align-items:center;">
-                    <div>
-                        <span class="drawer-tag">EG IMPORTS, LLC ORDER</span>
-                        <h3 style="font-size:1.15rem;">Cellar Case Bag</h3>
-                    </div>
-                    <button class="drawer-close-btn" id="drawerCloseBtn">&times;</button>
+    <!-- Modal Popup for Estates and PDFs -->
+    <div class="modal-backdrop" id="customModal">
+        <div class="modal-box">
+            <button class="modal-close-btn" onclick="closeModal()">✕</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       JAVASCRIPT CONTROLLERS
+       ========================================================================== -->
+    <script>
+        // 1. Sticky Navbar & Scroll Progress Controller
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            const progress = document.getElementById('readingProgressBar');
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            
+            progress.style.width = scrolled + '%';
+
+            if (winScroll > 60) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Language Switcher (EN / ES)
+        let currentLang = 'en';
+        const btnEN = document.getElementById('btnEN');
+        const btnES = document.getElementById('btnES');
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            if (lang === 'en') {
+                btnEN.classList.add('active');
+                btnES.classList.remove('active');
+            } else {
+                btnES.classList.add('active');
+                btnEN.classList.remove('active');
+            }
+
+            document.querySelectorAll('[data-en]').forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = text;
+                    } else {
+                        el.textContent = text;
+                    }
+                }
+            });
+        }
+
+        btnEN.addEventListener('click', () => setLanguage('en'));
+        btnES.addEventListener('click', () => setLanguage('es'));
+
+        // 3. Wine Portfolio Category Filter
+        function filterWines(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            const wineCards = document.querySelectorAll('.wine-card');
+            wineCards.forEach(card => {
+                const cat = card.getAttribute('data-category');
+                if (category === 'all' || cat.includes(category)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 4. Modal System Controller
+        const modal = document.getElementById('customModal');
+        const modalContent = document.getElementById('modalContent');
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        function openEstateModal(estateKey) {
+            let data = {};
+            if (estateKey === 'dehesa') {
+                data = {
+                    title: 'Dehesa de Luna • Estate Deep Dive',
+                    subtitle: 'Vino de la Tierra de Castilla • Certified Organic Reserve',
+                    body: 'Dehesa de Luna is located in La Mancha, surrounded by 3,000 hectares of pristine oak forest. The winery is built completely underground and operates via solar-powered gravity flow, preventing unnecessary oxidation and preserving the pure aromatic integrity of the organic grapes.',
+                    specs: ['3,000 Hectares Biosphere', '100% Solar Powered', 'Gravity Fed Winery', 'Native Flora Ecosystem']
+                };
+            } else if (estateKey === 'sampayolo') {
+                data = {
+                    title: 'Bodegas Sampayolo • Slate Terroir',
+                    subtitle: 'D.O. Valdeorras • Galicia, Spain',
+                    body: 'Cultivated on extreme 45-degree slate terraces above the Sil river. Sampayolo recovers ancestral Godello and Mencía clones. Hand-harvested in small 15kg crates to preserve grape skin bloom and natural ambient yeasts.',
+                    specs: ['Glacial Slate Soil', 'Hand Picked Harvest', 'Sur Lie Aging', 'Micro-lot Production']
+                };
+            } else if (estateKey === 'corcos') {
+                data = {
+                    title: 'Bodegas Corcos & Izquierdo',
+                    subtitle: 'Ribera & Castilian Old Bush Vines',
+                    body: 'Century-old Tempranillo bush vines deep-rooted in chalky limestone soils. Aged meticulously in custom-toasted French Oak barrels from Nevers and Allier forests.',
+                    specs: ['100+ Year Bush Vines', 'French Oak Aging', 'Unfiltered Bottling', 'Limestone Soil']
+                };
+            }
+
+            modalContent.innerHTML = `
+                <span class="eyebrow">${data.subtitle}</span>
+                <h2 class="heading-md" style="margin-bottom: 1rem; color: var(--colors-primaryLight);">${data.title}</h2>
+                <p style="font-size: 0.95rem; color: var(--colors-whiteDarker); line-height: 1.7; margin-bottom: 1.5rem;">${data.body}</p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 2rem;">
+                    ${data.specs.map(s => `<div style="background: rgba(245,241,233,0.06); padding: 0.8rem; border-radius: 8px; font-size: 0.82rem; color: var(--colors-accentGold); font-weight: 600;">✓ ${s}</div>`).join('')}
                 </div>
-            </div>
-            <div style="padding: 0.5rem 0; font-size: 0.8rem; color: var(--parchment-muted); border-bottom: 1px solid var(--glass-border);">
-                📞 Sales Line: <a href="tel:7876494994" style="color: var(--soft-parchment); font-weight:700;">787-649-4994</a>
-            </div>
+                <button class="btn btn-burgundy" onclick="closeModal()" style="width: 100%;">Close Preview</button>
+            `;
+            modal.classList.add('active');
+        }
 
-            <div class="drawer-body" id="drawerItemsList">
-                <p class="drawer-empty-msg">Your wholesale order bag is currently empty.</p>
-            </div>
+        function triggerTastingSheet(wineName) {
+            modalContent.innerHTML = `
+                <span class="eyebrow">Technical Specification Sheet</span>
+                <h2 class="heading-md" style="margin-bottom: 1rem; color: var(--colors-primaryLight);">${wineName}</h2>
+                <p style="font-size: 0.95rem; color: var(--colors-whiteDarker); margin-bottom: 1.5rem;">
+                    Downloading official Sommelier Tasting Sheet & Chemical Analysis PDF...
+                </p>
+                <div style="background: rgba(158,90,42,0.15); border: 1px solid var(--colors-accentGold); padding: 1.2rem; border-radius: 10px; text-align: center; margin-bottom: 2rem;">
+                    <span style="display:block; font-size: 0.8rem; color: var(--colors-accentGold); font-weight: 700;">STATUS: PREPARING PDF</span>
+                    <span style="font-size: 0.9rem; color: #FFF;">Full vintage report & food pairing matrix</span>
+                </div>
+                <button class="btn btn-burgundy" onclick="closeModal()" style="width: 100%;">Close</button>
+            `;
+            modal.classList.add('active');
+        }
 
-            <div class="drawer-footer">
-                <div class="bottle-calc-row"><span>Total Units:</span><strong id="totalBottlesCalc">0 Cases</strong></div>
-                <div class="subtotal-row"><span>Estimated Subtotal:</span><strong id="drawerSubtotal">$0.00 USD</strong></div>
-                <a href="#contact" class="btn btn-burgundy btn-block" id="proceedCheckoutBtn">Proceed to Wholesale Inquiry</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Quick View Modal -->
-    <div class="modal" id="quickViewModal">
-        <div class="modal-overlay" id="modalOverlay"></div>
-        <div class="modal-card modal-card-lg">
-            <button class="modal-close" id="modalCloseBtn">&times;</button>
-            <div id="quickViewContent"></div>
-        </div>
-    </div>
-
-    <!-- Article Reader View Modal -->
-    <div class="modal" id="articleReaderModal">
-        <div class="modal-overlay" id="articleModalOverlay"></div>
-        <div class="modal-card modal-card-xl">
-            <button class="modal-close" id="articleModalCloseBtn">&times;</button>
-            <div class="reader-layout">
-                <aside class="reader-toc-sidebar">
-                    <h4>TABLE OF CONTENTS</h4>
-                    <ul><li><a href="#art-intro" class="toc-link active">1. Introduction</a></li></ul>
-                </aside>
-                <article class="reader-article-content" id="articleReaderContent"></article>
-            </div>
-        </div>
-    </div>
-
-    <!-- Mega Footer with Large 100px Image Logo -->
-    <footer class="mega-footer">
-        <div class="footer-container">
-            <div class="footer-col brand-footer-col">
-                <a href="#" class="nav-logo" style="margin-bottom: 1.5rem; flex-direction:column; align-items:flex-start; gap:0.75rem;">
-                    <img src="images/22e1d621-3911-4c24-8797-f1a95890f961.png" alt="Euro Gourmet Imports Logo" class="brand-logo-img footer-logo-img">
-                    <div class="logo-text">
-                        <span class="brand-title" style="font-size:1.25rem; color:var(--parchment-white);">EURO GOURMET</span>
-                        <span class="brand-sub" style="color:var(--bronze-gold);">EG IMPORTS, LLC</span>
+        // 5. Form Submission Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const b2bCard = document.getElementById('b2bFormCard');
+            b2bCard.innerHTML = `
+                <div style="text-align: center; padding: 2rem 0;">
+                    <div style="font-size: 3rem; color: var(--colors-accentGold); margin-bottom: 1rem;">✓</div>
+                    <h3 class="heading-md" style="margin-bottom: 1rem; color: var(--colors-primaryLight);">Allocation Request Received</h3>
+                    <p style="color: var(--colors-whiteDarker); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem;">
+                        Thank you. Our Executive Team & Founder Carlos A. Marcano will review your business credentials and contact you within 24 business hours with our confidential wholesale catalog.
+                    </p>
+                    <div style="font-size: 0.8rem; letter-spacing: 0.1em; color: var(--colors-accentGold); text-transform: uppercase; font-weight: 700;">
+                        Direct Wholesale Line: 787-649-4994
                     </div>
-                </a>
-                <p class="footer-info"><strong>EG Imports, LLC (d/b/a Euro Gourmet Imports)</strong></p>
-                <p class="footer-info"><strong>Founder & CEO:</strong> Carlos A. Marcano</p>
-                <p class="footer-info">📞 Primary Sales: <a href="tel:7876494994" class="footer-link">787-649-4994</a></p>
-                <p class="footer-info">📞 Direct Office & Logistics: <a href="tel:7874944994" class="footer-link">787-494-4994</a></p>
-            </div>
-
-            <!-- Col 2: Winery & Gourmet Portfolio -->
-            <div class="footer-col">
-                <h4>Partner Estates & Gourmet</h4>
-                <ul>
-                    <li><a href="#storefront" class="footer-link">Dehesa de Luna (Tierra de Castilla)</a></li>
-                    <li><a href="#storefront" class="footer-link">Sampayolo (D.O. Valdeorras / Galicia)</a></li>
-                    <li><a href="#storefront" class="footer-link">Bodegas Corcos & Izquierdo (Ribera)</a></li>
-                    <li><a href="#storefront" class="footer-link">Quesos Manchegos 100% Artesanal</a></li>
-                    <li><a href="#storefront" class="footer-link">Jamón Ibérico 100% Bellota</a></li>
-                </ul>
-            </div>
-
-            <!-- Col 3: B2B Solutions -->
-            <div class="footer-col">
-                <h4>B2B Solutions</h4>
-                <ul>
-                    <li><a href="#contact" class="footer-link">Request B2B Trade Account</a></li>
-                    <li><a href="#services" class="footer-link">Reefer Cold-Chain Shipping</a></li>
-                    <li><a href="#services" class="footer-link">Staff Sommelier Education</a></li>
-                    <li><a href="#services" class="footer-link">Custom Pallet Imports</a></li>
-                </ul>
-            </div>
-
-            <!-- Col 4: Corporate Offices -->
-            <div class="footer-col">
-                <h4>Corporate Offices</h4>
-                <p class="footer-info">📍 San Juan, Puerto Rico • Madrid, Spain</p>
-                <p class="footer-info">✉️ orders@eurogourmetpr.com</p>
-                <p class="footer-info">📜 Certified Organic & Vegan Importer</p>
-            </div>
-        </div>
-
-        <div class="footer-bottom text-center">
-            <p>&copy; 2026 EG Imports, LLC (d/b/a Euro Gourmet Imports). All Rights Reserved. Carlos A. Marcano, Founder & CEO.</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript Application Logic -->
-    <script src="app.js"></script>
+                </div>
+            `;
+        }
+    </script>
 </body>
 </html>
