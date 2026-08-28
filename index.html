@@ -347,90 +347,97 @@
             cursor: pointer;
         }
 
+        .nav-phone-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: var(--colors-accentGold);
+            transition: var(--transitions-smooth);
+        }
+        .nav-phone-link:hover {
+            color: var(--colors-primaryLight);
+        }
+
         /* ==========================================================================
-           3. SECTION 1: HERO SECTION (Spanish Vineyard Backdrop, No CTA Buttons)
+           3. SECTION 1: HERO (Scroll-Scrubbed Expansion & Split Reveal Physics)
            ========================================================================== */
-        .hero-section {
+        .hero-pinned-wrapper {
             position: relative;
+            height: 200vh;
+            background-color: var(--colors-primaryDark);
+        }
+
+        .hero-sticky-canvas {
+            position: sticky;
+            top: 0;
+            width: 100vw;
             height: 100vh;
-            min-height: 700px;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--colors-primaryDark);
+        }
+
+        .hero-media-card {
+            width: 75vw;
+            height: 75vh;
+            border-radius: 12px;
             overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            will-change: width, height, border-radius;
         }
 
-        .hero-backdrop {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-        }
-
-        .hero-bg-img {
+        .hero-media-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center 30%;
-            transform: scale(1.05);
-            animation: heroKenBurns 25s ease-out infinite alternate;
         }
 
-        @keyframes heroKenBurns {
-            0% { transform: scale(1.03); }
-            100% { transform: scale(1.12); }
-        }
-
-        .hero-overlay {
+        .hero-media-overlay {
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at center, rgba(24, 48, 41, 0.35) 0%, rgba(24, 48, 41, 0.75) 85%);
-            z-index: 2;
+            background: rgba(24, 48, 41, 0.35);
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 3;
+        .hero-text-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            max-width: 920px;
             padding: 0 1.5rem;
-            margin-top: 40px;
+            pointer-events: none;
         }
 
-        .hero-eyebrow {
+        .hero-split-line {
+            font-family: 'Cinzel', 'Playfair Display', serif;
+            font-size: clamp(3rem, 7.5vw, 6.5rem);
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--colors-primaryLight);
+            line-height: 1.05;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+            will-change: opacity, transform;
+        }
+
+        .hero-center-desc {
+            max-width: 440px;
             font-family: var(--fonts-sans);
             font-size: 0.95rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.25em;
-            color: var(--colors-accentGold);
-            display: block;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-title {
-            font-family: 'Cinzel', serif;
-            font-weight: 300;
-            font-size: clamp(2.8rem, 6.2vw, 5.2rem);
-            line-height: 1.15;
-            letter-spacing: 0.04em;
             color: var(--colors-primaryLight);
-            margin-bottom: 1.8rem;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            line-height: 1.6;
             text-align: center;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.05rem, 1.8vw, 1.25rem);
-            font-weight: 300;
-            max-width: 780px;
-            margin: 0 auto;
-            color: var(--colors-whiteDarker);
-            line-height: 1.7;
-            text-align: center;
+            margin: 1.4rem auto;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            will-change: opacity, transform;
+            opacity: 0.9;
         }
 
         .hero-scroll-indicator {
@@ -438,7 +445,7 @@
             bottom: 2.2rem;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 3;
+            z-index: 12;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1290,6 +1297,7 @@
                     <span>|</span>
                     <button class="lang-btn" id="btnES">ES</button>
                 </div>
+                <a href="tel:7876494994" class="nav-phone-link">787-649-4994</a>
                 <a href="#trade" class="btn btn-burgundy" data-en="Request Allocation" data-es="Solicitar Asignación">Request Allocation</a>
                 <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle Menu">☰</button>
             </div>
@@ -1298,29 +1306,32 @@
 
     <main>
         <!-- ==========================================================================
-           SECTION 1: CINEMATIC HERO (San Felice Vineyard Aesthetic, No CTA Buttons)
+           SECTION 1: HERO (BackgroundVideoSection Scroll Scrubbed Physics)
            ========================================================================== -->
-        <section class="hero-section" id="hero">
-            <div class="hero-backdrop">
-                <!-- High Resolution Vineyard Background -->
-                <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=2070&auto=format&fit=crop" alt="Spanish Estate Vineyards at Sunset" class="hero-bg-img">
-                <div class="hero-overlay"></div>
-            </div>
+        <section id="hero-pinned-wrapper" class="hero-pinned-wrapper">
+            <div id="hero-sticky-canvas" class="hero-sticky-canvas">
+                
+                <!-- Expanding Image Container (#hero-media-card) -->
+                <div id="hero-media-card" class="hero-media-card">
+                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?q=80&w=2070&auto=format&fit=crop" alt="Spanish Estate Vineyards" class="hero-media-img">
+                    <div class="hero-media-overlay"></div>
+                </div>
 
-            <div class="hero-content">
-                <span class="hero-eyebrow" data-en="EURO GOURMET IMPORTS • PUERTO RICO" data-es="EURO GOURMET IMPORTS • PUERTO RICO">EURO GOURMET IMPORTS • PUERTO RICO</span>
-                <h1 class="hero-title" data-en="Pure Organic Terroir & Spanish Gourmet Treasures" data-es="Puro Terruño Orgánico y Tesoros Gastronómicos Españoles">
-                    Pure Organic Terroir & Spanish Gourmet Treasures
-                </h1>
-                <p class="hero-subtitle" data-en="Direct relationships with multi-generational family estates across Spain, supplying Puerto Rico's premier hospitality partners with certified organic wines and culinary treasures." data-es="Relaciones directas con bodegas familiares de España, abasteciendo a los mejores restaurantes y hoteles de Puerto Rico con vinos orgánicos y gastronomía selecta.">
-                    Direct relationships with multi-generational family estates across Spain, supplying Puerto Rico's premier hospitality partners with certified organic wines and culinary treasures.
-                </p>
-            </div>
+                <!-- Split Editorial Typography Overlay (#hero-text-overlay) -->
+                <div id="hero-text-overlay" class="hero-text-overlay">
+                    <h1 class="hero-split-line line-1">AUTHENTIC</h1>
+                    <h1 class="hero-split-line line-2">SPANISH</h1>
+                    <p class="hero-center-desc" data-en="Discover the authentic essence of multi-generational Spanish estates. Certified organic wines and gastronomic treasures delivered to Puerto Rico." data-es="Descubre la auténtica esencia de bodegas españolas familiares. Vinos orgánicos certificados y gastronomía selecta entregada en Puerto Rico.">
+                        Discover the authentic essence of multi-generational Spanish estates. Certified organic wines and gastronomic treasures delivered to Puerto Rico.
+                    </p>
+                    <h1 class="hero-split-line line-3">TERROIR</h1>
+                </div>
 
-            <a href="#terroir" class="hero-scroll-indicator" aria-label="Scroll down">
-                <span data-en="Explore Terroir" data-es="Explorar Terruño">Explore Terroir</span>
-                <div class="scroll-arrow"></div>
-            </a>
+                <a href="#terroir" class="hero-scroll-indicator" aria-label="Scroll down">
+                    <span data-en="Explore Terroir" data-es="Explorar Terruño">Explore Terroir</span>
+                    <div class="scroll-arrow"></div>
+                </a>
+            </div>
         </section>
 
         <!-- ==========================================================================
@@ -1799,6 +1810,71 @@
        JAVASCRIPT CONTROLLERS
        ========================================================================== -->
     <script>
+        // 0. Section 1 Hero Scroll Expansion & Split Text Reveal Physics
+        function updateHeroScroll() {
+            const pinnedWrapper = document.getElementById('hero-pinned-wrapper');
+            const mediaCard = document.getElementById('hero-media-card');
+            const line1 = document.querySelector('.hero-split-line.line-1');
+            const line2 = document.querySelector('.hero-split-line.line-2');
+            const centerParagraph = document.querySelector('.hero-center-desc');
+            const line3 = document.querySelector('.hero-split-line.line-3');
+
+            if (!pinnedWrapper || !mediaCard) return;
+
+            const wrapperRect = pinnedWrapper.getBoundingClientRect();
+            const maxScroll = pinnedWrapper.offsetHeight - window.innerHeight;
+            let t = -wrapperRect.top / maxScroll;
+            t = Math.max(0, Math.min(1, t));
+
+            // 1. Card Expansion Math
+            const width = 75 + (25 * t);
+            const height = 75 + (25 * t);
+            const borderRadius = 12 * (1 - t);
+
+            mediaCard.style.width = `${width}vw`;
+            mediaCard.style.height = `${height}vh`;
+            mediaCard.style.borderRadius = `${borderRadius}px`;
+
+            // 2. Typography Translation & Staggered Opacity Math
+            // Line 1 ("AUTHENTIC")
+            const op1 = Math.min(1, 2.5 * t);
+            const ty1 = 40 * (1 - t);
+            if (line1) {
+                line1.style.opacity = op1;
+                line1.style.transform = `translateY(${ty1}px)`;
+            }
+
+            // Line 2 ("SPANISH")
+            const op2 = Math.min(1, 2.0 * Math.max(0, t - 0.1));
+            const ty2 = 50 * (1 - t);
+            if (line2) {
+                line2.style.opacity = op2;
+                line2.style.transform = `translateY(${ty2}px)`;
+            }
+
+            // Center Paragraph
+            const opP = Math.min(1, 2.0 * Math.max(0, t - 0.2));
+            const tyP = 30 * (1 - t);
+            if (centerParagraph) {
+                centerParagraph.style.opacity = opP;
+                centerParagraph.style.transform = `translateY(${tyP}px)`;
+            }
+
+            // Line 3 ("TERROIR")
+            const op3 = Math.min(1, 2.0 * Math.max(0, t - 0.3));
+            const ty3 = 60 * (1 - t);
+            if (line3) {
+                line3.style.opacity = op3;
+                line3.style.transform = `translateY(${ty3}px)`;
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            requestAnimationFrame(updateHeroScroll);
+        });
+        window.addEventListener('resize', updateHeroScroll);
+        document.addEventListener('DOMContentLoaded', updateHeroScroll);
+
         // 1. Sticky Navbar & Scroll Progress Controller
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
