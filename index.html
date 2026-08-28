@@ -658,124 +658,348 @@
         }
 
         /* ==========================================================================
-           5. SECTION 3: WINE ESTATES SECTION (3 Spanish Estates Grid)
+           5. SECTION 3: LUXURY WINE ESTATES ACCORDION & MODALS
            ========================================================================== */
         .estates-section {
-            background-color: var(--colors-primaryDark);
-            color: var(--colors-primaryLight);
-            padding: 8rem 0;
-            border-top: 1px solid var(--colors-borderDark);
+          background-color: var(--colors-primaryDark, #183029);
+          color: var(--colors-primaryLight, #F5F1E9);
+          padding: clamp(60px, 8vw, 120px) 0 0 0;
+          display: flex;
+          flex-direction: column;
+          width: 100vw;
+          overflow: hidden;
+          position: relative;
         }
 
-        .section-header-center {
-            text-align: center;
-            max-width: 750px;
-            margin: 0 auto 4.5rem;
+        .estates-header-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          padding: 0 clamp(24px, 5vw, 80px);
+          margin-bottom: clamp(40px, 5vw, 60px);
         }
 
-        .section-divider {
-            width: 60px;
-            height: 2px;
-            background: var(--colors-accentGold);
-            margin: 1.5rem auto 0;
+        .estates-kicker {
+          font-family: var(--fonts-sans);
+          font-size: 0.78rem;
+          letter-spacing: 0.25em;
+          text-transform: uppercase;
+          color: var(--colors-accentGold, #9E5A2A);
+          margin-bottom: 14px;
         }
 
-        .estates-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.2rem;
+        .estates-display-heading {
+          font-family: 'Cinzel', var(--fonts-serif);
+          font-size: clamp(2.8rem, 6vw, 5.5rem);
+          font-weight: 400;
+          letter-spacing: 0.04em;
+          line-height: 1.0;
+          text-transform: uppercase;
+          color: var(--colors-primaryLight, #F5F1E9);
+          margin: 0;
         }
 
+        .estates-divider {
+          width: 60px;
+          height: 1px;
+          background-color: var(--colors-accentGold, #9E5A2A);
+          margin-top: 24px;
+          opacity: 0.6;
+        }
+
+        /* Accordion Gallery Track */
+        .estates-accordion-track {
+          display: flex;
+          flex-direction: row;
+          width: 100vw;
+          height: 80vh;
+          min-height: 600px;
+          gap: 1px;
+          background-color: rgba(245, 241, 233, 0.12);
+          transition: all 0.7s cubic-bezier(0.68, 0.09, 0, 0.97);
+        }
+
+        /* Individual Card */
         .estate-card {
-            background: rgba(245, 241, 233, 0.03);
-            border: 1px solid var(--colors-borderDark);
-            border-radius: 16px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: var(--transitions-default);
-            position: relative;
+          flex: 1;
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          transition: flex 0.7s cubic-bezier(0.68, 0.09, 0, 0.97), filter 0.5s ease;
         }
 
-        .estate-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--colors-accentGold);
-            box-shadow: var(--shadow-elevated);
-            background: rgba(245, 241, 233, 0.06);
+        .estate-bg-image {
+          position: absolute;
+          inset: 0;
+          background-size: cover;
+          background-position: center;
+          transform: scale(1.0);
+          filter: brightness(0.7) contrast(1.05);
+          transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1.0), filter 0.6s ease;
+          z-index: 1;
         }
 
-        .estate-img-wrapper {
-            height: 260px;
-            position: relative;
-            overflow: hidden;
+        .estate-card-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to top, rgba(24, 48, 41, 0.95) 0%, rgba(24, 48, 41, 0.35) 50%, transparent 100%);
+          z-index: 2;
+          transition: opacity 0.5s ease;
         }
 
-        .estate-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
+        .estate-card-inner {
+          position: relative;
+          z-index: 3;
+          padding: clamp(24px, 4vw, 48px);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          width: 100%;
         }
 
-        .estate-card:hover .estate-img-wrapper img {
-            transform: scale(1.08);
-        }
-
-        .estate-badge {
-            position: absolute;
-            top: 1.2rem;
-            right: 1.2rem;
-            background: rgba(24, 48, 41, 0.85);
-            backdrop-filter: blur(8px);
-            border: 1px solid var(--colors-accentGold);
-            color: var(--colors-accentGold);
-            font-size: 0.68rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            padding: 0.35rem 0.75rem;
-            border-radius: 20px;
-        }
-
-        .estate-content {
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
+        .estate-region-badge {
+          font-family: var(--fonts-sans);
+          font-size: 0.72rem;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--colors-accentSage, #B6CFD0);
+          margin-bottom: 10px;
         }
 
         .estate-title {
-            font-family: var(--fonts-serif);
-            font-size: 1.6rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--colors-primaryLight);
+          font-family: 'Cinzel', var(--fonts-serif);
+          font-size: clamp(1.8rem, 3vw, 2.6rem);
+          font-weight: 400;
+          letter-spacing: 0.06em;
+          line-height: 1.1;
+          color: var(--colors-primaryLight, #F5F1E9);
+          margin: 0 0 10px 0;
         }
 
-        .estate-denom {
-            font-size: 0.8rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--colors-accentGold);
-            font-weight: 600;
-            margin-bottom: 1rem;
+        .estate-subtitle {
+          font-family: var(--fonts-sans);
+          font-size: 0.88rem;
+          line-height: 1.5;
+          color: rgba(245, 241, 233, 0.8);
+          max-width: 320px;
+          margin: 0 0 24px 0;
         }
 
-        .estate-desc {
-            font-size: 0.95rem;
-            color: var(--colors-whiteDarker);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
+        .estate-discover-btn {
+          background-color: var(--colors-primaryLight, #F5F1E9);
+          color: var(--colors-primaryDark, #183029);
+          font-family: var(--fonts-sans);
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          padding: 12px 32px;
+          border-radius: 50px;
+          border: none;
+          cursor: pointer;
+          opacity: 0;
+          transform: translateY(15px);
+          pointer-events: none;
+          transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease, color 0.3s ease;
         }
 
-        .estate-focal {
-            background: rgba(245, 241, 233, 0.05);
-            padding: 0.9rem 1.2rem;
+        /* Mathematical Flex-Growth Hover Mechanics */
+        @media (min-width: 1024px) {
+          .estates-accordion-track:hover .estate-card {
+            flex: 0.7;
+          }
+
+          .estates-accordion-track .estate-card:hover {
+            flex: 1.6;
+          }
+
+          .estates-accordion-track .estate-card:hover .estate-bg-image {
+            transform: scale(1.06);
+            filter: brightness(0.85);
+          }
+
+          .estates-accordion-track .estate-card:hover .estate-discover-btn {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+          }
+
+          .estate-discover-btn:hover {
+            background-color: var(--colors-accentWine, #912F46);
+            color: var(--colors-primaryLight, #F5F1E9);
+          }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 1023px) {
+          .estates-accordion-track {
+            flex-direction: column;
+            height: auto;
+            min-height: unset;
+            gap: 16px;
+            padding: 0 16px;
+            background-color: transparent;
+          }
+
+          .estate-card {
+            height: 420px;
             border-radius: 8px;
-            font-size: 0.85rem;
-            border-left: 2px solid var(--colors-accentWine);
-            margin-bottom: 1.5rem;
+          }
+
+          .estate-discover-btn {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+          }
+        }
+
+        /* INTERACTIVE MODAL DRAWER */
+        .estate-modal-backdrop {
+          position: fixed;
+          inset: 0;
+          background-color: rgba(24, 48, 41, 0.85);
+          backdrop-filter: blur(12px);
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 20px;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+        }
+
+        .estate-modal-backdrop.active {
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        .estate-modal-dialog {
+          background-color: var(--colors-primaryLight, #F5F1E9);
+          color: var(--colors-primaryDark, #183029);
+          width: 100%;
+          max-width: 900px;
+          max-height: 85vh;
+          border-radius: 12px;
+          overflow-y: auto;
+          position: relative;
+          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+          transform: translateY(30px) scale(0.98);
+          transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+        }
+
+        .estate-modal-backdrop.active .estate-modal-dialog {
+          transform: translateY(0) scale(1.0);
+        }
+
+        .estate-modal-close {
+          position: absolute;
+          top: 20px;
+          right: 24px;
+          background: transparent;
+          border: none;
+          font-size: 2rem;
+          color: var(--colors-primaryDark, #183029);
+          cursor: pointer;
+          z-index: 10;
+          line-height: 1;
+          transition: color 0.2s;
+        }
+
+        .estate-modal-close:hover {
+          color: var(--colors-accentWine, #912F46);
+        }
+
+        .estate-modal-body {
+          padding: clamp(32px, 5vw, 60px);
+        }
+
+        /* Modal Content Layout */
+        .modal-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+          .modal-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .modal-header-tag {
+          font-family: var(--fonts-sans);
+          font-size: 0.75rem;
+          letter-spacing: 0.2em;
+          color: var(--colors-accentGold, #9E5A2A);
+          text-transform: uppercase;
+        }
+
+        .modal-title {
+          font-family: 'Cinzel', var(--fonts-serif);
+          font-size: 2.2rem;
+          font-weight: 400;
+          color: var(--colors-primaryDark, #183029);
+          margin: 8px 0 16px 0;
+        }
+
+        .modal-desc {
+          font-family: var(--fonts-sans);
+          font-size: 0.95rem;
+          line-height: 1.6;
+          color: rgba(24, 48, 41, 0.85);
+          margin-bottom: 24px;
+        }
+
+        .modal-specs-table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-top: 16px;
+        }
+
+        .modal-specs-table tr {
+          border-bottom: 1px solid rgba(24, 48, 41, 0.1);
+        }
+
+        .modal-specs-table td {
+          padding: 10px 0;
+          font-family: var(--fonts-sans);
+          font-size: 0.85rem;
+        }
+
+        .modal-specs-table td:first-child {
+          font-weight: 600;
+          color: var(--colors-primaryDark, #183029);
+        }
+
+        .modal-specs-table td:last-child {
+          text-align: right;
+          color: rgba(24, 48, 41, 0.7);
+        }
+
+        .modal-action-btn {
+          display: inline-block;
+          margin-top: 24px;
+          background-color: var(--colors-accentWine, #912F46);
+          color: #F5F1E9;
+          font-family: var(--fonts-sans);
+          font-size: 0.8rem;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          padding: 14px 28px;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: background-color 0.3s;
+        }
+
+        .modal-action-btn:hover {
+          background-color: var(--colors-primaryDark, #183029);
         }
 
         .estate-focal span {
@@ -1483,85 +1707,63 @@
         </section>
 
         <!-- ==========================================================================
-           SECTION 3: THE 3 SPANISH ESTATES
+           SECTION 3: WINE ESTATES ACCORDION & INTERACTIVE MODAL DRAWER
            ========================================================================== -->
-        <section class="estates-section" id="estates">
-            <div class="section-container">
-                <div class="section-header-center">
-                    <span class="eyebrow" data-en="Heritage & Provenance" data-es="Herencia y Origen">Heritage & Provenance</span>
-                    <h2 class="heading-lg" data-en="Our Partner Spanish Estates" data-es="Nuestras Bodegas Españolas">Our Partner Spanish Estates</h2>
-                    <div class="section-divider"></div>
-                </div>
+        <section id="estates" class="estates-section">
+          <div class="estates-header-container">
+            <span class="estates-kicker" data-en="DIRECT MULTI-GENERATIONAL PARTNERSHIPS" data-es="ALIANZAS MULTIGENERACIONALES DIRECTAS">DIRECT MULTI-GENERATIONAL PARTNERSHIPS</span>
+            <h2 class="estates-display-heading" data-en="OUR HERITAGE ESTATES" data-es="NUESTRAS BODEGAS HISTÓRICAS">OUR HERITAGE ESTATES</h2>
+            <div class="estates-divider"></div>
+          </div>
 
-                <div class="estates-grid">
-                    <!-- Estate 1 -->
-                    <div class="estate-card">
-                        <div class="estate-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?q=80&w=1000&auto=format&fit=crop" alt="Dehesa de Luna Estate">
-                            <div class="estate-badge" data-en="100% Organic Reserve" data-es="100% Reserva Orgánica">100% Organic Reserve</div>
-                        </div>
-                        <div class="estate-content">
-                            <h3 class="estate-title">Dehesa de Luna</h3>
-                            <div class="estate-denom">Vino de la Tierra de Castilla</div>
-                            <p class="estate-desc" data-en="A protected biodiversity wildlife sanctuary where vineyards co-exist with lavender fields and oak forests. Solar-powered gravity winery producing velvety, aromatic red cuvées." data-es="Reserva de biodiversidad protegida donde los viñedos coexisten con la dehesa. Bodega sostenible por gravedad impulsada por energía solar.">
-                                A protected biodiversity wildlife sanctuary where vineyards co-exist with lavender fields and oak forests. Solar-powered gravity winery producing velvety, aromatic red cuvées.
-                            </p>
-                            <div class="estate-focal">
-                                <span data-en="Focal Expression" data-es="Vino Emblemático">Focal Expression</span>
-                                <strong>Dehesa de Luna Gran Reserva Organic</strong>
-                            </div>
-                            <div class="estate-link" onclick="openEstateModal('dehesa')">
-                                <span data-en="Discover Estate →" data-es="Descubrir Bodega →">Discover Estate →</span>
-                            </div>
-                        </div>
-                    </div>
+          <div class="estates-accordion-track">
+            <!-- Estate 1: Dehesa de Luna -->
+            <article class="estate-card" data-estate="dehesa" onclick="openEstateModal('dehesa')">
+              <div class="estate-bg-image" style="background-image: url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1600&q=80');"></div>
+              <div class="estate-card-overlay"></div>
+              <div class="estate-card-inner">
+                <span class="estate-region-badge">LA MANCHA • BIODIVERSITY RESERVE</span>
+                <h3 class="estate-title">DEHESA DE LUNA</h3>
+                <p class="estate-subtitle" data-en="100% Certified Organic • Wildlife Sanctuary • Solar Gravity Winery" data-es="100% Orgánico Certificado • Reserva de Vida Silvestre • Bodega Solar por Gravedad">100% Certified Organic • Wildlife Sanctuary • Solar Gravity Winery</p>
+                <button class="estate-discover-btn" onclick="event.stopPropagation(); openEstateModal('dehesa')" data-en="DISCOVER ESTATE" data-es="DESCUBRIR BODEGA">DISCOVER ESTATE</button>
+              </div>
+            </article>
 
-                    <!-- Estate 2 -->
-                    <div class="estate-card">
-                        <div class="estate-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1000&auto=format&fit=crop" alt="Sampayolo Estate">
-                            <div class="estate-badge" data-en="Steep Slate Terraces" data-es="Bancales de Pizarra">Steep Slate Terraces</div>
-                        </div>
-                        <div class="estate-content">
-                            <h3 class="estate-title">Sampayolo</h3>
-                            <div class="estate-denom">D.O. Valdeorras • Galicia</div>
-                            <p class="estate-desc" data-en="Ancient mountain vines planted on sheer slate slopes in northwest Spain. World-renowned for mineral-driven Godello white wines and vibrant Mencía reds." data-es="Viñedos de montaña cultivados en escarpadas laderas de pizarra en Galicia. Famosa por sus expresivos blancos Godello y tintos Mencía.">
-                                Ancient mountain vines planted on sheer slate slopes in northwest Spain. World-renowned for mineral-driven Godello white wines and vibrant Mencía reds.
-                            </p>
-                            <div class="estate-focal">
-                                <span data-en="Focal Expression" data-es="Vino Emblemático">Focal Expression</span>
-                                <strong>Sampayolo Godello Sobre Lías</strong>
-                            </div>
-                            <div class="estate-link" onclick="openEstateModal('sampayolo')">
-                                <span data-en="Discover Estate →" data-es="Descubrir Bodega →">Discover Estate →</span>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Estate 2: Sampayolo -->
+            <article class="estate-card" data-estate="sampayolo" onclick="openEstateModal('sampayolo')">
+              <div class="estate-bg-image" style="background-image: url('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1600&q=80');"></div>
+              <div class="estate-card-overlay"></div>
+              <div class="estate-card-inner">
+                <span class="estate-region-badge">D.O. VALDEORRAS • GALICIA</span>
+                <h3 class="estate-title">SAMPAYOLO</h3>
+                <p class="estate-subtitle" data-en="Steep Mountain Slate Terraces • Native Godello & Mencía" data-es="Bancales de Pizarra de Montaña • Godello y Mencía Autóctonos">Steep Mountain Slate Terraces • Native Godello & Mencía</p>
+                <button class="estate-discover-btn" onclick="event.stopPropagation(); openEstateModal('sampayolo')" data-en="DISCOVER ESTATE" data-es="DESCUBRIR BODEGA">DISCOVER ESTATE</button>
+              </div>
+            </article>
 
-                    <!-- Estate 3 -->
-                    <div class="estate-card">
-                        <div class="estate-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1464639351491-a172c2aa2911?q=80&w=1000&auto=format&fit=crop" alt="Bodegas Corcos">
-                            <div class="estate-badge" data-en="Century Old Vines" data-es="Viñas Centenarias">Century Old Vines</div>
-                        </div>
-                        <div class="estate-content">
-                            <h3 class="estate-title">Bodegas Corcos & Izquierdo</h3>
-                            <div class="estate-denom">Ribera del Duero & Castilian Terroir</div>
-                            <p class="estate-desc" data-en="Heritage family cellars crafting full-bodied Tempranillo bush vines aged meticulously in French and American oak barrels." data-es="Cavas familiares históricas dedicadas al cultivo artesanal de Tempranillo de cepas viejas, criadas con paciencia en barricas de roble.">
-                                Heritage family cellars crafting full-bodied Tempranillo bush vines aged meticulously in French and American oak barrels.
-                            </p>
-                            <div class="estate-focal">
-                                <span data-en="Focal Expression" data-es="Vino Emblemático">Focal Expression</span>
-                                <strong>Corcos Tempranillo Selección Especial</strong>
-                            </div>
-                            <div class="estate-link" onclick="openEstateModal('corcos')">
-                                <span data-en="Discover Estate →" data-es="Descubrir Bodega →">Discover Estate →</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- Estate 3: Bodegas Corcos & Izquierdo -->
+            <article class="estate-card" data-estate="corcos" onclick="openEstateModal('corcos')">
+              <div class="estate-bg-image" style="background-image: url('https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?auto=format&fit=crop&w=1600&q=80');"></div>
+              <div class="estate-card-overlay"></div>
+              <div class="estate-card-inner">
+                <span class="estate-region-badge">CASTILLA Y LEÓN • OLD BUSH VINES</span>
+                <h3 class="estate-title">CORCOS & IZQUIERDO</h3>
+                <p class="estate-subtitle" data-en="Century-Old Tempranillo • French Oak Barrel Aging" data-es="Tempranillo Centenario • Crianza en Roble Francés">Century-Old Tempranillo • French Oak Barrel Aging</p>
+                <button class="estate-discover-btn" onclick="event.stopPropagation(); openEstateModal('corcos')" data-en="DISCOVER ESTATE" data-es="DESCUBRIR BODEGA">DISCOVER ESTATE</button>
+              </div>
+            </article>
+          </div>
         </section>
+
+        <!-- INTERACTIVE ESTATE DEEP-DIVE MODAL DRAWER -->
+        <div id="estate-modal-backdrop" class="estate-modal-backdrop" onclick="closeEstateModal()">
+          <div class="estate-modal-dialog" onclick="event.stopPropagation()">
+            <button class="estate-modal-close" onclick="closeEstateModal()" aria-label="Close modal">&times;</button>
+            <div id="estate-modal-body" class="estate-modal-body">
+              <!-- Injected dynamically via JavaScript -->
+            </div>
+          </div>
+        </div>
 
         <!-- ==========================================================================
            SECTION 4: CURATED WINE SHOWCASE
@@ -1999,8 +2201,99 @@
             }
         }
 
-        document.getElementById('editorialPrevBtn')?.addEventListener('click', () => updateEditorialSlide(currentEditorialSlide - 1));
-        document.getElementById('editorialNextBtn')?.addEventListener('click', () => updateEditorialSlide(currentEditorialSlide + 1));
+        // 0.2 Section 3 Estate Technical Specification Data & Interactive Modal Drawer
+        const estateData = {
+          dehesa: {
+            tag: "Vino de la Tierra de Castilla • Certified Organic",
+            title: "Dehesa de Luna",
+            description: "Located in La Roda, Spain, Dehesa de Luna is an estate dedicated to 100% organic viticulture surrounded by 2,800 hectares of pristine nature reserve. Operating via solar gravity systems, this estate balances biodiversity, wild yeast fermentations, and minimal human intervention.",
+            image: "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=800&q=80",
+            specs: [
+              { label: "Location / Terroir", value: "La Mancha, Spain (850m Altitude)" },
+              { label: "Farming Practice", value: "100% Certified Organic & Biodynamic" },
+              { label: "Key Varietals", value: "Tempranillo, Graciano, Syrah, Cabernet" },
+              { label: "Aging Regimen", value: "French Allier Oak Barrels (12-24 Mos)" },
+              { label: "Puerto Rico Status", value: "Direct Exclusive Allocation" }
+            ],
+            ctaText: "Inquire Dehesa Allocations"
+          },
+          sampayolo: {
+            tag: "D.O. Valdeorras • Mountain Old Vines",
+            title: "Sampayolo",
+            description: "Crafted on dramatic slate terraces in the rugged hills of Galicia, Sampayolo revives centuries-old indigenous varietals. Hand-harvested on steep slopes, their Godello and Mencía reflect pure mineral tension, crisp Atlantic acidity, and authentic artisan winemaking.",
+            image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=800&q=80",
+            specs: [
+              { label: "Location / Terroir", value: "Valdeorras, Galicia (Steep Slate Terraces)" },
+              { label: "Farming Practice", value: "Traditional Mountain Viticulture" },
+              { label: "Key Varietals", value: "Godello, Mencía (Old Bush Vines)" },
+              { label: "Vinification", value: "Lees Aging (Sobre Lías) in Stainless & Oak" },
+              { label: "Puerto Rico Status", value: "Direct Exclusive Allocation" }
+            ],
+            ctaText: "Inquire Sampayolo Allocations"
+          },
+          corcos: {
+            tag: "Castilla y León • Heritage Bush Vines",
+            title: "Bodegas Corcos & Izquierdo",
+            description: "Embodying the soul of Castilian viticulture, Corcos & Izquierdo tends century-old pre-phylloxera bush vines. Deep roots digging through limestone clay yield rich, structured Tempranillos characterized by dark fruit complexity, savory spices, and velvety tannins.",
+            image: "https://images.unsplash.com/photo-1504279577054-acfeccf8fc52?auto=format&fit=crop&w=800&q=80",
+            specs: [
+              { label: "Location / Terroir", value: "Castilla y León (High Plateau Limestone)" },
+              { label: "Farming Practice", value: "Heritage Old-Vine Preservation" },
+              { label: "Key Varietals", value: "Tinta del País (Tempranillo 100%)" },
+              { label: "Barrel Program", value: "Medium-Toast French & American Oak" },
+              { label: "Puerto Rico Status", value: "Direct Exclusive Allocation" }
+            ],
+            ctaText: "Inquire Corcos Allocations"
+          }
+        };
+
+        function openEstateModal(estateKey) {
+          const data = estateData[estateKey];
+          if (!data) return;
+
+          const modalBody = document.getElementById('estate-modal-body');
+          const backdrop = document.getElementById('estate-modal-backdrop');
+
+          if (!modalBody || !backdrop) return;
+
+          let tableRows = data.specs.map(s => `
+            <tr>
+              <td>${s.label}</td>
+              <td>${s.value}</td>
+            </tr>
+          `).join('');
+
+          modalBody.innerHTML = `
+            <div class="modal-grid">
+              <div>
+                <span class="modal-header-tag">${data.tag}</span>
+                <h3 class="modal-title">${data.title}</h3>
+                <p class="modal-desc">${data.description}</p>
+                <table class="modal-specs-table">
+                  ${tableRows}
+                </table>
+                <a href="#trade" onclick="closeEstateModal()" class="modal-action-btn">${data.ctaText}</a>
+              </div>
+              <div>
+                <img src="${data.image}" alt="${data.title}" style="width: 100%; height: 100%; min-height: 280px; object-fit: cover; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" />
+              </div>
+            </div>
+          `;
+
+          backdrop.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeEstateModal() {
+          const backdrop = document.getElementById('estate-modal-backdrop');
+          if (backdrop) backdrop.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+
+        // Close modal on Escape key press
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') closeEstateModal();
+        });
 
         // 1. Sticky Navbar & Scroll Progress Controller
         window.addEventListener('scroll', () => {
