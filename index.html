@@ -479,87 +479,182 @@
         }
 
         /* ==========================================================================
-           4. SECTION 2: EDITORIAL TERROIR PHILOSOPHY (San Felice Vintage Parchment)
+           4. SECTION 2: EDITORIAL / ABOUT US (San Felice 50/50 Asymmetric Sticky Layout)
            ========================================================================== */
-        .editorial-section {
+        #editorial-section {
             background-color: var(--colors-primaryLight);
             color: var(--colors-primaryDark);
-            padding: 8rem 0;
+            width: 100%;
+            min-height: 100vh;
             position: relative;
+            border-top: 1px solid rgba(24, 48, 41, 0.1);
         }
 
-        .editorial-grid {
+        .editorial-layout-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: center;
+            min-height: 100vh;
         }
 
-        .editorial-left {
+        /* Left Column: Sticky Editorial Typography */
+        .editorial-left-col {
+            padding: clamp(40px, 6vw, 100px) clamp(24px, 5vw, 80px);
+            position: sticky;
+            top: 90px;
+            height: calc(100vh - 90px);
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            justify-content: center;
+            align-items: flex-start;
         }
 
-        .editorial-quote {
-            font-family: var(--fonts-serif);
-            font-size: clamp(1.8rem, 3vw, 2.6rem);
-            font-weight: 500;
-            line-height: 1.25;
-            color: var(--colors-primaryDark);
-            border-left: 3px solid var(--colors-accentWine);
-            padding-left: 1.8rem;
-            font-style: italic;
+        .editorial-eyebrow {
+            font-family: var(--fonts-sans);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: #9E5A2A;
+            margin-bottom: 20px;
+            display: block;
         }
 
-        .editorial-right {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+        .editorial-heading {
+            font-family: 'Cinzel', var(--fonts-serif);
+            font-weight: 400;
+            font-size: clamp(2.5rem, 4.5vw, 4rem);
+            line-height: 1.08;
+            text-transform: uppercase;
+            color: #183029;
+            margin-bottom: 32px;
         }
 
-        .editorial-body {
-            font-size: 1.05rem;
-            line-height: 1.8;
+        .editorial-narrative {
+            max-width: 460px;
+            font-family: var(--fonts-sans);
+            font-size: 1rem;
+            line-height: 1.65;
             color: rgba(24, 48, 41, 0.85);
+            margin-bottom: 36px;
         }
 
-        .editorial-image-stack {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 3rem;
-            grid-column: span 2;
+        .btn-editorial-discover {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50px;
+            background-color: #183029;
+            color: #F5F1E9;
+            padding: 14px 34px;
+            font-family: var(--fonts-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: var(--transitions-default);
         }
 
-        .editorial-card-img {
-            height: 380px;
-            border-radius: 12px;
-            overflow: hidden;
+        .btn-editorial-discover:hover {
+            background-color: var(--colors-accentWine);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(145, 47, 70, 0.3);
+        }
+
+        /* Right Column: Paginated Image Carousel & Counter */
+        .editorial-right-col {
+            width: 100%;
+            height: 100%;
+            min-height: 80vh;
             position: relative;
-            box-shadow: var(--shadow-subtle);
+            overflow: hidden;
         }
 
-        .editorial-card-img img {
+        .editorial-slider-track {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .editorial-slide {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+        }
+
+        .editorial-slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .editorial-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.68, 0.09, 0, 0.97);
+            object-position: center;
         }
 
-        .editorial-card-img:hover img {
-            transform: scale(1.06);
-        }
-
-        .editorial-img-caption {
+        .editorial-slide-overlay {
             position: absolute;
-            bottom: 0;
-            inset-x: 0;
-            background: linear-gradient(to top, rgba(24, 48, 41, 0.9), transparent);
-            padding: 1.5rem 1.2rem 1rem;
-            color: var(--colors-primaryLight);
+            inset: 0;
+            background: linear-gradient(to top, rgba(24, 48, 41, 0.6) 0%, transparent 40%);
+        }
+
+        /* Bottom Bar: Slide Counter & Circular Navigation Controls */
+        .editorial-controls-bar {
+            position: absolute;
+            bottom: 32px;
+            left: 32px;
+            right: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .slide-counter {
+            color: #F5F1E9;
+            font-family: var(--fonts-sans);
             font-size: 0.85rem;
-            font-weight: 500;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            pointer-events: auto;
+        }
+
+        .slider-nav-btns {
+            display: flex;
+            gap: 12px;
+            pointer-events: auto;
+        }
+
+        .nav-circle-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background-color: #F5F1E9;
+            color: #183029;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-circle-btn:hover {
+            background-color: #183029;
+            color: #F5F1E9;
+            transform: scale(1.05);
         }
 
         /* ==========================================================================
@@ -1335,38 +1430,52 @@
         </section>
 
         <!-- ==========================================================================
-           SECTION 2: EDITORIAL TERROIR PHILOSOPHY
+           SECTION 2: EDITORIAL / ABOUT US (San Felice 50/50 Asymmetric Sticky Layout)
            ========================================================================== -->
-        <section class="editorial-section" id="terroir">
-            <div class="section-container">
-                <div class="editorial-grid">
-                    <div class="editorial-left">
-                        <span class="eyebrow" data-en="Estate Bottled • Certified Organic" data-es="Embotellado en Propiedad • Orgánico Certificado">Estate Bottled • Certified Organic</span>
-                        <blockquote class="editorial-quote" data-en="“Great wines are not manufactured in factories; they are born from wild yeasts, ancient slate soils, and centuries of uncompromised family stewardship.”" data-es="“Los grandes vinos no se fabrican; nacen de levaduras autóctonas, suelos de pizarra ancestrales y siglos de devoción familiar.”">
-                            “Great wines are not manufactured in factories; they are born from wild yeasts, ancient slate soils, and centuries of uncompromised family stewardship.”
-                        </blockquote>
-                    </div>
-                    <div class="editorial-right">
-                        <p class="editorial-body" data-en="Founded on the principle of direct, transparent estate imports, EG Imports (Euro Gourmet Imports) bridges the rich winemaking heritage of Spain directly to Puerto Rico and the Caribbean. We bypass speculative brokers to champion independent family producers who honor the land." data-es="Fundada bajo el principio de importación directa y transparente, EG Imports (Euro Gourmet Imports) une la rica herencia vitivinícola de España con Puerto Rico y el Caribe. Eliminamos intermediarios especulativos para apoyar a productores independientes que respetan la tierra.">
-                            Founded on the principle of direct, transparent estate imports, EG Imports (Euro Gourmet Imports) bridges the rich winemaking heritage of Spain directly to Puerto Rico and the Caribbean. We bypass speculative brokers to champion independent family producers who honor the land.
-                        </p>
-                        <p class="editorial-body" data-en="From solar-powered gravity wineries in Castilla-La Mancha to hand-harvested high-elevation bush vines in Valdeorras and Ribera del Duero, our portfolio represents unfiltered authenticity, environmental biodiversity, and artisanal excellence." data-es="Desde bodegas solares por gravedad en Castilla-La Mancha hasta viñedos centenarios en bancales de Valdeorras y Ribera del Duero, nuestro portafolio representa autenticidad pura, biodiversidad y excelencia artesanal.">
-                            From solar-powered gravity wineries in Castilla-La Mancha to hand-harvested high-elevation bush vines in Valdeorras and Ribera del Duero, nuestro portafolio representa autenticidad pura, biodiversidad y excelencia artesanal.
-                        </p>
+        <section id="editorial-section">
+            <div class="editorial-layout-grid">
+                <!-- Left Column: Sticky Editorial Typography -->
+                <div class="editorial-left-col">
+                    <span class="editorial-eyebrow" data-en="CERTIFIED ORGANIC • DIRECT SPANISH IMPORTS" data-es="ORGÁNICO CERTIFICADO • IMPORTACIÓN DIRECTA DE ESPAÑA">
+                        CERTIFIED ORGANIC • DIRECT SPANISH IMPORTS
+                    </span>
+                    <h2 class="editorial-heading" data-en="TRADITION & BIODIVERSITY" data-es="TRADICIÓN Y BIODIVERSIDAD">
+                        TRADITION & BIODIVERSITY
+                    </h2>
+                    <p class="editorial-narrative" data-en="Surrounded by Spain’s most distinguished terroir, our partner estates cultivate old-vine indigenous varietals under strict organic principles. We connect these multi-generational family vineyards directly to Puerto Rico's premier restaurants, sommeliers, and private cellars." data-es="Rodeados por el terruño más distinguido de España, nuestras bodegas aliadas cultivan cepas autóctonas bajo estrictos principios orgánicos. Conectamos estos viñedos familiares directamente con los mejores restaurantes y coleccionistas de Puerto Rico.">
+                        Surrounded by Spain’s most distinguished terroir, our partner estates cultivate old-vine indigenous varietals under strict organic principles. We connect these multi-generational family vineyards directly to Puerto Rico's premier restaurants, sommeliers, and private cellars.
+                    </p>
+                    <button class="btn-editorial-discover" onclick="openEstateModal('dehesa')" data-en="DISCOVER OUR STORY" data-es="DESCUBRIR NUESTRA HISTORIA">
+                        DISCOVER OUR STORY
+                    </button>
+                </div>
+
+                <!-- Right Column: Paginated Image Carousel & Counter -->
+                <div class="editorial-right-col">
+                    <div class="editorial-slider-track">
+                        <!-- Slide 1 -->
+                        <div class="editorial-slide active">
+                            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1200&auto=format&fit=crop" alt="High-altitude Spanish organic vineyard landscape">
+                            <div class="editorial-slide-overlay"></div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="editorial-slide">
+                            <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7053?q=80&w=1200&auto=format&fit=crop" alt="Historic family barrel cellar aging room">
+                            <div class="editorial-slide-overlay"></div>
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="editorial-slide">
+                            <img src="https://images.unsplash.com/photo-1568213816046-0ee1c42bd559?q=80&w=1200&auto=format&fit=crop" alt="Artisanal harvesting and grape selection">
+                            <div class="editorial-slide-overlay"></div>
+                        </div>
                     </div>
 
-                    <div class="editorial-image-stack">
-                        <div class="editorial-card-img">
-                            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1200&auto=format&fit=crop" alt="Hand harvesting organic grapes">
-                            <div class="editorial-img-caption" data-en="Artisanal Hand Harvesting • Single Estate Vineyards" data-es="Cosecha Manual Artesanal • Viñedos de Finca Única">
-                                Artisanal Hand Harvesting • Single Estate Vineyards
-                            </div>
-                        </div>
-                        <div class="editorial-card-img">
-                            <img src="https://images.unsplash.com/photo-1528823872057-9c018a7a7053?q=80&w=1200&auto=format&fit=crop" alt="French Oak Barrels Aging">
-                            <div class="editorial-img-caption" data-en="French Oak & Natural Cave Cellar Aging" data-es="Crianza en Roble Francés y Cavas Naturales">
-                                French Oak & Natural Cave Cellar Aging
-                            </div>
+                    <!-- Bottom Bar Controls -->
+                    <div class="editorial-controls-bar">
+                        <div class="slide-counter">01 / 03</div>
+                        <div class="slider-nav-btns">
+                            <button class="nav-circle-btn" id="editorialPrevBtn" aria-label="Previous Slide">‹</button>
+                            <button class="nav-circle-btn" id="editorialNextBtn" aria-label="Next Slide">›</button>
                         </div>
                     </div>
                 </div>
@@ -1873,7 +1982,25 @@
             requestAnimationFrame(updateHeroScroll);
         });
         window.addEventListener('resize', updateHeroScroll);
-        document.addEventListener('DOMContentLoaded', updateHeroScroll);
+        // 0.1 Section 2 Editorial Slider Controller
+        let currentEditorialSlide = 0;
+        const editorialSlides = document.querySelectorAll('.editorial-slide');
+        const editorialTotalSlides = editorialSlides.length;
+        const editorialCounterEl = document.querySelector('.slide-counter');
+
+        function updateEditorialSlide(index) {
+            if (editorialTotalSlides === 0) return;
+            currentEditorialSlide = (index + editorialTotalSlides) % editorialTotalSlides;
+            editorialSlides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === currentEditorialSlide);
+            });
+            if (editorialCounterEl) {
+                editorialCounterEl.textContent = `0${currentEditorialSlide + 1} / 0${editorialTotalSlides}`;
+            }
+        }
+
+        document.getElementById('editorialPrevBtn')?.addEventListener('click', () => updateEditorialSlide(currentEditorialSlide - 1));
+        document.getElementById('editorialNextBtn')?.addEventListener('click', () => updateEditorialSlide(currentEditorialSlide + 1));
 
         // 1. Sticky Navbar & Scroll Progress Controller
         window.addEventListener('scroll', () => {
