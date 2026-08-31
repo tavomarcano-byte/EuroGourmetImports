@@ -1029,125 +1029,155 @@
         }
 
         /* ==========================================================================
-           6. SECTION 4: CURATED WINE SHOWCASE (Bottle Specification Cards)
+           6. SECTION 4: CURATED WINE SHOWCASE (3-Layer Floating Parallax Layout)
            ========================================================================== */
         .wines-section {
-            background-color: var(--colors-primaryLight);
-            color: var(--colors-primaryDark);
-            padding: 8rem 0;
+          background-color: var(--colors-primaryLight, #F5F1E9);
+          color: var(--colors-primaryDark, #183029);
+          padding: clamp(80px, 10vw, 140px) 24px clamp(60px, 8vw, 100px) 24px;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          width: 100vw;
+          box-sizing: border-box;
         }
 
-        .wines-filter-bar {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3.5rem;
-            flex-wrap: wrap;
+        .wines-bg-typography {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          font-family: 'Cinzel', var(--fonts-serif);
+          font-size: clamp(3.2rem, 8.5vw, 8rem);
+          font-weight: 400;
+          line-height: 0.95;
+          text-transform: uppercase;
+          letter-spacing: 0.02em;
+          color: var(--colors-accentWine, #912F46);
+          user-select: none;
+          pointer-events: none;
+          margin-bottom: 20px;
         }
 
-        .filter-btn {
-            background: transparent;
-            border: 1px solid var(--colors-borderSubtle);
-            padding: 0.6rem 1.6rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--colors-primaryDark);
-            cursor: pointer;
-            transition: var(--transitions-smooth);
+        .wines-bottle-stage {
+          position: relative;
+          width: 100%;
+          max-width: 900px;
+          height: clamp(380px, 55vh, 560px);
+          margin-top: -8vw;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 5;
         }
 
-        .filter-btn.active, .filter-btn:hover {
-            background: var(--colors-primaryDark);
-            color: var(--colors-primaryLight);
-            border-color: var(--colors-primaryDark);
+        .bottle-item {
+          position: absolute;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1.0), opacity 0.5s ease;
         }
 
-        .wines-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2.5rem;
+        .bottle-png {
+          height: 100%;
+          width: auto;
+          object-fit: contain;
         }
 
-        .wine-card {
-            background: #FFFFFF;
-            border-radius: 16px;
-            padding: 2.2rem;
-            box-shadow: var(--shadow-subtle);
-            border: 1px solid rgba(24, 48, 41, 0.08);
-            display: flex;
-            flex-direction: column;
-            transition: var(--transitions-default);
-            position: relative;
+        .bottle-center {
+          z-index: 10;
+          transform: scale(1.0) translateY(0);
+          filter: drop-shadow(0 25px 35px rgba(24, 48, 41, 0.35));
+          pointer-events: auto;
+          cursor: pointer;
         }
 
-        .wine-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-elevated);
+        .bottle-center:hover {
+          transform: scale(1.04) translateY(-12px);
         }
 
-        .wine-card-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 1rem;
+        .bottle-left {
+          z-index: 4;
+          transform: scale(0.65) translate(-240px, 30px);
+          opacity: 0.85;
+          filter: drop-shadow(0 15px 25px rgba(24, 48, 41, 0.25));
         }
 
-        .wine-type-tag {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            padding: 0.3rem 0.7rem;
-            border-radius: 20px;
-            background: rgba(145, 47, 70, 0.1);
-            color: var(--colors-accentWine);
+        .bottle-right {
+          z-index: 4;
+          transform: scale(0.65) translate(240px, -20px);
+          opacity: 0.85;
+          filter: drop-shadow(0 15px 25px rgba(24, 48, 41, 0.25));
         }
 
-        .wine-vintage {
-            font-family: var(--fonts-serif);
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--colors-accentGold);
+        @media (max-width: 768px) {
+          .wines-bottle-stage {
+            margin-top: 20px;
+            height: 380px;
+          }
+          .bottle-left {
+            transform: scale(0.55) translate(-140px, 20px);
+          }
+          .bottle-right {
+            transform: scale(0.55) translate(140px, -15px);
+          }
         }
 
-        .wine-visual {
-            height: 240px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 1rem 0 1.5rem;
-            position: relative;
+        .wines-editorial-bottom {
+          position: relative;
+          z-index: 10;
+          margin-top: 30px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          max-width: 780px;
         }
 
-        .wine-bottle-render {
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.15));
-            transition: transform 0.5s ease;
+        .wines-kicker {
+          font-family: var(--fonts-sans);
+          font-size: 0.75rem;
+          letter-spacing: 0.25em;
+          text-transform: uppercase;
+          color: var(--colors-accentGold, #9E5A2A);
+          margin-bottom: 14px;
         }
 
-        .wine-card:hover .wine-bottle-render {
-            transform: scale(1.05) rotate(2deg);
+        .wines-description {
+          font-family: var(--fonts-sans);
+          font-size: 0.98rem;
+          line-height: 1.7;
+          color: rgba(24, 48, 41, 0.85);
+          margin-bottom: 36px;
         }
 
-        .wine-name {
-            font-family: var(--fonts-serif);
-            font-size: 1.45rem;
-            font-weight: 700;
-            margin-bottom: 0.4rem;
-            line-height: 1.2;
+        .btn-discover-more {
+          background-color: transparent;
+          border: 1px solid var(--colors-primaryDark, #183029);
+          color: var(--colors-primaryDark, #183029);
+          padding: 14px 40px;
+          border-radius: 50px;
+          font-family: var(--fonts-sans);
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          cursor: pointer;
+          transition: all 0.35s ease;
         }
 
-        .wine-estate-name {
-            font-size: 0.825rem;
-            color: var(--colors-accentGold);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 1.2rem;
+        .btn-discover-more:hover {
+          background-color: var(--colors-accentWine, #912F46);
+          border-color: var(--colors-accentWine, #912F46);
+          color: #F5F1E9;
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px rgba(145, 47, 70, 0.2);
         }
 
         .wine-specs-grid {
@@ -1768,137 +1798,38 @@
         <!-- ==========================================================================
            SECTION 4: CURATED WINE SHOWCASE
            ========================================================================== -->
-        <section class="wines-section" id="wines">
-            <div class="section-container">
-                <div class="section-header-center">
-                    <span class="eyebrow" data-en="Love • For Wine • Making" data-es="Pasión • Por El • Vino">Love • For Wine • Making</span>
-                    <h2 class="heading-lg" data-en="Curated Spanish Portfolio" data-es="Portafolio Selecto de Vinos">Curated Spanish Portfolio</h2>
-                    <div class="section-divider"></div>
-                </div>
+        <!-- ==========================================================================
+           SECTION 4: CURATED WINES SHOWCASE (3-Layer Floating Parallax Layout)
+           ========================================================================== -->
+        <section id="wines" class="wines-section">
+          <!-- Centered Staggered Typography -->
+          <div class="wines-bg-typography" aria-hidden="true">
+            <span>LOVE</span>
+            <span>FOR WINE</span>
+            <span>MAKING</span>
+          </div>
 
-                <div class="wines-filter-bar">
-                    <button class="filter-btn active" onclick="filterWines('all')" data-en="All Expressions" data-es="Todos los Vinos">All Expressions</button>
-                    <button class="filter-btn" onclick="filterWines('red')" data-en="Red Terroir" data-es="Vinos Tintos">Red Terroir</button>
-                    <button class="filter-btn" onclick="filterWines('white')" data-en="White Mineral" data-es="Vinos Blancos">White Mineral</button>
-                    <button class="filter-btn" onclick="filterWines('organic')" data-en="Certified Organic" data-es="Orgánicos Certificados">Certified Organic</button>
-                </div>
-
-                <div class="wines-grid" id="winesGrid">
-                    <!-- Bottle Card 1 -->
-                    <div class="wine-card" data-category="red organic">
-                        <div class="wine-card-top">
-                            <span class="wine-type-tag" data-en="Red Reserve • Organic" data-es="Tinto Reserva • Orgánico">Red Reserve • Organic</span>
-                            <span class="wine-vintage">2018</span>
-                        </div>
-                        <div class="wine-visual">
-                            <img src="https://images.unsplash.com/photo-1586370434639-0fe43b2d32e6?q=80&w=600&auto=format&fit=crop" alt="Dehesa de Luna Gran Reserva Bottle" class="wine-bottle-render">
-                        </div>
-                        <h3 class="wine-name">Dehesa de Luna Gran Reserva</h3>
-                        <div class="wine-estate-name">Dehesa de Luna • La Mancha</div>
-                        <div class="wine-specs-grid">
-                            <div class="spec-item">
-                                <span class="spec-label" data-en="Serving Temp" data-es="Temp. Servicio">Serving Temp</span>
-                                <span class="spec-value">16°C - 18°C</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-en="Alcohol %" data-es="Alcohol %">Alcohol %</span>
-                                <span class="spec-value">14.5% ABV</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-en="Aging" data-es="Crianza">Aging</span>
-                                <span class="spec-value">18 Mos French Oak</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-en="Varietal" data-es="Variedad">Varietal</span>
-                                <span class="spec-value">Cabernet, Syrah</span>
-                            </div>
-                        </div>
-                        <p class="tasting-notes" data-en="“Notes of dark blackberry, crushed Mediterranean thyme, roasted cocoa, and silky refined tannins.”" data-es="“Notas de mora negra, tomillo mediterráneo, cacao tostado y taninos sedosos y pulidos.”">
-                            “Notes of dark blackberry, crushed Mediterranean thyme, roasted cocoa, and silky refined tannins.”
-                        </p>
-                        <div class="wine-actions">
-                            <button class="btn btn-outline-dark" onclick="triggerTastingSheet('Dehesa de Luna Gran Reserva')" data-en="Specs PDF" data-es="Ficha PDF">Specs PDF</button>
-                            <a href="#trade" class="btn btn-burgundy" data-en="Allocate" data-es="Reservar">Allocate</a>
-                        </div>
-                    </div>
-
-                    <!-- Bottle Card 2 -->
-                    <div class="wine-card" data-category="white">
-                        <div class="wine-card-top">
-                            <span class="wine-type-tag" data-en="White Mineral" data-es="Blanco Mineral">White Mineral</span>
-                            <span class="wine-vintage">2022</span>
-                        </div>
-                        <div class="wine-visual">
-                            <img src="https://images.unsplash.com/photo-1558001373-7b9fcc98a067?q=80&w=600&auto=format&fit=crop" alt="Sampayolo Godello Bottle" class="wine-bottle-render">
-                        </div>
-                        <h3 class="wine-name">Sampayolo Godello Sobre Lías</h3>
-                        <div class="wine-estate-name">Sampayolo • D.O. Valdeorras</div>
-                        <div class="wine-specs-grid">
-                            <div class="spec-item">
-                                <span class="spec-label" data-en="Serving Temp" data-es="Temp. Servicio">Serving Temp</span>
-                                <span class="spec-value">10°C - 12°C</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-en="Alcohol %" data-es="Alcohol %">Alcohol %</span>
-                                <span class="spec-value">13.5% ABV</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-en="Soil Type" data-es="Suelo">Soil Type</span>
-                                <span class="spec-value">Glacial Slate</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-en="Varietal" data-es="Variedad">Varietal</span>
-                                <span class="spec-value">100% Godello</span>
-                            </div>
-                        </div>
-                        <p class="tasting-notes" data-en="“Crisp green apple, white peach, electric slate acidity, and creamy lees texture on the finish.”" data-es="“Manzana verde crujiente, melocotón blanco, acidez salina y textura cremosa en boca.”">
-                            “Crisp green apple, white peach, electric slate acidity, and creamy lees texture on the finish.”
-                        </p>
-                        <div class="wine-actions">
-                            <button class="btn btn-outline-dark" onclick="triggerTastingSheet('Sampayolo Godello')" data-en="Specs PDF" data-es="Ficha PDF">Specs PDF</button>
-                            <a href="#trade" class="btn btn-burgundy" data-en="Allocate" data-es="Reservar">Allocate</a>
-                        </div>
-                    </div>
-
-                    <!-- Bottle Card 3 -->
-                    <div class="wine-card" data-category="red">
-                        <div class="wine-card-top">
-                            <span class="wine-type-tag" data-en="Red Selección" data-es="Tinto Selección">Red Selección</span>
-                            <span class="wine-vintage">2019</span>
-                        </div>
-                        <div class="wine-visual">
-                            <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=600&auto=format&fit=crop" alt="Corcos Tempranillo Bottle" class="wine-bottle-render">
-                        </div>
-                        <h3 class="wine-name">Corcos Tempranillo Selección</h3>
-                        <div class="wine-estate-name">Bodegas Corcos • Castilian Terroir</div>
-                        <div class="wine-specs-grid">
-                            <div class="spec-item">
-                                <span class="spec-label" data-en="Serving Temp" data-es="Temp. Servicio">Serving Temp</span>
-                                <span class="spec-value">16°C - 18°C</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-en="Alcohol %" data-es="Alcohol %">Alcohol %</span>
-                                <span class="spec-value">14.0% ABV</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-en="Oak Aging" data-es="Roble">Oak Aging</span>
-                                <span class="spec-value">14 Mos Barrel</span>
-                            </div>
-                            <div class="spec-item">
-                                <span class="spec-label" data-en="Varietal" data-es="Variedad">Varietal</span>
-                                <span class="spec-value">100% Tempranillo</span>
-                            </div>
-                        </div>
-                        <p class="tasting-notes" data-en="“Deep ruby color, ripe black cherries, cedar wood, vanilla bean, and a warm structured persistent finish.”" data-es="“Rubí profundo, cereza negra madura, cedro, vainilla y un final estructurado y elegante.”">
-                            “Deep ruby color, ripe black cherries, cedar wood, vanilla bean, and a warm structured persistent finish.”
-                        </p>
-                        <div class="wine-actions">
-                            <button class="btn btn-outline-dark" onclick="triggerTastingSheet('Corcos Tempranillo')" data-en="Specs PDF" data-es="Ficha PDF">Specs PDF</button>
-                            <a href="#trade" class="btn btn-burgundy" data-en="Allocate" data-es="Reservar">Allocate</a>
-                        </div>
-                    </div>
-                </div>
+          <!-- 3-Bottle Layered Parallax Display -->
+          <div class="wines-bottle-stage">
+            <div class="bottle-item bottle-flank bottle-left" title="Sampayolo Godello Sobre Lías">
+              <img src="https://admin.sanfelice.com/app/uploads/2023/04/Vigorello_2020-annate-img.png" alt="Sampayolo Godello" class="bottle-png" />
             </div>
+            <div class="bottle-item bottle-center" title="Dehesa de Luna Gran Reserva">
+              <img src="https://admin.sanfelice.com/app/uploads/2023/04/BellAja_Bolgheri-Superiore_2021-annate-img.png" alt="Dehesa de Luna Gran Reserva" class="bottle-png" />
+            </div>
+            <div class="bottle-item bottle-flank bottle-right" title="Corcos Tempranillo Selección">
+              <img src="https://admin.sanfelice.com/app/uploads/2023/04/CampoGiovanni_2019-annate-img.png" alt="Corcos Tempranillo" class="bottle-png" />
+            </div>
+          </div>
+
+          <!-- Narrative & Action Footer -->
+          <div class="wines-editorial-bottom">
+            <span class="wines-kicker" data-en="PASSIONATE WINE MAKERS" data-es="APASIONADOS PRODUCTORES DE VINO">PASSIONATE WINE MAKERS</span>
+            <p class="wines-description" data-en="Our partner estates are situated across Spain’s most celebrated wine terroirs: Dehesa de Luna in La Mancha, Sampayolo in Valdeorras, and Bodegas Corcos & Izquierdo in Castilla y León. Cultivated with sustainable biodynamic practices, ancient rootstocks, and minimal intervention to preserve pure mineral character." data-es="Nuestras bodegas aliadas están situadas en los terruños más emblemáticos de España: Dehesa de Luna en La Mancha, Sampayolo en Valdeorras y Bodegas Corcos & Izquierdo en Castilla y León. Cultivados con prácticas sostenibles y mínima intervención para preservar su carácter mineral puro.">
+              Our partner estates are situated across Spain’s most celebrated wine terroirs: Dehesa de Luna in La Mancha, Sampayolo in Valdeorras, and Bodegas Corcos & Izquierdo in Castilla y León. Cultivated with sustainable biodynamic practices, ancient rootstocks, and minimal intervention to preserve pure mineral character.
+            </p>
+            <button class="btn-discover-more" id="btnWinesDiscoverMore" onclick="openEstateModal('dehesa')" data-en="DISCOVER MORE" data-es="DESCUBRIR MÁS">DISCOVER MORE</button>
+          </div>
         </section>
 
         <!-- ==========================================================================
