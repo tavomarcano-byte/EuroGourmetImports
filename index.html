@@ -1225,100 +1225,155 @@
             padding: 0.75rem 1rem;
             font-size: 0.75rem;
             flex: 1;
-        }
-
-        /* ==========================================================================
-           7. SECTION 5: GASTRONOMIC PAIRINGS (Manchego & Jamón Ibérico)
+        }        /* ==========================================================================
+           7. SECTION 5: FOOD EXPERIENCE / EDITORIAL GASTRONOMY (Asymmetric 3-Column Layout)
            ========================================================================== */
-        .gastronomy-section {
-            background-color: var(--colors-primaryDark);
-            color: var(--colors-primaryLight);
-            padding: 8rem 0;
-            border-top: 1px solid var(--colors-borderDark);
+        .food-exp-section {
+          background-color: var(--colors-primaryLight, #F5F1E9);
+          color: var(--colors-primaryDark, #183029);
+          padding: clamp(80px, 9vw, 140px) clamp(24px, 5vw, 80px);
+          position: relative;
+          overflow: hidden;
+          width: 100vw;
+          box-sizing: border-box;
         }
 
-        .gastro-panels {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+        .food-exp-header {
+          text-align: center;
+          margin-bottom: clamp(40px, 6vw, 70px);
         }
 
-        .gastro-panel {
-            background: rgba(245, 241, 233, 0.03);
-            border: 1px solid var(--colors-borderDark);
-            border-radius: 20px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: var(--transitions-default);
+        .food-exp-display-heading {
+          font-family: 'Cinzel', var(--fonts-serif);
+          font-size: clamp(2.8rem, 6.5vw, 6rem);
+          font-weight: 400;
+          letter-spacing: 0.04em;
+          line-height: 1.0;
+          text-transform: uppercase;
+          color: var(--colors-primaryDark, #183029);
+          margin: 0;
         }
 
-        .gastro-panel:hover {
-            border-color: var(--colors-accentGold);
-            transform: translateY(-6px);
+        .food-exp-grid {
+          display: grid;
+          grid-template-columns: 1.25fr 1fr 0.75fr;
+          gap: clamp(24px, 4vw, 56px);
+          align-items: center;
+          max-width: 1400px;
+          margin: 0 auto;
         }
 
-        .gastro-img-box {
-            height: 320px;
-            position: relative;
-            overflow: hidden;
+        .food-exp-hero-img {
+          width: 100%;
+          height: clamp(440px, 58vh, 620px);
+          object-fit: cover;
+          border-radius: 6px;
+          box-shadow: 0 15px 35px rgba(24, 48, 41, 0.12);
+          transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1.0);
         }
 
-        .gastro-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s ease;
+        .food-exp-hero-img:hover {
+          transform: scale(1.02);
         }
 
-        .gastro-panel:hover .gastro-img-box img {
-            transform: scale(1.06);
+        .food-exp-kicker {
+          font-family: var(--fonts-sans);
+          font-size: 0.75rem;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--colors-accentGold, #9E5A2A);
+          display: block;
+          margin-bottom: 12px;
         }
 
-        .gastro-content {
-            padding: 2.5rem;
+        .food-exp-title {
+          font-family: 'Cinzel', var(--fonts-serif);
+          font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+          font-weight: 400;
+          line-height: 1.15;
+          color: var(--colors-primaryDark, #183029);
+          margin: 0 0 18px 0;
         }
 
-        .gastro-title {
-            font-family: var(--fonts-serif);
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 0.6rem;
+        .food-exp-desc {
+          font-family: var(--fonts-sans);
+          font-size: 0.95rem;
+          line-height: 1.7;
+          color: rgba(24, 48, 41, 0.85);
+          margin-bottom: 28px;
         }
 
-        .gastro-subtitle {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--colors-accentGold);
-            font-weight: 700;
-            margin-bottom: 1.2rem;
+        .btn-food-exp-discover {
+          background-color: var(--colors-primaryDark, #183029);
+          color: var(--colors-primaryLight, #F5F1E9);
+          border: none;
+          padding: 14px 36px;
+          border-radius: 50px;
+          font-family: var(--fonts-sans);
+          font-size: 0.75rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          cursor: pointer;
+          transition: all 0.35s ease;
         }
 
-        .gastro-text {
-            font-size: 0.98rem;
-            color: var(--colors-whiteDarker);
-            line-height: 1.8;
-            margin-bottom: 1.8rem;
+        .btn-food-exp-discover:hover {
+          background-color: var(--colors-accentWine, #912F46);
+          transform: translateY(-2px);
         }
 
-        .gastro-pairing-box {
-            background: rgba(145, 47, 70, 0.15);
-            border: 1px solid rgba(145, 47, 70, 0.3);
-            padding: 1.2rem;
-            border-radius: 12px;
+        .food-exp-circle-bottom {
+          margin-top: 36px;
         }
 
-        .pairing-title {
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--colors-accentMist);
-            margin-bottom: 0.4rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .food-exp-circle-img {
+          width: 170px;
+          height: 170px;
+          border-radius: 50%;
+          object-fit: cover;
+          box-shadow: 0 10px 25px rgba(24, 48, 41, 0.14);
+          transition: transform 0.5s ease;
+        }
+
+        .food-exp-circle-img-large {
+          width: 220px;
+          height: 220px;
+          border-radius: 50%;
+          object-fit: cover;
+          box-shadow: 0 12px 30px rgba(24, 48, 41, 0.14);
+          margin-left: auto;
+          display: block;
+          transition: transform 0.5s ease;
+        }
+
+        .food-exp-circle-img:hover,
+        .food-exp-circle-img-large:hover {
+          transform: scale(1.06);
+        }
+
+        /* Tablet & Mobile Breakpoints */
+        @media (max-width: 1023px) {
+          .food-exp-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+
+          .food-exp-hero-img {
+            height: 360px;
+          }
+
+          .food-exp-circle-img-large {
+            margin: 0 auto;
+            width: 180px;
+            height: 180px;
+          }
+
+          .food-exp-circle-bottom {
+            display: none;
+          }
+        }
+        gap: 0.5rem;
         }
 
         .pairing-desc {
@@ -1833,62 +1888,40 @@
         </section>
 
         <!-- ==========================================================================
-           SECTION 5: GASTRONOMIC PAIRINGS (Manchego & Jamón Ibérico)
+           SECTION 5: FOOD EXPERIENCE / EDITORIAL GASTRONOMY (San Felice Reference)
            ========================================================================== -->
-        <section class="gastronomy-section" id="gastronomy">
-            <div class="section-container">
-                <div class="section-header-center">
-                    <span class="eyebrow" data-en="The Complete Spanish Table" data-es="La Mesa Española Completa">The Complete Spanish Table</span>
-                    <h2 class="heading-lg" data-en="Artisanal Spanish Gastronomy" data-es="Gastronomía Española Artesanal">Artisanal Spanish Gastronomy</h2>
-                    <div class="section-divider"></div>
-                </div>
+        <section id="food-experience" class="food-exp-section">
+          <div class="food-exp-header">
+            <h2 class="food-exp-display-heading" data-en="FOOD EXPERIENCE" data-es="EXPERIENCIA GASTRANÓMICA">FOOD EXPERIENCE</h2>
+          </div>
 
-                <div class="gastro-panels">
-                    <!-- Panel 1: Queso Manchego -->
-                    <div class="gastro-panel">
-                        <div class="gastro-img-box">
-                            <img src="https://images.unsplash.com/photo-1452195100486-9cc805987862?q=80&w=1000&auto=format&fit=crop" alt="Artisanal Queso Manchego 100%">
-                        </div>
-                        <div class="gastro-content">
-                            <span class="gastro-subtitle">D.O.P. Queso Manchego 100% Artesanal</span>
-                            <h3 class="gastro-title" data-en="Raw Sheep's Milk Aged Manchego" data-es="Queso Manchego Artesano de Leche Cruda">Raw Sheep's Milk Aged Manchego</h3>
-                            <p class="gastro-text" data-en="Crafted exclusively from 100% pure Manchega sheep's milk in Castilla-La Mancha. Cured naturally in stone cellars for 6 to 12 months, delivering a buttery, piquant flavor profile with characteristic zigzag esparto rind." data-es="Elaborado exclusivamente con leche cruda de oveja manchega. Curado en cavas de piedra durante 6 a 12 meses, ofreciendo un sabor mantecoso y elegante.">
-                                Crafted exclusively from 100% pure Manchega sheep's milk in Castilla-La Mancha. Cured naturally in stone cellars for 6 to 12 months, delivering a buttery, piquant flavor profile with characteristic zigzag esparto rind.
-                            </p>
-                            <div class="gastro-pairing-box">
-                                <div class="pairing-title">
-                                    <span>🍷 Sommelier Pairing Recommendation</span>
-                                </div>
-                                <div class="pairing-desc" data-en="Pair Curado Manchego with Dehesa de Luna Organic Red for a sublime balance of acidity and rich sheep's milk fats." data-es="Combina el Manchego Curado con Dehesa de Luna Orgánico para un equilibrio sublime entre acidez y grasa noble.">
-                                    Pair Curado Manchego with Dehesa de Luna Organic Red for a sublime balance of acidity and rich sheep's milk fats.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Panel 2: Jamón Ibérico -->
-                    <div class="gastro-panel">
-                        <div class="gastro-img-box">
-                            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1000&auto=format&fit=crop" alt="Jamón Ibérico 100% Bellota">
-                        </div>
-                        <div class="gastro-content">
-                            <span class="gastro-subtitle">Jamón Ibérico 100% de Bellota</span>
-                            <h3 class="gastro-title" data-en="100% Acorn-Fed Iberian Ham" data-es="Jamón Ibérico 100% de Bellota (Pata Negra)">100% Acorn-Fed Iberian Ham</h3>
-                            <p class="gastro-text" data-en="The undisputed pinnacle of Spanish gastronomy. Free-range 100% purebred Iberian pigs grazing on wild acorns across oak dehesas. Cured for 36+ months to yield sweet oleic acid-rich marbling that melts on the palate." data-es="La máxima joya de la gastronomía española. Cerdos ibéricos puros criados en libertad comiendo bellotas en la dehesa. Curación artesanal de más de 36 meses.">
-                                The undisputed pinnacle of Spanish gastronomy. Free-range 100% purebred Iberian pigs grazing on wild acorns across oak dehesas. Cured for 36+ months to yield sweet oleic acid-rich marbling that melts on the palate.
-                            </p>
-                            <div class="gastro-pairing-box">
-                                <div class="pairing-title">
-                                    <span>🍷 Sommelier Pairing Recommendation</span>
-                                </div>
-                                <div class="pairing-desc" data-en="Complement hand-carved Bellota slices with Sampayolo Godello or Corcos Selección for unmatched palate harmony." data-es="Acompaña las finas lonchas de Bellota con Sampayolo Godello o Corcos Selección para una armonía perfecta.">
-                                    Complement hand-carved Bellota slices with Sampayolo Godello or Corcos Selección for unmatched palate harmony.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="food-exp-grid">
+            <!-- Col 1: Left Setting Image -->
+            <div class="food-exp-col food-exp-col-left">
+              <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80" alt="Estate Dining Terrace" class="food-exp-hero-img" />
             </div>
+
+            <!-- Col 2: Center Editorial Content -->
+            <div class="food-exp-col food-exp-col-center">
+              <span class="food-exp-kicker" data-en="RESTAURANTS & TRADITION" data-es="RESTAURANTES Y TRADICIÓN">RESTAURANTS & TRADITION</span>
+              <h3 class="food-exp-title" data-en="ALL-ROUND DEDICATION" data-es="DEVOCIÓN INTEGRAL">ALL-ROUND DEDICATION</h3>
+              <p class="food-exp-desc" data-en="From century-old curing cellars to Puerto Rico's finest tables. We curate 100% D.O.P. Queso Manchego Artesano and acorn-fed Jamón Ibérico de Bellota, offering an authentic gastronomic journey crafted to pair with our organic Spanish estate wines." data-es="Desde bodegas centenarias hasta las mejores mesas de Puerto Rico. Seleccionamos Queso Manchego Artesano D.O.P. 100% y Jamón Ibérico de Bellota para un viaje gastronómico auténtico.">
+                From century-old curing cellars to Puerto Rico's finest tables. We curate 100% D.O.P. Queso Manchego Artesano and acorn-fed Jamón Ibérico de Bellota, offering an authentic gastronomic journey crafted to pair with our organic Spanish estate wines.
+              </p>
+              <button class="btn-food-exp-discover" onclick="document.getElementById('trade').scrollIntoView({behavior: 'smooth'})" data-en="DISCOVER" data-es="DESCUBRIR">DISCOVER</button>
+              
+              <div class="food-exp-circle-wrap food-exp-circle-bottom">
+                <img src="https://images.unsplash.com/photo-1528605248659-144006cb075b?auto=format&fit=crop&w=600&q=80" alt="Plated Spanish Jamón" class="food-exp-circle-img" />
+              </div>
+            </div>
+
+            <!-- Col 3: Right Top Inset -->
+            <div class="food-exp-col food-exp-col-right">
+              <div class="food-exp-circle-wrap food-exp-circle-top">
+                <img src="https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=600&q=80" alt="Aged Artisan Cheese Presentation" class="food-exp-circle-img-large" />
+              </div>
+            </div>
+          </div>
         </section>
 
         <!-- ==========================================================================
