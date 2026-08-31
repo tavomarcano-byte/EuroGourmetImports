@@ -195,167 +195,156 @@
         }
 
         /* ==========================================================================
-           2. STICKY HEADER & NAV BAR (San Felice Transparent Blur Style)
+           2. MINIMALIST HEADER SYSTEM
            ========================================================================== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 90px;
-            z-index: 1000;
-            transition: var(--transitions-default);
-            background: rgba(24, 48, 41, 0.35);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(245, 241, 233, 0.08);
+        .site-header {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 80px;
+          z-index: 1000;
+          background: rgba(24, 48, 41, 0.65);
+          backdrop-filter: blur(12px);
+          -webkit-backdrop-filter: blur(12px);
+          border-bottom: 1px solid rgba(245, 241, 233, 0.08);
+          transition: background-color 0.3s ease, height 0.3s ease;
         }
 
-        .navbar.scrolled {
-            height: 76px;
-            background: rgba(24, 48, 41, 0.94);
-            border-bottom: 1px solid rgba(245, 241, 233, 0.15);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        .site-header.scrolled {
+          height: 72px;
+          background: rgba(24, 48, 41, 0.94);
+          border-bottom: 1px solid rgba(245, 241, 233, 0.15);
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .nav-inner {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .header-inner {
+          max-width: 1440px;
+          height: 100%;
+          margin: 0 auto;
+          padding: 0 clamp(20px, 4vw, 60px);
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
         }
 
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.9rem;
+        /* Brand */
+        .header-brand {
+          display: flex;
+          align-items: center;
+          gap: 14px;
+          text-decoration: none;
         }
 
-        /* Official Bronze Logo Preservation */
-        .brand-logo-img {
-            height: 48px;
-            width: auto;
-            object-fit: contain;
-            transition: var(--transitions-smooth);
-        }
-        .navbar.scrolled .brand-logo-img {
-            height: 42px;
+        .header-logo-img {
+          height: 38px;
+          width: auto;
+          object-fit: contain;
+          transition: height 0.3s ease;
         }
 
-        .brand-text {
-            display: flex;
-            flex-direction: column;
+        .site-header.scrolled .header-logo-img {
+          height: 34px;
+        }
+
+        .header-brand-text {
+          display: flex;
+          flex-direction: column;
         }
 
         .brand-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.15rem;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            color: var(--colors-primaryLight);
-            line-height: 1.1;
+          font-family: 'Cinzel', var(--fonts-serif);
+          font-size: 1.05rem;
+          letter-spacing: 0.12em;
+          color: var(--colors-primaryLight, #F5F1E9);
+          line-height: 1.1;
+          font-weight: 700;
         }
 
-        .brand-subtitle {
-            font-size: 0.65rem;
-            letter-spacing: 0.22em;
-            color: var(--colors-accentGold);
-            text-transform: uppercase;
-            font-weight: 600;
+        .brand-sub {
+          font-family: var(--fonts-sans);
+          font-size: 0.62rem;
+          letter-spacing: 0.22em;
+          color: var(--colors-accentGold, #9E5A2A);
+          font-weight: 600;
         }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 2.2rem;
-            list-style: none;
+        /* Nav Menu */
+        .header-nav {
+          display: flex;
+          align-items: center;
+          gap: clamp(24px, 3.5vw, 44px);
         }
 
         .nav-link {
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--colors-primaryLight);
-            position: relative;
-            padding: 0.4rem 0;
-            opacity: 0.9;
+          font-family: var(--fonts-sans);
+          font-size: 0.75rem;
+          font-weight: 500;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          color: rgba(245, 241, 233, 0.85);
+          text-decoration: none;
+          transition: color 0.25s ease;
+          position: relative;
+          padding: 6px 0;
         }
 
         .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--colors-accentGold);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.35s cubic-bezier(0.68, 0.09, 0, 0.97);
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0%;
+          height: 1px;
+          background-color: var(--colors-accentGold, #9E5A2A);
+          transition: width 0.3s ease;
         }
 
         .nav-link:hover {
-            opacity: 1;
-            color: #FFFFFF;
+          color: var(--colors-primaryLight, #F5F1E9);
         }
 
         .nav-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
+          width: 100%;
         }
 
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1.2rem;
-        }
-
-        .lang-switch {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            background: rgba(245, 241, 233, 0.08);
-            padding: 0.35rem 0.75rem;
-            border-radius: 20px;
-            border: 1px solid rgba(245, 241, 233, 0.15);
-            cursor: pointer;
+        /* Language Capsule */
+        .lang-switch-capsule {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(245, 241, 233, 0.08);
+          border: 1px solid rgba(245, 241, 233, 0.18);
+          padding: 4px 12px;
+          border-radius: 50px;
         }
 
         .lang-btn {
-            background: none;
-            border: none;
-            color: rgba(245, 241, 233, 0.5);
-            cursor: pointer;
-            transition: var(--transitions-smooth);
+          background: none;
+          border: none;
+          color: rgba(245, 241, 233, 0.55);
+          font-family: var(--fonts-sans);
+          font-size: 0.72rem;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          cursor: pointer;
+          padding: 2px 4px;
+          transition: color 0.2s ease;
         }
 
         .lang-btn.active {
-            color: var(--colors-accentGold);
-            font-weight: 700;
+          color: var(--colors-accentGold, #9E5A2A);
         }
 
-        .mobile-menu-toggle {
+        .lang-divider {
+          color: rgba(245, 241, 233, 0.25);
+          font-size: 0.7rem;
+        }
+
+        @media (max-width: 768px) {
+          .header-nav {
             display: none;
-            background: none;
-            border: none;
-            color: var(--colors-primaryLight);
-            font-size: 1.8rem;
-            cursor: pointer;
-        }
-
-        .nav-phone-link {
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            color: var(--colors-accentGold);
-            transition: var(--transitions-smooth);
-        }
-        .nav-phone-link:hover {
-            color: var(--colors-primaryLight);
+          }
         }
 
         /* ==========================================================================
@@ -1825,40 +1814,35 @@
     <div class="reading-progress-bar" id="readingProgressBar"></div>
 
     <!-- ==========================================================================
-       STICKY HEADER & NAVIGATION BAR
+       REFINED MINIMALIST TOP NAVIGATION BAR
        ========================================================================== -->
-    <header class="navbar" id="navbar">
-        <div class="section-container nav-inner">
-            <!-- Official Bronze Logo & Brand Title -->
-            <a href="#hero" class="nav-brand" aria-label="Euro Gourmet Imports Home">
-                <img src="images/22e1d621-3911-4c24-8797-f1a95890f961.png" alt="Euro Gourmet Imports Logo" class="brand-logo-img">
-                <div class="brand-text">
-                    <span class="brand-title">EURO GOURMET</span>
-                    <span class="brand-subtitle">EG IMPORTS, LLC</span>
-                </div>
-            </a>
+    <header id="main-header" class="site-header navbar">
+      <div class="header-inner">
+        <!-- Brand Insignia -->
+        <a href="#" class="header-brand" aria-label="Euro Gourmet Imports Home">
+          <img src="images/22e1d621-3911-4c24-8797-f1a95890f961.png" alt="Euro Gourmet Crest" class="header-logo-img" />
+          <div class="header-brand-text">
+            <span class="brand-title">EURO GOURMET</span>
+            <span class="brand-sub">EG IMPORTS, LLC</span>
+          </div>
+        </a>
 
-            <!-- Central Minimalist Links -->
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#estates" class="nav-link" data-en="Estates" data-es="Bodegas">Estates</a></li>
-                <li><a href="#wines" class="nav-link" data-en="Our Wines" data-es="Nuestros Vinos">Our Wines</a></li>
-                <li><a href="#terroir" class="nav-link" data-en="Terroir" data-es="Terruño">Terroir</a></li>
-                <li><a href="#gastronomy" class="nav-link" data-en="Treasures" data-es="Gastronomía">Treasures</a></li>
-                <li><a href="#trade" class="nav-link" data-en="Trade Portal" data-es="Portal B2B">Trade Portal</a></li>
-            </ul>
+        <!-- Streamlined 3-Link Center Menu -->
+        <nav class="header-nav" aria-label="Main Navigation">
+          <a href="#estates" class="nav-link" data-i18n="nav_estates" data-en="ESTATES" data-es="BODEGAS">ESTATES</a>
+          <a href="#wines" class="nav-link" data-i18n="nav_wines" data-en="OUR WINES" data-es="NUESTROS VINOS">OUR WINES</a>
+          <a href="#trade" class="nav-link" data-i18n="nav_portal" data-en="SALES PORTAL" data-es="PORTAL DE VENTAS">SALES PORTAL</a>
+        </nav>
 
-            <!-- Actions & Language Switcher -->
-            <div class="nav-actions">
-                <div class="lang-switch" id="langToggle">
-                    <button class="lang-btn active" id="btnEN">EN</button>
-                    <span>|</span>
-                    <button class="lang-btn" id="btnES">ES</button>
-                </div>
-                <a href="tel:7876494994" class="nav-phone-link">787-649-4994</a>
-                <a href="#trade" class="btn btn-burgundy" data-en="Request Allocation" data-es="Solicitar Asignación">Request Allocation</a>
-                <button class="mobile-menu-toggle" id="mobileToggle" aria-label="Toggle Menu">☰</button>
-            </div>
+        <!-- Right Controls: EN | ES Switcher -->
+        <div class="header-controls">
+          <div class="lang-switch-capsule">
+            <button type="button" class="lang-btn active" id="btnLangEN" onclick="setLanguage('en')">EN</button>
+            <span class="lang-divider">|</span>
+            <button type="button" class="lang-btn" id="btnLangES" onclick="setLanguage('es')">ES</button>
+          </div>
         </div>
+      </div>
     </header>
 
     <main>
@@ -1876,15 +1860,15 @@
 
                 <!-- Split Editorial Typography Overlay (#hero-text-overlay) -->
                 <div id="hero-text-overlay" class="hero-text-overlay">
-                    <h1 class="hero-split-line line-1">AUTHENTIC</h1>
-                    <h1 class="hero-split-line line-2">SPANISH</h1>
-                    <p class="hero-center-desc" data-en="Discover the authentic essence of multi-generational Spanish estates. Certified organic wines and gastronomic treasures delivered to Puerto Rico." data-es="Descubre la auténtica esencia de bodegas españolas familiares. Vinos orgánicos certificados y gastronomía selecta entregada en Puerto Rico.">
+                    <h1 class="hero-split-line line-1" id="hero-line-1">AUTHENTIC</h1>
+                    <h1 class="hero-split-line line-2" id="hero-line-2">SPANISH</h1>
+                    <p class="hero-center-desc" id="hero-subtext" data-en="Discover the authentic essence of multi-generational Spanish estates. Certified organic wines and gastronomic treasures delivered to Puerto Rico." data-es="Descubra la esencia auténtica de bodegas familiares españolas. Vinos ecológicos certificados y tesoros gastronómicos directos a Puerto Rico.">
                         Discover the authentic essence of multi-generational Spanish estates. Certified organic wines and gastronomic treasures delivered to Puerto Rico.
                     </p>
-                    <h1 class="hero-split-line line-3">TERROIR</h1>
+                    <h1 class="hero-split-line line-3" id="hero-line-3">TERROIR</h1>
                 </div>
 
-                <a href="#terroir" class="hero-scroll-indicator" aria-label="Scroll down">
+                <a href="#estates" class="hero-scroll-indicator" aria-label="Scroll down">
                     <span data-en="Explore Terroir" data-es="Explorar Terruño">Explore Terroir</span>
                     <div class="scroll-arrow"></div>
                 </a>
@@ -2443,39 +2427,78 @@
 
         // 1. Sticky Navbar & Scroll Progress Controller
         window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
+            const header = document.getElementById('main-header');
             const progress = document.getElementById('readingProgressBar');
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
             const scrolled = (winScroll / height) * 100;
             
-            progress.style.width = scrolled + '%';
+            if (progress) progress.style.width = scrolled + '%';
 
-            if (winScroll > 60) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
+            if (header) {
+                if (winScroll > 60) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
             }
         });
 
-        // 2. Language Switcher (EN / ES)
+        // 2. Dynamic Bilingual (EN | ES) Translation System
+        const dictionary = {
+          en: {
+            nav_estates: "ESTATES",
+            nav_wines: "OUR WINES",
+            nav_portal: "SALES PORTAL",
+            hero_line_1: "AUTHENTIC",
+            hero_line_2: "SPANISH",
+            hero_line_3: "TERROIR",
+            hero_sub: "Discover the authentic essence of multi-generational Spanish estates. Certified organic wines and gastronomic treasures delivered to Puerto Rico."
+          },
+          es: {
+            nav_estates: "BODEGAS",
+            nav_wines: "NUESTROS VINOS",
+            nav_portal: "PORTAL DE VENTAS",
+            hero_line_1: "AUTÉNTICO",
+            hero_line_2: "TERROIR",
+            hero_line_3: "ESPAÑOL",
+            hero_sub: "Descubra la esencia auténtica de bodegas familiares españolas. Vinos ecológicos certificados y tesoros gastronómicos directos a Puerto Rico."
+          }
+        };
+
         let currentLang = 'en';
-        const btnEN = document.getElementById('btnEN');
-        const btnES = document.getElementById('btnES');
 
         function setLanguage(lang) {
             currentLang = lang;
-            if (lang === 'en') {
-                btnEN.classList.add('active');
-                btnES.classList.remove('active');
-            } else {
-                btnES.classList.add('active');
-                btnEN.classList.remove('active');
-            }
 
+            const btnEN = document.getElementById('btnLangEN');
+            const btnES = document.getElementById('btnLangES');
+            if (btnEN) btnEN.classList.toggle('active', lang === 'en');
+            if (btnES) btnES.classList.toggle('active', lang === 'es');
+
+            // Update Navigation via data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+              const key = el.getAttribute('data-i18n');
+              if (dictionary[lang] && dictionary[lang][key]) {
+                el.textContent = dictionary[lang][key];
+              }
+            });
+
+            // Update Hero Titles & Subtext
+            const heroLine1 = document.querySelector('#hero-line-1');
+            const heroLine2 = document.querySelector('#hero-line-2');
+            const heroLine3 = document.querySelector('#hero-line-3');
+            const heroSub = document.querySelector('#hero-subtext');
+
+            if (heroLine1) heroLine1.textContent = dictionary[lang].hero_line_1;
+            if (heroLine2) heroLine2.textContent = dictionary[lang].hero_line_2;
+            if (heroLine3) heroLine3.textContent = dictionary[lang].hero_line_3;
+            if (heroSub) heroSub.textContent = dictionary[lang].hero_sub;
+
+            // Update all data-en / data-es attributes across the page
             document.querySelectorAll('[data-en]').forEach(el => {
                 const text = el.getAttribute(`data-${lang}`);
-                if (text) {
+                if (text && !el.hasAttribute('data-i18n')) {
                     if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
                         el.placeholder = text;
                     } else {
@@ -2484,9 +2507,6 @@
                 }
             });
         }
-
-        btnEN.addEventListener('click', () => setLanguage('en'));
-        btnES.addEventListener('click', () => setLanguage('es'));
 
         // 3. Wine Portfolio Category Filter
         function filterWines(category) {
