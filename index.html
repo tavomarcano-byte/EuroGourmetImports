@@ -1383,121 +1383,274 @@
         }
 
         /* ==========================================================================
-           8. SECTION 6: B2B TRADE PORTAL & EXECUTIVE FOOTER
+           8. SECTION 6: UPDATED B2B TRADE & ALLOCATION PORTAL
            ========================================================================== */
         .trade-section {
-            background-color: #12241F;
-            color: var(--colors-primaryLight);
-            padding: 8rem 0 5rem;
-            border-top: 1px solid var(--colors-borderDark);
+          background-color: var(--colors-primaryDark, #183029);
+          color: var(--colors-primaryLight, #F5F1E9);
+          padding: clamp(80px, 10vw, 140px) clamp(24px, 5vw, 80px);
+          width: 100vw;
+          box-sizing: border-box;
         }
 
-        .trade-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 5rem;
-            align-items: start;
+        .trade-container {
+          max-width: 1400px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 0.95fr 1.05fr;
+          gap: clamp(40px, 6vw, 80px);
+          align-items: flex-start;
         }
 
-        .trade-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+        .trade-kicker {
+          font-family: var(--fonts-sans);
+          font-size: 0.75rem;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          color: var(--colors-accentGold, #9E5A2A);
+          display: block;
+          margin-bottom: 12px;
         }
 
-        .trade-contacts {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin-top: 1rem;
+        .trade-title {
+          font-family: 'Cinzel', var(--fonts-serif);
+          font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+          font-weight: 400;
+          line-height: 1.05;
+          text-transform: uppercase;
+          color: var(--colors-primaryLight, #F5F1E9);
+          margin: 0 0 20px 0;
         }
 
-        .contact-card {
-            background: rgba(245, 241, 233, 0.04);
-            border: 1px solid var(--colors-borderDark);
-            padding: 1.4rem;
-            border-radius: 12px;
+        .trade-desc {
+          font-family: var(--fonts-sans);
+          font-size: 0.98rem;
+          line-height: 1.7;
+          color: rgba(245, 241, 233, 0.85);
+          margin-bottom: 36px;
         }
 
-        .contact-card-label {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--colors-accentGold);
-            font-weight: 700;
-            margin-bottom: 0.4rem;
+        /* 2 Clean Cards */
+        .trade-cards-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
         }
 
-        .contact-card-val {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--colors-primaryLight);
+        .trade-clean-card {
+          background: rgba(245, 241, 233, 0.05);
+          border: 1px solid rgba(245, 241, 233, 0.12);
+          border-radius: 8px;
+          padding: 20px 24px;
         }
 
-        /* Wholesale Form Styling */
-        .b2b-form-card {
-            background: rgba(245, 241, 233, 0.05);
-            border: 1px solid var(--colors-borderDark);
-            border-radius: 20px;
-            padding: 2.8rem;
-            backdrop-filter: blur(10px);
-            box-shadow: var(--shadow-elevated);
+        .clean-card-title {
+          font-family: var(--fonts-sans);
+          font-size: 0.72rem;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: var(--colors-accentSage, #B6CFD0);
+          display: block;
+          margin-bottom: 8px;
         }
 
-        .form-title {
-            font-family: var(--fonts-serif);
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
+        .clean-card-body {
+          font-family: var(--fonts-sans);
+          font-size: 0.92rem;
+          line-height: 1.6;
+          color: var(--colors-primaryLight, #F5F1E9);
+          margin: 0;
         }
 
-        .form-desc {
-            font-size: 0.9rem;
-            color: var(--colors-whiteDarker);
-            margin-bottom: 2rem;
+        .clean-card-link {
+          color: var(--colors-primaryLight, #F5F1E9);
+          text-decoration: none;
+          font-weight: 500;
+          transition: color 0.2s;
         }
 
-        .form-group {
-            margin-bottom: 1.4rem;
+        .clean-card-link:hover {
+          color: var(--colors-accentGold, #9E5A2A);
         }
 
-        .form-label {
-            display: block;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 0.4rem;
-            font-weight: 600;
-            color: var(--colors-whiteDarker);
+        /* Form Styles */
+        .form-header-wrap {
+          margin-bottom: 24px;
         }
 
-        .form-input, .form-select, .form-textarea {
-            width: 100%;
-            padding: 0.9rem 1.2rem;
-            background: rgba(24, 48, 41, 0.6);
-            border: 1px solid var(--colors-borderDark);
-            border-radius: 8px;
-            color: var(--colors-primaryLight);
-            font-size: 0.95rem;
-            transition: var(--transitions-smooth);
+        .form-main-title {
+          font-family: 'Cinzel', var(--fonts-serif);
+          font-size: 1.8rem;
+          font-weight: 400;
+          letter-spacing: 0.04em;
+          color: var(--colors-primaryLight, #F5F1E9);
+          margin: 0 0 8px 0;
         }
 
-        .form-input:focus, .form-select:focus, .form-textarea:focus {
-            outline: none;
-            border-color: var(--colors-accentGold);
-            box-shadow: 0 0 0 3px rgba(158, 90, 42, 0.25);
-            background: rgba(24, 48, 41, 0.9);
+        .form-subtitle {
+          font-family: var(--fonts-sans);
+          font-size: 0.9rem;
+          color: rgba(245, 241, 233, 0.75);
+          margin: 0;
+        }
+
+        .b2b-form {
+          background: rgba(245, 241, 233, 0.04);
+          border: 1px solid rgba(245, 241, 233, 0.15);
+          border-radius: 12px;
+          padding: clamp(24px, 4vw, 40px);
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+        }
+
+        /* Segmented Tabs */
+        .inquiry-type-selector {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 8px;
+          background: rgba(245, 241, 233, 0.06);
+          padding: 4px;
+          border-radius: 50px;
+          border: 1px solid rgba(245, 241, 233, 0.15);
+          margin-bottom: 8px;
+        }
+
+        .inquiry-type-tab {
+          cursor: pointer;
+        }
+
+        .inquiry-type-tab input {
+          display: none;
+        }
+
+        .inquiry-type-tab span {
+          display: block;
+          text-align: center;
+          padding: 10px 16px;
+          font-family: var(--fonts-sans);
+          font-size: 0.78rem;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          color: rgba(245, 241, 233, 0.7);
+          border-radius: 50px;
+          transition: all 0.25s ease;
+        }
+
+        .inquiry-type-tab input:checked + span {
+          background-color: var(--colors-accentGold, #9E5A2A);
+          color: #F5F1E9;
+          box-shadow: 0 4px 12px rgba(0,0,0,0.25);
         }
 
         .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.2rem;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
         }
 
-        .form-submit-btn {
-            width: 100%;
-            margin-top: 1rem;
-            padding: 1.1rem;
+        .form-group {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .form-label {
+          font-family: var(--fonts-sans);
+          font-size: 0.72rem;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: rgba(245, 241, 233, 0.85);
+        }
+
+        .form-input,
+        .form-textarea {
+          background: rgba(245, 241, 233, 0.08);
+          border: 1px solid rgba(245, 241, 233, 0.2);
+          border-radius: 6px;
+          padding: 12px 14px;
+          color: #F5F1E9;
+          font-family: var(--fonts-sans);
+          font-size: 0.88rem;
+          outline: none;
+          transition: border-color 0.25s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+          border-color: var(--colors-accentGold, #9E5A2A);
+        }
+
+        .form-checkbox-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-top: 4px;
+        }
+
+        .checkbox-pill {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          background: rgba(245, 241, 233, 0.06);
+          border: 1px solid rgba(245, 241, 233, 0.2);
+          padding: 6px 12px;
+          border-radius: 50px;
+          font-family: var(--fonts-sans);
+          font-size: 0.75rem;
+          cursor: pointer;
+          user-select: none;
+        }
+
+        .btn-trade-submit {
+          background-color: var(--colors-accentWine, #912F46);
+          color: #F5F1E9;
+          border: none;
+          padding: 15px 32px;
+          border-radius: 50px;
+          font-family: var(--fonts-sans);
+          font-size: 0.8rem;
+          font-weight: 600;
+          letter-spacing: 0.18em;
+          text-transform: uppercase;
+          cursor: pointer;
+          transition: all 0.35s ease;
+          margin-top: 8px;
+        }
+
+        .btn-trade-submit:hover {
+          background-color: #732235;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(145, 47, 70, 0.3);
+        }
+
+        .trade-success-state {
+          font-family: var(--fonts-sans);
+          font-size: 0.88rem;
+          color: #B6CFD0;
+          padding: 12px;
+          border-radius: 6px;
+          background: rgba(182, 207, 208, 0.1);
+          border: 1px solid rgba(182, 207, 208, 0.3);
+          margin-top: 8px;
+        }
+
+        @media (max-width: 1023px) {
+          .trade-container {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .form-row {
+            grid-template-columns: 1fr;
+          }
+          .inquiry-type-selector {
+            grid-template-columns: 1fr;
+            border-radius: 12px;
+          }
         }
 
         /* Footer Bottom Bar */
@@ -1925,91 +2078,120 @@
         </section>
 
         <!-- ==========================================================================
-           SECTION 6: B2B TRADE PORTAL & EXECUTIVE FOOTER
+           SECTION 6: UPDATED B2B TRADE & ALLOCATION PORTAL
            ========================================================================== -->
-        <section class="trade-section" id="trade">
-            <div class="section-container">
-                <div class="trade-grid">
-                    <!-- Left Column: Trade Information & Leadership -->
-                    <div class="trade-info">
-                        <div>
-                            <span class="eyebrow" data-en="Wholesale & Allocation Partner Portal" data-es="Portal de Distribución y Hostelería">Wholesale & Allocation Partner Portal</span>
-                            <h2 class="heading-lg" data-en="Direct Island-Wide Distribution" data-es="Distribución Directa en Puerto Rico">Direct Island-Wide Distribution</h2>
-                            <p class="body-lg" style="margin-top: 1rem;" data-en="EG Imports (Euro Gourmet Imports) supplies premier restaurants, luxury resorts, private wine clubs, and boutique retailers throughout Puerto Rico and the Caribbean with climate-controlled distribution." data-es="EG Imports (Euro Gourmet Imports) suministra a los mejores restaurantes, hoteles de lujo, clubes privados y tiendas especializadas de Puerto Rico con logística a temperatura controlada.">
-                                EG Imports (Euro Gourmet Imports) supplies premier restaurants, luxury resorts, private wine clubs, and boutique retailers throughout Puerto Rico and the Caribbean with climate-controlled distribution.
-                            </p>
-                        </div>
+        <section id="trade" class="trade-section">
+          <div class="trade-container">
+            
+            <!-- Left Column: Copy & 2 Clean Contact Cards -->
+            <div class="trade-info-col">
+              <span class="trade-kicker" data-en="DIRECT ISLAND-WIDE DISTRIBUTION" data-es="DISTRIBUCIÓN DIRECTA EN PUERTO RICO">DIRECT ISLAND-WIDE DISTRIBUTION</span>
+              <h2 class="trade-title" data-en="ALLOCATION & PORTFOLIO" data-es="SOLICITUD DE ASIGNACIÓN Y PORTAFOLIO">ALLOCATION & PORTFOLIO</h2>
+              <p class="trade-desc" data-en="Euro Gourmet Imports supplies premier restaurants, luxury resorts, private wine clubs, and boutique retailers throughout Puerto Rico, the Caribbean, and the United States with an exclusive selection of completely vegan, ecological, and organic wines, handled with dedicated care across the island." data-es="Euro Gourmet Imports suministra a restaurantes de primer nivel, complejos turísticos de lujo, clubes de vino privados y tiendas boutique en todo Puerto Rico, el Caribe y los Estados Unidos con una selección exclusiva de vinos completamente veganos, ecológicos y orgánicos.">
+                Euro Gourmet Imports supplies premier restaurants, luxury resorts, private wine clubs, and boutique retailers throughout Puerto Rico, the Caribbean, and the United States with an exclusive selection of completely vegan, ecological, and organic wines, handled with dedicated care across the island.
+              </p>
 
-                        <div class="trade-contacts">
-                            <div class="contact-card">
-                                <div class="contact-card-label" data-en="Direct Trade Orders" data-es="Pedidos Directos">Direct Trade Orders</div>
-                                <div class="contact-card-val">787-649-4994</div>
-                            </div>
-                            <div class="contact-card">
-                                <div class="contact-card-label" data-en="Office & Operations" data-es="Oficina y Logística">Office & Operations</div>
-                                <div class="contact-card-val">787-494-4994</div>
-                            </div>
-                            <div class="contact-card">
-                                <div class="contact-card-label" data-en="Executive Leadership" data-es="Dirección Ejecutiva">Executive Leadership</div>
-                                <div class="contact-card-val">Carlos A. Marcano, CEO</div>
-                            </div>
-                            <div class="contact-card">
-                                <div class="contact-card-label" data-en="Distribution Hub" data-es="Centro de Distribución">Distribution Hub</div>
-                                <div class="contact-card-val">San Juan, Puerto Rico</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right Column: B2B Wholesale Allocation Form -->
-                    <div class="b2b-form-card" id="b2bFormCard">
-                        <h3 class="form-title" data-en="Request Trade Allocation" data-es="Solicitar Catálogo y Muestras">Request Trade Allocation</h3>
-                        <p class="form-desc" data-en="Submit your business details below to receive our confidential wholesale price list and arrange a private tasting." data-es="Complete el formulario para recibir nuestra lista de precios al por mayor y coordinar una cata privada.">
-                            Submit your business details below to receive our confidential wholesale price list and arrange a private tasting.
-                        </p>
-
-                        <form id="wholesaleForm" onsubmit="handleFormSubmit(event)">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label class="form-label" data-en="Full Name" data-es="Nombre Completo">Full Name</label>
-                                    <input type="text" class="form-input" required placeholder="e.g. Chef Jean-Luc">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" data-en="Business / Restaurant" data-es="Empresa / Restaurante">Business / Restaurant</label>
-                                    <input type="text" class="form-input" required placeholder="e.g. San Juan Bistro">
-                                </div>
-                            </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label class="form-label" data-en="Direct Email" data-es="Correo Electrónico">Direct Email</label>
-                                    <input type="email" class="form-input" required placeholder="sommelier@bistro.com">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" data-en="Phone Number" data-es="Teléfono">Phone Number</label>
-                                    <input type="tel" class="form-input" required placeholder="787-000-0000">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label" data-en="Liquor License / Tax ID" data-es="Licencia de Licores / Registro">Liquor License / Tax ID</label>
-                                <input type="text" class="form-input" placeholder="Optional for private collectors">
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-label" data-en="Products of Interest" data-es="Productos de Interés">Products of Interest</label>
-                                <select class="form-select">
-                                    <option value="all">Complete Portfolio (Wines + Gourmet Cheeses & Hams)</option>
-                                    <option value="wines">Spanish Organic Fine Wines Only</option>
-                                    <option value="gastronomy">Artisanal Manchego Cheeses & Jamón Ibérico</option>
-                                </select>
-                            </div>
-
-                            <button type="submit" class="btn btn-burgundy form-submit-btn" data-en="Submit Allocation Request →" data-es="Enviar Solicitud de Catálogo →">
-                                Submit Allocation Request →
-                            </button>
-                        </form>
-                    </div>
+              <div class="trade-cards-wrapper">
+                <!-- Card 1: Location -->
+                <div class="trade-clean-card">
+                  <span class="clean-card-title" data-en="OUR LOCATION" data-es="NUESTRA UBICACIÓN">OUR LOCATION</span>
+                  <p class="clean-card-body">1004 Ave. Jesús T. Piñero<br>San Juan, Puerto Rico</p>
                 </div>
+
+                <!-- Card 2: Direct Contact -->
+                <div class="trade-clean-card">
+                  <span class="clean-card-title" data-en="DIRECT CONTACT" data-es="CONTACTO DIRECTO">DIRECT CONTACT</span>
+                  <p class="clean-card-body">
+                    <a href="tel:7876494994" class="clean-card-link">787-649-4994</a><br>
+                    <a href="mailto:info@eurogourmetpr.com" class="clean-card-link">info@eurogourmetpr.com</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Segmented Inquiry Allocation Form -->
+            <div class="trade-form-col">
+              <div class="form-header-wrap">
+                <h3 class="form-main-title" data-en="REQUEST ALLOCATION" data-es="SOLICITAR ASIGNACIÓN">REQUEST ALLOCATION</h3>
+                <p class="form-subtitle" data-en="Select your inquiry type and submit your details to receive our curated portfolio and pricing." data-es="Seleccione el tipo de consulta y envíe sus datos para recibir nuestro portafolio y precios.">Select your inquiry type and submit your details to receive our curated portfolio and pricing.</p>
+              </div>
+
+              <form id="allocationForm" class="b2b-form" onsubmit="handleAllocationSubmit(event)">
+                <!-- Segmented Type Selector -->
+                <div class="inquiry-type-selector">
+                  <label class="inquiry-type-tab">
+                    <input type="radio" name="inquiry_type" value="business" checked onchange="toggleInquiryType('business')" />
+                    <span data-en="Business / Wholesale" data-es="Empresa / Mayorista">Business / Wholesale</span>
+                  </label>
+                  <label class="inquiry-type-tab">
+                    <input type="radio" name="inquiry_type" value="personal" onchange="toggleInquiryType('personal')" />
+                    <span data-en="Private Collector / Personal" data-es="Coleccionista / Personal">Private Collector / Personal</span>
+                  </label>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="allocName" class="form-label" data-en="Full Name *" data-es="Nombre Completo *">Full Name *</label>
+                    <input type="text" id="allocName" required placeholder="e.g. Jean-Luc Dupont" class="form-input" />
+                  </div>
+                  <div class="form-group">
+                    <label for="allocCompany" id="lblCompany" class="form-label" data-en="Business / Restaurant Name *" data-es="Nombre de la Empresa / Restaurante *">Business / Restaurant Name *</label>
+                    <input type="text" id="allocCompany" required placeholder="e.g. San Juan Bistro" class="form-input" />
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="allocEmail" class="form-label" data-en="Direct Email *" data-es="Correo Electrónico *">Direct Email *</label>
+                    <input type="email" id="allocEmail" required placeholder="sommelier@bistro.com" class="form-input" />
+                  </div>
+                  <div class="form-group">
+                    <label for="allocPhone" class="form-label" data-en="Phone Number *" data-es="Teléfono *">Phone Number *</label>
+                    <input type="tel" id="allocPhone" required placeholder="(787) 000-0000" class="form-input" />
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="allocLicense" class="form-label" data-en="Liquor License / Tax ID (Optional)" data-es="Licencia de Licores / Registro (Opcional)">Liquor License / Tax ID (Optional)</label>
+                  <input type="text" id="allocLicense" placeholder="Optional for private collectors" class="form-input" />
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" data-en="Products of Interest" data-es="Productos de Interés">Products of Interest</label>
+                  <div class="form-checkbox-grid">
+                    <label class="checkbox-pill">
+                      <input type="checkbox" name="interest" value="Organic & Vegan Wines" checked />
+                      <span data-en="Organic & Vegan Wines" data-es="Vinos Orgánicos y Veganos">Organic & Vegan Wines</span>
+                    </label>
+                    <label class="checkbox-pill">
+                      <input type="checkbox" name="interest" value="D.O.P. Artisanal Cheeses" />
+                      <span data-en="D.O.P. Artisanal Cheeses" data-es="Quesos Artesanales D.O.P.">D.O.P. Artisanal Cheeses</span>
+                    </label>
+                    <label class="checkbox-pill">
+                      <input type="checkbox" name="interest" value="Jamón Ibérico Bellota" />
+                      <span data-en="Jamón Ibérico Bellota" data-es="Jamón Ibérico de Bellota">Jamón Ibérico Bellota</span>
+                    </label>
+                    <label class="checkbox-pill">
+                      <input type="checkbox" name="interest" value="Full Portfolio Catalog" />
+                      <span data-en="Full Portfolio Catalog" data-es="Catálogo Completo">Full Portfolio Catalog</span>
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="allocNotes" class="form-label" data-en="Notes / Specific Requests (Optional)" data-es="Notas / Solicitudes Especiales (Opcional)">Notes / Specific Requests (Optional)</label>
+                  <textarea id="allocNotes" rows="2" placeholder="Tell us about your wine program or private cellar preferences..." class="form-textarea"></textarea>
+                </div>
+
+                <button type="submit" class="btn-trade-submit" id="btnAllocSubmit" data-en="SUBMIT ALLOCATION REQUEST →" data-es="ENVIAR SOLICITUD DE ASIGNACIÓN →">SUBMIT ALLOCATION REQUEST →</button>
+                <div id="allocSuccessMsg" class="trade-success-state" style="display: none;" data-en="✓ Thank you. Your allocation inquiry has been received. Our concierge will contact you within 24 hours." data-es="✓ Gracias. Su consulta de asignación ha sido recibida. Nuestro equipo se pondrá en contacto dentro de las próximas 24 horas.">
+                  ✓ Thank you. Your allocation inquiry has been received. Our concierge will contact you within 24 hours.
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </section>
 
                 <!-- Footer Bottom Navigation & Copyright -->
                 <footer class="main-footer">
@@ -2387,22 +2569,34 @@
             modal.classList.add('active');
         }
 
-        // 5. Form Submission Handler
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const b2bCard = document.getElementById('b2bFormCard');
-            b2bCard.innerHTML = `
-                <div style="text-align: center; padding: 2rem 0;">
-                    <div style="font-size: 3rem; color: var(--colors-accentGold); margin-bottom: 1rem;">✓</div>
-                    <h3 class="heading-md" style="margin-bottom: 1rem; color: var(--colors-primaryLight);">Allocation Request Received</h3>
-                    <p style="color: var(--colors-whiteDarker); font-size: 0.95rem; line-height: 1.7; margin-bottom: 2rem;">
-                        Thank you. Our Executive Team & Founder Carlos A. Marcano will review your business credentials and contact you within 24 business hours with our confidential wholesale catalog.
-                    </p>
-                    <div style="font-size: 0.8rem; letter-spacing: 0.1em; color: var(--colors-accentGold); text-transform: uppercase; font-weight: 700;">
-                        Direct Wholesale Line: 787-649-4994
-                    </div>
-                </div>
-            `;
+        // 5. Section 6 Allocation Form Handlers
+        function toggleInquiryType(type) {
+          const lblCompany = document.getElementById('lblCompany');
+          const allocCompany = document.getElementById('allocCompany');
+          if (!lblCompany || !allocCompany) return;
+
+          if (type === 'personal') {
+            lblCompany.textContent = currentLang === 'es' ? 'Nombre de la Empresa / Restaurante (Opcional)' : 'Business / Restaurant Name (Optional)';
+            allocCompany.required = false;
+            allocCompany.placeholder = currentLang === 'es' ? 'e.g. Coleccionista Privado (Opcional)' : 'e.g. Private Collector (Optional)';
+          } else {
+            lblCompany.textContent = currentLang === 'es' ? 'Nombre de la Empresa / Restaurante *' : 'Business / Restaurant Name *';
+            allocCompany.required = true;
+            allocCompany.placeholder = 'e.g. San Juan Bistro';
+          }
+        }
+
+        function handleAllocationSubmit(event) {
+          event.preventDefault();
+          const btn = document.getElementById('btnAllocSubmit');
+          const successMsg = document.getElementById('allocSuccessMsg');
+
+          if (btn) {
+            btn.style.display = 'none';
+          }
+          if (successMsg) {
+            successMsg.style.display = 'block';
+          }
         }
     </script>
 </body>
